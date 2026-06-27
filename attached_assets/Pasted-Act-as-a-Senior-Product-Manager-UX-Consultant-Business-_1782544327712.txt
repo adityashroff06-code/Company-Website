@@ -1,0 +1,148 @@
+Act as a Senior Product Manager, UX Consultant, Business Analyst, and Digital Marketing Expert.
+
+I have developed a website for my product.
+
+Your task is to perform a complete audit of my website by comparing it against the following competitor websites.
+
+My Website:
+https://www.productarmor.com/
+
+Competitor Websites:
+1.	https://www.pravesha.com/ 
+2.	https://www.eastpharmatechnologies.com/ 
+3.	https://moldtekpackaging.com/ 
+4.	https://shrijipolymers.com/
+5.	https://www.trivenipolychem.com/
+
+Perform the following analysis.
+
+1. Product Positioning
+- What problem does each website solve?
+- Target audience
+- Unique Value Proposition
+- Key differentiators
+
+2. Homepage Review
+Compare:
+- Hero section
+- Headlines
+- Call-to-action
+- Trust elements
+- Testimonials
+- Product explanation
+- Pricing visibility
+- Navigation
+- Visual hierarchy
+
+3. Feature Comparison
+Create a table showing:
+- Feature
+- My Website
+- Competitor 1
+- Competitor 2
+- Competitor 3
+- Gap
+- Recommendation
+- Priority (High/Medium/Low)
+
+4. UX Review
+Evaluate:
+- User Journey
+- Number of clicks to primary action
+- Mobile responsiveness
+- Forms
+- Navigation
+- Accessibility
+- Readability
+- Performance
+
+5. Design Review
+Review:
+- Colors
+- Typography
+- Layout
+- White space
+- Icons
+- Images
+- Branding consistency
+
+6. SEO Review
+Review:
+- Meta titles
+- Meta descriptions
+- Heading hierarchy
+- Keywords
+- Internal linking
+- Page speed
+- Structured data
+- Image optimization
+
+7. Content Review
+Evaluate:
+- Clarity
+- Grammar
+- Value proposition
+- Product explanation
+- FAQs
+- Case studies
+- Blog
+- Customer stories
+
+8. Trust & Credibility
+Check for:
+- Customer logos
+- Certifications
+- Reviews
+- Security badges
+- Privacy Policy
+- Terms
+- Contact information
+
+9. Lead Generation
+Review:
+- CTA placement
+- Demo booking
+- Contact forms
+- Live chat
+- Newsletter
+- Downloads
+
+10. Technical Review
+Check:
+- Broken links
+- Accessibility issues
+- Performance issues
+- JavaScript errors
+- Responsive issues
+
+11. Competitor Advantages
+List everything competitors have that my website lacks.
+
+12. Missing Features
+Suggest new features that should be added.
+
+13. Quick Wins
+List improvements that can be completed within one week.
+
+14. High Impact Improvements
+List improvements that require development but provide maximum ROI.
+
+15. Prioritized Roadmap
+Create a roadmap with:
+Priority
+Task
+Estimated Effort
+Business Impact
+Recommendation
+
+Finally provide an overall score out of 100 for:
+- Design
+- UX
+- Product Positioning
+- Marketing
+- SEO
+- Trust
+- Performance
+- Overall Product Readiness
+
+Be brutally honest and identify every weakness.

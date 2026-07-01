@@ -17,7 +17,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
     return (
       <div className="pt-16">
         {/* Header */}
-        <section className="bg-[#1e4b8a] py-20">
+        <section className="bg-[#4164a8] py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
               About Us
@@ -82,8 +82,8 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {values.map(v => (
                 <div key={v.title} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex gap-5">
-                  <div className="w-12 h-12 bg-[#1e4b8a]/10 rounded-xl flex items-center justify-center shrink-0">
-                    <v.icon size={22} className="text-[#1e4b8a]" />
+                  <div className="w-12 h-12 bg-[#4164a8]/10 rounded-xl flex items-center justify-center shrink-0">
+                    <v.icon size={22} className="text-[#4164a8]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[#0f2a4e] mb-2">{v.title}</h3>
@@ -96,7 +96,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-[#1e4b8a]">
+        <section className="py-16 bg-[#4164a8]">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <h2 className="text-2xl font-bold text-white mb-3">Partner With Us</h2>
             <p className="text-white/60 mb-6 text-sm">
@@ -104,7 +104,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#1e4b8a] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
             >
               Get in Touch <ArrowRight size={15} />
             </Link>

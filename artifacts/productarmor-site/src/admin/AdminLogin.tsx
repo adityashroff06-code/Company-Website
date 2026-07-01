@@ -45,7 +45,7 @@ import { useState } from "react";
           {/* Card */}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             {/* Header strip */}
-            <div className="bg-[#1e4b8a] px-8 py-8 text-center">
+            <div className="bg-[#4164a8] px-8 py-8 text-center">
               <div className="w-14 h-14 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Shield size={28} className="text-white" strokeWidth={2.5} />
               </div>
@@ -66,7 +66,7 @@ import { useState } from "react";
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       required
-                      className="w-full px-4 py-3 pr-11 rounded-lg border border-gray-200 focus:border-[#1e4b8a] focus:outline-none focus:ring-2 focus:ring-[#1e4b8a]/20 text-sm transition-all"
+                      className="w-full px-4 py-3 pr-11 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all"
                       placeholder="Enter admin password"
                       autoComplete="current-password"
                     />
@@ -89,7 +89,7 @@ import { useState } from "react";
                 <button
                   type="submit"
                   disabled={loginMutation.isPending || !password}
-                  className="w-full flex items-center justify-center gap-2 bg-[#1e4b8a] hover:bg-[#16386a] disabled:opacity-60 text-white font-semibold py-3 rounded-lg transition-all duration-200"
+                  className="w-full flex items-center justify-center gap-2 bg-[#4164a8] hover:bg-[#345099] disabled:opacity-60 text-white font-semibold py-3 rounded-lg transition-all duration-200"
                 >
                   {loginMutation.isPending ? (
                     <span className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />

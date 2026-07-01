@@ -39,16 +39,16 @@ import { useEffect } from "react";
       <div className="overflow-x-hidden">
 
         {/* ── HERO ── */}
-        <section className="relative min-h-screen flex items-center justify-center bg-[#1e4b8a] overflow-hidden pt-16">
+        <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-16">
           {/* Geometric background pattern */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-96 h-96 border border-white rounded-full translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 border border-white rounded-full -translate-x-1/2 translate-y-1/2" />
-            <div className="absolute top-1/2 left-1/4 w-48 h-48 border border-white/60 rounded-full" />
+            <div className="absolute top-0 right-0 w-96 h-96 border border-gray-400 rounded-full translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 border border-gray-400 rounded-full -translate-x-1/2 translate-y-1/2" />
+            <div className="absolute top-1/2 left-1/4 w-48 h-48 border border-gray-300 rounded-full" />
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
               <defs>
                 <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5"/>
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9ca3af" strokeWidth="0.5"/>
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid)" />
@@ -62,13 +62,12 @@ import { useEffect } from "react";
               style={{ backgroundImage: `url(${hero.backgroundImage})` }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1e4b8a]/60 via-transparent to-[#0f2a4e]/80" />
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
             {/* Trust badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-1.5 mb-8">
+            <div className="inline-flex items-center gap-2 bg-gray-100 border border-gray-300 rounded-full px-4 py-1.5 mb-8">
               <div className="w-2 h-2 bg-[#f97316] rounded-full animate-pulse" />
-              <span className="text-white/90 text-sm font-medium">ISO 9001:2015 &amp; WHO-GMP Certified Manufacturer</span>
+              <span className="text-gray-700 text-sm font-medium">ISO 9001:2015 &amp; WHO-GMP Certified Manufacturer</span>
             </div>
 
             {isLoading ? (
@@ -78,10 +77,10 @@ import { useEffect } from "react";
               </>
             ) : (
               <>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-6">
                   {hero?.headline ?? "Pharmaceutical-Grade HDPE Packaging"}
                 </h1>
-                <p className="text-lg sm:text-xl text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
                   {hero?.subheadline ?? "ISO-certified HDPE bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
                 </p>
               </>
@@ -97,7 +96,7 @@ import { useEffect } from "react";
               </Link>
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-medium px-8 py-3.5 rounded-lg transition-all duration-200 text-base"
+                className="inline-flex items-center gap-2 bg-transparent hover:bg-gray-100 border border-gray-300 text-gray-800 font-medium px-8 py-3.5 rounded-lg transition-all duration-200 text-base"
               >
                 View Products
                 <ChevronRight size={18} />
@@ -106,8 +105,8 @@ import { useEffect } from "react";
 
             {/* Scroll indicator */}
             <div className="mt-16 flex justify-center">
-              <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-                <div className="w-1 h-2 bg-white/50 rounded-full animate-bounce" />
+              <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center pt-2">
+                <div className="w-1 h-2 bg-gray-400 rounded-full animate-bounce" />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
     import { Phone, Mail, MapPin } from "lucide-react";
-      import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
+    import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
 
     export default function Footer() {
       const { data: content } = useGetSiteContent({ query: { queryKey: getGetSiteContentQueryKey() } });
@@ -93,4 +93,3 @@ import { Link } from "wouter";
         </footer>
       );
     }
-  

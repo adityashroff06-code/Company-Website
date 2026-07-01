@@ -132,7 +132,7 @@ import { useState, useEffect } from "react";
         {/* Top bar */}
         <header className="bg-[#1e4b8a] text-white px-4 sm:px-6 py-3 flex items-center justify-between shadow-md">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-[#f97316] rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-[#4060b0] rounded-lg flex items-center justify-center">
               <Shield size={18} strokeWidth={2.5} />
             </div>
             <div>
@@ -151,7 +151,7 @@ import { useState, useEffect } from "react";
             <button
               onClick={handleSave}
               disabled={updateMutation.isPending}
-              className="flex items-center gap-1.5 bg-[#f97316] hover:bg-[#ea6c0a] disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+              className="flex items-center gap-1.5 bg-[#4060b0] hover:bg-[#345099] disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
             >
               {updateMutation.isPending ? (
                 <span className="animate-spin rounded-full h-3.5 w-3.5 border-2 border-white border-t-transparent" />
@@ -458,7 +458,7 @@ import { useState, useEffect } from "react";
                 <button
                   onClick={handleSave}
                   disabled={updateMutation.isPending}
-                  className="flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] disabled:opacity-60 text-white font-semibold px-6 py-2.5 rounded-lg transition-colors text-sm"
+                  className="flex items-center gap-2 bg-[#4060b0] hover:bg-[#345099] disabled:opacity-60 text-white font-semibold px-6 py-2.5 rounded-lg transition-colors text-sm"
                 >
                   {updateMutation.isPending ? <span className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" /> : <Save size={15} />}
                   Save Changes

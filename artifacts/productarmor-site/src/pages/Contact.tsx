@@ -165,7 +165,7 @@ import { useState } from "react";
                       </div>
                       <button
                         type="submit" disabled={loading}
-                        className="w-full flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg"
+                        className="w-full flex items-center justify-center gap-2 bg-[#4060b0] hover:bg-[#345099] disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg"
                       >
                         {loading ? (
                           <span className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />

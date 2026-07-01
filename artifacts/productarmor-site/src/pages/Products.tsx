@@ -67,7 +67,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                           <ul className="space-y-2">
                             {p.features.map(f => (
                               <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
-                                <CheckCircle size={15} className="text-[#f97316] shrink-0 mt-0.5" />
+                                <CheckCircle size={15} className="text-[#4060b0] shrink-0 mt-0.5" />
                                 <span>{f}</span>
                               </li>
                             ))}
@@ -76,7 +76,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                         <div className="mt-8">
                           <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg text-sm"
+                            className="inline-flex items-center gap-2 bg-[#4060b0] hover:bg-[#345099] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg text-sm"
                           >
                             Request Sample
                             <ArrowRight size={15} />
@@ -94,14 +94,14 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
         {/* CTA */}
         <section className="py-16 bg-[#1e4b8a]">
           <div className="max-w-3xl mx-auto px-4 text-center">
-            <Package size={40} className="text-[#f97316] mx-auto mb-4" />
+            <Package size={40} className="text-[#93b4e8] mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-white mb-3">Need Custom Specifications?</h2>
             <p className="text-white/60 mb-6 text-sm">
               We offer custom sizing, color options, and labelling. Talk to our team for bespoke solutions.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#1e4b8a] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
             >
               Get in Touch
               <ArrowRight size={15} />

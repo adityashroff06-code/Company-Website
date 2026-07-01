@@ -52,7 +52,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                     { v: company?.totalClients ?? "50+", l: "Clients served" },
                   ].map(s => (
                     <div key={s.l} className="text-center bg-gray-50 rounded-xl p-4 border border-gray-100">
-                      <div className="text-2xl font-black text-[#f97316]">{s.v}</div>
+                      <div className="text-2xl font-black text-[#4060b0]">{s.v}</div>
                       <div className="text-gray-500 text-xs mt-1">{s.l}</div>
                     </div>
                   ))}
@@ -104,7 +104,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#1e4b8a] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
             >
               Get in Touch <ArrowRight size={15} />
             </Link>

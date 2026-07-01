@@ -45,7 +45,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                   </div>
                   <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
                   <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
-                  <div className="inline-block bg-[#f97316]/10 text-[#f97316] text-xs font-semibold px-3 py-1 rounded-full">
+                  <div className="inline-block bg-[#4060b0]/10 text-[#4060b0] text-xs font-semibold px-3 py-1 rounded-full">
                     Valid through {c.year}
                   </div>
                 </div>
@@ -64,7 +64,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                       </div>
                       <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
                       <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
-                      <div className="inline-block bg-[#f97316]/10 text-[#f97316] text-xs font-semibold px-3 py-1 rounded-full">
+                      <div className="inline-block bg-[#4060b0]/10 text-[#4060b0] text-xs font-semibold px-3 py-1 rounded-full">
                         Valid through {c.year}
                       </div>
                     </div>
@@ -95,7 +95,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                   </div>
                   <div className="pb-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <s.icon size={16} className="text-[#f97316]" />
+                      <s.icon size={16} className="text-[#4060b0]" />
                       <h3 className="font-bold text-[#0f2a4e]">{s.title}</h3>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
@@ -115,7 +115,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#1e4b8a] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
             >
               Request Documents <ArrowRight size={15} />
             </Link>

@@ -20,9 +20,9 @@ import { Link } from "wouter";
               <div className="lg:col-span-1">
                 <div className="mb-4">
                   <img
-                    src={import.meta.env.BASE_URL + "logo.png"}
+                    src={import.meta.env.BASE_URL + "logo-transparent.png"}
                     alt="ProductArmor"
-                    className="h-9 w-auto object-contain"
+                    className="h-9 w-auto object-contain brightness-0 invert"
                   />
                 </div>
                 <p className="text-white/60 text-sm leading-relaxed">

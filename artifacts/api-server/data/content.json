@@ -1,0 +1,173 @@
+{
+  "hero": {
+    "headline": "Pharmaceutical-Grade HDPE Packaging for Regulated Markets",
+    "subheadline": "ISO-certified HDPE bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time.",
+    "ctaText": "Request a Sample Kit",
+    "ctaLink": "/contact",
+    "backgroundImage": "https://images.unsplash.com/photo-1563213126-a4273aed2016?w=1600&q=80",
+    "videoUrl": "https://www.youtube.com/embed/mHR9lM7LZGw",
+    "showVideo": false
+  },
+  "stats": [
+    {
+      "value": "500+",
+      "label": "Products Delivered"
+    },
+    {
+      "value": "50+",
+      "label": "Pharma Clients"
+    },
+    {
+      "value": "ISO",
+      "label": "Certified Quality"
+    },
+    {
+      "value": "100%",
+      "label": "On-Time Delivery"
+    }
+  ],
+  "about": {
+    "title": "Precision Packaging Built for Pharma",
+    "description": "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of HDPE pharmaceutical bottles, Child Resistant (CR) caps and Continuous Thread (CT) caps. We combine cross-industry engineering expertise with sustainable manufacturing processes to deliver world-class packaging at unparalleled value. Our commitment to quality, compliance and environmental responsibility sets us apart in every batch we produce.",
+    "image": "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"
+  },
+  "products": [
+    {
+      "id": "hdpe-bottles",
+      "name": "HDPE Pharmaceutical Bottles",
+      "category": "Primary Packaging",
+      "description": "High-density polyethylene bottles engineered for pharmaceutical storage. Available in multiple sizes, colours and neck finishes to suit your formulation requirements.",
+      "features": [
+        "USP Class VI compliant HDPE resin",
+        "Available 10ml – 1000ml",
+        "Multiple colour options including amber and white",
+        "Custom labelling and embossing available",
+        "WHO-GMP compatible manufacturing"
+      ],
+      "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"
+    },
+    {
+      "id": "cr-caps",
+      "name": "Child Resistant Caps",
+      "category": "Closures",
+      "description": "Push-and-turn child resistant closures meeting global safety standards. Designed to protect children while remaining accessible to adults.",
+      "features": [
+        "CFR 16 Part 1700 compliant",
+        "Tested to ISO 8317 standards",
+        "Available with induction seal liner",
+        "Continuous thread and snap-on variants",
+        "Compatible with standard HDPE bottles"
+      ],
+      "image": "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=600&q=80"
+    },
+    {
+      "id": "ct-caps",
+      "name": "Continuous Thread Caps",
+      "category": "Closures",
+      "description": "Standard CT closures for pharmaceutical and nutraceutical applications. Available with various liner options for optimal seal integrity.",
+      "features": [
+        "28mm, 33mm, 38mm and custom sizes",
+        "LDPE and PP material options",
+        "Induction seal, foam and EPE liner options",
+        "Tamper-evident bands available",
+        "FDA and EU food-contact compliant"
+      ],
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "iso9001",
+      "name": "ISO 9001:2015",
+      "issuer": "Quality Management Systems",
+      "year": "2024"
+    },
+    {
+      "id": "whogmp",
+      "name": "WHO-GMP",
+      "issuer": "World Health Organization",
+      "year": "2024"
+    },
+    {
+      "id": "iso14001",
+      "name": "ISO 14001:2015",
+      "issuer": "Environmental Management",
+      "year": "2023"
+    },
+    {
+      "id": "usdmf",
+      "name": "USDMF Listed",
+      "issuer": "US Drug Master File",
+      "year": "2024"
+    }
+  ],
+  "clients": [
+    {
+      "id": "1",
+      "name": "Sun Pharma",
+      "logo": ""
+    },
+    {
+      "id": "2",
+      "name": "Cipla",
+      "logo": ""
+    },
+    {
+      "id": "3",
+      "name": "Dr. Reddy's",
+      "logo": ""
+    },
+    {
+      "id": "4",
+      "name": "Lupin",
+      "logo": ""
+    },
+    {
+      "id": "5",
+      "name": "Alkem Labs",
+      "logo": ""
+    },
+    {
+      "id": "6",
+      "name": "Mankind Pharma",
+      "logo": ""
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "quote": "Product Armor consistently delivers on quality and timelines. Their HDPE bottles have zero rejection rate in our incoming QC — something we haven't seen with any other supplier.",
+      "author": "Rajesh Sharma",
+      "company": "Leading Indian Pharma Manufacturer",
+      "role": "Head of Procurement"
+    },
+    {
+      "id": "2",
+      "quote": "The CR caps meet our export compliance requirements without any modifications. Their team is responsive and understands regulated markets deeply.",
+      "author": "Priya Nair",
+      "company": "Export-Focused Pharma Company",
+      "role": "Quality Assurance Manager"
+    },
+    {
+      "id": "3",
+      "quote": "Switching to Product Armor reduced our packaging costs by 18% while maintaining the same quality standards. The sustainable manufacturing approach was a bonus for our ESG reporting.",
+      "author": "Amit Verma",
+      "company": "Mid-size API Manufacturer",
+      "role": "Operations Director"
+    }
+  ],
+  "contact": {
+    "phone": "+91 98765 43210",
+    "email": "info@productarmor.com",
+    "address": "Product Armor Packaging Pvt Ltd, Industrial Area, Phase II, India",
+    "whatsapp": "+91 98765 43210",
+    "mapEmbed": ""
+  },
+  "company": {
+    "name": "Product Armor Packaging Pvt Ltd",
+    "tagline": "Controlled Variables, Specified Outcomes",
+    "founded": "2018",
+    "employees": "50+",
+    "totalClients": "50+"
+  }
+}

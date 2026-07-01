@@ -46,7 +46,7 @@ import { useState } from "react";
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             {/* Header strip */}
             <div className="bg-[#1e4b8a] px-8 py-8 text-center">
-              <div className="w-14 h-14 bg-[#4060b0] rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-14 h-14 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Shield size={28} className="text-white" strokeWidth={2.5} />
               </div>
               <h1 className="text-white font-bold text-xl">Admin Panel</h1>

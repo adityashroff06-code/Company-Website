@@ -67,7 +67,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                           <ul className="space-y-2">
                             {p.features.map(f => (
                               <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
-                                <CheckCircle size={15} className="text-[#4060b0] shrink-0 mt-0.5" />
+                                <CheckCircle size={15} className="text-[#4164a8] shrink-0 mt-0.5" />
                                 <span>{f}</span>
                               </li>
                             ))}
@@ -76,7 +76,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                         <div className="mt-8">
                           <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 bg-[#4060b0] hover:bg-[#345099] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg text-sm"
+                            className="inline-flex items-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg text-sm"
                           >
                             Request Sample
                             <ArrowRight size={15} />

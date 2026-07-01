@@ -52,7 +52,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                     { v: company?.totalClients ?? "50+", l: "Clients served" },
                   ].map(s => (
                     <div key={s.l} className="text-center bg-gray-50 rounded-xl p-4 border border-gray-100">
-                      <div className="text-2xl font-black text-[#4060b0]">{s.v}</div>
+                      <div className="text-2xl font-black text-[#4164a8]">{s.v}</div>
                       <div className="text-gray-500 text-xs mt-1">{s.l}</div>
                     </div>
                   ))}

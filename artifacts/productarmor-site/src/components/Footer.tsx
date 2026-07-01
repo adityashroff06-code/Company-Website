@@ -39,7 +39,7 @@ import { Link } from "wouter";
                 <ul className="space-y-2.5">
                   {["HDPE Pharmaceutical Bottles","Child Resistant Caps","Continuous Thread Caps"].map(p => (
                     <li key={p}>
-                      <Link href="/products" className="text-white/70 hover:text-[#f97316] text-sm transition-colors">{p}</Link>
+                      <Link href="/products" className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{p}</Link>
                     </li>
                   ))}
                 </ul>
@@ -55,7 +55,7 @@ import { Link } from "wouter";
                     { href: "/contact", label: "Contact" },
                   ].map(l => (
                     <li key={l.href}>
-                      <Link href={l.href} className="text-white/70 hover:text-[#f97316] text-sm transition-colors">{l.label}</Link>
+                      <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -66,15 +66,15 @@ import { Link } from "wouter";
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Get in Touch</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2.5 text-white/70 text-sm">
-                    <Phone size={14} className="mt-0.5 shrink-0 text-[#f97316]" />
+                    <Phone size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
                     <span>{phone}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-white/70 text-sm">
-                    <Mail size={14} className="mt-0.5 shrink-0 text-[#f97316]" />
+                    <Mail size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
                     <span>{email}</span>
                   </li>
                   <li className="flex items-start gap-2.5 text-white/70 text-sm">
-                    <MapPin size={14} className="mt-0.5 shrink-0 text-[#f97316]" />
+                    <MapPin size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
                     <span>{address}</span>
                   </li>
                 </ul>

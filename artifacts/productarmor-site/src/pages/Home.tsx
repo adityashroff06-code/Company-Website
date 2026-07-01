@@ -66,7 +66,7 @@ import { useEffect } from "react";
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
             {/* Trust badge */}
             <div className="inline-flex items-center gap-2 bg-gray-100 border border-gray-300 rounded-full px-4 py-1.5 mb-8">
-              <div className="w-2 h-2 bg-[#f97316] rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-[#4060b0] rounded-full animate-pulse" />
               <span className="text-gray-700 text-sm font-medium">ISO 9001:2015 &amp; WHO-GMP Certified Manufacturer</span>
             </div>
 
@@ -89,7 +89,7 @@ import { useEffect } from "react";
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105 text-base"
+                className="inline-flex items-center gap-2 bg-[#4060b0] hover:bg-[#345099] text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105 text-base"
               >
                 {hero?.ctaText ?? "Request a Sample Kit"}
                 <ArrowRight size={18} />
@@ -125,7 +125,7 @@ import { useEffect } from "react";
                   ))
                 : stats.map((s, i) => (
                     <div key={i} className="text-center reveal">
-                      <div className="text-3xl sm:text-4xl font-black text-[#f97316]">{s.value}</div>
+                      <div className="text-3xl sm:text-4xl font-black text-[#93b4e8]">{s.value}</div>
                       <div className="text-white/60 text-sm mt-1 font-medium">{s.label}</div>
                     </div>
                   ))
@@ -151,14 +151,14 @@ import { useEffect } from "react";
                 <div className="space-y-3 mb-8">
                   {["Controlled manufacturing environment","Zero-rejection quality inspection","Sustainable production processes","On-time delivery guarantee"].map(f => (
                     <div key={f} className="flex items-center gap-3">
-                      <CheckCircle size={18} className="text-[#f97316] shrink-0" />
+                      <CheckCircle size={18} className="text-[#4060b0] shrink-0" />
                       <span className="text-gray-700 text-sm">{f}</span>
                     </div>
                   ))}
                 </div>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 text-[#1e4b8a] font-semibold hover:text-[#f97316] transition-colors group"
+                  className="inline-flex items-center gap-2 text-[#1e4b8a] font-semibold hover:text-[#4060b0] transition-colors group"
                 >
                   Learn more about us
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -234,14 +234,14 @@ import { useEffect } from "react";
                         <ul className="space-y-1.5 mb-5">
                           {p.features.slice(0, 3).map(f => (
                             <li key={f} className="flex items-start gap-2 text-xs text-gray-600">
-                              <CheckCircle size={13} className="text-[#f97316] shrink-0 mt-0.5" />
+                              <CheckCircle size={13} className="text-[#4060b0] shrink-0 mt-0.5" />
                               <span>{f}</span>
                             </li>
                           ))}
                         </ul>
                         <Link
                           href="/products"
-                          className="inline-flex items-center gap-1.5 text-[#1e4b8a] font-semibold text-sm hover:text-[#f97316] transition-colors group/link"
+                          className="inline-flex items-center gap-1.5 text-[#1e4b8a] font-semibold text-sm hover:text-[#4060b0] transition-colors group/link"
                         >
                           View details
                           <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
@@ -284,10 +284,10 @@ import { useEffect } from "react";
                   className="reveal bg-white/10 backdrop-blur border border-white/20 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300"
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
-                  <Award size={32} className="text-[#f97316] mx-auto mb-4" />
+                  <Award size={32} className="text-[#93b4e8] mx-auto mb-4" />
                   <div className="text-white font-bold text-sm mb-1">{c.name}</div>
                   <div className="text-white/50 text-xs">{c.issuer}</div>
-                  <div className="text-[#f97316] text-xs font-semibold mt-2">{c.year}</div>
+                  <div className="text-[#93b4e8] text-xs font-semibold mt-2">{c.year}</div>
                 </div>
               ))}
             </div>
@@ -350,7 +350,7 @@ import { useEffect } from "react";
                   >
                     <div className="flex gap-1 mb-4">
                       {Array(5).fill(0).map((_, i) => (
-                        <Star key={i} size={14} className="fill-[#f97316] text-[#f97316]" />
+                        <Star key={i} size={14} className="fill-[#4060b0] text-[#4060b0]" />
                       ))}
                     </div>
                     <p className="text-gray-600 leading-relaxed text-sm mb-5 italic">"{t.quote}"</p>
@@ -377,7 +377,7 @@ import { useEffect } from "react";
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#1e4b8a] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
               >
                 Request Sample Kit
                 <ArrowRight size={16} />
@@ -392,11 +392,11 @@ import { useEffect } from "react";
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/50 text-sm">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#f97316]" />
+                <Phone size={14} className="text-[#93b4e8]" />
                 <span>{contactData?.phone ?? "+91 98765 43210"}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-[#f97316]" />
+                <Mail size={14} className="text-[#93b4e8]" />
                 <span>{contactData?.email ?? "info@productarmor.com"}</span>
               </div>
             </div>

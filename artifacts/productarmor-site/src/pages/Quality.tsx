@@ -45,7 +45,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                   </div>
                   <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
                   <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
-                  <div className="inline-block bg-[#4060b0]/10 text-[#4060b0] text-xs font-semibold px-3 py-1 rounded-full">
+                  <div className="inline-block bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold px-3 py-1 rounded-full">
                     Valid through {c.year}
                   </div>
                 </div>
@@ -64,7 +64,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                       </div>
                       <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
                       <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
-                      <div className="inline-block bg-[#4060b0]/10 text-[#4060b0] text-xs font-semibold px-3 py-1 rounded-full">
+                      <div className="inline-block bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold px-3 py-1 rounded-full">
                         Valid through {c.year}
                       </div>
                     </div>
@@ -95,7 +95,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                   </div>
                   <div className="pb-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <s.icon size={16} className="text-[#4060b0]" />
+                      <s.icon size={16} className="text-[#4164a8]" />
                       <h3 className="font-bold text-[#0f2a4e]">{s.title}</h3>
                     </div>
                     <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>

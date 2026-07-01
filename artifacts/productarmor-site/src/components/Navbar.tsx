@@ -59,7 +59,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="ml-4 px-4 py-2 bg-[#1e4b8a] text-white hover:bg-[#4060b0] text-sm font-semibold rounded transition-colors"
+              className="ml-4 px-4 py-2 bg-[#1e4b8a] text-white hover:bg-[#4164a8] text-sm font-semibold rounded transition-colors"
             >
               Request Sample
             </Link>
@@ -94,7 +94,7 @@ export default function Navbar() {
             <div className="px-4 pt-2">
               <Link
                 href="/contact"
-                className="block text-center px-4 py-2.5 bg-[#1e4b8a] text-white hover:bg-[#4060b0] text-sm font-semibold rounded transition-colors"
+                className="block text-center px-4 py-2.5 bg-[#1e4b8a] text-white hover:bg-[#4164a8] text-sm font-semibold rounded transition-colors"
               >
                 Request Sample
               </Link>

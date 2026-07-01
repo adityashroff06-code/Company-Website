@@ -11,7 +11,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
     return (
       <div className="pt-16">
         {/* Header */}
-        <section className="bg-[#1e4b8a] py-20">
+        <section className="bg-[#4164a8] py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
               Product Range
@@ -56,14 +56,14 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"; }}
                         />
                         <div className="absolute top-4 left-4">
-                          <span className="bg-[#1e4b8a] text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
+                          <span className="bg-[#4164a8] text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
                         </div>
                       </div>
                       <div className={`p-10 flex flex-col justify-center ${i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
                         <h2 className="text-2xl font-bold text-[#0f2a4e] mb-3">{p.name}</h2>
                         <p className="text-gray-500 leading-relaxed mb-6">{p.description}</p>
                         <div>
-                          <h3 className="text-xs font-bold text-[#1e4b8a] uppercase tracking-widest mb-3">Key Features</h3>
+                          <h3 className="text-xs font-bold text-[#4164a8] uppercase tracking-widest mb-3">Key Features</h3>
                           <ul className="space-y-2">
                             {p.features.map(f => (
                               <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
@@ -92,7 +92,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-[#1e4b8a]">
+        <section className="py-16 bg-[#4164a8]">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <Package size={40} className="text-[#93b4e8] mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-white mb-3">Need Custom Specifications?</h2>
@@ -101,7 +101,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#1e4b8a] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
             >
               Get in Touch
               <ArrowRight size={15} />

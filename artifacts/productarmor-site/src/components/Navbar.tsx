@@ -50,8 +50,8 @@ export default function Navbar() {
                 href={l.href}
                 className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
                   location === l.href
-                    ? "text-[#1e4b8a] font-semibold"
-                    : "text-gray-600 hover:text-[#1e4b8a] hover:bg-gray-100"
+                    ? "text-[#4164a8] font-semibold"
+                    : "text-gray-600 hover:text-[#4164a8] hover:bg-gray-100"
                 }`}
               >
                 {l.label}
@@ -59,7 +59,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="ml-4 px-4 py-2 bg-[#1e4b8a] text-white hover:bg-[#4164a8] text-sm font-semibold rounded transition-colors"
+              className="ml-4 px-4 py-2 bg-[#4164a8] text-white hover:bg-[#4164a8] text-sm font-semibold rounded transition-colors"
             >
               Request Sample
             </Link>
@@ -67,7 +67,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-[#1e4b8a] p-2 rounded hover:bg-gray-100 transition-colors"
+            className="md:hidden text-[#4164a8] p-2 rounded hover:bg-gray-100 transition-colors"
             onClick={() => setOpen(v => !v)}
             aria-label="Toggle menu"
           >
@@ -84,8 +84,8 @@ export default function Navbar() {
                 href={l.href}
                 className={`block px-4 py-2.5 text-sm font-medium rounded transition-colors ${
                   location === l.href
-                    ? "text-[#1e4b8a] font-semibold"
-                    : "text-gray-600 hover:text-[#1e4b8a] hover:bg-gray-100"
+                    ? "text-[#4164a8] font-semibold"
+                    : "text-gray-600 hover:text-[#4164a8] hover:bg-gray-100"
                 }`}
               >
                 {l.label}
@@ -94,7 +94,7 @@ export default function Navbar() {
             <div className="px-4 pt-2">
               <Link
                 href="/contact"
-                className="block text-center px-4 py-2.5 bg-[#1e4b8a] text-white hover:bg-[#4164a8] text-sm font-semibold rounded transition-colors"
+                className="block text-center px-4 py-2.5 bg-[#4164a8] text-white hover:bg-[#4164a8] text-sm font-semibold rounded transition-colors"
               >
                 Request Sample
               </Link>

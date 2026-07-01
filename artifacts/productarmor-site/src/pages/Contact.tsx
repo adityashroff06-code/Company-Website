@@ -27,7 +27,7 @@ import { useState } from "react";
     return (
       <div className="pt-16">
         {/* Header */}
-        <section className="bg-[#1e4b8a] py-20">
+        <section className="bg-[#4164a8] py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
               Contact
@@ -54,9 +54,9 @@ import { useState } from "react";
                 </div>
 
                 <div className="space-y-4">
-                  <a href={`tel:${phone.replace(/\s+/g, "")}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#1e4b8a]/30 hover:shadow-sm transition-all duration-200 group">
-                    <div className="w-10 h-10 bg-[#1e4b8a]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#1e4b8a] transition-colors">
-                      <Phone size={18} className="text-[#1e4b8a] group-hover:text-white transition-colors" />
+                  <a href={`tel:${phone.replace(/\s+/g, "")}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#4164a8]/30 hover:shadow-sm transition-all duration-200 group">
+                    <div className="w-10 h-10 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#4164a8] transition-colors">
+                      <Phone size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">Phone</div>
@@ -64,9 +64,9 @@ import { useState } from "react";
                     </div>
                   </a>
 
-                  <a href={`mailto:${email}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#1e4b8a]/30 hover:shadow-sm transition-all duration-200 group">
-                    <div className="w-10 h-10 bg-[#1e4b8a]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#1e4b8a] transition-colors">
-                      <Mail size={18} className="text-[#1e4b8a] group-hover:text-white transition-colors" />
+                  <a href={`mailto:${email}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#4164a8]/30 hover:shadow-sm transition-all duration-200 group">
+                    <div className="w-10 h-10 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#4164a8] transition-colors">
+                      <Mail size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">Email</div>
@@ -89,8 +89,8 @@ import { useState } from "react";
                   </a>
 
                   <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100">
-                    <div className="w-10 h-10 bg-[#1e4b8a]/10 rounded-lg flex items-center justify-center shrink-0">
-                      <MapPin size={18} className="text-[#1e4b8a]" />
+                    <div className="w-10 h-10 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
+                      <MapPin size={18} className="text-[#4164a8]" />
                     </div>
                     <div>
                       <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">Address</div>
@@ -114,7 +114,7 @@ import { useState } from "react";
                       </p>
                       <button
                         onClick={() => { setSent(false); setForm({ name: "", company: "", email: "", message: "" }); }}
-                        className="mt-6 text-[#1e4b8a] font-semibold text-sm hover:underline"
+                        className="mt-6 text-[#4164a8] font-semibold text-sm hover:underline"
                       >
                         Send another message
                       </button>
@@ -131,7 +131,7 @@ import { useState } from "react";
                           <input
                             type="text" required value={form.name}
                             onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#1e4b8a] focus:outline-none focus:ring-2 focus:ring-[#1e4b8a]/20 text-sm transition-all"
+                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all"
                             placeholder="Raj Sharma"
                           />
                         </div>
@@ -140,7 +140,7 @@ import { useState } from "react";
                           <input
                             type="text" required value={form.company}
                             onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
-                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#1e4b8a] focus:outline-none focus:ring-2 focus:ring-[#1e4b8a]/20 text-sm transition-all"
+                            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all"
                             placeholder="Pharma Co. Ltd"
                           />
                         </div>
@@ -150,7 +150,7 @@ import { useState } from "react";
                         <input
                           type="email" required value={form.email}
                           onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#1e4b8a] focus:outline-none focus:ring-2 focus:ring-[#1e4b8a]/20 text-sm transition-all"
+                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all"
                           placeholder="raj@company.com"
                         />
                       </div>
@@ -159,7 +159,7 @@ import { useState } from "react";
                         <textarea
                           required value={form.message} rows={5}
                           onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#1e4b8a] focus:outline-none focus:ring-2 focus:ring-[#1e4b8a]/20 text-sm transition-all resize-none"
+                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all resize-none"
                           placeholder="Tell us about your packaging requirements — product type, volumes, specifications needed..."
                         />
                       </div>

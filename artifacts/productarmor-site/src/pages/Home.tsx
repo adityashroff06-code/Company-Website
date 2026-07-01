@@ -139,7 +139,7 @@ import { useEffect } from "react";
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="reveal">
-                <div className="inline-block px-3 py-1 bg-[#1e4b8a]/10 text-[#1e4b8a] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
                   About Us
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] leading-tight mb-6">
@@ -158,7 +158,7 @@ import { useEffect } from "react";
                 </div>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 text-[#1e4b8a] font-semibold hover:text-[#4164a8] transition-colors group"
+                  className="inline-flex items-center gap-2 text-[#4164a8] font-semibold hover:text-[#4164a8] transition-colors group"
                 >
                   Learn more about us
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -166,7 +166,7 @@ import { useEffect } from "react";
               </div>
               <div className="reveal">
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-[#1e4b8a]/5 rounded-2xl" />
+                  <div className="absolute -inset-4 bg-[#4164a8]/5 rounded-2xl" />
                   <img
                     src={about?.image ?? "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"}
                     alt="Manufacturing facility"
@@ -174,7 +174,7 @@ import { useEffect } from "react";
                     onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"; }}
                   />
                   {company && (
-                    <div className="absolute -bottom-6 -right-6 bg-[#1e4b8a] text-white rounded-xl p-5 shadow-xl">
+                    <div className="absolute -bottom-6 -right-6 bg-[#4164a8] text-white rounded-xl p-5 shadow-xl">
                       <div className="text-3xl font-black">{company.founded}</div>
                       <div className="text-white/70 text-xs mt-0.5">Est.</div>
                     </div>
@@ -189,7 +189,7 @@ import { useEffect } from "react";
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14 reveal">
-              <div className="inline-block px-3 py-1 bg-[#1e4b8a]/10 text-[#1e4b8a] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+              <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
                 Our Products
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
@@ -212,7 +212,7 @@ import { useEffect } from "react";
                 : products.map((p, i) => (
                     <div
                       key={p.id}
-                      className="reveal bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group border border-gray-100 hover:border-[#1e4b8a]/20"
+                      className="reveal bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group border border-gray-100 hover:border-[#4164a8]/20"
                       style={{ transitionDelay: `${i * 80}ms` }}
                     >
                       <div className="relative overflow-hidden h-52 bg-gray-100">
@@ -223,7 +223,7 @@ import { useEffect } from "react";
                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"; }}
                         />
                         <div className="absolute top-3 left-3">
-                          <span className="bg-[#1e4b8a] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                          <span className="bg-[#4164a8] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                             {p.category}
                           </span>
                         </div>
@@ -241,7 +241,7 @@ import { useEffect } from "react";
                         </ul>
                         <Link
                           href="/products"
-                          className="inline-flex items-center gap-1.5 text-[#1e4b8a] font-semibold text-sm hover:text-[#4164a8] transition-colors group/link"
+                          className="inline-flex items-center gap-1.5 text-[#4164a8] font-semibold text-sm hover:text-[#4164a8] transition-colors group/link"
                         >
                           View details
                           <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
@@ -254,7 +254,7 @@ import { useEffect } from "react";
             <div className="text-center mt-10">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 border-2 border-[#1e4b8a] text-[#1e4b8a] hover:bg-[#1e4b8a] hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200"
+                className="inline-flex items-center gap-2 border-2 border-[#4164a8] text-[#4164a8] hover:bg-[#4164a8] hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200"
               >
                 View All Products
                 <ArrowRight size={16} />
@@ -264,7 +264,7 @@ import { useEffect } from "react";
         </section>
 
         {/* ── CERTIFICATIONS ── */}
-        <section className="py-20 bg-[#1e4b8a]">
+        <section className="py-20 bg-[#4164a8]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14 reveal">
               <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
@@ -294,7 +294,7 @@ import { useEffect } from "react";
             <div className="text-center mt-10">
               <Link
                 href="/quality"
-                className="inline-flex items-center gap-2 bg-white text-[#1e4b8a] hover:bg-gray-50 font-semibold px-8 py-3 rounded-lg transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-white text-[#4164a8] hover:bg-gray-50 font-semibold px-8 py-3 rounded-lg transition-all duration-200"
               >
                 Our Quality Standards
                 <ArrowRight size={16} />
@@ -318,7 +318,7 @@ import { useEffect } from "react";
                     {c.logo ? (
                       <img src={c.logo} alt={c.name} className="h-10 object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100" />
                     ) : (
-                      <div className="px-6 py-3 border border-gray-200 rounded-lg bg-gray-50 hover:border-[#1e4b8a]/30 hover:bg-[#1e4b8a]/5 transition-all duration-300">
+                      <div className="px-6 py-3 border border-gray-200 rounded-lg bg-gray-50 hover:border-[#4164a8]/30 hover:bg-[#4164a8]/5 transition-all duration-300">
                         <span className="text-gray-500 font-semibold text-sm">{c.name}</span>
                       </div>
                     )}
@@ -334,7 +334,7 @@ import { useEffect } from "react";
           <section className="py-20 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-14 reveal">
-                <div className="inline-block px-3 py-1 bg-[#1e4b8a]/10 text-[#1e4b8a] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
                   Testimonials
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
@@ -345,7 +345,7 @@ import { useEffect } from "react";
                 {testimonials.map((t, i) => (
                   <div
                     key={t.id}
-                    className="reveal bg-white rounded-xl p-7 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:border-[#1e4b8a]/20"
+                    className="reveal bg-white rounded-xl p-7 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:border-[#4164a8]/20"
                     style={{ transitionDelay: `${i * 80}ms` }}
                   >
                     <div className="flex gap-1 mb-4">
@@ -377,7 +377,7 @@ import { useEffect } from "react";
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#1e4b8a] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
               >
                 Request Sample Kit
                 <ArrowRight size={16} />

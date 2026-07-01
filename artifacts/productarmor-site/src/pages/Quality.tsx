@@ -16,7 +16,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
     return (
       <div className="pt-16">
         {/* Header */}
-        <section className="bg-[#1e4b8a] py-20">
+        <section className="bg-[#4164a8] py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
               Quality & Compliance
@@ -39,8 +39,8 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {certifications.map(c => (
-                <div key={c.id} className="border-2 border-[#1e4b8a]/10 hover:border-[#1e4b8a]/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
-                  <div className="w-16 h-16 bg-[#1e4b8a] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                <div key={c.id} className="border-2 border-[#4164a8]/10 hover:border-[#4164a8]/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
+                  <div className="w-16 h-16 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
                     <Award size={30} className="text-white" />
                   </div>
                   <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
@@ -58,8 +58,8 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                     { name: "ISO 14001:2015", issuer: "Environmental Management", year: "2023" },
                     { name: "USDMF Listed", issuer: "US Drug Master File", year: "2024" },
                   ].map(c => (
-                    <div key={c.name} className="border-2 border-[#1e4b8a]/10 hover:border-[#1e4b8a]/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
-                      <div className="w-16 h-16 bg-[#1e4b8a] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <div key={c.name} className="border-2 border-[#4164a8]/10 hover:border-[#4164a8]/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
+                      <div className="w-16 h-16 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
                         <Award size={30} className="text-white" />
                       </div>
                       <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
@@ -88,10 +88,10 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
               {qcSteps.map((s, i) => (
                 <div key={s.title} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex gap-5">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 bg-[#1e4b8a] rounded-xl flex items-center justify-center shrink-0 text-white font-bold text-lg">
+                    <div className="w-12 h-12 bg-[#4164a8] rounded-xl flex items-center justify-center shrink-0 text-white font-bold text-lg">
                       {i + 1}
                     </div>
-                    {i < qcSteps.length - 1 && <div className="w-0.5 flex-1 bg-[#1e4b8a]/10 mt-3" />}
+                    {i < qcSteps.length - 1 && <div className="w-0.5 flex-1 bg-[#4164a8]/10 mt-3" />}
                   </div>
                   <div className="pb-4">
                     <div className="flex items-center gap-2 mb-2">
@@ -107,7 +107,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-[#1e4b8a]">
+        <section className="py-16 bg-[#4164a8]">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <h2 className="text-2xl font-bold text-white mb-3">Need Compliance Documentation?</h2>
             <p className="text-white/60 mb-6 text-sm">
@@ -115,7 +115,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#1e4b8a] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
             >
               Request Documents <ArrowRight size={15} />
             </Link>

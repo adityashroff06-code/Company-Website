@@ -35,12 +35,12 @@ import { useState, useEffect } from "react";
         {type === "textarea" ? (
           <textarea
             value={value} onChange={e => onChange(e.target.value)} rows={rows}
-            className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-[#1e4b8a] focus:outline-none focus:ring-2 focus:ring-[#1e4b8a]/15 text-sm transition-all resize-none"
+            className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/15 text-sm transition-all resize-none"
           />
         ) : (
           <input
             type={type} value={value} onChange={e => onChange(e.target.value)}
-            className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-[#1e4b8a] focus:outline-none focus:ring-2 focus:ring-[#1e4b8a]/15 text-sm transition-all"
+            className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/15 text-sm transition-all"
           />
         )}
       </div>
@@ -54,7 +54,7 @@ import { useState, useEffect } from "react";
         <button
           type="button"
           onClick={() => onChange(!checked)}
-          className={`relative w-11 h-6 rounded-full transition-colors ${checked ? "bg-[#1e4b8a]" : "bg-gray-300"}`}
+          className={`relative w-11 h-6 rounded-full transition-colors ${checked ? "bg-[#4164a8]" : "bg-gray-300"}`}
         >
           <span className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${checked ? "translate-x-5" : "translate-x-0"}`} />
         </button>
@@ -107,7 +107,7 @@ import { useState, useEffect } from "react";
       return (
         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-10 w-10 border-3 border-[#1e4b8a] border-t-transparent mx-auto mb-3" />
+            <div className="animate-spin rounded-full h-10 w-10 border-3 border-[#4164a8] border-t-transparent mx-auto mb-3" />
             <p className="text-gray-500 text-sm">Loading content...</p>
           </div>
         </div>
@@ -130,7 +130,7 @@ import { useState, useEffect } from "react";
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
         {/* Top bar */}
-        <header className="bg-[#1e4b8a] text-white px-4 sm:px-6 py-3 flex items-center justify-between shadow-md">
+        <header className="bg-[#4164a8] text-white px-4 sm:px-6 py-3 flex items-center justify-between shadow-md">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-[#4164a8] rounded-lg flex items-center justify-center">
               <Shield size={18} strokeWidth={2.5} />
@@ -179,7 +179,7 @@ import { useState, useEffect } from "react";
                       onClick={() => setActiveTab(t.id)}
                       className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-left ${
                         activeTab === t.id
-                          ? "bg-[#1e4b8a] text-white"
+                          ? "bg-[#4164a8] text-white"
                           : "text-gray-600 hover:bg-gray-50"
                       }`}
                     >
@@ -196,7 +196,7 @@ import { useState, useEffect } from "react";
           <div className="md:hidden bg-white border-b border-gray-100 px-4 py-2">
             <button
               onClick={() => setMobileMenuOpen(v => !v)}
-              className="flex items-center gap-2 text-[#1e4b8a] font-semibold text-sm"
+              className="flex items-center gap-2 text-[#4164a8] font-semibold text-sm"
             >
               {tabs.find(t => t.id === activeTab)?.label ?? "Select section"}
               <ChevronDown size={16} className={`transition-transform ${mobileMenuOpen ? "rotate-180" : ""}`} />
@@ -208,7 +208,7 @@ import { useState, useEffect } from "react";
                     key={t.id}
                     onClick={() => { setActiveTab(t.id); setMobileMenuOpen(false); }}
                     className={`flex flex-col items-center gap-1 p-2 rounded-lg text-xs font-medium transition-colors ${
-                      activeTab === t.id ? "bg-[#1e4b8a] text-white" : "text-gray-600 hover:bg-gray-50"
+                      activeTab === t.id ? "bg-[#4164a8] text-white" : "text-gray-600 hover:bg-gray-50"
                     }`}
                   >
                     <t.icon size={14} />
@@ -254,7 +254,7 @@ import { useState, useEffect } from "react";
                               next[i] = { ...next[i], value: e.target.value };
                               set(["stats"], next);
                             }}
-                            className="w-24 px-2 py-1.5 rounded border border-gray-200 focus:border-[#1e4b8a] focus:outline-none text-sm font-bold"
+                            className="w-24 px-2 py-1.5 rounded border border-gray-200 focus:border-[#4164a8] focus:outline-none text-sm font-bold"
                           />
                           <input
                             type="text" value={s.label} placeholder="Label"
@@ -263,7 +263,7 @@ import { useState, useEffect } from "react";
                               next[i] = { ...next[i], label: e.target.value };
                               set(["stats"], next);
                             }}
-                            className="flex-1 px-2 py-1.5 rounded border border-gray-200 focus:border-[#1e4b8a] focus:outline-none text-sm"
+                            className="flex-1 px-2 py-1.5 rounded border border-gray-200 focus:border-[#4164a8] focus:outline-none text-sm"
                           />
                           <button onClick={() => set(["stats"], draft.stats.filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 p-1">
                             <Trash2 size={14} />
@@ -272,7 +272,7 @@ import { useState, useEffect } from "react";
                       ))}
                       <button
                         onClick={() => set(["stats"], [...draft.stats, { value: "", label: "" }])}
-                        className="flex items-center gap-1.5 text-[#1e4b8a] text-sm font-medium hover:underline"
+                        className="flex items-center gap-1.5 text-[#4164a8] text-sm font-medium hover:underline"
                       >
                         <Plus size={14} /> Add Stat
                       </button>
@@ -323,7 +323,7 @@ import { useState, useEffect } from "react";
                                   next[i] = { ...next[i], features: feats };
                                   set(["products"], next);
                                 }}
-                                className="flex-1 px-2 py-1.5 rounded border border-gray-200 focus:border-[#1e4b8a] focus:outline-none text-sm"
+                                className="flex-1 px-2 py-1.5 rounded border border-gray-200 focus:border-[#4164a8] focus:outline-none text-sm"
                               />
                               <button onClick={() => {
                                 const next = [...draft.products];
@@ -340,7 +340,7 @@ import { useState, useEffect } from "react";
                               next[i] = { ...next[i], features: [...next[i].features, ""] };
                               set(["products"], next);
                             }}
-                            className="text-[#1e4b8a] text-xs font-medium hover:underline flex items-center gap-1"
+                            className="text-[#4164a8] text-xs font-medium hover:underline flex items-center gap-1"
                           >
                             <Plus size={12} /> Add feature
                           </button>
@@ -350,7 +350,7 @@ import { useState, useEffect } from "react";
                   ))}
                   <button
                     onClick={() => set(["products"], [...draft.products, { id: Date.now().toString(), name: "", category: "", description: "", features: [], image: "" }])}
-                    className="flex items-center gap-2 border-2 border-dashed border-[#1e4b8a]/30 hover:border-[#1e4b8a]/60 text-[#1e4b8a] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
+                    className="flex items-center gap-2 border-2 border-dashed border-[#4164a8]/30 hover:border-[#4164a8]/60 text-[#4164a8] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
                   >
                     <Plus size={16} /> Add Product
                   </button>
@@ -373,7 +373,7 @@ import { useState, useEffect } from "react";
                   ))}
                   <button
                     onClick={() => set(["certifications"], [...draft.certifications, { id: Date.now().toString(), name: "", issuer: "", year: new Date().getFullYear().toString() }])}
-                    className="flex items-center gap-2 border-2 border-dashed border-[#1e4b8a]/30 hover:border-[#1e4b8a]/60 text-[#1e4b8a] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
+                    className="flex items-center gap-2 border-2 border-dashed border-[#4164a8]/30 hover:border-[#4164a8]/60 text-[#4164a8] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
                   >
                     <Plus size={16} /> Add Certification
                   </button>
@@ -394,7 +394,7 @@ import { useState, useEffect } from "react";
                   ))}
                   <button
                     onClick={() => set(["clients"], [...draft.clients, { id: Date.now().toString(), name: "", logo: "" }])}
-                    className="flex items-center gap-2 border-2 border-dashed border-[#1e4b8a]/30 hover:border-[#1e4b8a]/60 text-[#1e4b8a] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
+                    className="flex items-center gap-2 border-2 border-dashed border-[#4164a8]/30 hover:border-[#4164a8]/60 text-[#4164a8] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
                   >
                     <Plus size={16} /> Add Client
                   </button>
@@ -418,7 +418,7 @@ import { useState, useEffect } from "react";
                   ))}
                   <button
                     onClick={() => set(["testimonials"], [...draft.testimonials, { id: Date.now().toString(), quote: "", author: "", role: "", company: "" }])}
-                    className="flex items-center gap-2 border-2 border-dashed border-[#1e4b8a]/30 hover:border-[#1e4b8a]/60 text-[#1e4b8a] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
+                    className="flex items-center gap-2 border-2 border-dashed border-[#4164a8]/30 hover:border-[#4164a8]/60 text-[#4164a8] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
                   >
                     <Plus size={16} /> Add Testimonial
                   </button>
@@ -475,7 +475,7 @@ import { useState, useEffect } from "react";
     return (
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
         <div className="flex items-center gap-2.5 px-6 py-4 border-b border-gray-100 bg-gray-50">
-          <Icon size={16} className="text-[#1e4b8a]" />
+          <Icon size={16} className="text-[#4164a8]" />
           <h2 className="font-bold text-[#0f2a4e] text-sm">{title}</h2>
         </div>
         <div className="p-6 space-y-4">{children}</div>

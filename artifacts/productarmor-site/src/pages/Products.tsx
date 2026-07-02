@@ -1,12 +1,32 @@
 import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
-  import { CheckCircle, Package, ArrowRight } from "lucide-react";
-  import { Link } from "wouter";
+  import { CheckCircle, Package, ArrowRight, SearchX } from "lucide-react";
+  import { Link, useSearch } from "wouter";
+  import { usePageMeta } from "@/hooks/usePageMeta";
 
   export default function Products() {
+    usePageMeta({
+      title: "Products",
+      description:
+        "Explore Product Armor's pharmaceutical packaging range — HDPE bottles, child-resistant (CR) caps and continuous thread (CT) caps, engineered for global regulated markets.",
+      path: "/products",
+    });
+
     const { data: content, isLoading } = useGetSiteContent({
       query: { queryKey: getGetSiteContentQueryKey() }
     });
-    const products = content?.products ?? [];
+    const allProducts = content?.products ?? [];
+
+    const searchString = useSearch();
+    const query = (new URLSearchParams(searchString).get("q") ?? "").trim();
+    const q = query.toLowerCase();
+
+    const products = q
+      ? allProducts.filter(p =>
+          [p.name, p.category, p.description, ...(p.features ?? [])]
+            .filter(Boolean)
+            .some(v => String(v).toLowerCase().includes(q))
+        )
+      : allProducts;
 
     return (
       <div className="pt-16">
@@ -22,6 +42,12 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
               Every product is engineered to meet the stringent requirements of global regulated pharmaceutical markets.
             </p>
+            {query && (
+              <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/90 text-sm">
+                <span>Showing results for “{query}”</span>
+                <Link href="/products" className="text-[#93b4e8] hover:text-white font-semibold">Clear</Link>
+              </div>
+            )}
           </div>
         </section>
 
@@ -42,6 +68,21 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                     </div>
                   </div>
                 ))}
+              </div>
+            ) : products.length === 0 ? (
+              <div className="text-center py-16">
+                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <SearchX size={28} className="text-gray-400" />
+                </div>
+                <h2 className="text-xl font-bold text-[#0f2a4e] mb-2">No products matched “{query}”</h2>
+                <p className="text-gray-500 text-sm mb-6">Try a different term, or browse our full product range.</p>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 text-sm"
+                >
+                  View all products
+                  <ArrowRight size={15} />
+                </Link>
               </div>
             ) : (
               <div className="space-y-12">

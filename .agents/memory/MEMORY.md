@@ -1,0 +1,1 @@
+- [Orval codegen broken](orval-codegen-broken.md) — codegen fails on any input in this env; never run it, treat generated API client/zod files as hand-maintained.

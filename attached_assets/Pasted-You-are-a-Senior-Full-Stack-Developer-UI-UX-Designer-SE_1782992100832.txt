@@ -1,0 +1,407 @@
+You are a Senior Full Stack Developer, UI/UX Designer, SEO Expert, and Performance Engineer.
+
+Your task is to design and develop a complete, production-ready website.
+
+## Project Information
+
+Website Name: https://productarmor.com/ 
+Company Name: Product Armor Packaging Pvt Ltd
+Corporate Video-https://www.youtube.com/watch?v=mHR9lM7LZGw
+Company Logo:      
+
+Industry: Pharmaceutical Packaging
+
+Business Type: Manufacturer
+
+Website Goal: 
+Generate Leads
+Build Brand
+Show Products
+Increase Sales
+Customer Support
+
+Target Audience:
+B2B
+
+Primary Location:
+Hyderabad-Telangana- India
+
+Additional Countries:
+USA
+Europe
+Middle East
+Asia
+Brand Colors:
+Primary: White
+Secondary: #4164a8
+Reference can take from the company logo and Corporate video
+Accent: base design can be copied  https://productarmor.com/ 
+Preferred Font: Modern professional font
+Website Style:
+Modern
+Premium
+Corporate
+Minimal
+Clean
+Responsive
+
+Reference Website:
+https://example.com
+
+Do NOT copy the design.
+Only use it as inspiration for functionality and layout.
+
+-------------------------------------------------
+
+## Technical Requirements
+Use
+React
+Next.js
+Tailwind CSS
+TypeScript
+
+Responsive Design
+Desktop
+Laptop
+Tablet
+Mobile
+
+Dark Mode Support
+
+SEO Optimized
+
+Fast Loading
+
+Lazy Loading Images
+
+Image Optimization
+
+Accessibility
+
+Google PageSpeed above 90
+
+-------------------------------------------------
+
+## Website Structure
+
+Home
+
+About Us
+
+Products
+
+industries
+
+Applications
+
+Technology
+
+Downloads
+
+Case Studies
+
+Career
+
+FAQ
+
+Contact
+
+-------------------------------------------------
+
+## Home Page Sections
+
+Hero Banner
+Animated headline
+Background video/image
+CTA Button
+
+Company Overview
+
+Key Features
+
+Why Choose Us
+
+Products
+
+Industries Served
+
+How We Work
+
+Manufacturing Process
+
+Certifications
+
+Testimonials
+
+Our Clients Check with Manish Sir
+
+FAQ
+
+Call To Action
+
+Footer
+
+-------------------------------------------------
+
+## Product Page
+
+Product Range with image
+
+Description
+
+Applications
+
+Benefits
+
+Downloads
+
+Enquiry Button
+
+
+-------------------------------------------------
+
+## About Page
+
+Company History
+
+Vision
+
+Mission
+
+LeadershipCheck with Manish Sir
+
+Manufacturing Facility
+
+Infrastructure
+
+Quality Policy
+
+Certifications
+
+
+-------------------------------------------------
+
+## Contact Page
+
+Google Map
+
+Inquiry Form
+
+Phone:- +91- 9059274553
+
+Email:- mail@productarmor.com
+
+Address- Survey no. 157, Nallavally Vill, mandal, Gummadidala, Telangana 502313
+
+WhatsApp Button
+
+Social Media
+Linkdin:- https://www.linkedin.com/company/product-armor
+Website:- PRODUCT ARMOR PACKAGING PRIVATE LIMITED
+Location:- https://maps.app.goo.gl/xMArFcAfSQvnqVdS7
+
+
+-------------------------------------------------
+
+## UI Requirements
+
+Modern Animations
+
+Smooth Scroll
+
+Sticky Header
+
+Mega Menu
+
+Search Bar
+
+Breadcrumb
+
+Hover Effects
+
+Glassmorphism where appropriate
+
+Professional Icons
+
+Cards
+
+CTA Buttons
+
+Testimonials Carousel
+
+-------------------------------------------------
+
+## Functional Requirements
+
+Working Contact Form
+
+Email Validation
+
+Product Search
+
+Category Filter
+
+Live Chat Placeholder
+
+Download Brochure
+
+Quote Request Form
+
+-------------------------------------------------
+
+## Admin Ready
+
+CMS Friendly
+
+Easy Content Update
+
+Component Based Structure
+
+Reusable Components
+
+-------------------------------------------------
+
+## SEO
+
+Generate
+
+Meta Title
+
+Meta Description
+
+Open Graph
+
+Twitter Cards
+
+Schema.org
+
+Sitemap
+
+Robots.txt
+
+Canonical URLs
+
+Image Alt Tags
+
+-------------------------------------------------
+
+## Performance
+
+Use Next Image
+
+Lazy Loading
+
+Code Splitting
+
+Optimized CSS
+
+Tree Shaking
+
+Minify Assets
+
+-------------------------------------------------
+
+## Security
+
+HTTPS Ready
+
+Form Validation
+
+Spam Protection
+
+Input Sanitization
+
+-------------------------------------------------
+
+## Deliverables
+
+Generate
+
+Complete Website
+
+Professional UI
+
+Responsive Layout
+
+Folder Structure
+
+Reusable Components
+
+Production Ready Code
+
+Documentation
+
+README
+
+Installation Guide
+
+Deployment Guide
+
+-------------------------------------------------
+
+## Folder Structure
+
+/components
+/pages
+/assets
+/public
+/styles
+/hooks
+/utils
+/services
+/data
+/constants
+
+-------------------------------------------------
+
+## Content
+
+Generate professional business content.
+
+Do NOT use Lorem Ipsum.
+
+Use industry-specific content.
+
+-------------------------------------------------
+
+## Images
+
+Use placeholder images and check https://productarmor.com/ take the images
+
+Clearly mention where original images should be replaced.
+
+-------------------------------------------------
+
+## Forms
+
+Contact Form
+
+Career Form
+
+Quote Request
+
+Newsletter
+
+-------------------------------------------------
+
+## Quality
+
+Use clean architecture.
+
+Maintain consistent spacing.
+
+Professional typography.
+
+Modern UI.
+
+No broken links.
+
+No dummy pages.
+
+Every button should function.
+
+-------------------------------------------------
+
+## Final Goal
+
+Create a premium corporate website that looks comparable to websites built by professional web development agencies.

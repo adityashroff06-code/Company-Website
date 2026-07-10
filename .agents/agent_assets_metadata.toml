@@ -1,0 +1,31 @@
+uploads = []
+
+[[generated]]
+id = "Q_OW0uSa5iySa_hP0gsLy"
+uri = "file://artifacts/productarmor-site/public/images/hdpe-bottles-real.png"
+type = "image"
+title = "blank white HDPE bottles"
+
+[[outputs]]
+id = "NImJdOaR1ooVjpW5IcisB"
+uri = "file://attached_assets/stock_images/hdpe_pharma_bottles_1.jpg"
+type = "image"
+title = "HDPE pharmaceutical white plastic bottles for tablets and capsules, pharma packaging"
+
+[[outputs]]
+id = "mEM3lq87PJzAyyBFGl2WH"
+uri = "file://attached_assets/stock_images/hdpe_pharma_bottles_2.jpg"
+type = "image"
+title = "HDPE pharmaceutical white plastic bottles for tablets and capsules, pharma packaging"
+
+[[outputs]]
+id = "Ust2MA6-3GEe2PQuFFl5x"
+uri = "file://attached_assets/stock_images/hdpe_pharma_bottles_3.jpg"
+type = "image"
+title = "HDPE pharmaceutical white plastic bottles for tablets and capsules, pharma packaging"
+
+[[outputs]]
+id = "az4HsYEC8Ksk55GnPds6Q"
+uri = "file://attached_assets/stock_images/hdpe_pharma_bottles_4.jpg"
+type = "image"
+title = "HDPE pharmaceutical white plastic bottles for tablets and capsules, pharma packaging"

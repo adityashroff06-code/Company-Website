@@ -6,6 +6,12 @@ uri = "file://artifacts/productarmor-site/public/images/hdpe-bottles-real.png"
 type = "image"
 title = "blank white HDPE bottles"
 
+[[generated]]
+id = "ZfKMvgxzhP5tYhd_u2tqn"
+uri = "file://artifacts/productarmor-site/public/images/cr-caps-real.png"
+type = "image"
+title = "white child resistant caps"
+
 [[outputs]]
 id = "NImJdOaR1ooVjpW5IcisB"
 uri = "file://attached_assets/stock_images/hdpe_pharma_bottles_1.jpg"

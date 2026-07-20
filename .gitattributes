@@ -1,0 +1,2 @@
+artifacts/productarmor-site/public/videos/facility.mp4 filter=lfs diff=lfs merge=lfs -text
+attached_assets/Adobe_Express_-_review_PR_08_1784539387651.mp4 filter=lfs diff=lfs merge=lfs -text

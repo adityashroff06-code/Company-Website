@@ -59,11 +59,14 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                 </div>
               </div>
               <div className="relative">
-                <img
-                  src={about?.image ?? "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"}
-                  alt="Our facility"
-                  className="rounded-2xl shadow-xl w-full object-cover h-96"
-                  onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"; }}
+                <video
+                  src={`${import.meta.env.BASE_URL}videos/facility.mp4`}
+                  className="rounded-2xl shadow-xl w-full object-cover h-96 bg-gray-100"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
                 />
               </div>
             </div>

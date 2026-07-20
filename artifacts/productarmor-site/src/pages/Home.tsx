@@ -3,7 +3,7 @@ import { useEffect } from "react";
   import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
   import { CheckCircle, Award, Users, Package, ChevronRight, Star, ArrowRight, Phone, Mail } from "lucide-react";
 
-  function useReveal() {
+  function useReveal(ready?: boolean) {
     useEffect(() => {
       const els = document.querySelectorAll<HTMLElement>(".reveal");
       const obs = new IntersectionObserver(
@@ -12,7 +12,7 @@ import { useEffect } from "react";
       );
       els.forEach(el => obs.observe(el));
       return () => obs.disconnect();
-    }, []);
+    }, [ready]);
   }
 
   function Skeleton({ className }: { className?: string }) {
@@ -20,10 +20,10 @@ import { useEffect } from "react";
   }
 
   export default function Home() {
-    useReveal();
     const { data: content, isLoading } = useGetSiteContent({
       query: { queryKey: getGetSiteContentQueryKey() }
     });
+    useReveal(!isLoading);
 
     const hero = content?.hero;
     const stats = content?.stats ?? [];
@@ -39,7 +39,7 @@ import { useEffect } from "react";
       <div className="overflow-x-hidden">
 
         {/* ── HERO ── */}
-        <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-16">
+        <section className="relative flex items-center justify-center bg-white overflow-hidden pt-16">
           {/* Geometric background pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 right-0 w-96 h-96 border border-gray-400 rounded-full translate-x-1/2 -translate-y-1/2" />
@@ -63,7 +63,7 @@ import { useEffect } from "react";
             />
           )}
 
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
+          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
             {/* Trust badge */}
             <div className="inline-flex items-center gap-2 bg-gray-100 border border-gray-300 rounded-full px-4 py-1.5 mb-8">
               <div className="w-2 h-2 bg-[#4164a8] rounded-full animate-pulse" />
@@ -103,12 +103,6 @@ import { useEffect } from "react";
               </Link>
             </div>
 
-            {/* Scroll indicator */}
-            <div className="mt-16 flex justify-center">
-              <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center pt-2">
-                <div className="w-1 h-2 bg-gray-400 rounded-full animate-bounce" />
-              </div>
-            </div>
           </div>
         </section>
 

@@ -103,33 +103,33 @@
   ],
   "clients": [
     {
-      "id": "1",
-      "name": "Sun Pharma",
+      "id": "client-1",
+      "name": "Granules India",
       "logo": ""
     },
     {
-      "id": "2",
-      "name": "Cipla",
+      "id": "client-2",
+      "name": "MSN Labs",
       "logo": ""
     },
     {
-      "id": "3",
-      "name": "Dr. Reddy's",
+      "id": "client-3",
+      "name": "Laurus Labs",
       "logo": ""
     },
     {
-      "id": "4",
-      "name": "Lupin",
+      "id": "client-4",
+      "name": "Strides",
       "logo": ""
     },
     {
-      "id": "5",
-      "name": "Alkem Labs",
+      "id": "client-5",
+      "name": "Inventia",
       "logo": ""
     },
     {
-      "id": "6",
-      "name": "Mankind Pharma",
+      "id": "client-6",
+      "name": "Graviti",
       "logo": ""
     }
   ],

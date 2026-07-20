@@ -54,7 +54,6 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                 <>
                   {[
                     { name: "ISO 9001:2015", issuer: "Quality Management Systems", year: "2024" },
-                    { name: "WHO-GMP", issuer: "World Health Organization", year: "2024" },
                     { name: "ISO 14001:2015", issuer: "Environmental Management", year: "2023" },
                     { name: "USDMF Listed", issuer: "US Drug Master File", year: "2024" },
                   ].map(c => (

@@ -68,12 +68,6 @@ const resources: Resource[] = [
     type: "PDF · 0.4 MB",
   },
   {
-    icon: FileBadge,
-    title: "WHO-GMP Certificate",
-    desc: "Copy of our WHO-GMP compliance certificate for primary pharmaceutical packaging manufacturing.",
-    type: "PDF · 0.4 MB",
-  },
-  {
     icon: FileCheck2,
     title: "Material Compliance (USP Class VI)",
     desc: "Documentation confirming our HDPE resin meets USP Class VI and food-grade material compliance requirements.",
@@ -91,7 +85,7 @@ export default function Downloads() {
   usePageMeta({
     title: "Downloads & Resources",
     description:
-      "Download ProductArmor brochures, technical data sheets, ISO 9001 & WHO-GMP certificates, and material compliance documents for pharmaceutical HDPE packaging.",
+      "Download ProductArmor brochures, technical data sheets, ISO 9001 certificates, and material compliance documents for pharmaceutical HDPE packaging.",
     path: "/downloads",
   });
   useReveal();

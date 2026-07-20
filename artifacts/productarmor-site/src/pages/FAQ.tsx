@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "Which certifications and quality standards do you hold?",
-    a: "Our facility is ISO 9001:2015 certified and operates under WHO-GMP guidelines. Production runs under controlled clean conditions with documented in-process and final inspection. Certificate copies and quality documentation can be provided to support your regulatory filings and vendor qualification.",
+    a: "Our facility is ISO 9001:2015 certified and operates under GMP guidelines. Production runs under controlled clean conditions with documented in-process and final inspection. Certificate copies and quality documentation can be provided to support your regulatory filings and vendor qualification.",
   },
   {
     q: "Do you provide free samples before I place an order?",

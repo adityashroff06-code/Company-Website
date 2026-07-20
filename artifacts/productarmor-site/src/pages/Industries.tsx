@@ -73,7 +73,7 @@ const regulatory = [
   {
     icon: ShieldCheck,
     title: "Pharmaceuticals",
-    desc: "USP Class VI food-grade HDPE resin, WHO-GMP manufacturing and CR caps certified to ISO 8317 / US 16 CFR 1700.20 child-resistance standards.",
+    desc: "USP Class VI food-grade HDPE resin, GMP manufacturing and CR caps certified to ISO 8317 / US 16 CFR 1700.20 child-resistance standards.",
   },
   {
     icon: FileCheck,
@@ -173,7 +173,7 @@ export default function Industries() {
               Regulatory Fit by Industry
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              ISO 9001:2015 and WHO-GMP certified manufacturing means the right
+              ISO 9001:2015 certified manufacturing means the right
               documentation and material assurance for every market you sell
               into.
             </p>

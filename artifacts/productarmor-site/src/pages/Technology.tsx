@@ -74,7 +74,7 @@ const capabilities = [
   {
     icon: ShieldCheck,
     title: "Controlled Clean-Room Environment",
-    desc: "Moulding and packing take place in temperature- and particulate-controlled zones aligned with WHO-GMP expectations for primary pharmaceutical packaging.",
+    desc: "Moulding and packing take place in temperature- and particulate-controlled zones aligned with GMP expectations for primary pharmaceutical packaging.",
   },
   {
     icon: Gauge,

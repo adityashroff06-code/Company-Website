@@ -39,7 +39,7 @@ const openRoles = [
     type: "Full-time",
     location: "Hyderabad, Telangana",
     summary:
-      "Execute in-line and incoming quality checks, maintain batch records and CoAs, support ISO 9001:2015 and WHO-GMP audits, and drive corrective/preventive actions.",
+      "Execute in-line and incoming quality checks, maintain batch records and CoAs, support ISO 9001:2015 audits, and drive corrective/preventive actions.",
     requirements: ["B.Sc./B.Pharm/M.Sc.", "1–4 yrs QA/QC in pharma or packaging", "Familiarity with AQL sampling, GDP and documentation"],
   },
   {
@@ -57,7 +57,7 @@ export default function Career() {
   usePageMeta({
     title: "Careers",
     description:
-      "Build your career at ProductArmor — a WHO-GMP & ISO 9001:2015 certified HDPE pharma packaging manufacturer in Hyderabad. Explore open roles and apply online.",
+      "Build your career at ProductArmor — an ISO 9001:2015 certified HDPE pharma packaging manufacturer in Hyderabad. Explore open roles and apply online.",
     path: "/career",
   });
   useReveal();
@@ -85,7 +85,7 @@ export default function Career() {
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Build Your Career With Us</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
-            Help shape the future of pharmaceutical packaging. We're a WHO-GMP and ISO 9001:2015 certified
+            Help shape the future of pharmaceutical packaging. We're an ISO 9001:2015 certified
             HDPE bottle and closure manufacturer in Hyderabad, growing across India and export markets.
           </p>
         </div>

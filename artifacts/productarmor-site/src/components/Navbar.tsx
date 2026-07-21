@@ -101,7 +101,7 @@ export default function Navbar() {
               href="/contact"
               className="ml-2 px-4 py-2 bg-[#4164a8] text-white hover:bg-[#345099] text-sm font-semibold rounded transition-colors"
             >
-              Request Sample
+              Contact Us
             </Link>
           </div>
 
@@ -170,7 +170,7 @@ export default function Navbar() {
                 href="/contact"
                 className="block text-center px-4 py-2.5 bg-[#4164a8] text-white hover:bg-[#345099] text-sm font-semibold rounded transition-colors"
               >
-                Request Sample
+                Contact Us
               </Link>
             </div>
           </div>

@@ -136,7 +136,7 @@ import { useEffect } from "react";
                   {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of HDPE pharmaceutical bottles, CR and CT caps, delivering world-class packaging at unparalleled value."}
                 </p>
                 <div className="space-y-3 mb-8">
-                  {["Controlled manufacturing environment","Zero-rejection quality inspection","Sustainable production processes","On-time delivery guarantee"].map(f => (
+                  {["Sustainability Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"].map(f => (
                     <div key={f} className="flex items-center gap-3">
                       <CheckCircle size={18} className="text-[#4164a8] shrink-0" />
                       <span className="text-gray-700 text-sm">{f}</span>

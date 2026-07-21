@@ -14,21 +14,21 @@
       "label": "Products Delivered"
     },
     {
-      "value": "50+",
-      "label": "Pharma Clients"
+      "value": "1B+",
+      "label": "Units Annual Capacity"
     },
     {
-      "value": "ISO",
-      "label": "Certified Quality"
+      "value": "18+",
+      "label": "Advanced Machines"
     },
     {
       "value": "100%",
-      "label": "On-Time Delivery"
+      "label": "Automated Inspection"
     }
   ],
   "about": {
     "title": "Precision Packaging Built for Pharma",
-    "description": "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of HDPE pharmaceutical bottles, Child Resistant (CR) caps and Continuous Thread (CT) caps. We combine cross-industry engineering expertise with sustainable manufacturing processes to deliver world-class packaging at unparalleled value. Our commitment to quality, compliance and environmental responsibility sets us apart in every batch we produce.",
+    "description": "Product Armor Packaging Pvt Ltd is a cleanroom manufacturing company based in Hyderabad, India, serving the pharmaceutical industry with HDPE bottles, Child Resistant Closures (CRC) and Continuous Thread (CT) caps. Our 1,820 sq.m ISO Class 8 certified facility combines end-to-end automation, rigorous quality systems and 100% automated inspection to deliver contamination-free, pharma-grade packaging with a low carbon footprint.",
     "image": "/site/images/about-home.jpg"
   },
   "products": [
@@ -36,13 +36,14 @@
       "id": "hdpe-bottles",
       "name": "HDPE Pharmaceutical Bottles",
       "category": "Primary Packaging",
-      "description": "High-density polyethylene bottles engineered for pharmaceutical storage. Available in multiple sizes, colours and neck finishes to suit your formulation requirements.",
+      "description": "High-density polyethylene bottles manufactured in an ISO Class 8 cleanroom for contamination-free, pharma-grade quality. Available from 30cc to 2400cc across 20 sizes.",
       "features": [
         "USP Class VI compliant HDPE resin",
-        "Available 10ml – 1000ml",
-        "Multiple colour options including amber and white",
-        "Custom labelling and embossing available",
-        "GMP-compatible manufacturing"
+        "Sizes from 30cc to 2400cc",
+        "227+ million bottles annual capacity",
+        "100% automated 11-camera visual inspection",
+        "Cleanroom (ISO Class 8) manufacturing",
+        "Oxygen barrier for medicine stability"
       ],
       "image": "/site/images/hdpe-bottles-real.png"
     },
@@ -50,13 +51,14 @@
       "id": "cr-caps",
       "name": "Child Resistant Caps",
       "category": "Closures",
-      "description": "Push-and-turn child resistant closures meeting global safety standards. Designed to protect children while remaining accessible to adults.",
+      "description": "Push-down-and-turn child resistant closures manufactured with our patented low-carbon compression moulding technology (Patent No. 568961), meeting global safety standards.",
       "features": [
-        "CFR 16 Part 1700 compliant",
-        "Tested to ISO 8317 standards",
-        "Available with induction seal liner",
-        "Continuous thread and snap-on variants",
-        "Compatible with standard HDPE bottles"
+        "CFR 16 Part 1700 compliant, tested to ISO 8317",
+        "Patented CRC manufacturing technology (Patent No. 568961)",
+        "Sizes 28mm to 53mm",
+        "600 million CRC caps annual capacity",
+        "Pictorial + textual opening instructions on cap tops",
+        "Available with induction seal liner"
       ],
       "image": "/site/images/cr-caps-real.png"
     },
@@ -64,12 +66,13 @@
       "id": "ct-caps",
       "name": "Continuous Thread Caps",
       "category": "Closures",
-      "description": "Standard CT closures for pharmaceutical and nutraceutical applications. Available with various liner options for optimal seal integrity.",
+      "description": "Standard CT closures for pharmaceutical and nutraceutical applications, produced with continuous compression moulding for consistent quality and low carbon footprint.",
       "features": [
-        "28mm, 33mm, 38mm and custom sizes",
-        "LDPE and PP material options",
+        "Sizes 28mm, 33mm, 38mm, 45mm and 53mm",
+        "1 billion+ CT caps annual capacity",
+        "2D & 3D barcode printing as per client needs",
+        "100% automated camera inspection",
         "Induction seal, foam and EPE liner options",
-        "Tamper-evident bands available",
         "FDA and EU food-contact compliant"
       ],
       "image": "/site/images/ct-caps-real.png"
@@ -80,19 +83,31 @@
       "id": "iso9001",
       "name": "ISO 9001:2015",
       "issuer": "Quality Management Systems",
-      "year": "2024"
+      "year": "IN25/00000630"
     },
     {
-      "id": "iso14001",
-      "name": "ISO 14001:2015",
-      "issuer": "Environmental Management",
-      "year": "2023"
+      "id": "iso15378",
+      "name": "ISO 15378:2017",
+      "issuer": "Primary Packaging for Pharmaceuticals",
+      "year": "IN22/00000330"
     },
     {
       "id": "usdmf",
       "name": "USDMF Listed",
       "issuer": "US Drug Master File",
-      "year": "2024"
+      "year": "DMF 036675 / 037264"
+    },
+    {
+      "id": "cdmf",
+      "name": "Canadian DMF",
+      "issuer": "Health Canada",
+      "year": "MF2022-108"
+    },
+    {
+      "id": "chinadmf",
+      "name": "China DMF",
+      "issuer": "NMPA China",
+      "year": "B20220000820"
     }
   ],
   "clients": [
@@ -160,7 +175,7 @@
   "company": {
     "name": "Product Armor Packaging Pvt Ltd",
     "tagline": "Controlled Variables, Specified Outcomes",
-    "founded": "2018",
+    "founded": "2020",
     "employees": "50+",
     "totalClients": "50+"
   }

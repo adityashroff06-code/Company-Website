@@ -4,8 +4,8 @@ export const SITE = {
   domain: "https://productarmor.com",
   tagline: "Controlled Variables, Specified Outcomes",
   description:
-    "Product Armor Packaging Pvt Ltd manufactures ISO 9001:2015 certified pharmaceutical-grade HDPE bottles, child-resistant (CR) caps and continuous thread (CT) caps for regulated markets across India, USA, Europe, the Middle East and Asia.",
-  founded: "2018",
+    "Product Armor Packaging Pvt Ltd manufactures ISO 9001:2015 & ISO 15378 certified, ISO Class 8 cleanroom-manufactured pharmaceutical-grade HDPE bottles, child-resistant (CR) caps and continuous thread (CT) caps for regulated markets across India, USA, Europe, the Middle East and Asia.",
+  founded: "2020",
 } as const;
 
 export const CONTACT = {

@@ -68,6 +68,12 @@ const resources: Resource[] = [
     type: "PDF · 0.4 MB",
   },
   {
+    icon: FileBadge,
+    title: "ISO 15378:2017 Certificate",
+    desc: "Copy of our ISO 15378:2017 certification for primary packaging materials for medicinal products.",
+    type: "PDF · 0.4 MB",
+  },
+  {
     icon: FileCheck2,
     title: "Material Compliance (USP Class VI)",
     desc: "Documentation confirming our HDPE resin meets USP Class VI and food-grade material compliance requirements.",
@@ -85,7 +91,7 @@ export default function Downloads() {
   usePageMeta({
     title: "Downloads & Resources",
     description:
-      "Download ProductArmor brochures, technical data sheets, ISO 9001 certificates, and material compliance documents for pharmaceutical HDPE packaging.",
+      "Download ProductArmor brochures, technical data sheets, ISO 9001 and ISO 15378 certificates, and material compliance documents for pharmaceutical HDPE packaging.",
     path: "/downloads",
   });
   useReveal();

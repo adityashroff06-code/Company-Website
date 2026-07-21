@@ -68,18 +68,23 @@ const processSteps = [
 const capabilities = [
   {
     icon: Factory,
-    title: "Injection & Blow Moulding",
-    desc: "Dual moulding capability lets us produce rigid CR/CT closures and lightweight HDPE bottles in a single, integrated facility for consistent quality and shorter lead times.",
+    title: "CBF, IBM & EBM Bottle Technologies",
+    desc: "Compression Blow Forming (SACMI, Italy), Injection Blow Moulding and Extrusion Blow Moulding lines cover bottles from 30cc to 2400cc — with CBF cutting carbon emissions by up to 40% versus conventional blow moulding.",
+  },
+  {
+    icon: Wrench,
+    title: "Patented CRC Closure Moulding",
+    desc: "India's only patented Continuous Compression Moulding technology for CRC caps (Patent No. 568961) delivers 600M+ CRC and 1B+ CT caps annually with up to 30% lower energy consumption.",
   },
   {
     icon: ShieldCheck,
-    title: "Controlled Clean-Room Environment",
-    desc: "Moulding and packing take place in temperature- and particulate-controlled zones aligned with GMP expectations for primary pharmaceutical packaging.",
+    title: "ISO Class 8 Cleanroom Environment",
+    desc: "Moulding and packing take place inside a 1,820 sq.m ISO Class 8 cleanroom with HEPA filtration and strict particulate control, ensuring contamination-free primary pharmaceutical packaging.",
   },
   {
     icon: Gauge,
-    title: "In-Line Quality Inspection",
-    desc: "Automated vision, torque and leak testing at every stage delivers our zero-rejection commitment, backed by documented, retained inspection records.",
+    title: "11-Camera Vision Inspection",
+    desc: "An 11-camera vision system performs 360° inspection of every bottle, with automated rejection of defective units — 100% inspection with zero human bias, backed by documented records.",
   },
   {
     icon: Cpu,

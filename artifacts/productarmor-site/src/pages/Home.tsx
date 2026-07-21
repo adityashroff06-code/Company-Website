@@ -67,7 +67,7 @@ import { useEffect } from "react";
             {/* Trust badge */}
             <div className="inline-flex items-center gap-2 bg-gray-100 border border-gray-300 rounded-full px-4 py-1.5 mb-8">
               <div className="w-2 h-2 bg-[#4164a8] rounded-full animate-pulse" />
-              <span className="text-gray-700 text-sm font-medium">ISO 9001:2015 Certified Manufacturer</span>
+              <span className="text-gray-700 text-sm font-medium">ISO 9001:2015 &amp; ISO 15378 Certified Cleanroom Manufacturer</span>
             </div>
 
             {isLoading ? (

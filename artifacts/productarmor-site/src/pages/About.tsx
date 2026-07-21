@@ -5,7 +5,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
   const values = [
     { icon: Shield, title: "Quality First", desc: "Every batch meets or exceeds international pharmacopoeia requirements before it leaves our facility." },
     { icon: Users, title: "Client Partnership", desc: "We work as an extension of your supply chain, adapting to your timelines and compliance requirements." },
-    { icon: Leaf, title: "Sustainable Manufacturing", desc: "Responsible material sourcing, waste reduction, and ISO 14001-certified environmental management." },
+    { icon: Leaf, title: "Sustainable Manufacturing", desc: "Responsible material sourcing, waste reduction, and a carbon-neutral-by-2026 commitment." },
     { icon: CheckCircle, title: "Controlled Outcomes", desc: "Controlled variables in every production run mean predictable, repeatable quality — every time." },
   ];
 
@@ -43,11 +43,11 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                   {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of HDPE pharmaceutical bottles, Child Resistant (CR) caps and Continuous Thread (CT) caps."}
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-8">
-                  Founded in {company?.founded ?? "2018"}, we have grown to serve {company?.totalClients ?? "50+"} pharmaceutical clients across India and export markets. Our {company?.employees ?? "50+"} person team brings decades of combined experience in pharmaceutical packaging manufacturing.
+                  Founded in {company?.founded ?? "2020"}, we have grown to serve {company?.totalClients ?? "50+"} pharmaceutical clients across India and export markets. Our {company?.employees ?? "50+"} person team brings decades of combined experience in pharmaceutical packaging manufacturing.
                 </p>
                 <div className="grid grid-cols-3 gap-4">
                   {[
-                    { v: company?.founded ?? "2018", l: "Founded" },
+                    { v: company?.founded ?? "2020", l: "Founded" },
                     { v: company?.employees ?? "50+", l: "Team members" },
                     { v: company?.totalClients ?? "50+", l: "Clients served" },
                   ].map(s => (

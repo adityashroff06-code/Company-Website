@@ -46,16 +46,18 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                   <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
                   <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
                   <div className="inline-block bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold px-3 py-1 rounded-full">
-                    Valid through {c.year}
+                    {c.year}
                   </div>
                 </div>
               ))}
               {certifications.length === 0 && (
                 <>
                   {[
-                    { name: "ISO 9001:2015", issuer: "Quality Management Systems", year: "2024" },
-                    { name: "ISO 14001:2015", issuer: "Environmental Management", year: "2023" },
-                    { name: "USDMF Listed", issuer: "US Drug Master File", year: "2024" },
+                    { name: "ISO 9001:2015", issuer: "Quality Management Systems", year: "IN25/00000630" },
+                    { name: "ISO 15378:2017", issuer: "Primary Packaging for Pharmaceuticals", year: "IN22/00000330" },
+                    { name: "USDMF Listed", issuer: "US Drug Master File", year: "DMF 036675 / 037264" },
+                    { name: "Canadian DMF", issuer: "Health Canada", year: "MF2022-108" },
+                    { name: "China DMF", issuer: "NMPA China", year: "B20220000820" },
                   ].map(c => (
                     <div key={c.name} className="border-2 border-[#4164a8]/10 hover:border-[#4164a8]/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
                       <div className="w-16 h-16 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
@@ -64,7 +66,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                       <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
                       <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
                       <div className="inline-block bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold px-3 py-1 rounded-full">
-                        Valid through {c.year}
+                        {c.year}
                       </div>
                     </div>
                   ))}

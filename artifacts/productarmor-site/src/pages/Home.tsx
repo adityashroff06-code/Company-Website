@@ -71,7 +71,7 @@ import { useEffect } from "react";
               </>
             ) : (
               <>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#32CD32] leading-[1.1] tracking-tight mb-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#4364a7] leading-[1.1] tracking-tight mb-6">
                   {hero?.headline ?? "Pharmaceutical-Grade HDPE Packaging"}
                 </h1>
                 <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">

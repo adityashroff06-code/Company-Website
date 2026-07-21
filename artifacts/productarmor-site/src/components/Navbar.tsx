@@ -40,7 +40,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <img src={logoUrl} alt="Product Armor Packaging" className="h-9 w-auto object-contain" />
+            <img src={logoUrl} alt="Product Armor Packaging" className="h-11 w-auto object-contain" />
           </Link>
 
           {/* Desktop links */}

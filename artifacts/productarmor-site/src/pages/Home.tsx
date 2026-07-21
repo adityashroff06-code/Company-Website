@@ -88,13 +88,6 @@ import { useEffect } from "react";
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105 text-base"
-              >
-                {hero?.ctaText ?? "Request a Sample Kit"}
-                <ArrowRight size={18} />
-              </Link>
-              <Link
                 href="/products"
                 className="inline-flex items-center gap-2 bg-transparent hover:bg-gray-100 border border-gray-300 text-gray-800 font-medium px-8 py-3.5 rounded-lg transition-all duration-200 text-base"
               >

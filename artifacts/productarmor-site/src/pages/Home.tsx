@@ -129,6 +129,9 @@ import { useEffect } from "react";
                 <p className="text-gray-600 leading-relaxed mb-8">
                   {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of HDPE pharmaceutical bottles, CR and CT caps, delivering world-class packaging at unparalleled value."}
                 </p>
+                <h3 className="text-lg font-semibold text-[#0f2a4e] mb-4">
+                  Every solution we deliver is supported by the core strengths that define who we are and how we serve.
+                </h3>
                 <div className="space-y-3 mb-8">
                   {["Sustainability Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"].map(f => (
                     <div key={f} className="flex items-center gap-3">

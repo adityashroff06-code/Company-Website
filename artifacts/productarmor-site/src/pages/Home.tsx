@@ -63,7 +63,7 @@ import { useEffect } from "react";
             />
           )}
 
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
+          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 sm:pt-12 pb-16 sm:pb-20">
             {/* Trust badge */}
             <div className="inline-flex items-center gap-2 bg-gray-100 border border-gray-300 rounded-full px-4 py-1.5 mb-8">
               <div className="w-2 h-2 bg-[#4164a8] rounded-full animate-pulse" />

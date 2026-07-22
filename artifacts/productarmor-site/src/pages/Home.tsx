@@ -185,7 +185,7 @@ import { useEffect } from "react";
                 Our Products
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
-                End-to-End Packaging Solutions
+                Engineered for Protection. Designed for Performance.
               </h2>
               <p className="text-gray-500 max-w-xl mx-auto">
                 Every product is manufactured to meet international regulatory requirements for pharmaceutical packaging.

@@ -188,7 +188,7 @@ import { useEffect } from "react";
                 Engineered for Protection. Designed for Performance.
               </h2>
               <p className="text-gray-500 max-w-xl mx-auto">
-                Every product is manufactured to meet international regulatory requirements for pharmaceutical packaging.
+                Explore our portfolio of pharmaceutical packaging solutions, including HDPE (High-Density Polyethylene) containers &amp; bottles, PP (Polypropylene) CT (Continuous Thread), CRC (Child-Resistant Closures) caps &amp; closures powered by patented technology and recognized globally.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

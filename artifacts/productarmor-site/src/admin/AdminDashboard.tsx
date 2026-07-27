@@ -346,6 +346,7 @@ import { useState, useEffect } from "react";
                       <Field label="Name" value={p.name} onChange={v => { const next = [...draft.products]; next[i] = { ...next[i], name: v }; set(["products"], next); }} />
                       <Field label="Category" value={p.category} onChange={v => { const next = [...draft.products]; next[i] = { ...next[i], category: v }; set(["products"], next); }} />
                       <Field label="Description" value={p.description} onChange={v => { const next = [...draft.products]; next[i] = { ...next[i], description: v }; set(["products"], next); }} type="textarea" rows={3} />
+                      <Field label="Available Sizes (leave empty to hide)" value={p.sizes ?? ""} onChange={v => { const next = [...draft.products]; next[i] = { ...next[i], sizes: v }; set(["products"], next); }} />
                       <Field label="Image URL" value={p.image} onChange={v => { const next = [...draft.products]; next[i] = { ...next[i], image: v }; set(["products"], next); }} />
                       {p.image && <img src={p.image} alt={p.name} className="w-full h-32 object-cover rounded-lg border border-gray-200" onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />}
                       <div>

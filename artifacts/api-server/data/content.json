@@ -31,7 +31,7 @@
     "description": "Product Armor Packaging delivers cleanroom-manufactured pharmaceutical packaging solutions trusted by customers worldwide. Operating within an ISO Class 8 cleanroom environment, we specialize in HDPE containers, bottles, and PP caps & closures that meet the rigorous demands of the pharmaceutical industry. With a vision focused on the future of healthcare, we are continuously advancing our capabilities to support next-generation packaging technologies and drug delivery devices for global markets.",
     "image": "/site/images/about-family.jpg",
     "strengths": [
-      "Sustainability Practices",
+      "Sustainable Practices",
       "End-to-End Automation",
       "Quality Approach",
       "Economies of Scale",
@@ -43,10 +43,10 @@
       "id": "hdpe-bottles",
       "name": "Containers & Bottles",
       "category": "Bottles & Containers",
-      "description": "Advanced pharmaceutical containers and bottles manufactured in an ISO Class 8 cleanroom environment, ensuring product protection, consistency, and compliance with the stringent requirements of the pharmaceutical industry.\n \nAvailable Sizes: 30cc, 40cc, 60cc, 75cc, 100cc, 120cc, 150cc, 180cc, 200cc, 300cc, 400cc, 500cc, 625cc, 750cc, 850cc, 950cc, 1125cc, 1300cc, 1500cc & 2400cc",
+      "description": "Advanced pharmaceutical containers and bottles manufactured in an ISO Certified 8 cleanroom environment, ensuring product protection, consistency, and compliance with the stringent requirements of the pharmaceutical industry.",
       "features": [
         "Automated Manufacturing enabling precision, consistency, and minimal human intervention throughout the production process.",
-        "ISO Class 8 Cleanroom Production ensuring controlled manufacturing conditions to support pharmaceutical-grade quality and product integrity.",
+        "ISO Certified 8 Cleanroom Production ensuring controlled manufacturing conditions to support pharmaceutical-grade quality and product integrity.",
         "Low-Carbon Manufacturing utilizing resource-efficient processes designed to reduce environmental impact while maintaining high performance standards.",
         "Advanced Process Controls with continuous monitoring of critical manufacturing parameters to ensure consistent product quality.",
         "Precision-Engineered Performance designed for reliable filling, sealing, handling, and storage across pharmaceutical applications.",
@@ -55,13 +55,14 @@
         "Consistent Product Specifications delivering dimensional accuracy, dependable sealing performance, and protection for product stability throughout its lifecycle.",
         "Trusted by Global Pharmaceutical Companies for reliability, consistency, and supply assurance across international markets."
       ],
-      "image": "/site/images/hdpe-bottles-new.jpg"
+      "image": "/site/images/hdpe-bottles-new.jpg",
+      "sizes": "30cc, 40cc, 60cc, 75cc, 100cc, 120cc, 150cc, 180cc, 200cc, 300cc, 400cc, 500cc, 625cc, 750cc, 850cc, 950cc, 1125cc, 1300cc, 1500cc & 2400cc"
     },
     {
       "id": "cr-caps",
       "name": "Child-Resistant Closures (CRC)",
       "category": "Caps & Closures",
-      "description": "Our Child-Resistant Closures (CRC) are manufactured using a one-of-a-kind patented technology that combines patient safety, operational excellence, and one of the world's lowest carbon footprints in CRC manufacturing.\n\nAvailable Sizes: 28 mm, 33 mm, 38 mm, 45 mm & 53 mm",
+      "description": "Our Child-Resistant Closures (CRC) are manufactured using a one-of-a-kind patented technology that combines patient safety, operational excellence, and one of the world's lowest carbon footprints in CRC manufacturing.",
       "features": [
         "Patented Technology featuring a unique CRC manufacturing process engineered for operational excellence.",
         "One of the World's Lowest Carbon Footprints achieved through innovative CRC manufacturing technology.",
@@ -70,13 +71,14 @@
         "Proven Market Performance with over 600 million CRC caps delivered to pharmaceutical customers. globally per annum.",
         "Trusted by Global Pharmaceutical Brands across diverse healthcare applications."
       ],
-      "image": "/site/images/cr-caps-real.png"
+      "image": "/site/images/cr-caps-real.png",
+      "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm"
     },
     {
       "id": "ct-caps",
       "name": "Continuous Thread Closures (CT)",
       "category": "Caps & Closures",
-      "description": "Our Continuous Thread (CT) closures are designed to deliver secure sealing performance, product integrity, and dependable supply for high-volume pharmaceutical requirements.\n\nAvailable Sizes: 28 mm, 33 mm, 38 mm, 45 mm & 53 mm",
+      "description": "Our Continuous Thread (CT) closures are designed to deliver secure sealing performance, product integrity, and dependable supply for high-volume pharmaceutical requirements.",
       "features": [
         "Large-Scale Production Capability with a proven manufacturing track record exceeding 1 billion CT caps annually.",
         "Reliable Sealing Performance designed to protect product integrity throughout the supply chain.",
@@ -86,7 +88,8 @@
         "Highly Automated Production ensuring precision, consistency, and repeatability.",
         "Trusted by Leading Global Pharmaceutical Brands across diverse healthcare applications."
       ],
-      "image": "/site/images/ct-caps-real.png"
+      "image": "/site/images/ct-caps-real.png",
+      "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm"
     },
     {
       "id": "1784714630526",

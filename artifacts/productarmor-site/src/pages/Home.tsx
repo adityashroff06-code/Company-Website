@@ -141,7 +141,7 @@ import { useEffect } from "react";
                   Every solution we deliver is supported by the core strengths that define who we are and how we serve.
                 </h3>
                 <div className="space-y-3 mb-8">
-                  {["Sustainability Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"].map(f => (
+                  {(about?.strengths ?? ["Sustainability Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"]).map(f => (
                     <div key={f} className="flex items-center gap-3">
                       <CheckCircle size={18} className="text-[#4164a8] shrink-0" />
                       <span className="text-gray-700 text-sm">{f}</span>

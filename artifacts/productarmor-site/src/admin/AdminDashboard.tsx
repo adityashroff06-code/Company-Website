@@ -288,6 +288,33 @@ import { useState, useEffect } from "react";
                 <Section title="About Section" icon={FileText}>
                   <Field label="Title" value={draft.about.title} onChange={v => set(["about","title"], v)} />
                   <Field label="Description" value={draft.about.description} onChange={v => set(["about","description"], v)} type="textarea" rows={5} />
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Core Strengths (shown on Home page)</label>
+                    <div className="space-y-1.5">
+                      {(draft.about.strengths ?? []).map((s, i) => (
+                        <div key={i} className="flex gap-2">
+                          <input
+                            type="text" value={s}
+                            onChange={e => {
+                              const next = [...(draft.about.strengths ?? [])];
+                              next[i] = e.target.value;
+                              set(["about","strengths"], next);
+                            }}
+                            className="flex-1 px-2 py-1.5 rounded border border-gray-200 focus:border-[#4164a8] focus:outline-none text-sm"
+                          />
+                          <button onClick={() => set(["about","strengths"], (draft.about.strengths ?? []).filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600 p-1">
+                            <Trash2 size={13} />
+                          </button>
+                        </div>
+                      ))}
+                      <button
+                        onClick={() => set(["about","strengths"], [...(draft.about.strengths ?? []), ""])}
+                        className="text-[#4164a8] text-xs font-medium hover:underline flex items-center gap-1"
+                      >
+                        <Plus size={12} /> Add strength
+                      </button>
+                    </div>
+                  </div>
                   <Field label="Image URL" value={draft.about.image} onChange={v => set(["about","image"], v)} />
                   {draft.about.image && (
                     <img src={draft.about.image} alt="About" className="w-full h-48 object-cover rounded-lg border border-gray-200" onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />

@@ -35,7 +35,9 @@ Marketing website for Product Armor Packaging Pvt Ltd (productarmor.com) — a B
 
 ## Product
 
-Public marketing site: Home, Products (with search), Industries, Applications, Technology, Downloads, Case Studies, Careers, FAQ, About, Quality, Contact (Google Map + enquiry form). Mega-menu nav, breadcrumbs, WhatsApp float, and an `/admin` content editor.
+Public marketing site: Home, Products (with search), Industries, Applications, Technology, Downloads, Case Studies, Careers, FAQ, About, Management Team (cards + profile modal), Quality, Contact (Google Map + enquiry form). Mega-menu nav, breadcrumbs, WhatsApp float, and an `/admin` content editor (Management Team tab has its own immediate-save CRUD, separate from the content.json draft/save flow).
+
+Management Team data lives in `artifacts/api-server/data/management-team.json` via dedicated REST routes (`/api/management-team`, photo uploads saved to `artifacts/api-server/data/uploads/` and served at `/api/uploads/*`). Frontend uses plain fetch + react-query in `src/lib/managementTeam.ts` (not generated hooks — codegen is broken, see Gotchas).
 
 ## User preferences
 

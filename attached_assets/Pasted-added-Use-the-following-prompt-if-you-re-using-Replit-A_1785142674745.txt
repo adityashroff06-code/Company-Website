@@ -1,0 +1,96 @@
+added
+Use the following prompt if you're using Replit AI, Claude, Cursor, or another AI coding assistant to add this feature to your website:
+________________________________________
+Prompt: Add "Management Team" Submenu with Admin Management
+Objective:
+Add a new menu called "Management Team" below the About Us menu. This page will display the company's directors and senior management team with their photos, names, designations, and descriptions. Create a secure admin interface to manage this content dynamically.
+Frontend Requirements
+1.	Add a new menu: 
+o	Below About Us → Management Team 
+2.	Create a responsive Management Team page with: 
+o	Professional banner/header. 
+o	Grid or card layout. 
+o	Each card should display: 
+	Profile photo 
+	Full Name 
+	Designation 
+	Short description (200–500 characters) 
+	Optional LinkedIn/Profile link 
+	Display order 
+o	Clicking on a card should open a detailed profile page or modal with: 
+	Larger image 
+	Full biography 
+	Qualifications 
+	Experience 
+	Key responsibilities 
+	Vision/Message (optional) 
+3.	Design Requirements: 
+o	Corporate and premium appearance. 
+o	Responsive for desktop, tablet, and mobile. 
+o	Smooth hover animations. 
+o	Lazy loading for images. 
+o	SEO-friendly page structure. 
+________________________________________
+Admin Panel Requirements
+Create a new menu:
+Admin → Website Management → Management Team
+The admin should have complete CRUD functionality:
+Fields
+•	Profile Photo (Upload) 
+•	Full Name 
+•	Designation 
+•	Department 
+•	Short Description 
+•	Detailed Biography (Rich Text Editor) 
+•	Qualifications 
+•	Experience 
+•	LinkedIn URL (Optional) 
+•	Email (Optional) 
+•	Phone (Optional) 
+•	Display Order 
+•	Active/Inactive Status 
+•	Featured Member (Yes/No) 
+Features
+•	Add new member 
+•	Edit member 
+•	Delete member 
+•	Activate/Deactivate 
+•	Image preview before upload 
+•	Drag-and-drop display order 
+•	Search by name/designation 
+•	Pagination 
+•	Confirmation before delete 
+________________________________________
+Database Structure
+Create a table:
+management_team
+Fields:
+•	id (Primary Key) 
+•	full_name 
+•	designation 
+•	department 
+•	short_description 
+•	biography 
+•	qualifications 
+•	experience 
+•	linkedin_url 
+•	email 
+•	phone 
+•	profile_photo 
+•	display_order 
+•	featured 
+•	status 
+•	created_at 
+•	updated_at 
+•	created_by 
+•	updated_by 
+________________________________________
+API Requirements
+Create REST APIs:
+•	GET /api/management-team 
+•	GET /api/management-team/{id} 
+•	POST /api/management-team 
+•	PUT /api/management-team/{id} 
+•	DELETE /api/management-team/{id} 
+Only active members should appear on the public website.
+

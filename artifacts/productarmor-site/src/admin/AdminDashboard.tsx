@@ -10,14 +10,16 @@ import { useState, useEffect } from "react";
   import { useQueryClient } from "@tanstack/react-query";
   import {
     Shield, LogOut, Save, Plus, Trash2, ChevronDown,
-    Image, Video, FileText, Package, Award, Users, Star, Phone, Building2, LayoutDashboard
+    Image, Video, FileText, Package, Award, Users, Star, Phone, Building2, LayoutDashboard, UserRound
   } from "lucide-react";
+  import TeamManager from "./TeamManager";
 
-  type Tab = "hero" | "about" | "products" | "certifications" | "clients" | "testimonials" | "contact" | "company";
+  type Tab = "hero" | "about" | "team" | "products" | "certifications" | "clients" | "testimonials" | "contact" | "company";
 
   const tabs: { id: Tab; label: string; icon: React.ElementType }[] = [
     { id: "hero", label: "Hero", icon: Image },
     { id: "about", label: "About", icon: FileText },
+    { id: "team", label: "Management Team", icon: UserRound },
     { id: "products", label: "Products", icon: Package },
     { id: "certifications", label: "Certifications", icon: Award },
     { id: "clients", label: "Clients", icon: Users },
@@ -290,6 +292,16 @@ import { useState, useEffect } from "react";
                   {draft.about.image && (
                     <img src={draft.about.image} alt="About" className="w-full h-48 object-cover rounded-lg border border-gray-200" onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
                   )}
+                </Section>
+              )}
+
+              {/* ── MANAGEMENT TEAM ── */}
+              {activeTab === "team" && (
+                <Section title="Management Team" icon={UserRound}>
+                  <p className="text-xs text-gray-400 -mt-1">
+                    Changes here are saved immediately — no need to click "Save Changes". Only active members appear on the public website.
+                  </p>
+                  <TeamManager token={token} />
                 </Section>
               )}
 

@@ -89,8 +89,9 @@
         "Highly Automated Production ensuring precision, consistency, and repeatability.",
         "Trusted by Leading Global Pharmaceutical Brands across diverse healthcare applications."
       ],
-      "image": "/site/images/ct-caps-real.png",
-      "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm"
+      "image": "/site/images/ct-caps-sizes.jpg",
+      "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm",
+      "imageFit": "contain"
     },
     {
       "id": "1784714630526",

@@ -71,8 +71,9 @@
         "Proven Market Performance with over 600 million CRC caps delivered to pharmaceutical customers. globally per annum.",
         "Trusted by Global Pharmaceutical Brands across diverse healthcare applications."
       ],
-      "image": "/site/images/cr-caps-real.png",
-      "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm"
+      "image": "/site/images/cr-caps-infographic.jpg",
+      "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm",
+      "imageFit": "contain"
     },
     {
       "id": "ct-caps",

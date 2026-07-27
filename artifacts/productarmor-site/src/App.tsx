@@ -8,6 +8,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Home from "@/pages/Home";
 import Products from "@/pages/Products";
 import About from "@/pages/About";
+import ManagementTeam from "@/pages/ManagementTeam";
 import Quality from "@/pages/Quality";
 import Contact from "@/pages/Contact";
 import Industries from "@/pages/Industries";
@@ -49,6 +50,7 @@ function Router() {
       <Route path="/career" component={() => <PublicLayout><Career /></PublicLayout>} />
       <Route path="/faq" component={() => <PublicLayout><FAQ /></PublicLayout>} />
       <Route path="/about" component={() => <PublicLayout><About /></PublicLayout>} />
+      <Route path="/management-team" component={() => <PublicLayout><ManagementTeam /></PublicLayout>} />
       <Route path="/quality" component={() => <PublicLayout><Quality /></PublicLayout>} />
       <Route path="/contact" component={() => <PublicLayout><Contact /></PublicLayout>} />
       <Route path="/admin" component={AdminLogin} />

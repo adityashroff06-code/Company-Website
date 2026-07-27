@@ -40,6 +40,7 @@
     features: string[];
     sizes?: string;
     image: string;
+    imageFit?: string;
   }
 
   export interface SiteContentCertification {

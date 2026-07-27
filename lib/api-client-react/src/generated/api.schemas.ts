@@ -29,6 +29,7 @@
     title: string;
     description: string;
     image: string;
+    strengths?: string[];
   }
 
   export interface SiteContentProduct {

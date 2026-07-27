@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": "4fbbe1c0-ad89-4c7b-8a65-c2e812052918",
+    "fullName": "Amit Kumar Gupta",
+    "designation": "Head-IT",
+    "department": "Information Technology",
+    "shortDescription": "Amit Gupta is an experienced IT professional with over 17 years of expertise in enterprise applications, SAP S/4HANA, digital transformation, cybersecurity, cloud technologies, and IT infrastructure. He leads technology initiatives that streamline business processes, strengthen information security, and improve operational efficiency. His focus is on delivering innovative, scalable, and business-driven technology solutions that support sustainable organizational growth.",
+    "biography": "Currently serving as the Head – Information Technology at Product Armor, Amit is responsible for driving the organization's digital transformation roadmap, strengthening IT governance, enhancing cybersecurity, modernizing enterprise infrastructure, and delivering innovative technology solutions that improve business performance. He works closely with leadership teams to ensure technology acts as a strategic business enabler rather than just a support function.",
+    "qualifications": "MCA",
+    "experience": "17 Years+",
+    "linkedinUrl": "https://www.linkedin.com/in/amitgupta-digital/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B6%2ByB9FGXSpCpxVmKMa1lOA%3D%3D",
+    "email": "amit.gupta@productarmor.com",
+    "phone": "+9643094703",
+    "profilePhoto": "/api/uploads/team-1785143710147-41b4b2a8.png",
+    "displayOrder": 1,
+    "featured": false,
+    "status": "active",
+    "createdAt": "2026-07-27T09:20:54.453Z",
+    "updatedAt": "2026-07-27T09:20:54.453Z"
+  }
+]

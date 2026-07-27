@@ -93,7 +93,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                         <img
                           src={p.image}
                           alt={p.name}
-                          className={`w-full h-full ${p.imageFit === "contain" ? "object-contain bg-white p-4" : "object-cover"}`}
+                          className={`w-full h-full ${p.imageFit === "contain" ? "object-contain bg-white" : "object-cover"}`}
                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"; }}
                         />
                         <div className="absolute top-4 left-4">

@@ -38,6 +38,7 @@
     category: string;
     description: string;
     features: string[];
+    sizes?: string;
     image: string;
   }
 

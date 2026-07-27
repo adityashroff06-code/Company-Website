@@ -103,6 +103,12 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                       <div className={`p-10 flex flex-col justify-center ${i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
                         <h2 className="text-2xl font-bold text-[#0f2a4e] mb-3">{p.name}</h2>
                         <p className="text-gray-500 leading-relaxed mb-6">{p.description}</p>
+                        {p.sizes && (
+                          <p className="mb-6 text-sm">
+                            <span className="font-bold text-[#4164a8] uppercase tracking-widest text-xs">Available Sizes: </span>
+                            <span className="text-gray-600">{p.sizes}</span>
+                          </p>
+                        )}
                         <div>
                           <h3 className="text-xs font-bold text-[#4164a8] uppercase tracking-widest mb-3">Key Features</h3>
                           <ul className="space-y-2">

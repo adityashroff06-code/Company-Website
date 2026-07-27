@@ -101,7 +101,8 @@
       "features": [
         "Coming Soon"
       ],
-      "image": "/site/images/drug-delivery-devices.jpg"
+      "image": "/site/images/drug-delivery-nextgen.jpg",
+      "imageFit": "contain"
     }
   ],
   "certifications": [

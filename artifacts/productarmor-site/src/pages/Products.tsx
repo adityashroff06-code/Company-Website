@@ -120,15 +120,6 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                             ))}
                           </ul>
                         </div>
-                        <div className="mt-8">
-                          <Link
-                            href="/contact"
-                            className="inline-flex items-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg text-sm"
-                          >
-                            Request Sample
-                            <ArrowRight size={15} />
-                          </Link>
-                        </div>
                       </div>
                     </div>
                   </div>

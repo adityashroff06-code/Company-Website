@@ -234,8 +234,8 @@ export default function Technology() {
             </div>
             <div className="reveal relative">
               <img
-                src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80"
-                alt="Automated pharmaceutical packaging manufacturing line"
+                src="/site/images/cleanroom-corridor.jpg"
+                alt="Cleanroom manufacturing corridor at ProductArmor"
                 className="rounded-2xl shadow-xl w-full object-cover h-96"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src =

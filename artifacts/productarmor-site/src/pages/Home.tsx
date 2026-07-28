@@ -309,7 +309,7 @@ import { useEffect } from "react";
                   {[...clients, ...clients].map((c, i) => (
                     <div key={`${c.id}-${i}`} className="shrink-0 flex items-center justify-center" title={c.name}>
                       {c.logo ? (
-                        <img src={c.logo} alt={c.name} className="h-12 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100" loading="lazy" />
+                        <img src={c.logo} alt={c.name} className="h-12 md:h-14 w-auto object-contain" loading="lazy" />
                       ) : (
                         <div className="px-6 py-3 border border-gray-200 rounded-lg bg-gray-50">
                           <span className="text-gray-500 font-semibold text-sm">{c.name}</span>

@@ -246,5 +246,63 @@
     "founded": "2020",
     "employees": "50+",
     "totalClients": "50+"
-  }
+  },
+  "downloads": [
+    {
+      "id": "1",
+      "title": "Company Brochure",
+      "description": "A complete overview of ProductArmor — our facility, capabilities, product range and certifications for pharmaceutical packaging buyers.",
+      "fileType": "PDF · 4.2 MB",
+      "url": ""
+    },
+    {
+      "id": "2",
+      "title": "Product Catalogue",
+      "description": "Full HDPE bottle, CR cap and CT cap catalogue with sizes, neck finishes, fill volumes and available colours.",
+      "fileType": "PDF · 6.8 MB",
+      "url": ""
+    },
+    {
+      "id": "3",
+      "title": "HDPE Bottle Technical Data Sheet",
+      "description": "Detailed specifications, dimensional tolerances, wall thickness and moisture-barrier performance for our HDPE bottle range.",
+      "fileType": "PDF · 1.1 MB",
+      "url": ""
+    },
+    {
+      "id": "4",
+      "title": "CR & CT Cap Technical Data Sheet",
+      "description": "Torque values, liner options, child-resistance and continuous-thread closure specifications for our cap range.",
+      "fileType": "PDF · 0.9 MB",
+      "url": ""
+    },
+    {
+      "id": "5",
+      "title": "ISO 9001:2015 Certificate",
+      "description": "Copy of our current ISO 9001:2015 quality management system certification.",
+      "fileType": "PDF · 0.4 MB",
+      "url": ""
+    },
+    {
+      "id": "6",
+      "title": "ISO 15378:2017 Certificate",
+      "description": "Copy of our ISO 15378:2017 certification for primary packaging materials for medicinal products.",
+      "fileType": "PDF · 0.4 MB",
+      "url": ""
+    },
+    {
+      "id": "7",
+      "title": "Material Compliance (USP Class VI)",
+      "description": "Documentation confirming our HDPE resin meets USP Class VI and food-grade material compliance requirements.",
+      "fileType": "PDF · 0.7 MB",
+      "url": ""
+    },
+    {
+      "id": "8",
+      "title": "Child-Resistance Compliance",
+      "description": "Test summary demonstrating CR closure conformance with international child-resistant packaging standards.",
+      "fileType": "PDF · 0.6 MB",
+      "url": ""
+    }
+  ]
 }

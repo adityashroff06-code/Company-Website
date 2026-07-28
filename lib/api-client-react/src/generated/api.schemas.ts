@@ -64,6 +64,14 @@
     role: string;
   }
 
+  export interface SiteContentDownload {
+    id: string;
+    title: string;
+    description: string;
+    fileType: string;
+    url: string;
+  }
+
   export interface SiteContentContact {
     phone: string;
     email: string;
@@ -88,6 +96,7 @@
     certifications: SiteContentCertification[];
     clients: SiteContentClient[];
     testimonials: SiteContentTestimonial[];
+    downloads?: SiteContentDownload[];
     contact: SiteContentContact;
     company: SiteContentCompany;
   }

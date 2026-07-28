@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
   } from "lucide-react";
   import TeamManager from "./TeamManager";
 
-  type Tab = "hero" | "about" | "team" | "products" | "certifications" | "clients" | "testimonials" | "contact" | "company";
+  type Tab = "hero" | "about" | "team" | "products" | "certifications" | "clients" | "testimonials" | "downloads" | "contact" | "company";
 
   const tabs: { id: Tab; label: string; icon: React.ElementType }[] = [
     { id: "hero", label: "Hero", icon: Image },
@@ -24,6 +24,7 @@ import { useState, useEffect } from "react";
     { id: "certifications", label: "Certifications", icon: Award },
     { id: "clients", label: "Clients", icon: Users },
     { id: "testimonials", label: "Testimonials", icon: Star },
+    { id: "downloads", label: "Downloads", icon: FileText },
     { id: "contact", label: "Contact", icon: Phone },
     { id: "company", label: "Company", icon: Building2 },
   ];
@@ -461,6 +462,30 @@ import { useState, useEffect } from "react";
                     className="flex items-center gap-2 border-2 border-dashed border-[#4164a8]/30 hover:border-[#4164a8]/60 text-[#4164a8] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
                   >
                     <Plus size={16} /> Add Testimonial
+                  </button>
+                </Section>
+              )}
+
+              {/* ── DOWNLOADS ── */}
+              {activeTab === "downloads" && (
+                <Section title="Downloads" icon={FileText}>
+                  {(draft.downloads ?? []).map((d, i) => (
+                    <div key={d.id} className="border border-gray-200 rounded-xl p-4 space-y-2 bg-gray-50">
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-sm text-[#0f2a4e]">{d.title || `Document ${i + 1}`}</span>
+                        <button onClick={() => set(["downloads"], (draft.downloads ?? []).filter((_, j) => j !== i))} className="text-red-400 hover:text-red-600"><Trash2 size={14} /></button>
+                      </div>
+                      <Field label="Title" value={d.title} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], title: v }; set(["downloads"], next); }} />
+                      <Field label="Description" value={d.description} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], description: v }; set(["downloads"], next); }} type="textarea" rows={2} />
+                      <Field label="File Type / Size (e.g. PDF · 4.2 MB)" value={d.fileType} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], fileType: v }; set(["downloads"], next); }} />
+                      <Field label="File URL (leave empty for placeholder)" value={d.url} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], url: v }; set(["downloads"], next); }} />
+                    </div>
+                  ))}
+                  <button
+                    onClick={() => set(["downloads"], [...(draft.downloads ?? []), { id: Date.now().toString(), title: "", description: "", fileType: "PDF", url: "" }])}
+                    className="flex items-center gap-2 border-2 border-dashed border-[#4164a8]/30 hover:border-[#4164a8]/60 text-[#4164a8] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
+                  >
+                    <Plus size={16} /> Add Document
                   </button>
                 </Section>
               )}

@@ -50,7 +50,6 @@ export const MEGA_NAV: NavGroup[] = [
       { href: "/about", label: "About Us" },
       { href: "/management-team", label: "Management Team" },
       { href: "/quality", label: "Quality & Certifications" },
-      { href: "/case-studies", label: "Case Studies" },
       { href: "/career", label: "Careers" },
     ],
   },

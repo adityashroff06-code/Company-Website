@@ -304,18 +304,20 @@ import { useEffect } from "react";
                   Trusted by Global'S Leading Pharmaceutical Companies
                 </p>
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-                {clients.map((c, i) => (
-                  <div key={c.id} className="reveal text-center" style={{ transitionDelay: `${i * 60}ms` }}>
-                    {c.logo ? (
-                      <img src={c.logo} alt={c.name} className="h-10 object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100" />
-                    ) : (
-                      <div className="px-6 py-3 border border-gray-200 rounded-lg bg-gray-50 hover:border-[#4164a8]/30 hover:bg-[#4164a8]/5 transition-all duration-300">
-                        <span className="text-gray-500 font-semibold text-sm">{c.name}</span>
-                      </div>
-                    )}
-                  </div>
-                ))}
+              <div className="logo-marquee relative overflow-hidden">
+                <div className="logo-marquee-track flex items-center gap-14 w-max">
+                  {[...clients, ...clients].map((c, i) => (
+                    <div key={`${c.id}-${i}`} className="shrink-0 flex items-center justify-center" title={c.name}>
+                      {c.logo ? (
+                        <img src={c.logo} alt={c.name} className="h-12 md:h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100" loading="lazy" />
+                      ) : (
+                        <div className="px-6 py-3 border border-gray-200 rounded-lg bg-gray-50">
+                          <span className="text-gray-500 font-semibold text-sm">{c.name}</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>

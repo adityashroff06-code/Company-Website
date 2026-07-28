@@ -133,7 +133,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
         <section className="py-16 bg-[#4164a8]">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <Package size={40} className="text-[#93b4e8] mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-white mb-3">Customize</h2>
+            <h2 className="text-2xl font-bold text-white mb-3"> Need Customize Specification </h2>
             <p className="text-white/60 mb-6 text-sm">
               We offer custom sizing and color options. Talk to our team for bespoke solutions.
             </p>

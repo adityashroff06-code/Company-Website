@@ -207,6 +207,11 @@ import { useEffect } from "react";
                       className="reveal bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group border border-gray-100 hover:border-[#4164a8]/20"
                       style={{ transitionDelay: `${i * 80}ms` }}
                     >
+                      <div className="px-6 pt-5 pb-3">
+                        <span className="inline-block bg-[#4164a8] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                          {p.category}
+                        </span>
+                      </div>
                       <div className="relative overflow-hidden h-52 bg-gray-100">
                         <img
                           src={p.image}
@@ -214,11 +219,6 @@ import { useEffect } from "react";
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"; }}
                         />
-                        <div className="absolute top-3 left-3">
-                          <span className="bg-[#4164a8] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
-                            {p.category}
-                          </span>
-                        </div>
                       </div>
                       <div className="p-6">
                         <h3 className="font-bold text-[#0f2a4e] text-lg mb-2">{p.name}</h3>

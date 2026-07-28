@@ -15,8 +15,9 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
 
-function useReveal() {
+function useReveal(ready: boolean) {
   useEffect(() => {
+    if (!ready) return;
     const els = document.querySelectorAll<HTMLElement>(".reveal");
     const obs = new IntersectionObserver(
       (entries) =>
@@ -27,7 +28,7 @@ function useReveal() {
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
-  }, []);
+  }, [ready]);
 }
 
 function pickIcon(title: string): typeof FileText {
@@ -47,11 +48,10 @@ export default function Downloads() {
       "Download ProductArmor brochures, technical data sheets, ISO 9001 and ISO 15378 certificates, and material compliance documents for pharmaceutical HDPE packaging.",
     path: "/downloads",
   });
-  useReveal();
-
-  const { data: content } = useGetSiteContent({
+  const { data: content, isLoading } = useGetSiteContent({
     query: { queryKey: getGetSiteContentQueryKey() },
   });
+  useReveal(!isLoading);
   const resources = content?.downloads ?? [];
   const hasPlaceholders = resources.some(r => !r.url);
 

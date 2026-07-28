@@ -373,7 +373,7 @@ import { useEffect } from "react";
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
               >
-                Request Sample Kit
+                Get in Touch
                 <ArrowRight size={16} />
               </Link>
             </div>

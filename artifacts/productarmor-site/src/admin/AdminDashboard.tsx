@@ -481,7 +481,6 @@ import { useState, useEffect } from "react";
                       </div>
                       <Field label="Title" value={d.title} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], title: v }; set(["downloads"], next); }} />
                       <Field label="Description" value={d.description} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], description: v }; set(["downloads"], next); }} type="textarea" rows={2} />
-                      <Field label="File Type / Size (e.g. PDF · 4.2 MB)" value={d.fileType} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], fileType: v }; set(["downloads"], next); }} />
                       <Field label="File URL (leave empty for placeholder)" value={d.url} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], url: v }; set(["downloads"], next); }} />
                       <div>
                         <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Or Attach a PDF</label>

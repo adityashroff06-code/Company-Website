@@ -72,8 +72,8 @@ import { Router, type IRouter } from "express";
       return;
     }
     const buffer = Buffer.from(base64, "base64");
-    if (buffer.length === 0 || buffer.length > 8 * 1024 * 1024) {
-      res.status(400).json({ error: "File must be between 1 byte and 8 MB" });
+    if (buffer.length === 0 || buffer.length > 100 * 1024 * 1024) {
+      res.status(400).json({ error: "File must be between 1 byte and 100 MB" });
       return;
     }
     if (buffer.subarray(0, 5).toString("ascii") !== "%PDF-") {

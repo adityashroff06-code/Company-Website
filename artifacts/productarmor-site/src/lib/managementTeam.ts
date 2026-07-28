@@ -87,18 +87,34 @@ export async function reorderTeam(token: string, orders: { id: string; displayOr
   );
 }
 
-export async function uploadTeamPhoto(token: string, file: File): Promise<string> {
-  const data = await new Promise<string>((resolve, reject) => {
+async function readFileAsDataUrl(file: File): Promise<string> {
+  return new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(reader.result as string);
     reader.onerror = () => reject(new Error("Could not read file"));
     reader.readAsDataURL(file);
   });
+}
+
+export async function uploadTeamPhoto(token: string, file: File): Promise<string> {
+  const data = await readFileAsDataUrl(file);
   const result = await handle<{ url: string }>(
     await fetch(`${API}/management-team/upload`, {
       method: "POST",
       headers: authHeaders(token),
       body: JSON.stringify({ filename: file.name, data }),
+    }),
+  );
+  return result.url;
+}
+
+export async function uploadDownloadDocument(token: string, file: File): Promise<string> {
+  const data = await readFileAsDataUrl(file);
+  const result = await handle<{ url: string }>(
+    await fetch(`${API}/downloads/upload`, {
+      method: "POST",
+      headers: authHeaders(token),
+      body: JSON.stringify({ data }),
     }),
   );
   return result.url;

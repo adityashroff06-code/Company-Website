@@ -376,13 +376,6 @@ import { useEffect } from "react";
                 Request Sample Kit
                 <ArrowRight size={16} />
               </Link>
-              <a
-                href={`tel:${contactData?.phone ?? "+919876543210"}`}
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium px-8 py-3.5 rounded-lg transition-all duration-200"
-              >
-                <Phone size={16} />
-                Call Us Now
-              </a>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/50 text-sm">
               <div className="flex items-center gap-2">

@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
     Image, Video, FileText, Package, Award, Users, Star, Phone, Building2, LayoutDashboard, UserRound
   } from "lucide-react";
   import TeamManager from "./TeamManager";
+  import { uploadDownloadDocument } from "@/lib/managementTeam";
 
   type Tab = "hero" | "about" | "team" | "products" | "certifications" | "clients" | "testimonials" | "downloads" | "contact" | "company";
 
@@ -71,6 +72,8 @@ import { useState, useEffect } from "react";
     const [activeTab, setActiveTab] = useState<Tab>("hero");
     const [savedMsg, setSavedMsg] = useState("");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [uploadingDocId, setUploadingDocId] = useState<string | null>(null);
+    const [uploadDocError, setUploadDocError] = useState("");
 
     const token = typeof window !== "undefined" ? localStorage.getItem("admin_token") ?? "" : "";
 
@@ -469,6 +472,7 @@ import { useState, useEffect } from "react";
               {/* ── DOWNLOADS ── */}
               {activeTab === "downloads" && (
                 <Section title="Downloads" icon={FileText}>
+                  {uploadDocError && <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{uploadDocError}</p>}
                   {(draft.downloads ?? []).map((d, i) => (
                     <div key={d.id} className="border border-gray-200 rounded-xl p-4 space-y-2 bg-gray-50">
                       <div className="flex justify-between">
@@ -479,6 +483,38 @@ import { useState, useEffect } from "react";
                       <Field label="Description" value={d.description} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], description: v }; set(["downloads"], next); }} type="textarea" rows={2} />
                       <Field label="File Type / Size (e.g. PDF · 4.2 MB)" value={d.fileType} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], fileType: v }; set(["downloads"], next); }} />
                       <Field label="File URL (leave empty for placeholder)" value={d.url} onChange={v => { const next = [...(draft.downloads ?? [])]; next[i] = { ...next[i], url: v }; set(["downloads"], next); }} />
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Or Attach a PDF</label>
+                        <div className="flex items-center gap-3">
+                          <input
+                            type="file"
+                            accept="application/pdf,.pdf"
+                            disabled={uploadingDocId === d.id}
+                            onChange={async e => {
+                              const file = e.target.files?.[0];
+                              e.target.value = "";
+                              if (!file) return;
+                              setUploadingDocId(d.id);
+                              setUploadDocError("");
+                              try {
+                                const url = await uploadDownloadDocument(token, file);
+                                const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
+                                const next = [...(draft.downloads ?? [])];
+                                const j = next.findIndex(x => x.id === d.id);
+                                if (j !== -1) next[j] = { ...next[j], url, fileType: `PDF · ${sizeMb} MB` };
+                                set(["downloads"], next);
+                              } catch (err) {
+                                setUploadDocError(err instanceof Error ? err.message : "Upload failed");
+                              } finally {
+                                setUploadingDocId(null);
+                              }
+                            }}
+                            className="text-sm text-gray-600 file:mr-3 file:px-3 file:py-1.5 file:rounded-lg file:border-0 file:bg-[#4164a8]/10 file:text-[#4164a8] file:font-semibold file:text-xs file:cursor-pointer"
+                          />
+                          {uploadingDocId === d.id && <span className="text-xs text-gray-400">Uploading…</span>}
+                          {d.url && uploadingDocId !== d.id && <span className="text-xs text-green-600 font-medium">File attached</span>}
+                        </div>
+                      </div>
                     </div>
                   ))}
                   <button

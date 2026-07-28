@@ -1,6 +1,7 @@
 import { Router, type IRouter } from "express";
   import fs from "fs";
   import path from "path";
+  import crypto from "crypto";
 
   const router: IRouter = Router();
 
@@ -48,6 +49,42 @@ import { Router, type IRouter } from "express";
     writeContent(body);
     req.log.info("Site content updated");
     res.json(body);
+  });
+
+  // Document upload for the Downloads section: JSON { data } where data is a
+  // base64 string or data URL. PDF only, served from /api/uploads/<file>.
+  const uploadsDir = path.resolve(workspaceRoot, "artifacts/api-server/data/uploads");
+
+  router.post("/downloads/upload", async (req, res): Promise<void> => {
+    const adminPassword = process.env.ADMIN_PASSWORD ?? "productarmor2024";
+    if (req.headers.authorization !== `Bearer ${adminPassword}`) {
+      res.status(401).json({ error: "Unauthorized" });
+      return;
+    }
+    const { data } = (req.body ?? {}) as { data?: unknown };
+    if (typeof data !== "string" || data.length === 0) {
+      res.status(400).json({ error: "Missing file data" });
+      return;
+    }
+    const base64 = (data.includes(",") ? data.slice(data.indexOf(",") + 1) : data).replace(/\s/g, "");
+    if (!/^[A-Za-z0-9+/]+={0,2}$/.test(base64) || base64.length % 4 !== 0) {
+      res.status(400).json({ error: "Invalid base64 data" });
+      return;
+    }
+    const buffer = Buffer.from(base64, "base64");
+    if (buffer.length === 0 || buffer.length > 8 * 1024 * 1024) {
+      res.status(400).json({ error: "File must be between 1 byte and 8 MB" });
+      return;
+    }
+    if (buffer.subarray(0, 5).toString("ascii") !== "%PDF-") {
+      res.status(400).json({ error: "Only PDF files are supported" });
+      return;
+    }
+    const name = `doc-${Date.now()}-${crypto.randomBytes(4).toString("hex")}.pdf`;
+    fs.mkdirSync(uploadsDir, { recursive: true });
+    fs.writeFileSync(path.join(uploadsDir, name), buffer);
+    req.log.info({ file: name, bytes: buffer.length }, "Download document uploaded");
+    res.status(201).json({ url: `/api/uploads/${name}` });
   });
 
   export default router;

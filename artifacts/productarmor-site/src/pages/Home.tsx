@@ -301,7 +301,7 @@ import { useEffect } from "react";
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-10 reveal">
                 <p className="text-gray-400 text-sm font-medium uppercase tracking-widest">
-                  Trusted by Global Leading Pharmaceutical Companies
+                  Trusted by Global'S Leading Pharmaceutical Companies
                 </p>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">

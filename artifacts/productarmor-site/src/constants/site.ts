@@ -9,11 +9,11 @@ export const SITE = {
 } as const;
 
 export const CONTACT = {
-  phone: "+91 90592 74553",
+  phone: "+91-9154992473",
   email: "mail@productarmor.com",
   address:
     "Survey No. 157, Nallavally Village & Mandal, Gummadidala, Telangana 502313, India",
-  whatsapp: "+919059274553",
+  whatsapp: "+919154992473",
 } as const;
 
 export const SOCIAL = {

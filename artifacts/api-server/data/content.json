@@ -142,32 +142,72 @@
     {
       "id": "client-1",
       "name": "Granules India Limited",
-      "logo": ""
+      "logo": "/site/images/clients/granules.png"
     },
     {
       "id": "client-2",
-      "name": "MSN Labs",
-      "logo": ""
+      "name": "Hetero",
+      "logo": "/site/images/clients/hetero.png"
     },
     {
       "id": "client-3",
-      "name": "Laurus Labs",
-      "logo": ""
+      "name": "Annora Pharma",
+      "logo": "/site/images/clients/annora.png"
     },
     {
       "id": "client-4",
-      "name": "Strides",
-      "logo": ""
+      "name": "MSN Labs",
+      "logo": "/site/images/clients/msn.png"
     },
     {
       "id": "client-5",
-      "name": "Inventia",
-      "logo": ""
+      "name": "VKT Pharma",
+      "logo": "/site/images/clients/vkt-pharma.png"
     },
     {
       "id": "client-6",
-      "name": "Graviti",
-      "logo": ""
+      "name": "Remedica",
+      "logo": "/site/images/clients/remedica.png"
+    },
+    {
+      "id": "client-7",
+      "name": "Strides",
+      "logo": "/site/images/clients/strides.png"
+    },
+    {
+      "id": "client-8",
+      "name": "Chemo",
+      "logo": "/site/images/clients/chemo.png"
+    },
+    {
+      "id": "client-9",
+      "name": "Lupin",
+      "logo": "/site/images/clients/lupin.png"
+    },
+    {
+      "id": "client-10",
+      "name": "Marksans Pharma Ltd.",
+      "logo": "/site/images/clients/marksans.png"
+    },
+    {
+      "id": "client-11",
+      "name": "Graviti Pharma",
+      "logo": "/site/images/clients/graviti.png"
+    },
+    {
+      "id": "client-12",
+      "name": "Kusum Healthcare",
+      "logo": "/site/images/clients/kusum.png"
+    },
+    {
+      "id": "client-13",
+      "name": "Aizant",
+      "logo": "/site/images/clients/aizant.png"
+    },
+    {
+      "id": "client-14",
+      "name": "OrBion Pharmaceuticals",
+      "logo": "/site/images/clients/orbion.png"
     }
   ],
   "testimonials": [

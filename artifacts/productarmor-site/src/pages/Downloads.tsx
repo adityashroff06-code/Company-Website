@@ -99,7 +99,6 @@ export default function Downloads() {
                     <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center">
                       <Icon size={22} className="text-[#4164a8]" />
                     </div>
-                    <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{r.fileType}</span>
                   </div>
                   <h3 className="font-bold text-[#0f2a4e] mb-2">{r.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">{r.description}</p>

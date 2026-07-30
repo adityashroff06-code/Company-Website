@@ -72,15 +72,7 @@ import { useEffect } from "react";
             ) : (
               <>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#4364a7] leading-[1.1] tracking-tight mb-6">
-                  {(hero?.headline ?? "Pharmaceutical-Grade HDPE Packaging")
-                    .split(/(Sustainable|Carbon Footprint)/g)
-                    .map((part, i) =>
-                      part === "Sustainable" || part === "Carbon Footprint" ? (
-                        <span key={i} className="text-[#32CD32]">{part}</span>
-                      ) : (
-                        <span key={i}>{part}</span>
-                      )
-                    )}
+                  {hero?.headline ?? "Pharmaceutical-Grade HDPE Packaging"}
                 </h1>
                 <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
                   {hero?.subheadline ?? "ISO-certified HDPE bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}

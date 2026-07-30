@@ -42,12 +42,12 @@
     {
       "id": "hdpe-bottles",
       "name": "Containers & Bottles",
-      "category": "Bottles & Containers",
+      "category": "Containers & Bottles  ",
       "description": "Advanced pharmaceutical containers and bottles manufactured in an ISO Certified 8 cleanroom environment, ensuring product protection, consistency, and compliance with the stringent requirements of the pharmaceutical industry.",
       "features": [
         "Automated Manufacturing enabling precision, consistency, and minimal human intervention throughout the production process.",
         "ISO Certified 8 Cleanroom Production ensuring controlled manufacturing conditions to support pharmaceutical-grade quality and product integrity.",
-        "Low-Carbon Manufacturing utilizing resource-efficient processes designed to reduce environmental impact while maintaining high performance standards.",
+        "Low-Carbon Manufacturing driven by innovative manufacturing technologies that significantly reduce carbon footprint",
         "Advanced Process Controls with continuous monitoring of critical manufacturing parameters to ensure consistent product quality.",
         "Precision-Engineered Performance designed for reliable filling, sealing, handling, and storage across pharmaceutical applications.",
         "11-Camera Inspection System providing rigorous automated verification of critical quality attributes throughout production.",
@@ -63,14 +63,13 @@
       "id": "cr-caps",
       "name": "Child-Resistant Closures (CRC)",
       "category": "Caps & Closures",
-      "description": "Our Child-Resistant Closures (CRC) are manufactured using a one-of-a-kind patented technology that combines patient safety, operational excellence, and one of the world's lowest carbon footprints in CRC manufacturing.",
+      "description": "Patented technology with the world's lowest carbon footprint in CRC Manufacturing.",
       "features": [
-        "Patented Technology featuring a unique CRC manufacturing process engineered for operational excellence.",
-        "One of the World's Lowest Carbon Footprints achieved through innovative CRC manufacturing technology.",
-        "Child-Resistant Design developed to enhance patient safety and support regulatory requirements.",
         "Highly Automated Production ensuring precision, consistency, and minimal human intervention.",
         "Proven Market Performance with over 600 million CRC caps delivered to pharmaceutical customers globally per annum.",
-        "Trusted by global pharmaceutical brands across diverse healthcare applications."
+        "Trusted by global pharmaceutical brands across diverse healthcare applications.",
+        "Patented Technology featuring a unique CRC manufacturing process engineered for operational excellence.",
+        "One of the World's Lowest Carbon Footprints achieved through innovative CRC manufacturing technology."
       ],
       "image": "/site/images/cr-caps-sizes.jpg",
       "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm",

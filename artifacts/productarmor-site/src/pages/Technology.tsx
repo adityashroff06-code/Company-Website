@@ -208,22 +208,24 @@ export default function Technology() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="reveal">
               <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
-                Material Science
+                Material Excellence & Full Traceability
               </div>
               <h2 className="text-3xl font-bold text-[#0f2a4e] mb-6">
-                USP Class VI HDPE, Validated for Pharma
+                Pharmaceutical-Grade Materials. Built on Quality and Traceability.
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                The performance of primary packaging starts with the polymer. We source only pharma-grade,
-                USP Class VI high-density polyethylene, verified for melt flow index, density and extractables so
-                your product stays stable throughout its shelf life.
+                The foundation of every pharmaceutical packaging solution begins with carefully selected raw
+                materials sourced from qualified suppliers. Our material qualification process is designed to
+                support product safety, regulatory compliance, and consistent performance across every batch,
+                ensuring confidence throughout the product lifecycle.
               </p>
               <ul className="space-y-3">
                 {[
-                  "USP Class VI & food-grade resin certification",
-                  "Batch-level resin traceability to finished goods",
-                  "Chemical compatibility review for your formulation",
-                  "Moisture-barrier performance validated per SKU",
+                  "USP Class VI compliant pharmaceutical-grade materials",
+                  "End-to-end batch traceability to finished goods",
+                  "Approved supplier qualification and control program",
+                  "Material compatibility assessment for pharmaceutical applications",
+                  "SKU-specific quality and performance validation",
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <ShieldCheck size={18} className="text-[#4164a8] shrink-0 mt-0.5" />

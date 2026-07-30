@@ -78,7 +78,7 @@ const regulatory = [
   {
     icon: FileCheck,
     title: "Nutraceuticals & Ayurvedic",
-    desc: "FSSAI-compatible food-grade materials, migration-tested plastics and full material compliance documentation for domestic and export dossiers.",
+    desc: "Reliable packaging solutions that maintain ingredient safety, formulation stability, and product quality.",
   },
   {
     icon: Globe,

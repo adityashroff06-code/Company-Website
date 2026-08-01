@@ -364,6 +364,9 @@ import { useEffect } from "react";
         {/* ── CONTACT CTA ── */}
         <section className="py-20 bg-[#0f2a4e]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Request a Free Sample
+            </h2>
             <p className="text-white/60 mb-10 max-w-xl mx-auto">
               Request a free sample kit or schedule a technical consultation with our packaging specialists.
             </p>

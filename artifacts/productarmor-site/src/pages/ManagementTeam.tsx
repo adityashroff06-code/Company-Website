@@ -120,7 +120,7 @@ export default function ManagementTeam() {
   usePageMeta({
     title: "Management Team",
     description:
-      "Meet the directors and senior leadership of Product Armor Packaging Pvt Ltd — the team behind our pharmaceutical-grade HDPE packaging manufacturing.",
+      "Meet the directors and senior leadership of Product Armor Packaging Pvt Ltd — the team behind our pharmaceutical-grade packaging manufacturing.",
     path: "/management-team",
   });
 

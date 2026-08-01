@@ -72,7 +72,7 @@ import { useEffect } from "react";
             ) : (
               <>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#4364a7] leading-[1.1] tracking-tight mb-6">
-                  {(hero?.headline ?? "Pharmaceutical-Grade HDPE Packaging")
+                  {(hero?.headline ?? "Pharmaceutical-Grade Packaging")
                     .split(/(sustainability|Delivering pharmaceutical packaging)/i)
                     .map((part, idx) =>
                       /^sustainability$/i.test(part) ? (
@@ -85,7 +85,7 @@ import { useEffect } from "react";
                     )}
                 </h1>
                 <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-                  {hero?.subheadline ?? "ISO-certified HDPE bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
+                  {hero?.subheadline ?? "ISO-certified bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
                 </p>
               </>
             )}
@@ -137,7 +137,7 @@ import { useEffect } from "react";
                   {about?.title ?? "Precision Packaging Built for Pharma"}
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-8">
-                  {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of HDPE pharmaceutical bottles, CR and CT caps, delivering world-class packaging at unparalleled value."}
+                  {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of pharmaceutical bottles, CR and CT caps, delivering world-class packaging at unparalleled value."}
                 </p>
                 <h3 className="text-lg font-semibold text-[#0f2a4e] mb-4">
                   Every solution we deliver is supported by the core strengths that define who we are and how we serve.
@@ -190,7 +190,7 @@ import { useEffect } from "react";
                 Engineered for Protection. Designed for Performance.
               </h2>
               <p className="text-gray-500 max-w-xl mx-auto">
-                Explore our portfolio of pharmaceutical packaging solutions, including HDPE (High-Density Polyethylene) containers &amp; bottles, PP (Polypropylene) CT (Continuous Thread), CRC (Child-Resistant Closures) caps &amp; closures powered by patented technology and recognized globally.
+                Explore our portfolio of pharmaceutical packaging solutions, including containers &amp; bottles, CT (Continuous Thread) and CRC (Child-Resistant Closures) caps &amp; closures powered by patented technology and recognized globally.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

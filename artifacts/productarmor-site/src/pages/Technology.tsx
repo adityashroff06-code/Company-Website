@@ -46,7 +46,7 @@ const processSteps = [
   {
     icon: Factory,
     title: "Moulding",
-    desc: "USP Class VI HDPE resin is processed on automated injection and blow-moulding machines inside a controlled clean-room environment to minimise particulate contamination.",
+    desc: "USP Class VI pharmaceutical-grade resin is processed on automated injection and blow-moulding machines inside a controlled clean-room environment to minimise particulate contamination.",
   },
   {
     icon: ScanLine,
@@ -94,7 +94,7 @@ const capabilities = [
   {
     icon: FlaskConical,
     title: "Material Science",
-    desc: "We work exclusively with USP Class VI, food- and pharma-grade HDPE resins, validated for melt flow index, density and chemical compatibility with your formulation.",
+    desc: "We work exclusively with USP Class VI, food- and pharma-grade resins, validated for melt flow index, density and chemical compatibility with your formulation.",
   },
   {
     icon: Recycle,
@@ -107,7 +107,7 @@ export default function Technology() {
   usePageMeta({
     title: "Manufacturing Technology",
     description:
-      "Explore ProductArmor's pharmaceutical packaging technology — injection & blow moulding, clean-room production, in-line inspection, USP Class VI HDPE and sustainable processes.",
+      "Explore ProductArmor's pharmaceutical packaging technology — injection & blow moulding, clean-room production, in-line inspection, USP Class VI pharmaceutical-grade material and sustainable processes.",
     path: "/technology",
   });
   useReveal();

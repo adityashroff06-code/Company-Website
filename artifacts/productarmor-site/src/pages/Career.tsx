@@ -30,7 +30,7 @@ const openRoles = [
     type: "Full-time",
     location: "Hyderabad, Telangana",
     summary:
-      "Own moulding line performance for HDPE bottles and caps — set up tooling, optimise cycle times, drive OEE and troubleshoot process deviations while maintaining GMP compliance.",
+      "Own moulding line performance for bottles and caps — set up tooling, optimise cycle times, drive OEE and troubleshoot process deviations while maintaining GMP compliance.",
     requirements: ["B.E./Diploma in Mechanical/Polymer/Plastics", "2–5 yrs injection/blow moulding experience", "Working knowledge of SPC and preventive maintenance"],
   },
   {
@@ -57,7 +57,7 @@ export default function Career() {
   usePageMeta({
     title: "Careers",
     description:
-      "Build your career at ProductArmor — an ISO 9001:2015 certified HDPE pharma packaging manufacturer in Hyderabad. Explore open roles and apply online.",
+      "Build your career at ProductArmor — an ISO 9001:2015 certified pharma packaging manufacturer in Hyderabad. Explore open roles and apply online.",
     path: "/career",
   });
   useReveal();
@@ -86,7 +86,7 @@ export default function Career() {
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Build Your Career With Us</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
             Help shape the future of pharmaceutical packaging. We're an ISO 9001:2015 certified
-            HDPE bottle and closure manufacturer in Hyderabad, growing across India and export markets.
+            bottle and closure manufacturer in Hyderabad, growing across India and export markets.
           </p>
         </div>
       </section>

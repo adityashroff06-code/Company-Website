@@ -45,7 +45,7 @@ export default function Downloads() {
   usePageMeta({
     title: "Downloads & Resources",
     description:
-      "Download ProductArmor brochures, technical data sheets, ISO 9001 and ISO 15378 certificates, and material compliance documents for pharmaceutical HDPE packaging.",
+      "Download ProductArmor brochures, technical data sheets, ISO 9001 and ISO 15378 certificates, and material compliance documents for pharmaceutical packaging.",
     path: "/downloads",
   });
   const { data: content, isLoading } = useGetSiteContent({

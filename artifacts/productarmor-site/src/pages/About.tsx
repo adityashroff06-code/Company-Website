@@ -40,7 +40,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                   {about?.title ?? "Precision Packaging Built for Pharma"}
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of HDPE pharmaceutical bottles, Child Resistant (CR) caps and Continuous Thread (CT) caps."}
+                  {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of pharmaceutical bottles, Child Resistant (CR) caps and Continuous Thread (CT) caps."}
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-8">
                   Founded in {company?.founded ?? "2020"}, we have grown to serve {company?.totalClients ?? "50+"} pharmaceutical clients across India and export markets. Our {company?.employees ?? "50+"} person team brings decades of combined experience in pharmaceutical packaging manufacturing.

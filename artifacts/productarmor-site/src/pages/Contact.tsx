@@ -9,7 +9,7 @@ export default function Contact() {
   usePageMeta({
     title: "Contact Us",
     description:
-      "Contact Product Armor Packaging Pvt Ltd for pharmaceutical HDPE bottles, CR & CT caps. Request a sample kit, get a quote or speak with our technical team in Telangana, India.",
+      "Contact Product Armor Packaging Pvt Ltd for pharmaceutical bottles, CR & CT caps. Request a sample kit, get a quote or speak with our technical team in Telangana, India.",
     path: "/contact",
   });
 

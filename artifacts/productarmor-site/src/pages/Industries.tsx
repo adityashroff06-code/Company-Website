@@ -35,37 +35,37 @@ const industries = [
     icon: Pill,
     name: "Pharmaceuticals",
     desc: "Primary packaging for prescription and OTC medicines — tablets, capsules and liquid orals — with tamper-evidence and moisture protection built in.",
-    packaging: "HDPE bottles · CR caps · CT caps with induction liners",
+    packaging: "bottles · CR caps · CT caps with induction liners",
   },
   {
     icon: Leaf,
     name: "Nutraceuticals & Supplements",
     desc: "Wide-mouth bottles and secure closures for vitamins, minerals, protein powders and softgel supplements that demand shelf appeal and barrier performance.",
-    packaging: "Wide-mouth HDPE bottles · CT caps · seals",
+    packaging: "Wide-mouth bottles · CT caps · seals",
   },
   {
     icon: Sprout,
     name: "Ayurvedic & Herbal",
     desc: "Inert, food-grade containers that preserve the potency of herbal churnas, tablets and syrups while meeting AYUSH and export labelling needs.",
-    packaging: "HDPE bottles · wadded CT caps",
+    packaging: "bottles · wadded CT caps",
   },
   {
     icon: PawPrint,
     name: "Veterinary",
     desc: "Robust packaging for animal-health powders, boluses and liquids built to withstand rough field handling and varied storage conditions.",
-    packaging: "Heavy-duty HDPE bottles · CT caps",
+    packaging: "Heavy-duty bottles · CT caps",
   },
   {
     icon: Stethoscope,
     name: "Diagnostics & Healthcare",
     desc: "Clean, contamination-resistant containers for reagents, test kits and clinical consumables produced under controlled conditions.",
-    packaging: "HDPE bottles · precision closures · liners",
+    packaging: "bottles · precision closures · liners",
   },
   {
     icon: Sparkles,
     name: "Personal Care & Cosmetics",
     desc: "Aesthetic yet functional bottles and caps for lotions, oils and cosmetic serums where finish, colour matching and leak-proofing matter.",
-    packaging: "Custom-colour HDPE bottles · CT caps",
+    packaging: "Custom-colour bottles · CT caps",
   },
 ];
 
@@ -73,7 +73,7 @@ const regulatory = [
   {
     icon: ShieldCheck,
     title: "Pharmaceuticals",
-    desc: "USP Class VI food-grade HDPE resin, GMP manufacturing and CR caps certified to ISO 8317 / US 16 CFR 1700.20 child-resistance standards.",
+    desc: "USP Class VI food-grade resin, GMP manufacturing and CR caps certified to ISO 8317 / US 16 CFR 1700.20 child-resistance standards.",
   },
   {
     icon: FileCheck,
@@ -91,7 +91,7 @@ export default function Industries() {
   usePageMeta({
     title: "Industries We Serve",
     description:
-      "ProductArmor supplies HDPE bottles, CR caps and CT caps to pharmaceuticals, nutraceuticals, ayurvedic, veterinary, diagnostics and personal-care industries across the globe.",
+      "ProductArmor supplies bottles, CR caps and CT caps to pharmaceuticals, nutraceuticals, ayurvedic, veterinary, diagnostics and personal-care industries across the globe.",
     path: "/industries",
   });
   useReveal();
@@ -110,7 +110,7 @@ export default function Industries() {
           </h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
             From regulated pharmaceuticals to fast-moving nutraceuticals, our
-            HDPE bottles and child-resistant closures protect products across
+            bottles and child-resistant closures protect products across
             every corner of the healthcare supply chain.
           </p>
         </div>

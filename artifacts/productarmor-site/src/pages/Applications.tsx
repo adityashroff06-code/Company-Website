@@ -34,45 +34,45 @@ const applications = [
     icon: Pill,
     name: "Solid Oral Dosage",
     desc: "Tablets and capsules that need dependable moisture and light protection over long shelf lives, with tamper-evidence for retail.",
-    fit: "HDPE bottle + CR cap + induction liner",
+    fit: "bottle + CR cap + induction liner",
   },
   {
     icon: Droplet,
     name: "Liquid Orals & Syrups",
     desc: "Cough syrups, suspensions and tonics requiring leak-proof, low-extractable containers that survive transport and dosing.",
-    fit: "HDPE bottle + CT cap + wad seal",
+    fit: "bottle + CT cap + wad seal",
   },
   {
     icon: Wind,
     name: "Dry Powders & Granules",
     desc: "Reconstitutable powders and granular formulations that demand a strong moisture barrier and a wide neck for easy filling.",
-    fit: "Wide-mouth HDPE bottle + CT cap",
+    fit: "Wide-mouth bottle + CT cap",
   },
   {
     icon: Sparkles,
     name: "Effervescent Products",
     desc: "Effervescent tablets that react with moisture, needing tight-sealing closures and desiccant-compatible packaging.",
-    fit: "HDPE bottle + CR/CT cap + desiccant liner",
+    fit: "bottle + CR/CT cap + desiccant liner",
   },
   {
     icon: Candy,
     name: "Nutraceutical Gummies",
     desc: "Sticky, temperature-sensitive gummies and chewables that require a wide mouth, secure closure and good barrier performance.",
-    fit: "Wide-mouth HDPE bottle + CT cap + seal",
+    fit: "Wide-mouth bottle + CT cap + seal",
   },
   {
     icon: Hand,
     name: "Topical & Personal Care",
     desc: "Creams, oils and lotions where finish, chemical resistance and reliable dispensing closures are essential.",
-    fit: "HDPE bottle + CT cap (dispensing options)",
+    fit: "bottle + CT cap (dispensing options)",
   },
 ];
 
 const productFit = [
   {
     icon: FlaskConical,
-    title: "HDPE Bottles",
-    desc: "USP Class VI food-grade high-density polyethylene bottles in round, oval and wide-mouth profiles from 30 ml to 1000 ml — the primary container for tablets, powders and liquids.",
+    title: "Bottles",
+    desc: "USP Class VI food-grade pharmaceutical bottles in round, oval and wide-mouth profiles from 30 ml to 1000 ml — the primary container for tablets, powders and liquids.",
   },
   {
     icon: Pill,
@@ -90,7 +90,7 @@ export default function Applications() {
   usePageMeta({
     title: "Packaging Applications",
     description:
-      "See how ProductArmor HDPE bottles, CR caps and CT caps fit real applications — solid orals, syrups, powders, effervescents, gummies and topicals — plus closure and liner selection.",
+      "See how ProductArmor bottles, CR caps and CT caps fit real applications — solid orals, syrups, powders, effervescents, gummies and topicals — plus closure and liner selection.",
     path: "/applications",
   });
   useReveal();

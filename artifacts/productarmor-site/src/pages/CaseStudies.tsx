@@ -24,7 +24,7 @@ const caseStudies = [
     challenge:
       "A supplement manufacturer expanding into the United States needed child-resistant closures that passed 16 CFR §1700.20 / ISO 8317 protocol testing, but their existing supplier could not provide documented certification or consistent torque performance.",
     solution:
-      "We supplied CR caps moulded from USP Class VI HDPE with a validated push-and-turn mechanism, matched liner systems for the target bottle necks, and provided full protocol test reports plus lot-level certificates of analysis for every consignment.",
+      "We supplied CR caps moulded from USP Class VI pharmaceutical-grade material with a validated push-and-turn mechanism, matched liner systems for the target bottle necks, and provided full protocol test reports plus lot-level certificates of analysis for every consignment.",
     result:
       "The client cleared US import documentation on the first submission and standardised all export SKUs on our closures.",
     metrics: [
@@ -69,7 +69,7 @@ const caseStudies = [
     challenge:
       "A direct-to-consumer herbal brand was scaling quickly but its packaging lead times of six-plus weeks caused frequent stock-outs during demand spikes and promotional launches.",
     solution:
-      "We set up a rolling forecast and safety-stock programme for their core HDPE bottle and CT cap sizes, reserved mould capacity, and moved to scheduled dispatches synchronised with their filling calendar.",
+      "We set up a rolling forecast and safety-stock programme for their core bottle and CT cap sizes, reserved mould capacity, and moved to scheduled dispatches synchronised with their filling calendar.",
     result:
       "Reliable replenishment eliminated stock-outs and allowed the brand to launch new SKUs on schedule.",
     metrics: [
@@ -83,7 +83,7 @@ export default function CaseStudies() {
   usePageMeta({
     title: "Case Studies",
     description:
-      "Real ProductArmor pharma packaging case studies — export CR-cap certification, 18% cost reduction, zero-rejection QC and faster lead times for HDPE bottles and caps.",
+      "Real ProductArmor pharma packaging case studies — export CR-cap certification, 18% cost reduction, zero-rejection QC and faster lead times for bottles and caps.",
     path: "/case-studies",
   });
   useReveal();
@@ -99,7 +99,7 @@ export default function CaseStudies() {
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Case Studies</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
             How pharmaceutical, nutraceutical and healthcare brands solved packaging challenges with our
-            HDPE bottles, CR caps and CT caps — from export compliance to cost, quality and lead-time gains.
+            Bottles, CR caps and CT caps — from export compliance to cost, quality and lead-time gains.
           </p>
         </div>
       </section>

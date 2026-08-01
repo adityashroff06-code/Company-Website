@@ -27,7 +27,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
-              Pharmaceutical-grade HDPE packaging manufactured with precision, certified to global standards and delivered to regulated markets worldwide.
+              Pharmaceutical-grade packaging manufactured with precision, certified to global standards and delivered to regulated markets worldwide.
             </p>
             <p className="mt-3 text-white/40 text-xs italic">
               {company?.tagline ?? SITE.tagline}

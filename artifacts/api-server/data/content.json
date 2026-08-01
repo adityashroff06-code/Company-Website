@@ -28,7 +28,7 @@
   ],
   "about": {
     "title": "Where Formulation meets perfect packaging",
-    "description": "Product Armor Packaging delivers cleanroom-manufactured pharmaceutical packaging solutions trusted by customers worldwide. Operating within an ISO Class 8 cleanroom environment, we specialize in HDPE containers, bottles, and PP caps & closures that meet the rigorous demands of the pharmaceutical industry. With a vision focused on the future of healthcare, we are continuously advancing our capabilities to support next-generation packaging technologies and drug delivery devices for global markets.",
+    "description": "Product Armor Packaging delivers cleanroom-manufactured pharmaceutical packaging solutions trusted by customers worldwide. Operating within an ISO Class 8 cleanroom environment, we specialize in containers, bottles, and caps & closures that meet the rigorous demands of the pharmaceutical industry. With a vision focused on the future of healthcare, we are continuously advancing our capabilities to support next-generation packaging technologies and drug delivery devices for global markets.",
     "image": "/site/images/about-family.jpg",
     "strengths": [
       "Sustainable Practices",
@@ -212,7 +212,7 @@
   "testimonials": [
     {
       "id": "1",
-      "quote": "Product Armor consistently delivers on quality and timelines. Their HDPE bottles have zero rejection rate in our incoming QC — something we haven't seen with any other supplier.",
+      "quote": "Product Armor consistently delivers on quality and timelines. Their bottles have zero rejection rate in our incoming QC — something we haven't seen with any other supplier.",
       "author": "Rajesh Sharma",
       "company": "Leading Indian Pharma Manufacturer",
       "role": "Head of Procurement"
@@ -257,7 +257,7 @@
     {
       "id": "2",
       "title": "Product Catalogue",
-      "description": "Full HDPE bottle, CR cap and CT cap catalogue with sizes, neck finishes, fill volumes and available colours.",
+      "description": "Full bottle, CR cap and CT cap catalogue with sizes, neck finishes, fill volumes and available colours.",
       "fileType": "PDF · 6.8 MB",
       "url": ""
     }

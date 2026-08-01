@@ -19,7 +19,7 @@ function useReveal() {
 const faqs = [
   {
     q: "What is your minimum order quantity (MOQ)?",
-    a: "For standard HDPE bottles, CR caps and CT caps our typical MOQ starts at 10,000 units per SKU, though this varies with neck size, bottle volume and colour. For custom moulds or specialised colours, higher volumes may apply to keep unit costs competitive. Share your annual requirement and we will recommend the most economical batch structure.",
+    a: "For standard bottles, CR caps and CT caps our typical MOQ starts at 10,000 units per SKU, though this varies with neck size, bottle volume and colour. For custom moulds or specialised colours, higher volumes may apply to keep unit costs competitive. Share your annual requirement and we will recommend the most economical batch structure.",
   },
   {
     q: "What are your standard lead times?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Can I customise bottle sizes, neck finishes and colours?",
-    a: "Yes. We manufacture HDPE bottles across a wide range of volumes (typically 30 ml to 1000 ml) with common pharma neck finishes, and closures in CR and CT formats. Colours are matched to Pantone references, and we support masterbatch matching for brand consistency. Custom geometries are achievable through dedicated tooling.",
+    a: "Yes. We manufacture bottles across a wide range of volumes (typically 30 ml to 1000 ml) with common pharma neck finishes, and closures in CR and CT formats. Colours are matched to Pantone references, and we support masterbatch matching for brand consistency. Custom geometries are achievable through dedicated tooling.",
   },
   {
     q: "Which certifications and quality standards do you hold?",
@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: "What materials are used in your bottles and caps?",
-    a: "Our bottles and closures are manufactured primarily from pharmaceutical-grade HDPE selected for chemical resistance, mechanical strength and compatibility with oral solid and liquid dosage forms. Material compliance documentation can be provided to support your product's stability and regulatory requirements.",
+    a: "Our bottles and closures are manufactured primarily from pharmaceutical-grade materials selected for chemical resistance, mechanical strength and compatibility with oral solid and liquid dosage forms. Material compliance documentation can be provided to support your product's stability and regulatory requirements.",
   },
   {
     q: "What are your payment and logistics terms?",
@@ -90,7 +90,7 @@ export default function FAQ() {
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
-            Everything you need to know about our HDPE bottles, CR &amp; CT caps, ordering process, certifications and export capabilities.
+            Everything you need to know about our bottles, CR &amp; CT caps, ordering process, certifications and export capabilities.
           </p>
         </div>
       </section>
@@ -170,7 +170,7 @@ export default function FAQ() {
             Ready to Discuss Your Packaging Needs?
           </h2>
           <p className="text-white/60 mb-10 max-w-xl mx-auto">
-            Request a sample kit, get a quote, or speak with our specialists about custom HDPE bottles and closures.
+            Request a sample kit, get a quote, or speak with our specialists about custom bottles and closures.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

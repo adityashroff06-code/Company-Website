@@ -7,7 +7,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
     usePageMeta({
       title: "Products",
       description:
-        "Explore Product Armor's pharmaceutical packaging range — HDPE bottles, child-resistant (CR) caps and continuous thread (CT) caps, engineered for global regulated markets.",
+        "Explore Product Armor's pharmaceutical packaging range — bottles, child-resistant (CR) caps and continuous thread (CT) caps, engineered for global regulated markets.",
       path: "/products",
     });
 

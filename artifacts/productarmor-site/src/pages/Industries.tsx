@@ -166,7 +166,7 @@ export default function Industries() {
               Regulatory Fit by Industry
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              ISO 9001:2015 certified manufacturing means the right
+              ISO 9001:2018 certified manufacturing means the right
               documentation and material assurance for every market you sell
               into.
             </p>

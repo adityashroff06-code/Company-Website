@@ -265,10 +265,10 @@ import { useEffect } from "react";
                 Quality Assurance
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Certified to International Standards
+                Committed to Quality. Trusted Worldwide.
               </h2>
               <p className="text-white/60 max-w-xl mx-auto">
-                Our certifications are not just badges — they represent the rigor embedded in every production run.
+                Powered by advanced technology, rigorous quality controls, and end-to-end traceability to deliver reliable pharmaceutical packaging solutions.
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

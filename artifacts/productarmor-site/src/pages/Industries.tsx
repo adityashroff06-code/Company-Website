@@ -4,7 +4,6 @@ import {
   Pill,
   Leaf,
   Sprout,
-  PawPrint,
   Stethoscope,
   Sparkles,
   ShieldCheck,
@@ -50,12 +49,6 @@ const industries = [
     packaging: "bottles · wadded CT caps",
   },
   {
-    icon: PawPrint,
-    name: "Veterinary",
-    desc: "Robust packaging for animal-health powders, boluses and liquids built to withstand rough field handling and varied storage conditions.",
-    packaging: "Heavy-duty bottles · CT caps",
-  },
-  {
     icon: Stethoscope,
     name: "Diagnostics & Healthcare",
     desc: "Clean, contamination-resistant containers for reagents, test kits and clinical consumables produced under controlled conditions.",
@@ -91,7 +84,7 @@ export default function Industries() {
   usePageMeta({
     title: "Industries We Serve",
     description:
-      "ProductArmor supplies bottles, CR caps and CT caps to pharmaceuticals, nutraceuticals, ayurvedic, veterinary, diagnostics and personal-care industries across the globe.",
+      "ProductArmor supplies bottles, CR caps and CT caps to pharmaceuticals, nutraceuticals, ayurvedic, diagnostics and personal-care industries across the globe.",
     path: "/industries",
   });
   useReveal();

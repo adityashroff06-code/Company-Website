@@ -109,9 +109,9 @@ export default function Industries() {
             Industries We Serve
           </h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
-            From regulated pharmaceuticals to fast-moving nutraceuticals, our
-            bottles and child-resistant closures protect products across
-            every corner of the healthcare supply chain.
+            Supporting pharmaceutical, nutraceutical, and healthcare brands with
+            packaging solutions designed for product safety, reliability, and
+            compliance.
           </p>
         </div>
       </section>

@@ -49,7 +49,7 @@ function FormattedDescription({ text }: { text: string }) {
   return (
     <div className="space-y-3">
       {paragraphs.map((p, i) => (
-        <p key={i} className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
+        <p key={i} className="text-gray-600 text-sm leading-relaxed whitespace-pre-line text-justify">
           {boldParts(p)}
         </p>
       ))}

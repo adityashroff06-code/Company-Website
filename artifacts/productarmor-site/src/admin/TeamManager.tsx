@@ -232,7 +232,7 @@ export default function TeamManager({ token }: { token: string }) {
           <Input label="Phone" value={form.phone ?? ""} onChange={v => setField("phone", v)} />
         </div>
 
-        <Input label="Short Description" hint="200–500 characters, shown on the card" type="textarea" rows={3}
+        <Input label="Description" hint="Shown on the card. Use **text** for bold, and leave a blank line between paragraphs." type="textarea" rows={6}
           value={form.shortDescription ?? ""} onChange={v => setField("shortDescription", v)} />
         <Input label="Detailed Biography" type="textarea" rows={6}
           value={form.biography ?? ""} onChange={v => setField("biography", v)} />

@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
-import { X, Linkedin, Mail, GraduationCap, Briefcase, Target, Quote, Users, ArrowRight, Star } from "lucide-react";
+import { Linkedin, Quote, Users, ArrowRight, Star } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { fetchPublicTeam, type TeamMember } from "@/lib/managementTeam";
+import { useQuery } from "@tanstack/react-query";
 
 function initials(name: string): string {
   return name
@@ -33,85 +32,26 @@ function Photo({ member, className, sizes }: { member: TeamMember; className: st
   );
 }
 
-function DetailBlock({ icon: Icon, title, text }: { icon: React.ElementType; title: string; text: string }) {
-  if (!text.trim()) return null;
-  return (
-    <div className="flex gap-4">
-      <div className="w-10 h-10 bg-[#4164a8]/10 rounded-xl flex items-center justify-center shrink-0">
-        <Icon size={18} className="text-[#4164a8]" />
-      </div>
-      <div>
-        <h4 className="font-bold text-[#0f2a4e] text-sm mb-1">{title}</h4>
-        <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{text}</p>
-      </div>
-    </div>
+/** Renders **bold** markers and blank-line paragraph breaks. */
+function boldParts(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") ? (
+      <strong key={i} className="font-semibold text-[#0f2a4e]">{part.slice(2, -2)}</strong>
+    ) : (
+      part
+    )
   );
 }
 
-function MemberModal({ member, onClose }: { member: TeamMember; onClose: () => void }) {
+function FormattedDescription({ text }: { text: string }) {
+  const paragraphs = text.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
   return (
-    <div
-      className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-label={`${member.fullName} profile`}
-    >
-      <div
-        className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
-        onClick={e => e.stopPropagation()}
-      >
-        <div className="relative">
-          <div className="bg-[#4164a8] h-28 rounded-t-2xl" />
-          <button
-            onClick={onClose}
-            aria-label="Close profile"
-            className="absolute top-4 right-4 bg-white/15 hover:bg-white/30 text-white rounded-full p-2 transition-colors"
-          >
-            <X size={18} />
-          </button>
-          <div className="px-6 sm:px-10 -mt-14 flex flex-col sm:flex-row sm:items-end gap-4">
-            <Photo member={member} className="w-28 h-28 rounded-2xl border-4 border-white shadow-lg shrink-0" />
-            <div className="pb-1">
-              <h3 className="text-2xl font-bold text-[#0f2a4e]">{member.fullName}</h3>
-              <p className="text-[#4164a8] font-semibold text-sm">{member.designation}</p>
-              {member.department && <p className="text-gray-400 text-xs mt-0.5">{member.department}</p>}
-            </div>
-          </div>
-        </div>
-
-        <div className="px-6 sm:px-10 py-8 space-y-6">
-          {member.biography.trim() && (
-            <p className="text-gray-600 leading-relaxed whitespace-pre-line">{member.biography}</p>
-          )}
-          <DetailBlock icon={GraduationCap} title="Qualifications" text={member.qualifications} />
-          <DetailBlock icon={Briefcase} title="Experience" text={member.experience} />
-          <DetailBlock icon={Target} title="Key Responsibilities" text={member.shortDescription} />
-
-          {(member.linkedinUrl || member.email) && (
-            <div className="flex flex-wrap gap-3 pt-2 border-t border-gray-100">
-              {member.linkedinUrl && (
-                <a
-                  href={member.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-[#4164a8] hover:bg-[#345099] text-white text-sm font-semibold rounded-lg transition-colors"
-                >
-                  <Linkedin size={15} /> LinkedIn Profile
-                </a>
-              )}
-              {member.email && (
-                <a
-                  href={`mailto:${member.email}`}
-                  className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-[#0f2a4e] text-sm font-semibold rounded-lg transition-colors"
-                >
-                  <Mail size={15} /> {member.email}
-                </a>
-              )}
-            </div>
-          )}
-        </div>
-      </div>
+    <div className="space-y-3">
+      {paragraphs.map((p, i) => (
+        <p key={i} className="text-gray-500 text-sm leading-relaxed whitespace-pre-line">
+          {boldParts(p)}
+        </p>
+      ))}
     </div>
   );
 }
@@ -124,7 +64,6 @@ export default function ManagementTeam() {
     path: "/management-team",
   });
 
-  const [selected, setSelected] = useState<TeamMember | null>(null);
   const { data: members, isLoading } = useQuery({
     queryKey: ["management-team", "public"],
     queryFn: fetchPublicTeam,
@@ -152,11 +91,11 @@ export default function ManagementTeam() {
           {isLoading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[0, 1, 2].map(i => (
-                <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden animate-pulse">
-                  <div className="h-64 bg-gray-100" />
-                  <div className="p-6 space-y-3">
-                    <div className="h-4 bg-gray-100 rounded w-2/3" />
-                    <div className="h-3 bg-gray-100 rounded w-1/2" />
+                <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 animate-pulse">
+                  <div className="w-36 h-36 bg-gray-100 rounded-full mx-auto mb-6" />
+                  <div className="space-y-3">
+                    <div className="h-4 bg-gray-100 rounded w-2/3 mx-auto" />
+                    <div className="h-3 bg-gray-100 rounded w-1/2 mx-auto" />
                     <div className="h-3 bg-gray-100 rounded w-full" />
                   </div>
                 </div>
@@ -174,39 +113,41 @@ export default function ManagementTeam() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
               {members.map(member => (
-                <button
+                <div
                   key={member.id}
-                  onClick={() => setSelected(member)}
-                  className="group text-left bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#4164a8]/40"
+                  className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative w-36 h-36 mx-auto mb-6">
                     <Photo
                       member={member}
-                      className="w-full h-full group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="w-36 h-36 rounded-full border-4 border-[#4164a8]/10 shadow-md"
+                      sizes="144px"
                     />
                     {member.featured && (
-                      <span className="absolute top-3 left-3 inline-flex items-center gap-1 bg-[#4164a8] text-white text-[11px] font-semibold px-2.5 py-1 rounded-full">
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-[#4164a8] text-white text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
                         <Star size={11} /> Featured
                       </span>
                     )}
                   </div>
-                  <div className="p-6">
-                    <h3 className="font-bold text-[#0f2a4e] text-lg group-hover:text-[#4164a8] transition-colors">
-                      {member.fullName}
-                    </h3>
-                    <p className="text-[#4164a8] text-sm font-semibold mb-3">{member.designation}</p>
-                    <p className="text-gray-500 text-sm leading-relaxed line-clamp-4">
-                      {member.shortDescription}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 mt-4 text-[#4164a8] text-sm font-semibold">
-                      View Profile
-                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </span>
+                  <h3 className="font-bold text-[#0f2a4e] text-lg">{member.fullName}</h3>
+                  <p className="text-[#4164a8] text-sm font-semibold mb-4">{member.designation}</p>
+                  <div className="text-left">
+                    <FormattedDescription text={member.shortDescription} />
                   </div>
-                </button>
+                  {member.linkedinUrl && (
+                    <a
+                      href={member.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${member.fullName} on LinkedIn`}
+                      className="inline-flex items-center justify-center w-10 h-10 mt-5 rounded-full bg-[#0a66c2] hover:bg-[#084d92] text-white transition-colors"
+                    >
+                      <Linkedin size={18} />
+                    </a>
+                  )}
+                </div>
               ))}
             </div>
           )}
@@ -229,8 +170,6 @@ export default function ManagementTeam() {
           </Link>
         </div>
       </section>
-
-      {selected && <MemberModal member={selected} onClose={() => setSelected(null)} />}
     </div>
   );
 }

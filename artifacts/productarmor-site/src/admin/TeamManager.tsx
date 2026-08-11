@@ -226,20 +226,11 @@ export default function TeamManager({ token }: { token: string }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Full Name *" value={form.fullName ?? ""} onChange={v => setField("fullName", v)} />
           <Input label="Designation *" value={form.designation ?? ""} onChange={v => setField("designation", v)} />
-          <Input label="Department" value={form.department ?? ""} onChange={v => setField("department", v)} />
           <Input label="LinkedIn URL" value={form.linkedinUrl ?? ""} onChange={v => setField("linkedinUrl", v)} />
-          <Input label="Email" type="email" value={form.email ?? ""} onChange={v => setField("email", v)} />
-          <Input label="Phone" value={form.phone ?? ""} onChange={v => setField("phone", v)} />
         </div>
 
-        <Input label="Description" hint="Shown on the card. Use **text** for bold, and leave a blank line between paragraphs." type="textarea" rows={6}
+        <Input label="Description" hint="Shown in the profile popup. Use **text** for bold, and leave a blank line between paragraphs." type="textarea" rows={6}
           value={form.shortDescription ?? ""} onChange={v => setField("shortDescription", v)} />
-        <Input label="Detailed Biography" type="textarea" rows={6}
-          value={form.biography ?? ""} onChange={v => setField("biography", v)} />
-        <Input label="Qualifications" type="textarea" rows={3}
-          value={form.qualifications ?? ""} onChange={v => setField("qualifications", v)} />
-        <Input label="Experience" type="textarea" rows={3}
-          value={form.experience ?? ""} onChange={v => setField("experience", v)} />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Switch label="Active on website" checked={form.status !== "inactive"}

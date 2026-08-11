@@ -167,7 +167,7 @@ export default function Applications() {
               Product Range
             </div>
             <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">
-              Which Product Fits Each Application
+              Our Product Fits Each Application
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
               Our three core product families cover the full spectrum of

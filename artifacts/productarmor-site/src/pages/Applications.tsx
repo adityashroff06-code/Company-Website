@@ -72,17 +72,17 @@ const productFit = [
   {
     icon: FlaskConical,
     title: "Bottles",
-    desc: "USP Class VI food-grade pharmaceutical bottles in round, oval and wide-mouth profiles from 30 ml to 1000 ml — the primary container for tablets, powders and liquids.",
+    desc: "Manufactured using food-grade resins, we supply pharmaceutical bottles in round, oval and wide-mouth profiles from 30 ml to 1000 ml — the primary container for tablets/capsule.",
   },
   {
     icon: Pill,
     title: "CR (Child-Resistant) Caps",
-    desc: "Push-and-turn closures certified to ISO 8317 and US 16 CFR 1700.20, protecting children while remaining accessible for adults — ideal for potent Rx and OTC products.",
+    desc: "Push-and-turn closures certified to ISO 8317 and US 16 CFR 1700.20, protecting children while remaining accessible for adults.",
   },
   {
     icon: Layers,
     title: "CT (Continuous Thread) Caps",
-    desc: "Reliable everyday closures with wadded or induction-sealable liners for nutraceuticals, syrups, cosmetics and general packaging where child resistance is not required.",
+    desc: "Reliable everyday closures with wadded or induction-sealable liners for pharmaceuticals, healthcare, nutraceuticals, and general packaging where child resistance features in cap is not required.",
   },
 ];
 
@@ -209,7 +209,7 @@ export default function Applications() {
                   Closure &amp; Liner Selection
                 </h2>
                 <p className="text-gray-500 text-sm leading-relaxed max-w-2xl">
-                  The closure and liner do the real work of protecting your
+                  The closure and liner also play key role in protecting your
                   product. Here is how we help you choose the right combination.
                 </p>
               </div>
@@ -218,7 +218,7 @@ export default function Applications() {
               {[
                 {
                   t: "Induction (heat) seal liners",
-                  d: "Create a hermetic, tamper-evident seal ideal for moisture-sensitive tablets, effervescents and export shipments.",
+                  d: "Create a hermetic, tamper-evident seal ideal for moisture-sensitive tablets, and export shipments.",
                 },
                 {
                   t: "Wadded / pressure-sensitive liners",
@@ -230,7 +230,7 @@ export default function Applications() {
                 },
                 {
                   t: "Desiccant compatibility",
-                  d: "Wide-neck bottles and compatible liners support desiccant canisters or sachets for highly hygroscopic formulations.",
+                  d: "Our wide-neck bottles and induction liners are compatible with desiccant canisters or sachets, required for highly hygroscopic formulations.",
                 },
               ].map((item) => (
                 <div

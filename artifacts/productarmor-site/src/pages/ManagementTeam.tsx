@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link } from "wouter";
-import { Linkedin, Quote, Users, ArrowRight, Star } from "lucide-react";
+import { X, Linkedin, Quote, Users, ArrowRight, Star } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { fetchPublicTeam, type TeamMember } from "@/lib/managementTeam";
 import { useQuery } from "@tanstack/react-query";
@@ -48,10 +49,63 @@ function FormattedDescription({ text }: { text: string }) {
   return (
     <div className="space-y-3">
       {paragraphs.map((p, i) => (
-        <p key={i} className="text-gray-500 text-sm leading-relaxed whitespace-pre-line">
+        <p key={i} className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
           {boldParts(p)}
         </p>
       ))}
+    </div>
+  );
+}
+
+function MemberModal({ member, onClose }: { member: TeamMember; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${member.fullName} profile`}
+    >
+      <div
+        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="relative px-6 sm:px-10 pt-10 pb-8 text-center">
+          <button
+            onClick={onClose}
+            aria-label="Close profile"
+            className="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-500 rounded-full p-2 transition-colors"
+          >
+            <X size={18} />
+          </button>
+
+          <Photo
+            member={member}
+            className="w-32 h-32 rounded-full border-4 border-[#4164a8]/10 shadow-md mx-auto mb-5"
+            sizes="128px"
+          />
+          <h3 className="text-2xl font-bold text-[#0f2a4e]">{member.fullName}</h3>
+          <p className="text-[#4164a8] font-semibold text-sm mb-6">{member.designation}</p>
+
+          {member.shortDescription.trim() && (
+            <div className="text-left">
+              <FormattedDescription text={member.shortDescription} />
+            </div>
+          )}
+
+          {member.linkedinUrl && (
+            <a
+              href={member.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${member.fullName} on LinkedIn`}
+              className="inline-flex items-center justify-center w-11 h-11 mt-6 rounded-full bg-[#0a66c2] hover:bg-[#084d92] text-white transition-colors"
+            >
+              <Linkedin size={19} />
+            </a>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
@@ -64,6 +118,7 @@ export default function ManagementTeam() {
     path: "/management-team",
   });
 
+  const [selected, setSelected] = useState<TeamMember | null>(null);
   const { data: members, isLoading } = useQuery({
     queryKey: ["management-team", "public"],
     queryFn: fetchPublicTeam,
@@ -96,7 +151,6 @@ export default function ManagementTeam() {
                   <div className="space-y-3">
                     <div className="h-4 bg-gray-100 rounded w-2/3 mx-auto" />
                     <div className="h-3 bg-gray-100 rounded w-1/2 mx-auto" />
-                    <div className="h-3 bg-gray-100 rounded w-full" />
                   </div>
                 </div>
               ))}
@@ -115,14 +169,16 @@ export default function ManagementTeam() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
               {members.map(member => (
-                <div
+                <button
                   key={member.id}
-                  className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  type="button"
+                  onClick={() => setSelected(member)}
+                  className="group w-full bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#4164a8]/40"
                 >
                   <div className="relative w-36 h-36 mx-auto mb-6">
                     <Photo
                       member={member}
-                      className="w-36 h-36 rounded-full border-4 border-[#4164a8]/10 shadow-md"
+                      className="w-36 h-36 rounded-full border-4 border-[#4164a8]/10 shadow-md group-hover:scale-105 transition-transform duration-300"
                       sizes="144px"
                     />
                     {member.featured && (
@@ -131,23 +187,11 @@ export default function ManagementTeam() {
                       </span>
                     )}
                   </div>
-                  <h3 className="font-bold text-[#0f2a4e] text-lg">{member.fullName}</h3>
-                  <p className="text-[#4164a8] text-sm font-semibold mb-4">{member.designation}</p>
-                  <div className="text-left">
-                    <FormattedDescription text={member.shortDescription} />
-                  </div>
-                  {member.linkedinUrl && (
-                    <a
-                      href={member.linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${member.fullName} on LinkedIn`}
-                      className="inline-flex items-center justify-center w-10 h-10 mt-5 rounded-full bg-[#0a66c2] hover:bg-[#084d92] text-white transition-colors"
-                    >
-                      <Linkedin size={18} />
-                    </a>
-                  )}
-                </div>
+                  <h3 className="font-bold text-[#0f2a4e] text-lg group-hover:text-[#4164a8] transition-colors">
+                    {member.fullName}
+                  </h3>
+                  <p className="text-[#4164a8] text-sm font-semibold">{member.designation}</p>
+                </button>
               ))}
             </div>
           )}
@@ -170,6 +214,8 @@ export default function ManagementTeam() {
           </Link>
         </div>
       </section>
+
+      {selected && <MemberModal member={selected} onClose={() => setSelected(null)} />}
     </div>
   );
 }

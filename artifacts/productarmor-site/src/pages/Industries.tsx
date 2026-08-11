@@ -33,14 +33,14 @@ const industries = [
   {
     icon: Pill,
     name: "Pharmaceuticals",
-    desc: "Primary packaging for prescription and OTC medicines — tablets, capsules and liquid orals — with tamper-evidence and moisture protection built in.",
-    packaging: "bottles · CR caps · CT caps with induction liners",
+    desc: "Primary packaging for prescription and OTC medicines — tablets, capsules and liquid orals — with tamper-evidence feature through induction sealing.",
+    packaging: "Bottles · CR / CT caps with induction liners",
   },
   {
     icon: Leaf,
-    name: "Nutraceuticals & Supplements",
-    desc: "Wide-mouth bottles and secure closures for vitamins, minerals, protein powders and softgel supplements that demand shelf appeal and barrier performance.",
-    packaging: "Wide-mouth bottles · CT caps · seals",
+    name: "Nutraceuticals, Healthcare & Supplements",
+    desc: "Wide-mouth bottles and secure closures for vitamins, minerals, and softgel supplements that demand better barrier performance.",
+    packaging: "Wide-mouth bottles · CT caps with induction liners",
   },
   {
     icon: Sprout,

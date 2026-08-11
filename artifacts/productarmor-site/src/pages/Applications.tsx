@@ -33,8 +33,8 @@ const applications = [
   {
     icon: Pill,
     name: "Solid Oral Dosage",
-    desc: "Tablets and capsules that need dependable moisture and light protection over long shelf lives, with tamper-evidence for retail.",
-    fit: "bottle + CR cap + induction liner",
+    desc: "Tablets and capsules that need dependable moisture and light protection over long shelf lives, with tamper-evidence for retail feature.",
+    fit: "Bottle + CT/CR Cap + Induction Liner",
   },
   {
     icon: Droplet,
@@ -108,7 +108,7 @@ export default function Applications() {
             Real-World Packaging Applications
           </h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
-            Every dosage form has its own packaging demands. Explore how our
+            Every dosage form product has its own packaging demands. Explore how our
             bottles, caps and liners are matched to the products they protect.
           </p>
         </div>

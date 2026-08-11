@@ -108,7 +108,7 @@ export default function Applications() {
             Real-World Packaging Applications
           </h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
-            Every dosage form product has its own packaging demands. Explore how our
+            Every product has its own packaging demands. Explore how our
             bottles, caps and liners are matched to the products they protect.
           </p>
         </div>

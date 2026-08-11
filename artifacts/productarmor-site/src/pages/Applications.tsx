@@ -33,7 +33,7 @@ const applications = [
   {
     icon: Pill,
     name: "Solid Oral Dosage",
-    desc: "Tablets and capsules that need dependable moisture and light protection over long shelf lives, with tamper-evidence for retail feature.",
+    desc: "Tablets and capsules that need moisture and light protection over long shelf lives, with tamper-evidence feature.",
     fit: "Bottle + CT/CR Cap + Induction Liner",
   },
   {

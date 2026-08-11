@@ -66,17 +66,17 @@ const regulatory = [
   {
     icon: ShieldCheck,
     title: "Pharmaceuticals",
-    desc: "USP Class VI food-grade resin, GMP manufacturing and CR caps certified to ISO 8317 / US 16 CFR 1700.20 child-resistance standards.",
+    desc: "Regulatory bodies approved food-grade resin, GMP manufacturing and CR caps certified to ISO 8317 / US 16 CFR 1700.20 child-resistance standards.",
   },
   {
     icon: FileCheck,
-    title: "Nutraceuticals & Ayurvedic",
-    desc: "Reliable packaging solutions that maintain ingredient safety, formulation stability, and product quality.",
+    title: "Healthcare & Nutraceuticals & Ayurvedic",
+    desc: "Reliable packaging solutions that maintain formulation stability, and product quality.",
   },
   {
     icon: Globe,
     title: "Export Markets",
-    desc: "DMF-ready material declarations and drug master file support for regulated markets across the USA, Europe, the Middle East and Asia.",
+    desc: "Availability of all relevant regulatory certification / declaration (Including DMF Certification) and drug master file support for regulated markets across the USA, Europe, the Middle East and Asia.",
   },
 ];
 

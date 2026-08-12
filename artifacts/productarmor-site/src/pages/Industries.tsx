@@ -32,19 +32,19 @@ const industries = [
     icon: Pill,
     name: "Pharmaceuticals",
     desc: "Primary packaging for prescription and OTC medicines — tablets, capsules and liquid orals — with tamper-evidence feature through induction sealing.",
-    packaging: "Bottles · CR / CT caps with induction liners",
+    packaging: "Bottles · CR / CT caps with customer-specific liners",
   },
   {
     icon: Leaf,
     name: "Nutraceuticals, Healthcare & Supplements",
     desc: "Wide-mouth bottles and secure closures for vitamins, minerals, and softgel supplements that demand better barrier performance.",
-    packaging: "Wide-mouth bottles · CT caps with induction liners",
+    packaging: "Wide-mouth bottles · CT / CR caps with customer-specific liners",
   },
   {
     icon: Sprout,
     name: "Ayurvedic & Herbal",
     desc: "Inert, food-grade containers that preserve the potency of herbal churnas, tablets and syrups while meeting AYUSH and export labelling needs.",
-    packaging: "bottles · wadded CT caps",
+    packaging: "Bottles",
   },
 ];
 

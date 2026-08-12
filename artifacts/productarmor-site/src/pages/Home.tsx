@@ -278,7 +278,11 @@ import { useEffect } from "react";
                   className="reveal bg-white/10 backdrop-blur border border-white/20 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300"
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
-                  <Award size={32} className="text-[#93b4e8] mx-auto mb-4" />
+                  {c.logo ? (
+                    <img src={c.logo} alt={`${c.name} logo`} className="w-20 h-20 mx-auto mb-4 object-contain" />
+                  ) : (
+                    <Award size={32} className="text-[#93b4e8] mx-auto mb-4" />
+                  )}
                   <div className="text-white font-bold text-sm mb-1">{c.name}</div>
                   <div className="text-white/50 text-xs">{c.issuer}</div>
                   <div className="text-[#93b4e8] text-xs font-semibold mt-2">{c.year}</div>

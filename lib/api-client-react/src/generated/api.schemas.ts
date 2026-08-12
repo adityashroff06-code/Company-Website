@@ -48,6 +48,7 @@
     name: string;
     issuer: string;
     year: string;
+    logo?: string;
   }
 
   export interface SiteContentClient {

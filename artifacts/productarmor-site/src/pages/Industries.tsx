@@ -62,7 +62,7 @@ const regulatory = [
   {
     icon: Globe,
     title: "Export Markets",
-    desc: "Availability of all relevant regulatory certification / declaration (Including DMF Certification) and drug master file support for regulated markets across the USA, Europe, the Middle East and Asia.",
+    desc: "Availability of all relevant regulatory certification / declaration (Including DMF Certification) and drug master file support for regulated markets across the USA, North America, Europe, Middle East and Africa, Asia.",
   },
 ];
 

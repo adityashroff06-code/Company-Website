@@ -110,31 +110,36 @@
       "id": "iso9001",
       "name": "ISO 9001:2015",
       "issuer": "Quality Management Systems",
-      "year": "IN25/00000630"
+      "year": "IN25/00000630",
+      "logo": "/site/images/certifications/iso9001.svg"
     },
     {
       "id": "iso15378",
       "name": "ISO 15378:2017",
       "issuer": "Primary Packaging for Pharmaceuticals",
-      "year": "IN22/00000330"
+      "year": "IN22/00000330",
+      "logo": "/site/images/certifications/iso15378.svg"
     },
     {
       "id": "usdmf",
       "name": "USDMF Listed",
       "issuer": "US Drug Master File",
-      "year": "DMF 036675 / 037264"
+      "year": "DMF 036675 / 037264",
+      "logo": "/site/images/certifications/usdmf.svg"
     },
     {
       "id": "cdmf",
       "name": "Canadian DMF",
       "issuer": "Health Canada",
-      "year": "MF2022-108"
+      "year": "MF2022-108",
+      "logo": "/site/images/certifications/cdmf.svg"
     },
     {
       "id": "chinadmf",
       "name": "China DMF",
       "issuer": "NMPA China",
-      "year": "B20220000820"
+      "year": "B20220000820",
+      "logo": "/site/images/certifications/chinadmf.svg"
     }
   ],
   "clients": [

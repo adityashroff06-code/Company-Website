@@ -279,7 +279,9 @@ import { useEffect } from "react";
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   {c.logo ? (
-                    <img src={c.logo} alt={`${c.name} logo`} className="w-20 h-20 mx-auto mb-4 object-contain" />
+                    <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-xl p-2 flex items-center justify-center">
+                      <img src={c.logo} alt={`${c.name} logo`} className="max-w-full max-h-full object-contain" />
+                    </div>
                   ) : (
                     <Award size={32} className="text-[#93b4e8] mx-auto mb-4" />
                   )}

@@ -4,8 +4,6 @@ import {
   Pill,
   Leaf,
   Sprout,
-  Stethoscope,
-  Sparkles,
   ShieldCheck,
   FileCheck,
   Globe,
@@ -47,18 +45,6 @@ const industries = [
     name: "Ayurvedic & Herbal",
     desc: "Inert, food-grade containers that preserve the potency of herbal churnas, tablets and syrups while meeting AYUSH and export labelling needs.",
     packaging: "bottles · wadded CT caps",
-  },
-  {
-    icon: Stethoscope,
-    name: "Diagnostics & Healthcare",
-    desc: "Clean, contamination-resistant containers for reagents, test kits and clinical consumables produced under controlled conditions.",
-    packaging: "bottles · precision closures · liners",
-  },
-  {
-    icon: Sparkles,
-    name: "Personal Care & Cosmetics",
-    desc: "Aesthetic yet functional bottles and caps for lotions, oils and cosmetic serums where finish, colour matching and leak-proofing matter.",
-    packaging: "Custom-colour bottles · CT caps",
   },
 ];
 

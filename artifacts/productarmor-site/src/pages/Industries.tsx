@@ -44,7 +44,7 @@ const industries = [
     icon: Sprout,
     name: "Ayurvedic & Herbal",
     desc: "Inert, food-grade containers that preserve the potency of herbal churnas, tablets and syrups while meeting AYUSH and export labelling needs.",
-    packaging: "Bottles",
+    packaging: "Bottles - Wadded CT Caps",
   },
 ];
 

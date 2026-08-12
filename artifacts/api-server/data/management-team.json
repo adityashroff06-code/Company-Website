@@ -11,12 +11,12 @@
     "linkedinUrl": "https://www.linkedin.com/in/amitgupta-digital/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B6%2ByB9FGXSpCpxVmKMa1lOA%3D%3D",
     "email": "amit.gupta@productarmor.com",
     "phone": "+9643094703",
-    "profilePhoto": "/api/uploads/team-1786516752875-cbecac8e.png",
-    "displayOrder": 1,
+    "profilePhoto": "/api/uploads/team-1786517383169-3209a4bb.png",
+    "displayOrder": 3,
     "featured": false,
     "status": "active",
     "createdAt": "2026-07-27T09:20:54.453Z",
-    "updatedAt": "2026-08-12T06:39:16.746Z"
+    "updatedAt": "2026-08-12T06:49:46.405Z"
   },
   {
     "id": "9904b4a9-2ab6-4132-ade3-70d1d100380c",
@@ -35,7 +35,7 @@
     "featured": false,
     "status": "active",
     "createdAt": "2026-08-12T06:26:14.662Z",
-    "updatedAt": "2026-08-12T06:26:14.662Z"
+    "updatedAt": "2026-08-12T06:45:26.869Z"
   },
   {
     "id": "cc7c00a5-c92a-4898-9802-2795eef6bd4f",
@@ -49,12 +49,12 @@
     "linkedinUrl": "",
     "email": "",
     "phone": "",
-    "profilePhoto": "/api/uploads/team-1786516243750-f825cd56.jpg",
-    "displayOrder": 3,
+    "profilePhoto": "/api/uploads/team-1786517433116-554da6a8.png",
+    "displayOrder": 4,
     "featured": false,
     "status": "active",
     "createdAt": "2026-08-12T06:31:55.403Z",
-    "updatedAt": "2026-08-12T06:31:55.403Z"
+    "updatedAt": "2026-08-12T06:50:35.769Z"
   },
   {
     "id": "a9d25fe8-5126-43ef-92a8-449d1865002c",
@@ -68,11 +68,11 @@
     "linkedinUrl": "",
     "email": "",
     "phone": "",
-    "profilePhoto": "/api/uploads/team-1786516530839-fb7141ef.jpg",
-    "displayOrder": 4,
+    "profilePhoto": "/api/uploads/team-1786517133923-1da44762.png",
+    "displayOrder": 1,
     "featured": false,
     "status": "active",
     "createdAt": "2026-08-12T06:36:33.864Z",
-    "updatedAt": "2026-08-12T06:36:33.864Z"
+    "updatedAt": "2026-08-12T06:45:37.064Z"
   }
 ]

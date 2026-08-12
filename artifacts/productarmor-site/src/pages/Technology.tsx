@@ -36,27 +36,27 @@ const processSteps = [
   {
     icon: PenTool,
     title: "Design & Development",
-    desc: "Our engineers translate your fill volume, closure system and regulatory needs into 3D CAD models, then validate wall thickness, neck finish and CR/CT compatibility before a single tool is cut.",
+    desc: "Where Engineering Becomes Performance - We translate your specifications into precision packaging solutions—validated upfront to deliver quality, compatibility, and performance from the very first tool.",
   },
   {
     icon: Wrench,
     title: "Tooling & Mould Making",
-    desc: "Precision multi-cavity moulds are machined and hardened to hold tight dimensional tolerances across millions of cycles, ensuring every bottle and cap is identical batch after batch.",
+    desc: "Our precision multi-cavity molds are engineered and hardened for exceptional durability and dimensional control—delivering consistent, repeatable bottles and closures across millions of production cycles.",
   },
   {
     icon: Factory,
     title: "Moulding",
-    desc: "USP Class VI pharmaceutical-grade resin is processed on automated injection and blow-moulding machines inside a controlled clean-room environment to minimise particulate contamination.",
+    desc: "Engineered for Purity. Built for Precision - Advanced injection & blow moulding technology, pharmaceutical-grade resin materials, and controlled cleanroom environment to minimize air particulate contamination and deliver packaging engineered for consistent performance and quality.",
   },
   {
     icon: ScanLine,
     title: "In-Line Inspection",
-    desc: "Automated vision systems and torque, leak and drop checks run continuously through the line, flagging any deviation in real time so defects never reach the next stage.",
+    desc: "Inspecting in Real Time. Protecting Quality at Every Step - Advanced vision systems and automated torque, leak, and drop testing continuously monitor production—detecting deviations in real time and preventing defects from moving to the next stage.",
   },
   {
     icon: PackageCheck,
-    title: "Packing",
-    desc: "Approved product is counted, poly-bagged and cartoned in a dust-controlled packing area, each carton labelled with batch traceability for full recall readiness.",
+    title: "Packaging",
+    desc: "Packed with Precision. Traceable by Design - Approved products are counted, securely poly-bagged, and cartoned in controlled packing areas, with every carton fully labeled for end-to-end batch traceability, rapid identification, and recall readiness.",
   },
   {
     icon: Truck,
@@ -122,11 +122,12 @@ export default function Technology() {
             Manufacturing Technology
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Precision Engineered, Consistently Delivered
+            Engineered for Precision. Built for Performance.
           </h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
-            From resin science to automated inspection, our clean-room manufacturing platform is built to produce
-            pharmaceutical packaging with repeatable, specified outcomes.
+            From advanced resin processing to intelligent automation and 100% quality inspection, our cleanroom
+            manufacturing platform is engineered to deliver pharmaceutical packaging with exceptional precision,
+            consistency, and reliability.
           </p>
         </div>
       </section>

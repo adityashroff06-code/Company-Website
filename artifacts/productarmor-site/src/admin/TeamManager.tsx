@@ -2,7 +2,7 @@ import { useMemo, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   Plus, Trash2, Pencil, Search, ChevronLeft, ChevronRight, ArrowUp, ArrowDown,
-  Star, Upload, X, UserRound,
+  Star, Upload, X, UserRound, GripVertical,
 } from "lucide-react";
 import {
   fetchAllTeam, createTeamMember, updateTeamMember, deleteTeamMember,
@@ -74,6 +74,8 @@ export default function TeamManager({ token }: { token: string }) {
   const [confirmDelete, setConfirmDelete] = useState<TeamMember | null>(null);
   const [error, setError] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [dragId, setDragId] = useState<string | null>(null);
+  const [dragOverId, setDragOverId] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const queryKey = ["management-team", "admin"];
@@ -135,6 +137,20 @@ export default function TeamManager({ token }: { token: string }) {
       await reorderTeam(token, orders);
     },
     onSuccess: invalidate,
+  });
+
+  const dropMutation = useMutation({
+    mutationFn: async ({ fromId, toId }: { fromId: string; toId: string }) => {
+      const sorted = [...members].sort((a, b) => a.displayOrder - b.displayOrder);
+      const from = sorted.findIndex(m => m.id === fromId);
+      const to = sorted.findIndex(m => m.id === toId);
+      if (from === -1 || to === -1 || from === to) return;
+      const [moved] = sorted.splice(from, 1);
+      sorted.splice(to, 0, moved);
+      await reorderTeam(token, sorted.map((m, i) => ({ id: m.id, displayOrder: i + 1 })));
+    },
+    onSuccess: invalidate,
+    onError: (e: Error) => setError(e.message),
   });
 
   const filtered = useMemo(() => {
@@ -292,8 +308,29 @@ export default function TeamManager({ token }: { token: string }) {
           {pageItems.map(m => {
             const sorted = [...members].sort((a, b) => a.displayOrder - b.displayOrder);
             const idx = sorted.findIndex(s => s.id === m.id);
+            const canDrag = !search && !dropMutation.isPending;
             return (
-              <div key={m.id} className={`flex items-center gap-3 border rounded-xl p-3 ${m.status === "active" ? "bg-white border-gray-200" : "bg-gray-50 border-gray-200 opacity-70"}`}>
+              <div
+                key={m.id}
+                draggable={canDrag}
+                onDragStart={e => { setDragId(m.id); e.dataTransfer.effectAllowed = "move"; }}
+                onDragOver={e => { if (dragId && dragId !== m.id) { e.preventDefault(); setDragOverId(m.id); } }}
+                onDragLeave={() => setDragOverId(prev => (prev === m.id ? null : prev))}
+                onDrop={e => {
+                  e.preventDefault();
+                  if (dragId && dragId !== m.id) dropMutation.mutate({ fromId: dragId, toId: m.id });
+                  setDragId(null); setDragOverId(null);
+                }}
+                onDragEnd={() => { setDragId(null); setDragOverId(null); }}
+                className={`flex items-center gap-3 border rounded-xl p-3 transition-colors ${m.status === "active" ? "bg-white border-gray-200" : "bg-gray-50 border-gray-200 opacity-70"} ${dragOverId === m.id ? "border-[#4164a8] ring-2 ring-[#4164a8]/20" : ""} ${dragId === m.id ? "opacity-40" : ""}`}
+              >
+                {/* Drag handle */}
+                <div
+                  className={canDrag ? "cursor-grab active:cursor-grabbing text-gray-300 hover:text-[#4164a8]" : "text-gray-200"}
+                  title={search ? "Clear search to reorder" : "Drag to reorder"}
+                >
+                  <GripVertical size={16} />
+                </div>
                 {/* Order controls */}
                 <div className="flex flex-col">
                   <button

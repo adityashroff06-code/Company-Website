@@ -110,6 +110,33 @@ function MemberModal({ member, onClose }: { member: TeamMember; onClose: () => v
   );
 }
 
+function MemberCard({ member, onSelect }: { member: TeamMember; onSelect: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className="group w-full bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#4164a8]/40"
+    >
+      <div className="relative w-36 h-36 mx-auto mb-6">
+        <Photo
+          member={member}
+          className="w-36 h-36 rounded-full border-4 border-[#4164a8]/10 shadow-md group-hover:scale-105 transition-transform duration-300"
+          sizes="144px"
+        />
+        {member.featured && (
+          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-[#4164a8] text-white text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
+            <Star size={11} /> Featured
+          </span>
+        )}
+      </div>
+      <h3 className="font-bold text-[#0f2a4e] text-lg group-hover:text-[#4164a8] transition-colors">
+        {member.fullName}
+      </h3>
+      <p className="text-[#4164a8] text-sm font-semibold">{member.designation}</p>
+    </button>
+  );
+}
+
 export default function ManagementTeam() {
   usePageMeta({
     title: "Management Team",
@@ -123,6 +150,11 @@ export default function ManagementTeam() {
     queryKey: ["management-team", "public"],
     queryFn: fetchPublicTeam,
   });
+  const leadershipMembers = [...(members ?? [])]
+    .filter(member => /founder/i.test(member.designation) || /\bceo\b/i.test(member.designation))
+    .sort((a, b) => Number(!/founder/i.test(a.designation)) - Number(!/founder/i.test(b.designation)));
+  const leadershipIds = new Set(leadershipMembers.map(member => member.id));
+  const otherMembers = (members ?? []).filter(member => !leadershipIds.has(member.id));
 
   return (
     <div className="pt-16">
@@ -167,32 +199,21 @@ export default function ManagementTeam() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-              {members.map(member => (
-                <button
-                  key={member.id}
-                  type="button"
-                  onClick={() => setSelected(member)}
-                  className="group w-full bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#4164a8]/40"
-                >
-                  <div className="relative w-36 h-36 mx-auto mb-6">
-                    <Photo
-                      member={member}
-                      className="w-36 h-36 rounded-full border-4 border-[#4164a8]/10 shadow-md group-hover:scale-105 transition-transform duration-300"
-                      sizes="144px"
-                    />
-                    {member.featured && (
-                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-[#4164a8] text-white text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
-                        <Star size={11} /> Featured
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="font-bold text-[#0f2a4e] text-lg group-hover:text-[#4164a8] transition-colors">
-                    {member.fullName}
-                  </h3>
-                  <p className="text-[#4164a8] text-sm font-semibold">{member.designation}</p>
-                </button>
-              ))}
+            <div className="space-y-8">
+              {leadershipMembers.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                  {leadershipMembers.map(member => (
+                    <MemberCard key={member.id} member={member} onSelect={() => setSelected(member)} />
+                  ))}
+                </div>
+              )}
+              {otherMembers.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                  {otherMembers.map(member => (
+                    <MemberCard key={member.id} member={member} onSelect={() => setSelected(member)} />
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>

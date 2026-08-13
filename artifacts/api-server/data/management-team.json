@@ -12,11 +12,11 @@
     "email": "amit.gupta@productarmor.com",
     "phone": "+9643094703",
     "profilePhoto": "/api/uploads/team-1786517383169-3209a4bb.png",
-    "displayOrder": 3,
+    "displayOrder": 5,
     "featured": false,
     "status": "active",
     "createdAt": "2026-07-27T09:20:54.453Z",
-    "updatedAt": "2026-08-12T06:49:46.405Z"
+    "updatedAt": "2026-08-12T11:50:54.186Z"
   },
   {
     "id": "9904b4a9-2ab6-4132-ade3-70d1d100380c",
@@ -31,11 +31,11 @@
     "email": "",
     "phone": "",
     "profilePhoto": "/api/uploads/team-1786515872131-a1030592.jpg",
-    "displayOrder": 2,
+    "displayOrder": 3,
     "featured": false,
     "status": "active",
     "createdAt": "2026-08-12T06:26:14.662Z",
-    "updatedAt": "2026-08-12T06:45:26.869Z"
+    "updatedAt": "2026-08-12T11:50:54.186Z"
   },
   {
     "id": "cc7c00a5-c92a-4898-9802-2795eef6bd4f",
@@ -54,7 +54,7 @@
     "featured": false,
     "status": "active",
     "createdAt": "2026-08-12T06:31:55.403Z",
-    "updatedAt": "2026-08-12T06:50:35.769Z"
+    "updatedAt": "2026-08-12T11:50:54.186Z"
   },
   {
     "id": "a9d25fe8-5126-43ef-92a8-449d1865002c",
@@ -69,10 +69,67 @@
     "email": "",
     "phone": "",
     "profilePhoto": "/api/uploads/team-1786517133923-1da44762.png",
-    "displayOrder": 1,
+    "displayOrder": 2,
     "featured": false,
     "status": "active",
     "createdAt": "2026-08-12T06:36:33.864Z",
-    "updatedAt": "2026-08-12T06:45:37.064Z"
+    "updatedAt": "2026-08-12T11:50:54.186Z"
+  },
+  {
+    "id": "0ddcffe0-b344-4f24-a14e-24759878e734",
+    "fullName": "Manish Tandon",
+    "designation": "CEO",
+    "department": "",
+    "shortDescription": "Manish Tandon is an accomplished business leader with over 27 years of experience across Sales, Marketing, General Management, business transformation, and P&L leadership. As Chief Executive Officer, he brings strong expertise in building businesses, driving market expansion, strengthening customer relationships, and leading high-performing teams across diverse sectors. \n\nHe has held leadership roles with reputed organizations including UFlex, Johnson & Johnson, Tetra Pak, Channelplay, Procter & Gamble, and Cadbury. Manish is known for his strategic clarity, disciplined execution, and commitment to sustainable growth. His leadership approach is focused on accountability, collaboration, operational excellence, and long-term value creation for customers, partners, employees, and stakeholders.",
+    "biography": "",
+    "qualifications": "",
+    "experience": "",
+    "linkedinUrl": "",
+    "email": "",
+    "phone": "",
+    "profilePhoto": "/api/uploads/team-1786535389415-650426f8.jpg",
+    "displayOrder": 1,
+    "featured": false,
+    "status": "active",
+    "createdAt": "2026-08-12T11:50:43.833Z",
+    "updatedAt": "2026-08-12T11:55:11.935Z"
+  },
+  {
+    "id": "dea275b7-bcc9-4e94-8540-08c6f3a797ec",
+    "fullName": "Deepika Vijay Kumar",
+    "designation": "Head-HR",
+    "department": "",
+    "shortDescription": "Deepika Vijaykumar leads the organization's people strategy while overseeing Administration, Security, and Facility operations. With over a decade of experience across pharmaceutical manufacturing, healthcare, and SaaS health-tech, she has built and transformed HR functions, partnered closely with business leaders to drive organizational growth, and established scalable people practices that strengthen culture, leadership, and performance. Passionate about building high-performing organizations, Deepika combines strategic thinking with operational excellence to create workplaces where people and businesses grow together.",
+    "biography": "",
+    "qualifications": "",
+    "experience": "",
+    "linkedinUrl": "",
+    "email": "",
+    "phone": "",
+    "profilePhoto": "/api/uploads/team-1786536461872-834a7ed8.png",
+    "displayOrder": 6,
+    "featured": false,
+    "status": "active",
+    "createdAt": "2026-08-12T12:08:59.082Z",
+    "updatedAt": "2026-08-12T12:08:59.082Z"
+  },
+  {
+    "id": "a7a25c92-fc7b-4be7-9f2f-8b37bf959ee1",
+    "fullName": "Mr. Harsha Chigurupati",
+    "designation": "Founder - Director",
+    "department": "",
+    "shortDescription": "Mr. Harsha Chigurupat is the Founder and Director of Product Armor Packaging Pvt Ltd. Under his leadership, the organisation has transformed itself into India 10th Top Bottle, Container, Caps and closure manufacturing Companies\n\nhe has focused on driving transformation, innovation, and long-term strategic growth across the pharmaceutical and healthcare sectors. With leadership responsibilities spanning technology, transformation, and organizational development, He is particularly passionate about leveraging emerging technologies, artificial intelligence, and advanced manufacturing to create scalable, globally competitive businesses. Combining an entrepreneurial mindset with a strong emphasis on accountability, agility, and execution, he continues to champion initiatives that strengthen organizational capabilities, foster innovation, and position the company for sustained global growth.\n",
+    "biography": "",
+    "qualifications": "",
+    "experience": "",
+    "linkedinUrl": "",
+    "email": "",
+    "phone": "",
+    "profilePhoto": "/api/uploads/team-1786606823348-ea429b46.png",
+    "displayOrder": 7,
+    "featured": false,
+    "status": "active",
+    "createdAt": "2026-08-13T07:44:32.330Z",
+    "updatedAt": "2026-08-13T07:44:32.330Z"
   }
 ]

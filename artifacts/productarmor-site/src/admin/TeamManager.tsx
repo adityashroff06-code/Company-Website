@@ -1,15 +1,13 @@
 import { useMemo, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
-  Plus, Trash2, Pencil, Search, ChevronLeft, ChevronRight, ArrowUp, ArrowDown,
+  Plus, Trash2, Pencil, Search, ArrowUp, ArrowDown,
   Star, Upload, X, UserRound, GripVertical,
 } from "lucide-react";
 import {
   fetchAllTeam, createTeamMember, updateTeamMember, deleteTeamMember,
   reorderTeam, uploadTeamPhoto, type TeamMember, type TeamMemberInput,
 } from "@/lib/managementTeam";
-
-const PAGE_SIZE = 6;
 
 const emptyForm: Partial<TeamMemberInput> = {
   fullName: "",
@@ -68,7 +66,6 @@ function Switch({ label, checked, onChange }: { label: string; checked: boolean;
 export default function TeamManager({ token }: { token: string }) {
   const qc = useQueryClient();
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
   const [editing, setEditing] = useState<TeamMember | "new" | null>(null);
   const [form, setForm] = useState<Partial<TeamMemberInput>>(emptyForm);
   const [confirmDelete, setConfirmDelete] = useState<TeamMember | null>(null);
@@ -161,10 +158,6 @@ export default function TeamManager({ token }: { token: string }) {
       m => m.fullName.toLowerCase().includes(q) || m.designation.toLowerCase().includes(q),
     );
   }, [members, search]);
-
-  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const safePage = Math.min(page, totalPages);
-  const pageItems = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const openEdit = (m: TeamMember) => {
     setEditing(m);
@@ -281,7 +274,7 @@ export default function TeamManager({ token }: { token: string }) {
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             value={search}
-            onChange={e => { setSearch(e.target.value); setPage(1); }}
+            onChange={e => setSearch(e.target.value)}
             placeholder="Search by name or designation…"
             className="w-full pl-8 pr-3 py-2 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none text-sm"
           />
@@ -305,7 +298,7 @@ export default function TeamManager({ token }: { token: string }) {
         </div>
       ) : (
         <div className="space-y-2">
-          {pageItems.map(m => {
+           {filtered.map(m => {
             const sorted = [...members].sort((a, b) => a.displayOrder - b.displayOrder);
             const idx = sorted.findIndex(s => s.id === m.id);
             const canDrag = !search && !dropMutation.isPending;
@@ -381,16 +374,6 @@ export default function TeamManager({ token }: { token: string }) {
               </div>
             );
           })}
-        </div>
-      )}
-
-      {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-3 pt-2">
-          <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={safePage === 1}
-            className="p-1.5 text-gray-400 hover:text-[#4164a8] disabled:opacity-30"><ChevronLeft size={16} /></button>
-          <span className="text-xs text-gray-500">Page {safePage} of {totalPages}</span>
-          <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={safePage === totalPages}
-            className="p-1.5 text-gray-400 hover:text-[#4164a8] disabled:opacity-30"><ChevronRight size={16} /></button>
         </div>
       )}
 

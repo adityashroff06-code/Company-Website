@@ -73,6 +73,17 @@
     url: string;
   }
 
+  export interface SiteContentOpening {
+    id: string;
+    title: string;
+    type: string;
+    location: string;
+    summary: string;
+    requirements: string[];
+    icon?: string;
+    active?: boolean;
+  }
+
   export interface SiteContentContact {
     phone: string;
     email: string;
@@ -98,6 +109,7 @@
     clients: SiteContentClient[];
     testimonials: SiteContentTestimonial[];
     downloads?: SiteContentDownload[];
+    openings?: SiteContentOpening[];
     contact: SiteContentContact;
     company: SiteContentCompany;
   }

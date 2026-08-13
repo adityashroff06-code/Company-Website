@@ -10,17 +10,18 @@ import { useState, useEffect } from "react";
   import { useQueryClient } from "@tanstack/react-query";
   import {
     Shield, LogOut, Save, Plus, Trash2, ChevronDown,
-    Image, Video, FileText, Package, Award, Users, Star, Phone, Building2, LayoutDashboard, UserRound
+    Image, Video, FileText, Package, Award, Users, Star, Phone, Building2, LayoutDashboard, UserRound, BriefcaseBusiness
   } from "lucide-react";
   import TeamManager from "./TeamManager";
   import { uploadDownloadDocument } from "@/lib/managementTeam";
 
-  type Tab = "hero" | "about" | "team" | "products" | "certifications" | "clients" | "testimonials" | "downloads" | "contact" | "company";
+  type Tab = "hero" | "about" | "team" | "openings" | "products" | "certifications" | "clients" | "testimonials" | "downloads" | "contact" | "company";
 
   const tabs: { id: Tab; label: string; icon: React.ElementType }[] = [
     { id: "hero", label: "Hero", icon: Image },
     { id: "about", label: "About", icon: FileText },
     { id: "team", label: "Management Team", icon: UserRound },
+    { id: "openings", label: "Current Openings", icon: BriefcaseBusiness },
     { id: "products", label: "Products", icon: Package },
     { id: "certifications", label: "Certifications", icon: Award },
     { id: "clients", label: "Clients", icon: Users },
@@ -333,6 +334,150 @@ import { useState, useEffect } from "react";
                     Changes here are saved immediately — no need to click "Save Changes". Only active members appear on the public website.
                   </p>
                   <TeamManager token={token} />
+                </Section>
+              )}
+
+              {/* ── CURRENT OPENINGS ── */}
+              {activeTab === "openings" && (
+                <Section title="Current Openings" icon={BriefcaseBusiness}>
+                  <p className="text-xs text-gray-400 -mt-1">
+                    Add and publish job openings for the Careers page. Changes appear after you click "Save Changes".
+                  </p>
+                  {(draft.openings ?? []).map((opening, i) => (
+                    <div key={opening.id} className="border border-gray-200 rounded-xl p-5 space-y-4 bg-gray-50">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="font-semibold text-[#0f2a4e] text-sm">
+                          {opening.title || `Opening ${i + 1}`}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => set(["openings"], (draft.openings ?? []).filter((_, j) => j !== i))}
+                          className="text-red-400 hover:text-red-600"
+                          title="Remove opening"
+                        >
+                          <Trash2 size={15} />
+                        </button>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <Field
+                          label="Job Title"
+                          value={opening.title}
+                          onChange={v => {
+                            const next = [...(draft.openings ?? [])];
+                            next[i] = { ...next[i], title: v };
+                            set(["openings"], next);
+                          }}
+                        />
+                        <Field
+                          label="Employment Type"
+                          value={opening.type}
+                          onChange={v => {
+                            const next = [...(draft.openings ?? [])];
+                            next[i] = { ...next[i], type: v };
+                            set(["openings"], next);
+                          }}
+                        />
+                        <Field
+                          label="Location"
+                          value={opening.location}
+                          onChange={v => {
+                            const next = [...(draft.openings ?? [])];
+                            next[i] = { ...next[i], location: v };
+                            set(["openings"], next);
+                          }}
+                        />
+                      </div>
+                      <Field
+                        label="Job Description"
+                        value={opening.summary}
+                        onChange={v => {
+                          const next = [...(draft.openings ?? [])];
+                          next[i] = { ...next[i], summary: v };
+                          set(["openings"], next);
+                        }}
+                        type="textarea"
+                        rows={4}
+                      />
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                          Requirements
+                        </label>
+                        <div className="space-y-2">
+                          {opening.requirements.map((requirement, requirementIndex) => (
+                            <div key={requirementIndex} className="flex gap-2">
+                              <input
+                                type="text"
+                                value={requirement}
+                                onChange={e => {
+                                  const next = [...(draft.openings ?? [])];
+                                  const requirements = [...next[i].requirements];
+                                  requirements[requirementIndex] = e.target.value;
+                                  next[i] = { ...next[i], requirements };
+                                  set(["openings"], next);
+                                }}
+                                className="flex-1 px-3 py-2 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none text-sm"
+                                placeholder="Requirement"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const next = [...(draft.openings ?? [])];
+                                  next[i] = {
+                                    ...next[i],
+                                    requirements: next[i].requirements.filter((_, j) => j !== requirementIndex),
+                                  };
+                                  set(["openings"], next);
+                                }}
+                                className="text-red-400 hover:text-red-600 p-1"
+                                title="Remove requirement"
+                              >
+                                <Trash2 size={14} />
+                              </button>
+                            </div>
+                          ))}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const next = [...(draft.openings ?? [])];
+                              next[i] = { ...next[i], requirements: [...next[i].requirements, ""] };
+                              set(["openings"], next);
+                            }}
+                            className="text-[#4164a8] text-xs font-medium hover:underline flex items-center gap-1"
+                          >
+                            <Plus size={12} /> Add requirement
+                          </button>
+                        </div>
+                      </div>
+                      <Toggle
+                        label="Published on website"
+                        checked={opening.active !== false}
+                        onChange={v => {
+                          const next = [...(draft.openings ?? [])];
+                          next[i] = { ...next[i], active: v };
+                          set(["openings"], next);
+                        }}
+                      />
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() => set(["openings"], [
+                      ...(draft.openings ?? []),
+                      {
+                        id: Date.now().toString(),
+                        title: "",
+                        type: "Full-time",
+                        location: "",
+                        summary: "",
+                        requirements: [""],
+                        icon: "factory",
+                        active: true,
+                      },
+                    ])}
+                    className="flex items-center gap-2 border-2 border-dashed border-[#4164a8]/30 hover:border-[#4164a8]/60 text-[#4164a8] font-medium px-4 py-3 rounded-xl w-full justify-center transition-colors text-sm"
+                  >
+                    <Plus size={16} /> Add Job Opening
+                  </button>
                 </Section>
               )}
 

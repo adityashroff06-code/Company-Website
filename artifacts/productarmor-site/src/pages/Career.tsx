@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, HeartHandshake, GraduationCap, TrendingUp, ShieldCheck, Users, Factory, MapPin, CheckCircle, Send, Paperclip } from "lucide-react";
+import { ArrowRight, HeartHandshake, GraduationCap, TrendingUp, ShieldCheck, Users, Factory, BriefcaseBusiness, MapPin, CheckCircle, Send, Paperclip } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import { getGetSiteContentQueryKey, useGetSiteContent } from "@workspace/api-client-react";
 
-function useReveal() {
+const roleIcons = {
+  factory: Factory,
+  quality: ShieldCheck,
+  people: Users,
+} as const;
+
+function useReveal(deps: unknown[] = []) {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".reveal");
     const obs = new IntersectionObserver(
@@ -13,7 +20,7 @@ function useReveal() {
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
-  }, []);
+  }, deps);
 }
 
 const benefits = [
@@ -23,36 +30,6 @@ const benefits = [
   { icon: HeartHandshake, title: "People-First Culture", desc: "Collaborative teams, transparent communication and recognition for those who take ownership of quality outcomes." },
 ];
 
-const openRoles = [
-  {
-    icon: Factory,
-    title: "Production Engineer",
-    type: "Full-time",
-    location: "Hyderabad, Telangana",
-    summary:
-      "Own moulding line performance for bottles and caps — set up tooling, optimise cycle times, drive OEE and troubleshoot process deviations while maintaining GMP compliance.",
-    requirements: ["B.E./Diploma in Mechanical/Polymer/Plastics", "2–5 yrs injection/blow moulding experience", "Working knowledge of SPC and preventive maintenance"],
-  },
-  {
-    icon: ShieldCheck,
-    title: "QA Executive",
-    type: "Full-time",
-    location: "Hyderabad, Telangana",
-    summary:
-      "Execute in-line and incoming quality checks, maintain batch records and CoAs, support ISO 9001:2015 audits, and drive corrective/preventive actions.",
-    requirements: ["B.Sc./B.Pharm/M.Sc.", "1–4 yrs QA/QC in pharma or packaging", "Familiarity with AQL sampling, GDP and documentation"],
-  },
-  {
-    icon: Users,
-    title: "Sales Manager",
-    type: "Full-time",
-    location: "Hyderabad / Field",
-    summary:
-      "Grow B2B relationships with pharmaceutical, nutraceutical and healthcare manufacturers — manage the enquiry-to-order cycle, coordinate samples and support export accounts.",
-    requirements: ["Graduate; MBA (Marketing) preferred", "3–6 yrs B2B sales, packaging/pharma advantage", "Strong client relationship and negotiation skills"],
-  },
-];
-
 export default function Career() {
   usePageMeta({
     title: "Careers",
@@ -60,12 +37,15 @@ export default function Career() {
       "Build your career at ProductArmor — an ISO 9001:2015 certified pharma packaging manufacturer in Hyderabad. Explore open roles and apply online.",
     path: "/career",
   });
-  useReveal();
-
   const [openRole, setOpenRole] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", phone: "", position: "", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { data: content, isLoading: openingsLoading } = useGetSiteContent({
+    query: { queryKey: getGetSiteContentQueryKey() },
+  });
+  const openRoles = (content?.openings ?? []).filter((opening) => opening.active !== false);
+  useReveal([content?.openings]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -135,9 +115,15 @@ export default function Career() {
               Explore roles across production, quality and sales. Select a position in the form below to apply.
             </p>
           </div>
-          <div className="space-y-4">
+          {openingsLoading ? (
+            <p className="text-center text-sm text-gray-400 py-8">Loading current openings…</p>
+          ) : openRoles.length === 0 ? (
+            <p className="text-center text-sm text-gray-500 py-8">There are no open positions at the moment. Please check back soon.</p>
+          ) : (
+            <div className="space-y-4">
             {openRoles.map((r) => {
               const isOpen = openRole === r.title;
+              const RoleIcon = roleIcons[r.icon as keyof typeof roleIcons] ?? BriefcaseBusiness;
               return (
                 <div
                   key={r.title}
@@ -150,7 +136,7 @@ export default function Career() {
                     className="w-full flex items-center gap-5 p-6 text-left"
                   >
                     <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
-                      <r.icon size={22} className="text-[#4164a8]" />
+                      <RoleIcon size={22} className="text-[#4164a8]" />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-bold text-[#0f2a4e]">{r.title}</h3>
@@ -195,7 +181,8 @@ export default function Career() {
                 </div>
               );
             })}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 

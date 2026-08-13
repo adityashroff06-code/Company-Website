@@ -237,6 +237,50 @@
       "role": "Operations Director"
     }
   ],
+  "openings": [
+    {
+      "id": "production-engineer",
+      "title": "Production Engineer",
+      "type": "Full-time",
+      "location": "Hyderabad, Telangana",
+      "summary": "Own moulding line performance for bottles and caps — set up tooling, optimise cycle times, drive OEE and troubleshoot process deviations while maintaining GMP compliance.",
+      "requirements": [
+        "B.E./Diploma in Mechanical/Polymer/Plastics",
+        "2–5 yrs injection/blow moulding experience",
+        "Working knowledge of SPC and preventive maintenance"
+      ],
+      "icon": "factory",
+      "active": true
+    },
+    {
+      "id": "qa-executive",
+      "title": "QA Executive",
+      "type": "Full-time",
+      "location": "Hyderabad, Telangana",
+      "summary": "Execute in-line and incoming quality checks, maintain batch records and CoAs, support ISO 9001:2015 audits, and drive corrective/preventive actions.",
+      "requirements": [
+        "B.Sc./B.Pharm/M.Sc.",
+        "1–4 yrs QA/QC in pharma or packaging",
+        "Familiarity with AQL sampling, GDP and documentation"
+      ],
+      "icon": "quality",
+      "active": true
+    },
+    {
+      "id": "sales-manager",
+      "title": "Sales Manager",
+      "type": "Full-time",
+      "location": "Hyderabad / Field",
+      "summary": "Grow B2B relationships with pharmaceutical, nutraceutical and healthcare manufacturers — manage the enquiry-to-order cycle, coordinate samples and support export accounts.",
+      "requirements": [
+        "Graduate; MBA (Marketing) preferred",
+        "3–6 yrs B2B sales, packaging/pharma advantage",
+        "Strong client relationship and negotiation skills"
+      ],
+      "icon": "people",
+      "active": true
+    }
+  ],
   "contact": {
     "phone": "+91-9154992473",
     "email": "mail@productarmor.com",

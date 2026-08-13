@@ -45,18 +45,18 @@
       "category": "Containers & Bottles  ",
       "description": "Advanced pharmaceutical containers and bottles manufactured in an ISO Certified 8 cleanroom environment, ensuring product protection, consistency, and compliance with the stringent requirements of the pharmaceutical industry.",
       "features": [
-        "Automated Manufacturing enabling precision, consistency, and minimal human intervention throughout the production process.",
-        "ISO Certified 8 Cleanroom Production ensuring controlled manufacturing conditions to support pharmaceutical-grade quality and product integrity.",
-        "Low-Carbon Manufacturing driven by innovative manufacturing technologies that significantly reduce carbon footprint",
-        "Advanced Process Controls with continuous monitoring of critical manufacturing parameters to ensure consistent product quality.",
-        "Precision-Engineered Performance designed for reliable filling, sealing, handling, and storage across pharmaceutical applications.",
-        "11-Camera Inspection System providing rigorous automated verification of critical quality attributes throughout production.",
-        "100% Visual Inspection ensuring every container meets stringent safety, compliance, and quality requirements",
-        "Consistent Product Specifications delivering dimensional accuracy, dependable sealing performance, and protection for product stability throughout its lifecycle.",
-        "Trusted by Global Pharmaceutical Companies for reliability, consistency, and supply assurance across international markets."
+        "Automated manufacturing enabling precision, consistency, and minimal human intervention throughout the production process.",
+        "ISO certified 8 cleanroom production ensuring controlled manufacturing conditions to support pharmaceutical-grade quality and product integrity.",
+        "Low-carbon manufacturing driven by innovative manufacturing technologies that significantly reduce carbon footprint",
+        "Advanced process controls with continuous monitoring of critical manufacturing parameters to ensure consistent product quality.",
+        "Precision-engineered performance designed for reliable filling, sealing, handling, and storage across pharmaceutical applications.",
+        "11-camera inspection system providing rigorous automated verification of critical quality attributes throughout production.",
+        "100% visual inspection ensuring every container meets stringent safety, compliance, and quality requirements",
+        "Consistent product specifications delivering dimensional accuracy, dependable sealing performance, and protection for product stability throughout its lifecycle.",
+        "Trusted by global pharmaceutical companies for reliability, consistency, and supply assurance across international markets."
       ],
       "image": "/site/images/bottles-containers.jpg",
-      "sizes": "30cc, 40cc, 60cc, 75cc, 100cc, 120cc, 150cc, 180cc, 200cc, 250cc, 300cc, 400cc, 500cc, 625cc, 750cc, 850cc, 950cc, 1125cc, 1300cc, 1500cc & 2400cc",
+      "sizes": "30cc, 40cc, 60cc, 75cc, 100cc, 120cc, 150cc, 180cc, 200cc, 250cc, 300cc, 400cc, 500cc, 625cc, 750cc, 850cc, 950cc, 1125cc, 1300cc, 1500cc & 2400cc with different weight variants",
       "imageFit": "contain"
     },
     {
@@ -65,11 +65,11 @@
       "category": "Caps & Closures",
       "description": "Patented technology with the world's lowest carbon footprint in CRC Manufacturing.",
       "features": [
-        "Highly Automated Production ensuring precision, consistency, and minimal human intervention.",
-        "Proven Market Performance with over 600 million CRC caps delivered to pharmaceutical customers globally per annum.",
+        "Highly automated production ensuring precision, consistency, and minimal human intervention.",
+        "Proven market performance with over 600 million CRC caps delivered to pharmaceutical customers globally per annum.",
         "Trusted by global pharmaceutical brands across diverse healthcare applications.",
-        "Patented Technology featuring a unique CRC manufacturing process engineered for operational excellence.",
-        "One of the World's Lowest Carbon Footprints achieved through innovative CRC manufacturing technology."
+        "Patented technology featuring a unique CRC manufacturing process engineered for operational excellence.",
+        "One of the World's lowest carbon footprints achieved through innovative CRC manufacturing technology."
       ],
       "image": "/site/images/cr-caps.jpg",
       "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm",
@@ -81,13 +81,13 @@
       "category": "Caps & Closures",
       "description": "Our Continuous Thread (CT) closures are designed to deliver secure sealing performance, product integrity, and dependable supply for high-volume pharmaceutical requirements.",
       "features": [
-        "Large-Scale Production Capability with a proven manufacturing track record exceeding 1 Billion CT caps annually.",
-        "Reliable Sealing Performance designed to protect product integrity throughout the supply chain.",
-        "Advanced Quality Assurance Systems integrated throughout the manufacturing process.",
-        "100% Visual Inspection ensuring safety, compliance, and product consistency.",
-        "Comprehensive Testing & Validation to meet stringent pharmaceutical industry requirements.",
-        "Highly Automated Production ensuring precision, consistency, and repeatability.",
-        "Trusted by Leading Global Pharmaceutical Brands across diverse healthcare applications."
+        "Large-scale production capability with a proven manufacturing track record exceeding 1 Billion CT caps annually.",
+        "Reliable sealing performance designed to protect product integrity throughout the supply chain.",
+        "Advanced quality assurance systems integrated throughout the manufacturing process.",
+        "100% visual inspection ensuring safety, compliance, and product consistency.",
+        "Comprehensive testing & validation to meet stringent pharmaceutical industry requirements.",
+        "Highly automated production ensuring precision, consistency, and repeatability.",
+        "Trusted by leading global pharmaceutical brands across diverse healthcare applications."
       ],
       "image": "/site/images/ct-caps.jpg",
       "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm",
@@ -108,10 +108,10 @@
   "certifications": [
     {
       "id": "iso9001",
-      "name": "ISO 9001:2015",
+      "name": "ISO 9001:2018",
       "issuer": "Quality Management Systems",
       "year": "IN25/00000630",
-      "logo": "/site/images/certifications/iso9001.svg"
+      "logo": "/site/images/certifications/iso9001.png"
     },
     {
       "id": "iso15378",

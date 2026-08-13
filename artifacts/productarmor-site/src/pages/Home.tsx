@@ -73,9 +73,9 @@ import { useEffect } from "react";
               <>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#4364a7] leading-[1.1] tracking-tight mb-6">
                   {(hero?.headline ?? "Pharmaceutical-Grade Packaging")
-                    .split(/(sustainability|Delivering pharmaceutical packaging)/i)
+                    .split(/(sustainable|Delivering pharmaceutical packaging)/i)
                     .map((part, idx) =>
-                      /^sustainability$/i.test(part) ? (
+                      /^sustainable$/i.test(part) ? (
                         <span key={idx} className="text-[#32CD32]">{part}</span>
                       ) : /^Delivering pharmaceutical packaging$/i.test(part) ? (
                         <span key={idx} className="whitespace-nowrap">{part}</span>

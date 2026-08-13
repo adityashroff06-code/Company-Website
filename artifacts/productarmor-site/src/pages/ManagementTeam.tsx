@@ -150,9 +150,12 @@ export default function ManagementTeam() {
     queryKey: ["management-team", "public"],
     queryFn: fetchPublicTeam,
   });
+  const isDirector = (member: TeamMember) => /\bdirector\b/i.test(member.designation);
+  const isChiefExecutiveOfficer = (member: TeamMember) =>
+    /\bchief executive officer\b/i.test(member.designation) || /\bceo\b/i.test(member.designation);
   const leadershipMembers = [...(members ?? [])]
-    .filter(member => /founder/i.test(member.designation) || /\bceo\b/i.test(member.designation))
-    .sort((a, b) => Number(!/founder/i.test(a.designation)) - Number(!/founder/i.test(b.designation)));
+    .filter(member => isDirector(member) || isChiefExecutiveOfficer(member))
+    .sort((a, b) => Number(!isDirector(a)) - Number(!isDirector(b)));
   const leadershipIds = new Set(leadershipMembers.map(member => member.id));
   const otherMembers = (members ?? []).filter(member => !leadershipIds.has(member.id));
 

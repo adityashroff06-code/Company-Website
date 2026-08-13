@@ -40,9 +40,15 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {certifications.map(c => (
                 <div key={c.id} className="border-2 border-[#4164a8]/10 hover:border-[#4164a8]/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
-                  <div className="w-16 h-16 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
-                    <Award size={30} className="text-white" />
-                  </div>
+                  {c.logo ? (
+                    <div className="w-20 h-20 mx-auto mb-5 bg-gray-50 rounded-xl p-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <img src={c.logo} alt={`${c.name} logo`} className="max-w-full max-h-full object-contain" />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                      <Award size={30} className="text-white" />
+                    </div>
+                  )}
                   <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
                   <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
                   <div className="inline-block bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold px-3 py-1 rounded-full">
@@ -53,7 +59,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
               {certifications.length === 0 && (
                 <>
                   {[
-                    { name: "ISO 9001:2015", issuer: "Quality Management Systems", year: "IN25/00000630" },
+                    { name: "ISO 9001:2018", issuer: "Quality Management Systems", year: "IN25/00000630" },
                     { name: "ISO 15378:2017", issuer: "Primary Packaging for Pharmaceuticals", year: "IN22/00000330" },
                     { name: "USDMF Listed", issuer: "US Drug Master File", year: "DMF 036675 / 037264" },
                     { name: "Canadian DMF", issuer: "Health Canada", year: "MF2022-108" },

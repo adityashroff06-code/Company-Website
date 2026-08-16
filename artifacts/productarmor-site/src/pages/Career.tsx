@@ -156,15 +156,14 @@ export default function Career() {
         <div className="pointer-events-none absolute bottom-0 left-[52%] h-px w-[42%] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-8 sm:px-8 sm:pb-24 lg:px-12">
           <Breadcrumb items={[{ label: "Careers" }]} />
-          <div className="grid gap-14 lg:grid-cols-[minmax(0,1.12fr)_minmax(300px,.72fr)] lg:items-end lg:gap-20">
+          <div>
             <div className="career-reveal">
               <p className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#f0b36d]">
                 <span className="h-px w-8 bg-[#f0b36d]" />
                 Careers at Product Armor
               </p>
-              <h1 className="max-w-4xl font-serif text-5xl leading-[0.98] tracking-[-0.045em] text-[#f8f7f1] sm:text-7xl lg:text-[6.8rem]">
-                Build the Future.
-                <span className="mt-2 block text-[#74a9e8]">Protect What Matters.</span>
+              <h1 className="whitespace-nowrap font-serif text-[1.1rem] leading-none tracking-[-0.045em] text-[#f8f7f1] sm:text-3xl md:text-5xl lg:text-[4.75rem]">
+                Build the Future. <span className="text-[#74a9e8]">Protect What Matters.</span>
               </h1>
               <div className="mt-10 grid max-w-3xl gap-5 border-l border-white/25 pl-5 text-base leading-7 text-white/70 sm:grid-cols-2 sm:gap-8 sm:pl-7">
                 <p>
@@ -186,34 +185,6 @@ export default function Career() {
               </a>
             </div>
 
-            <aside className="career-reveal relative lg:pb-5" style={{ transitionDelay: "120ms" }}>
-              <div className="relative border border-white/15 bg-white/[0.06] p-6 backdrop-blur-sm sm:p-8">
-                <div className="mb-12 flex items-center justify-between border-b border-white/15 pb-4">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/55">The work ahead</span>
-                  <span className="font-mono text-xs text-[#f0b36d]">PA / 01</span>
-                </div>
-                <div className="space-y-8">
-                  <div>
-                    <p className="text-4xl font-semibold tracking-tight text-white">Visible</p>
-                    <p className="mt-1 text-sm text-white/55">contribution, from the floor up</p>
-                  </div>
-                  <div className="h-px bg-white/15" />
-                  <div>
-                    <p className="text-4xl font-semibold tracking-tight text-white">Real</p>
-                    <p className="mt-1 text-sm text-white/55">responsibility from day one</p>
-                  </div>
-                  <div className="h-px bg-white/15" />
-                  <div>
-                    <p className="text-4xl font-semibold tracking-tight text-white">Together</p>
-                    <p className="mt-1 text-sm text-white/55">across teams, processes and ideas</p>
-                  </div>
-                </div>
-                <div className="mt-14 flex items-end justify-between border-t border-white/15 pt-4 text-[10px] uppercase tracking-[0.2em] text-white/45">
-                  <span>Telangana, India</span>
-                  <Factory size={18} strokeWidth={1.3} className="text-[#f0b36d]" />
-                </div>
-              </div>
-            </aside>
           </div>
         </div>
       </section>

@@ -165,7 +165,7 @@ export default function Career() {
               <h1 className="whitespace-nowrap font-serif text-[1.1rem] leading-none tracking-[-0.045em] text-[#f8f7f1] sm:text-3xl md:text-5xl lg:text-[4.75rem]">
                 Build the Future. <span className="text-[#74a9e8]">Protect What Matters.</span>
               </h1>
-              <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,.72fr)] lg:items-end lg:gap-16">
+              <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,.72fr)] lg:items-center lg:gap-16">
                 <div>
                   <div className="grid gap-5 border-l border-white/25 pl-5 text-base leading-7 text-white/70 sm:grid-cols-2 sm:gap-8 sm:pl-7">
                     <p>
@@ -186,7 +186,7 @@ export default function Career() {
                     Explore current openings <ArrowDownRight size={17} />
                   </a>
                 </div>
-                <figure className="career-reveal relative overflow-hidden border border-white/20 bg-white/10" style={{ transitionDelay: "120ms" }}>
+                <figure className="career-reveal relative mx-auto w-full max-w-[430px] overflow-hidden border border-white/20 bg-white/10 lg:justify-self-center" style={{ transitionDelay: "120ms" }}>
                   <img
                     src="/site/images/productarmor-careers-team.jpg"
                     alt="ProductArmor manufacturing team collaborating in a cleanroom"

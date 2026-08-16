@@ -165,24 +165,39 @@ export default function Career() {
               <h1 className="whitespace-nowrap font-serif text-[1.1rem] leading-none tracking-[-0.045em] text-[#f8f7f1] sm:text-3xl md:text-5xl lg:text-[4.75rem]">
                 Build the Future. <span className="text-[#74a9e8]">Protect What Matters.</span>
               </h1>
-              <div className="mt-10 grid max-w-3xl gap-5 border-l border-white/25 pl-5 text-base leading-7 text-white/70 sm:grid-cols-2 sm:gap-8 sm:pl-7">
-                <p>
-                  At Product Armor, we don't just manufacture pharmaceutical packaging; we help safeguard products that improve lives. Every bottle, every closure, every process and every decision contributes to the quality and reliability our customers depend on.
-                </p>
-                <p>
-                  We're building an organization where talented people can do meaningful work, take ownership, challenge convention and grow alongside the business. As a young and ambitious company, we believe the best ideas come from people who are willing to roll up their sleeves, collaborate across teams and continuously improve the way things are done.
-                </p>
+              <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,.72fr)] lg:items-end lg:gap-16">
+                <div>
+                  <div className="grid gap-5 border-l border-white/25 pl-5 text-base leading-7 text-white/70 sm:grid-cols-2 sm:gap-8 sm:pl-7">
+                    <p>
+                      At Product Armor, we don't just manufacture pharmaceutical packaging; we help safeguard products that improve lives. Every bottle, every closure, every process and every decision contributes to the quality and reliability our customers depend on.
+                    </p>
+                    <p>
+                      We're building an organization where talented people can do meaningful work, take ownership, challenge convention and grow alongside the business. As a young and ambitious company, we believe the best ideas come from people who are willing to roll up their sleeves, collaborate across teams and continuously improve the way things are done.
+                    </p>
+                  </div>
+                  <p className="mt-8 max-w-xl text-lg leading-7 text-white">
+                    If you're looking for a workplace where your contribution is visible, your voice is heard and your work has a real impact, we'd love to meet you.
+                  </p>
+                  <a
+                    href="#openings"
+                    data-testid="link-explore-openings"
+                    className="mt-9 inline-flex items-center gap-3 border-b border-[#f0b36d] pb-2 text-sm font-semibold text-[#f4c17f] transition-transform duration-300 hover:translate-x-1"
+                  >
+                    Explore current openings <ArrowDownRight size={17} />
+                  </a>
+                </div>
+                <figure className="career-reveal relative overflow-hidden border border-white/20 bg-white/10" style={{ transitionDelay: "120ms" }}>
+                  <img
+                    src="/site/images/productarmor-careers-team.jpg"
+                    alt="ProductArmor manufacturing team collaborating in a cleanroom"
+                    data-testid="img-careers-team"
+                    className="aspect-[4/3] w-full object-cover opacity-90"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0b2444]/90 to-transparent px-5 pb-4 pt-12 text-xs uppercase tracking-[0.18em] text-white/75">
+                    People who protect what matters
+                  </figcaption>
+                </figure>
               </div>
-              <p className="mt-8 max-w-xl text-lg leading-7 text-white">
-                If you're looking for a workplace where your contribution is visible, your voice is heard and your work has a real impact, we'd love to meet you.
-              </p>
-              <a
-                href="#openings"
-                data-testid="link-explore-openings"
-                className="mt-9 inline-flex items-center gap-3 border-b border-[#f0b36d] pb-2 text-sm font-semibold text-[#f4c17f] transition-transform duration-300 hover:translate-x-1"
-              >
-                Explore current openings <ArrowDownRight size={17} />
-              </a>
             </div>
 
           </div>
@@ -193,10 +208,10 @@ export default function Career() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 overflow-x-auto px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#597080] sm:px-8 lg:px-12">
           <span className="hidden whitespace-nowrap text-[#173454] sm:inline">Join the build</span>
           <div className="flex min-w-max items-center gap-6 sm:gap-9">
-            <a href="#values" data-testid="link-career-values" className="transition-colors hover:text-[#1e5da6]">01 / What defines us</a>
-            <a href="#why-join" data-testid="link-career-why-join" className="transition-colors hover:text-[#1e5da6]">02 / Why join</a>
-            <a href="#openings" data-testid="link-career-openings" className="transition-colors hover:text-[#1e5da6]">03 / Openings</a>
-            <a href="#apply" data-testid="link-career-apply" className="transition-colors hover:text-[#1e5da6]">04 / Apply</a>
+            <a href="#values" data-testid="link-career-values" className="transition-colors hover:text-[#1e5da6]">What defines us</a>
+            <a href="#why-join" data-testid="link-career-why-join" className="transition-colors hover:text-[#1e5da6]">Why join</a>
+            <a href="#openings" data-testid="link-career-openings" className="transition-colors hover:text-[#1e5da6]">Openings</a>
+            <a href="#apply" data-testid="link-career-apply" className="transition-colors hover:text-[#1e5da6]">Apply</a>
           </div>
         </div>
       </nav>

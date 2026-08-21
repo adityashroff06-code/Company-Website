@@ -40,7 +40,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
               Pharmaceutical Packaging Solutions
             </h1>
             <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
-              Every product is engineered to meet the stringent requirements of global regulated pharmaceutical markets.
+              Every product is engineered to meet the stringent requirements of global regulated pharmaceutical markets, supported by ISO Class 8 cleanroom production, 100% automated visual inspection, and advanced quality assurance systems to ensure pharmaceutical-grade quality, consistency, and product integrity.
             </p>
             {query && (
               <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/90 text-sm">

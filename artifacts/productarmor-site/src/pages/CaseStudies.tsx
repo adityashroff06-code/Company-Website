@@ -90,13 +90,13 @@ export default function CaseStudies() {
 
   return (
     <div className="pt-16">
-      <section className="bg-[#4164a8] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-primary section-pad">
+        <div className="container-width">
           <Breadcrumb items={[{ label: "Case Studies" }]} />
           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
             Proven Results
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Case Studies</h1>
+          <h1 className="heading-page">Case Studies</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
             How pharmaceutical, nutraceutical and healthcare brands solved packaging challenges with our
             Bottles, CR caps and CT caps — from export compliance to cost, quality and lead-time gains.
@@ -104,8 +104,8 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-pad bg-white">
+        <div className="container-width">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { value: "18%", label: "Average cost reduction" },
@@ -113,64 +113,64 @@ export default function CaseStudies() {
               { value: "40%", label: "Faster lead times" },
               { value: "100%", label: "CR certification pass" },
             ].map((s) => (
-              <div key={s.label} className="reveal text-center bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div className="text-3xl font-black text-[#4164a8]">{s.value}</div>
-                <div className="text-gray-500 text-xs mt-2 leading-relaxed">{s.label}</div>
+              <div key={s.label} className="reveal text-center bg-secondary rounded-xl p-6 border border-border">
+                <div className="text-3xl font-black text-primary">{s.value}</div>
+                <div className="text-muted-foreground text-xs mt-2 leading-relaxed">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-pad bg-secondary">
+        <div className="container-width">
           <div className="space-y-8">
             {caseStudies.map((cs) => (
               <div
                 key={cs.title}
-                className="reveal bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6 sm:p-8"
+                className="reveal card-standard p-6 sm:p-8"
               >
                 <div className="flex flex-col lg:flex-row gap-8">
                   <div className="lg:w-2/3">
                     <div className="flex items-center gap-4 mb-5">
-                      <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
-                        <cs.icon size={22} className="text-[#4164a8]" />
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                        <cs.icon size={22} className="text-primary" />
                       </div>
                       <div>
-                        <div className="text-xs font-semibold text-[#4164a8] uppercase tracking-widest">{cs.tag}</div>
-                        <h2 className="text-xl font-bold text-[#0f2a4e] mt-0.5">{cs.title}</h2>
+                        <div className="text-xs font-semibold text-primary uppercase tracking-widest">{cs.tag}</div>
+                        <h2 className="text-xl font-bold text-navy mt-0.5">{cs.title}</h2>
                       </div>
                     </div>
                     <div className="space-y-4">
                       <div>
-                        <div className="flex items-center gap-2 text-[#0f2a4e] font-semibold text-sm mb-1">
-                          <Target size={15} className="text-[#4164a8]" /> Challenge
+                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
+                          <Target size={15} className="text-primary" /> Challenge
                         </div>
-                        <p className="text-gray-600 text-sm leading-relaxed">{cs.challenge}</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.challenge}</p>
                       </div>
                       <div>
-                        <div className="flex items-center gap-2 text-[#0f2a4e] font-semibold text-sm mb-1">
-                          <Lightbulb size={15} className="text-[#4164a8]" /> Solution
+                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
+                          <Lightbulb size={15} className="text-primary" /> Solution
                         </div>
-                        <p className="text-gray-600 text-sm leading-relaxed">{cs.solution}</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.solution}</p>
                       </div>
                       <div>
-                        <div className="flex items-center gap-2 text-[#0f2a4e] font-semibold text-sm mb-1">
-                          <TrendingUp size={15} className="text-[#4164a8]" /> Result
+                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
+                          <TrendingUp size={15} className="text-primary" /> Result
                         </div>
-                        <p className="text-gray-600 text-sm leading-relaxed">{cs.result}</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.result}</p>
                       </div>
                     </div>
                   </div>
                   <div className="lg:w-1/3 flex flex-col gap-4 justify-center">
                     {cs.metrics.map((m) => (
-                      <div key={m.label} className="bg-[#4164a8]/5 rounded-xl p-5 border border-[#4164a8]/10 flex items-center gap-4">
-                        <div className="w-11 h-11 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
-                          <m.icon size={20} className="text-[#4164a8]" />
+                      <div key={m.label} className="bg-primary/5 rounded-xl p-5 border border-primary/10 flex items-center gap-4">
+                        <div className="w-11 h-11 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                          <m.icon size={20} className="text-primary" />
                         </div>
                         <div>
-                          <div className="text-2xl font-black text-[#0f2a4e]">{m.value}</div>
-                          <div className="text-gray-500 text-xs">{m.label}</div>
+                          <div className="text-2xl font-black text-navy">{m.value}</div>
+                          <div className="text-muted-foreground text-xs">{m.label}</div>
                         </div>
                       </div>
                     ))}
@@ -182,16 +182,16 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      <section className="py-20 bg-[#0f2a4e]">
+      <section className="section-pad bg-navy">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Have a Packaging Challenge to Solve?</h2>
+          <h2 className="heading-section-light">Have a Packaging Challenge to Solve?</h2>
           <p className="text-white/60 mb-8 leading-relaxed">
             Tell us about your product, volumes and compliance targets — our technical team will propose a
             bottle-and-closure solution tailored to your requirements.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+            className="btn-light"
           >
             Talk to Our Team <ArrowRight size={15} />
           </Link>

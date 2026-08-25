@@ -1,0 +1,105 @@
+Please perform a complete UI/UX visual audit of the entire website and improve the design consistency without changing the existing content, functionality, branding, images, or overall design concept.
+
+Focus specifically on the following:
+
+1. Typography / Fonts
+Review all fonts used across the website.
+Ensure the font family is consistent and professional throughout.
+Create a clear typography hierarchy for:
+H1 headings
+H2/H3 headings
+Subheadings
+Body text
+Buttons
+Navigation
+Cards
+Forms
+Footer
+Check font size, font weight, line height and letter spacing.
+Ensure headings are visually strong but not oversized.
+Ensure body text is easy to read on desktop, tablet and mobile.
+Remove unnecessary variations in font styles and weights.
+Maintain consistent typography across all pages.
+2. Spacing & White Space
+Review the spacing between all sections.
+Correct excessive or insufficient padding/margins.
+Maintain a consistent vertical spacing system throughout the website.
+Ensure headings, paragraphs, buttons, cards and images have balanced spacing.
+Avoid sections appearing too crowded or too widely separated.
+Maintain consistent left/right spacing and content width.
+3. Alignment
+Check horizontal and vertical alignment of all elements.
+Ensure headings, paragraphs, buttons, images and cards align properly.
+Maintain consistent content alignment with the main website grid/container.
+Ensure sections that contain multiple cards use consistent alignment and equal heights where appropriate.
+Fix any elements that appear slightly shifted, uneven or visually misaligned.
+4. Layout & Grid
+Establish a consistent maximum content width.
+Ensure all major sections follow the same grid/container structure.
+Check column widths, gaps and card spacing.
+Ensure images and text maintain proper proportions.
+Avoid unnecessary empty areas or cramped layouts.
+5. Header & Navigation
+Review header height, logo size, navigation spacing and alignment.
+Ensure navigation items are evenly spaced.
+Check CTA/button positioning.
+Ensure the header looks balanced on desktop, tablet and mobile.
+Check sticky/fixed header behavior if applicable.
+6. Hero Section
+Review the hero heading, supporting text, CTA buttons and imagery.
+Ensure the content is vertically and horizontally balanced.
+Correct excessive spacing between heading, paragraph and buttons.
+Make sure the hero does not feel overcrowded or excessively empty.
+7. Cards & Components
+Standardize card:
+Padding
+Border radius
+Heading size
+Body text size
+Icon/image positioning
+Button positioning
+Internal spacing
+Ensure cards in the same row are visually consistent.
+8. Responsive Design
+
+Check the website at:
+
+Desktop: 1440px, 1280px and 1024px
+Tablet: 768px
+Mobile: 390px and 360px
+
+Fix:
+
+Text wrapping issues
+Overlapping elements
+Uneven spacing
+Incorrect font scaling
+Horizontal scrolling
+Misaligned buttons/images
+Cards becoming too narrow or too tall
+9. Visual Consistency
+
+Create a consistent design system for:
+
+Font families
+Font sizes
+Font weights
+Line heights
+Section spacing
+Container widths
+Border radius
+Button sizes
+Card spacing
+Alignment
+
+Do not introduce unnecessary design changes. Preserve the existing brand identity and visual direction.
+
+Important
+
+Before making changes, inspect the complete website and identify all inconsistencies. Then apply the corrections systematically using reusable CSS/design tokens/components wherever possible.
+
+Do not fix only the homepage. Review every page and every major component.
+
+After completing the changes, perform a final visual consistency check and ensure that the website looks clean, premium, professional, balanced and suitable for a B2B pharmaceutical packaging/manufacturing company.
+
+Do not change website content or functionality unless required to fix a layout issue.

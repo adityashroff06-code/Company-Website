@@ -63,7 +63,7 @@ import { useEffect } from "react";
             />
           )}
 
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 sm:pt-12 pb-16 sm:pb-20">
+          <div className="relative z-10 container-width text-center pt-10 sm:pt-12 pb-16 sm:pb-20">
             {isLoading ? (
               <>
                 <Skeleton className="h-16 w-4/5 mx-auto mb-4" />
@@ -71,7 +71,7 @@ import { useEffect } from "react";
               </>
             ) : (
               <>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#4364a7] leading-[1.1] tracking-tight mb-6">
+                <h1 className="heading-hero mb-6">
                   {(hero?.headline ?? "Pharmaceutical-Grade Packaging")
                     .split(/(sustainable|Delivering pharmaceutical packaging)/i)
                     .map((part, idx) =>
@@ -84,7 +84,7 @@ import { useEffect } from "react";
                       )
                     )}
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                <p className="text-body sm:text-lg max-w-2xl mx-auto mb-10">
                   {hero?.subheadline ?? "ISO-certified bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
                 </p>
               </>
@@ -93,19 +93,18 @@ import { useEffect } from "react";
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 bg-transparent hover:bg-gray-100 border border-gray-300 text-gray-800 font-medium px-8 py-3.5 rounded-lg transition-all duration-200 text-base"
+                className="btn-outline"
               >
                 View Products
                 <ChevronRight size={18} />
               </Link>
             </div>
-
           </div>
         </section>
 
         {/* ── STATS BAR ── */}
-        <section className="bg-[#0f2a4e] py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-navy py-8">
+          <div className="container-width">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {isLoading
                 ? Array(4).fill(0).map((_, i) => (
@@ -116,7 +115,7 @@ import { useEffect } from "react";
                   ))
                 : stats.map((s, i) => (
                     <div key={i} className="text-center reveal">
-                      <div className="text-3xl sm:text-4xl font-black text-[#93b4e8]">{s.value}</div>
+                      <div className="text-3xl sm:text-4xl font-black text-accent">{s.value}</div>
                       <div className="text-white/60 text-sm mt-1 font-medium">{s.label}</div>
                     </div>
                   ))
@@ -126,33 +125,33 @@ import { useEffect } from "react";
         </section>
 
         {/* ── ABOUT ── */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="section-pad bg-white">
+          <div className="container-width">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="reveal">
-                <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
                   About Us
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] leading-tight mb-6">
+                <h2 className="heading-section">
                   {about?.title ?? "Precision Packaging Built for Pharma"}
                 </h2>
-                <p className="text-gray-600 leading-relaxed mb-8">
+                <p className="text-muted-foreground leading-relaxed mb-8">
                   {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of pharmaceutical bottles, CR and CT caps, delivering world-class packaging at unparalleled value."}
                 </p>
-                <h3 className="text-lg font-semibold text-[#0f2a4e] mb-4">
+                <h3 className="heading-card mb-4">
                   Every solution we deliver is supported by the core strengths that define who we are and how we serve.
                 </h3>
                 <div className="space-y-3 mb-8">
                   {(about?.strengths ?? ["Sustainability Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"]).map((f: string) => (
                     <div key={f} className="flex items-center gap-3">
-                      <CheckCircle size={18} className="text-[#4164a8] shrink-0" />
-                      <span className="text-gray-700 text-sm">{f}</span>
+                      <CheckCircle size={18} className="text-primary shrink-0" />
+                      <span className="text-muted-foreground text-sm">{f}</span>
                     </div>
                   ))}
                 </div>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 text-[#4164a8] font-semibold hover:text-[#4164a8] transition-colors group"
+                  className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary transition-colors group"
                 >
                   Learn more about us
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -160,7 +159,7 @@ import { useEffect } from "react";
               </div>
               <div className="reveal">
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-[#4164a8]/5 rounded-2xl" />
+                  <div className="absolute -inset-4 bg-primary/5 rounded-2xl" />
                   <img
                     src={about?.image ?? "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"}
                     alt="Manufacturing facility"
@@ -168,7 +167,7 @@ import { useEffect } from "react";
                     onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"; }}
                   />
                   {company && (
-                    <div className="absolute -bottom-6 -right-6 bg-[#4164a8] text-white rounded-xl p-5 shadow-xl">
+                    <div className="absolute -bottom-6 -right-6 bg-primary text-white rounded-xl p-5 shadow-xl">
                       <div className="text-3xl font-black">{company.founded}</div>
                       <div className="text-white/70 text-xs mt-0.5">Est.</div>
                     </div>
@@ -180,16 +179,16 @@ import { useEffect } from "react";
         </section>
 
         {/* ── PRODUCTS ── */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="section-pad bg-secondary">
+          <div className="container-width">
             <div className="text-center mb-14 reveal">
-              <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
                 Our Products
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
+              <h2 className="heading-section">
                 Engineered for Protection. Designed for Performance.
               </h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
+              <p className="text-muted-foreground max-w-xl mx-auto">
                 Explore our portfolio of pharmaceutical packaging solutions, including containers &amp; bottles, CT (Continuous Thread) and CRC (Child-Resistant Closures) caps &amp; closures powered by patented technology and recognized globally.
               </p>
             </div>
@@ -206,15 +205,15 @@ import { useEffect } from "react";
                 : products.map((p, i) => (
                     <div
                       key={p.id}
-                      className="reveal bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group border border-gray-100 hover:border-[#4164a8]/20"
+                      className="reveal card-standard p-0 sm:p-0 overflow-hidden group"
                       style={{ transitionDelay: `${i * 80}ms` }}
                     >
                       <div className="px-6 pt-5 pb-3">
-                        <span className="inline-block bg-[#4164a8] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                        <span className="inline-block bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                           {p.category}
                         </span>
                       </div>
-                      <div className="relative overflow-hidden h-52 bg-gray-100">
+                      <div className="relative overflow-hidden h-52 bg-secondary">
                         <img
                           src={p.image}
                           alt={p.name}
@@ -222,20 +221,20 @@ import { useEffect } from "react";
                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"; }}
                         />
                       </div>
-                      <div className="p-6">
-                        <h3 className="font-bold text-[#0f2a4e] text-lg mb-2">{p.name}</h3>
-                        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">{p.description}</p>
-                        <ul className="space-y-1.5 mb-5">
+                      <div className="p-6 flex flex-col flex-1">
+                        <h3 className="heading-card mb-2">{p.name}</h3>
+                        <p className="text-body-sm mb-4 line-clamp-2">{p.description}</p>
+                        <ul className="space-y-1.5 mb-5 flex-1">
                           {p.features.slice(0, 3).map(f => (
-                            <li key={f} className="flex items-start gap-2 text-xs text-gray-600">
-                              <CheckCircle size={13} className="text-[#4164a8] shrink-0 mt-0.5" />
+                            <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
+                              <CheckCircle size={13} className="text-primary shrink-0 mt-0.5" />
                               <span>{f}</span>
                             </li>
                           ))}
                         </ul>
                         <Link
                           href="/products"
-                          className="inline-flex items-center gap-1.5 text-[#4164a8] font-semibold text-sm hover:text-[#4164a8] transition-colors group/link"
+                          className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm hover:text-primary/80 transition-colors group/link mt-auto"
                         >
                           View details
                           <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
@@ -248,7 +247,7 @@ import { useEffect } from "react";
             <div className="text-center mt-10">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 border-2 border-[#4164a8] text-[#4164a8] hover:bg-[#4164a8] hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200"
+                className="btn-outline"
               >
                 View All Products
                 <ArrowRight size={16} />
@@ -258,16 +257,16 @@ import { useEffect } from "react";
         </section>
 
         {/* ── CERTIFICATIONS ── */}
-        <section className="py-20 bg-[#4164a8]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="section-pad bg-primary">
+          <div className="container-width">
             <div className="text-center mb-14 reveal">
-              <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+              <div className="section-tag-light">
                 Quality Assurance
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <h2 className="heading-section-light">
                 Committed to Quality. Trusted Worldwide.
               </h2>
-              <p className="text-white/60 max-w-xl mx-auto">
+              <p className="text-white/60 max-w-xl mx-auto text-base leading-relaxed">
                 Powered by advanced technology, rigorous quality controls, and end-to-end traceability to deliver reliable pharmaceutical packaging solutions.
               </p>
             </div>
@@ -283,18 +282,18 @@ import { useEffect } from "react";
                       <img src={c.logo} alt={`${c.name} logo`} className="max-w-full max-h-full object-contain" />
                     </div>
                   ) : (
-                    <Award size={32} className="text-[#93b4e8] mx-auto mb-4" />
+                    <Award size={32} className="text-accent mx-auto mb-4" />
                   )}
                   <div className="text-white font-bold text-sm mb-1">{c.name}</div>
                   <div className="text-white/50 text-xs">{c.issuer}</div>
-                  <div className="text-[#93b4e8] text-xs font-semibold mt-2">{c.year}</div>
+                  <div className="text-accent text-xs font-semibold mt-2">{c.year}</div>
                 </div>
               ))}
             </div>
             <div className="text-center mt-10">
               <Link
                 href="/quality"
-                className="inline-flex items-center gap-2 bg-white text-[#4164a8] hover:bg-gray-50 font-semibold px-8 py-3 rounded-lg transition-all duration-200"
+                className="btn-light"
               >
                 Our Quality Standards
                 <ArrowRight size={16} />
@@ -305,10 +304,10 @@ import { useEffect } from "react";
 
         {/* ── CLIENTS ── */}
         {clients.length > 0 && (
-          <section className="py-16 bg-white border-b border-gray-100">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="section-pad bg-white border-b border-border">
+            <div className="container-width">
               <div className="text-center mb-10 reveal">
-                <p className="text-gray-400 text-sm font-medium uppercase tracking-widest">
+                <p className="text-muted-foreground text-sm font-medium uppercase tracking-widest">
                   Trusted by Global'S Leading Pharmaceutical Companies
                 </p>
               </div>
@@ -319,8 +318,8 @@ import { useEffect } from "react";
                       {c.logo ? (
                         <img src={c.logo} alt={c.name} className="h-12 md:h-14 w-auto object-contain" loading="lazy" />
                       ) : (
-                        <div className="px-6 py-3 border border-gray-200 rounded-lg bg-gray-50">
-                          <span className="text-gray-500 font-semibold text-sm">{c.name}</span>
+                        <div className="px-6 py-3 border border-border rounded-lg bg-secondary">
+                          <span className="text-muted-foreground font-semibold text-sm">{c.name}</span>
                         </div>
                       )}
                     </div>
@@ -333,13 +332,13 @@ import { useEffect } from "react";
 
         {/* ── TESTIMONIALS ── */}
         {testimonials.length > 0 && (
-          <section className="py-20 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="section-pad bg-secondary">
+            <div className="container-width">
               <div className="text-center mb-14 reveal">
-                <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
                   Testimonials
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
+                <h2 className="heading-section">
                   What Our Clients Say
                 </h2>
               </div>
@@ -347,18 +346,18 @@ import { useEffect } from "react";
                 {testimonials.map((t, i) => (
                   <div
                     key={t.id}
-                    className="reveal bg-white rounded-xl p-7 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:border-[#4164a8]/20"
+                    className="reveal bg-white rounded-xl p-7 shadow-sm border border-border hover:shadow-md transition-all duration-300 hover:border-primary/20"
                     style={{ transitionDelay: `${i * 80}ms` }}
                   >
                     <div className="flex gap-1 mb-4">
                       {Array(5).fill(0).map((_, i) => (
-                        <Star key={i} size={14} className="fill-[#4164a8] text-[#4164a8]" />
+                        <Star key={i} size={14} className="fill-[#4164a8] text-primary" />
                       ))}
                     </div>
-                    <p className="text-gray-600 leading-relaxed text-sm mb-5 italic">"{t.quote}"</p>
-                    <div className="border-t border-gray-100 pt-4">
-                      <div className="font-semibold text-[#0f2a4e] text-sm">{t.author}</div>
-                      <div className="text-gray-400 text-xs mt-0.5">{t.role}, {t.company}</div>
+                    <p className="text-muted-foreground leading-relaxed text-sm mb-5 italic">"{t.quote}"</p>
+                    <div className="border-t border-border pt-4">
+                      <div className="font-semibold text-navy text-sm">{t.author}</div>
+                      <div className="text-muted-foreground text-xs mt-0.5">{t.role}, {t.company}</div>
                     </div>
                   </div>
                 ))}
@@ -368,9 +367,9 @@ import { useEffect } from "react";
         )}
 
         {/* ── CONTACT CTA ── */}
-        <section className="py-20 bg-[#0f2a4e]">
+        <section className="section-pad bg-navy">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="heading-section-light">
               Ready to Upgrade Your Packaging?
             </h2>
             <p className="text-white/60 mb-10 max-w-xl mx-auto">
@@ -379,7 +378,7 @@ import { useEffect } from "react";
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
+                className="btn-light hover:scale-105"
               >
                 Get in Touch
                 <ArrowRight size={16} />
@@ -387,7 +386,7 @@ import { useEffect } from "react";
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/50 text-sm">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#93b4e8]" />
+                <Phone size={14} className="text-accent" />
                 <span>{contactData?.phone ?? "+91-9154992473"}</span>
               </div>
               <a
@@ -403,7 +402,7 @@ import { useEffect } from "react";
                 <span>WhatsApp Us</span>
               </a>
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-[#93b4e8]" />
+                <Mail size={14} className="text-accent" />
                 <span>{contactData?.email ?? "info@productarmor.com"}</span>
               </div>
             </div>

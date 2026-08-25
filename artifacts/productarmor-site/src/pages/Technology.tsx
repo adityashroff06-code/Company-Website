@@ -115,13 +115,13 @@ export default function Technology() {
   return (
     <div className="pt-16">
       {/* Header */}
-      <section className="bg-[#4164a8] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-primary section-pad">
+        <div className="container-width">
           <Breadcrumb items={[{ label: "Technology" }]} />
           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
             Manufacturing Technology
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h1 className="heading-page">
             Engineered for Precision. Built for Performance.
           </h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
@@ -133,16 +133,16 @@ export default function Technology() {
       </section>
 
       {/* Process timeline */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-pad bg-white">
+        <div className="container-width">
           <div className="text-center mb-14 reveal">
-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
               Our Process
             </div>
-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">
+            <h2 className="heading-section">
               Design to Dispatch — A Controlled Workflow
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Every batch follows the same six-stage process, so quality is engineered in rather than inspected in
               afterwards.
             </p>
@@ -152,19 +152,19 @@ export default function Technology() {
             {processSteps.map((step, i) => (
               <div
                 key={step.title}
-                className="reveal relative bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
+                className="reveal relative card-standard p-6"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
-                    <step.icon size={22} className="text-[#4164a8]" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                    <step.icon size={22} className="text-primary" />
                   </div>
-                  <span className="text-4xl font-black text-[#4164a8]/15 leading-none">
+                  <span className="text-4xl font-black text-primary/15 leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="font-bold text-[#0f2a4e] mb-2">{step.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+                <h3 className="heading-card mb-2">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -172,14 +172,14 @@ export default function Technology() {
       </section>
 
       {/* Capabilities */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-pad bg-secondary">
+        <div className="container-width">
           <div className="text-center mb-14 reveal">
-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
               Capabilities
             </div>
-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">Technology That Sets Us Apart</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
+            <h2 className="heading-section">Technology That Sets Us Apart</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               A tightly integrated manufacturing platform that combines material science, automation and
               sustainability.
             </p>
@@ -189,14 +189,14 @@ export default function Technology() {
             {capabilities.map((cap, i) => (
               <div
                 key={cap.title}
-                className="reveal bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
+                className="reveal card-standard p-6"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center mb-4">
-                  <cap.icon size={22} className="text-[#4164a8]" />
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <cap.icon size={22} className="text-primary" />
                 </div>
-                <h3 className="font-bold text-[#0f2a4e] mb-2">{cap.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{cap.desc}</p>
+                <h3 className="heading-card mb-2">{cap.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{cap.desc}</p>
               </div>
             ))}
           </div>
@@ -204,17 +204,17 @@ export default function Technology() {
       </section>
 
       {/* Material science highlight */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-pad bg-white">
+        <div className="container-width">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="reveal">
-              <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
                 Material Excellence & Full Traceability
               </div>
-              <h2 className="text-3xl font-bold text-[#0f2a4e] mb-6">
+              <h2 className="text-3xl font-bold text-navy mb-6">
                 Pharmaceutical-Grade Materials. Built on Quality and Traceability.
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 The foundation of every pharmaceutical packaging solution begins with carefully selected raw
                 materials sourced from qualified suppliers. Our material qualification process is designed to
                 support product safety, regulatory compliance, and consistent performance across every batch,
@@ -229,8 +229,8 @@ export default function Technology() {
                   "SKU-specific quality and performance validation",
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-3">
-                    <ShieldCheck size={18} className="text-[#4164a8] shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm">{f}</span>
+                    <ShieldCheck size={18} className="text-primary shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground text-sm">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -251,16 +251,16 @@ export default function Technology() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0f2a4e]">
+      <section className="section-pad bg-navy">
         <div className="max-w-3xl mx-auto px-4 text-center reveal">
-          <h2 className="text-3xl font-bold text-white mb-4">Talk to Our Technical Team</h2>
+          <h2 className="heading-section-light">Talk to Our Technical Team</h2>
           <p className="text-white/60 mb-8">
             Have a challenging packaging specification? Our engineers can review your requirement and recommend the
             right material, mould and closure system.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
+            className="btn-light hover:scale-105"
           >
             Discuss Your Project <ArrowRight size={16} />
           </Link>

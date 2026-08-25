@@ -19,6 +19,8 @@
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-primary-border: var(--primary-border);
+  --color-navy: hsl(var(--navy));
+  --color-navy-foreground: hsl(var(--navy-foreground));
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-secondary-border: var(--secondary-border);
@@ -64,34 +66,36 @@
 
   /* Navy/Orange ProductArmor brand */
   --background:      0 0% 100%;
-  --foreground:      218 30% 15%;
-  --border:          218 15% 88%;
+  --foreground:      214 68% 18%;
+  --border:          220 13% 91%;
   --card:            0 0% 100%;
-  --card-foreground: 218 30% 15%;
-  --card-border:     218 15% 90%;
-  --sidebar:         218 35% 12%;
+  --card-foreground: 214 68% 18%;
+  --card-border:     220 13% 91%;
+  --sidebar:         214 68% 18%;
   --sidebar-foreground: 0 0% 95%;
-  --sidebar-border:  218 30% 20%;
-  --sidebar-primary: 218 64% 45%;
+  --sidebar-border:  214 68% 25%;
+  --sidebar-primary: 220 44% 46%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent:  218 35% 18%;
+  --sidebar-accent:  214 68% 25%;
   --sidebar-accent-foreground: 0 0% 90%;
-  --sidebar-ring:    218 64% 45%;
+  --sidebar-ring:    220 44% 46%;
   --popover:         0 0% 100%;
-  --popover-foreground: 218 30% 15%;
-  --popover-border:  218 15% 88%;
-  --primary:         218 64% 33%;
+  --popover-foreground: 214 68% 18%;
+  --popover-border:  220 13% 91%;
+  --primary:         220 44% 46%;
   --primary-foreground: 0 0% 100%;
-  --secondary:       218 20% 95%;
-  --secondary-foreground: 218 30% 20%;
-  --muted:           220 15% 96%;
-  --muted-foreground: 218 15% 50%;
-  --accent:          24 90% 53%;
-  --accent-foreground: 0 0% 100%;
+  --navy:            214 68% 18%;
+  --navy-foreground: 0 0% 100%;
+  --secondary:       220 14% 96%;
+  --secondary-foreground: 214 68% 18%;
+  --muted:           220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --accent:          217 62% 74%;
+  --accent-foreground: 214 68% 18%;
   --destructive:     0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --input:           218 15% 88%;
-  --ring:            218 64% 33%;
+  --input:           220 13% 91%;
+  --ring:            220 44% 46%;
   --chart-1: 218 64% 33%;
   --chart-2: 24 90% 53%;
   --chart-3: 174 60% 40%;
@@ -211,4 +215,57 @@ animation: logo-marquee-scroll 40s linear infinite;
 }
 .logo-marquee:hover .logo-marquee-track {
 animation-play-state: paused;
+}
+
+@layer components {
+  /* Typography Hierarchy */
+  .heading-hero {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy leading-[1.1] tracking-tight;
+  }
+  .heading-page {
+    @apply text-4xl sm:text-5xl font-bold text-white mb-4;
+  }
+  .heading-section {
+    @apply text-3xl sm:text-4xl font-bold text-navy leading-tight tracking-tight mb-4;
+  }
+  .heading-section-light {
+    @apply text-3xl sm:text-4xl font-bold text-white leading-tight tracking-tight mb-4;
+  }
+  .heading-card {
+    @apply font-bold text-navy text-lg leading-snug;
+  }
+  .text-body {
+    @apply text-muted-foreground text-base leading-relaxed;
+  }
+  .text-body-sm {
+    @apply text-muted-foreground text-sm leading-relaxed;
+  }
+  
+  /* Layout & Spacing */
+  .section-pad {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  .container-width {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section-tag {
+    @apply inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4;
+  }
+  .section-tag-light {
+    @apply inline-block px-3 py-1 bg-white/10 text-white/90 text-xs font-semibold uppercase tracking-widest rounded mb-4;
+  }
+
+  /* Components */
+  .card-standard {
+    @apply bg-card rounded-xl p-6 sm:p-7 shadow-sm border border-card-border hover:shadow-md transition-all duration-300 hover:border-primary/20 flex flex-col h-full;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-semibold rounded-lg transition-all duration-200;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-semibold rounded-lg transition-all duration-200;
+  }
+  .btn-light {
+    @apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-white text-primary hover:bg-blue-50 text-sm font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow;
+  }
 }

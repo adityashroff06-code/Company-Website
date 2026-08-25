@@ -1,6 +1,7 @@
 import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
   import { CheckCircle, Package, ArrowRight, SearchX } from "lucide-react";
   import { Link, useSearch } from "wouter";
+import Breadcrumb from "@/components/Breadcrumb";
   import { usePageMeta } from "@/hooks/usePageMeta";
 
   export default function Products() {
@@ -31,12 +32,13 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
     return (
       <div className="pt-16">
         {/* Header */}
-        <section className="bg-[#4164a8] py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-primary section-pad">
+          <div className="container-width">
+            <Breadcrumb items={[{ label: "Products" }]} />
             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
               Product Range
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <h1 className="heading-page">
               Pharmaceutical Packaging Solutions
             </h1>
             <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
@@ -45,15 +47,15 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             {query && (
               <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/90 text-sm">
                 <span>Showing results for “{query}”</span>
-                <Link href="/products" className="text-[#93b4e8] hover:text-white font-semibold">Clear</Link>
+                <Link href="/products" className="text-accent hover:text-white font-semibold">Clear</Link>
               </div>
             )}
           </div>
         </section>
 
         {/* Products */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="section-pad bg-secondary">
+          <div className="container-width">
             {isLoading ? (
               <div className="space-y-12">
                 {Array(3).fill(0).map((_, i) => (
@@ -70,15 +72,15 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                 ))}
               </div>
             ) : products.length === 0 ? (
-              <div className="text-center py-16">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <SearchX size={28} className="text-gray-400" />
+              <div className="text-center section-pad">
+                <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <SearchX size={28} className="text-muted-foreground" />
                 </div>
-                <h2 className="text-xl font-bold text-[#0f2a4e] mb-2">No products matched “{query}”</h2>
-                <p className="text-gray-500 text-sm mb-6">Try a different term, or browse our full product range.</p>
+                <h2 className="text-xl heading-card mb-2">No products matched “{query}”</h2>
+                <p className="text-muted-foreground text-sm mb-6">Try a different term, or browse our full product range.</p>
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 text-sm"
+                  className="btn-primary"
                 >
                   View all products
                   <ArrowRight size={15} />
@@ -87,9 +89,9 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
             ) : (
               <div className="space-y-12">
                 {products.map((p, i) => (
-                  <div key={p.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+                  <div key={p.id} className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow">
                     <div className={`grid grid-cols-1 lg:grid-cols-2 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}>
-                      <div className={`relative h-72 lg:h-auto min-h-64 bg-gray-100 ${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
+                      <div className={`relative h-72 lg:h-auto min-h-64 bg-secondary ${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
                         <img
                           src={p.image}
                           alt={p.name}
@@ -97,24 +99,24 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"; }}
                         />
                         <div className="absolute top-4 left-4">
-                          <span className="bg-[#4164a8] text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
+                          <span className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
                         </div>
                       </div>
                       <div className={`p-10 flex flex-col justify-center ${i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-                        <h2 className="text-2xl font-bold text-[#0f2a4e] mb-3">{p.name}</h2>
-                        <p className="text-gray-500 leading-relaxed mb-6">{p.description}</p>
+                        <h2 className="text-2xl heading-card mb-3">{p.name}</h2>
+                        <p className="text-muted-foreground leading-relaxed mb-6">{p.description}</p>
                         {p.sizes && (
                           <p className="mb-6 text-sm">
-                            <span className="font-bold text-[#4164a8] uppercase tracking-widest text-xs">Available Sizes: </span>
-                            <span className="text-gray-600">{p.sizes}</span>
+                            <span className="font-bold text-primary uppercase tracking-widest text-xs">Available Sizes: </span>
+                            <span className="text-muted-foreground">{p.sizes}</span>
                           </p>
                         )}
                         <div>
-                          <h3 className="text-xs font-bold text-[#4164a8] uppercase tracking-widest mb-3">Key Features</h3>
+                          <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-3">Key Features</h3>
                           <ul className="space-y-2">
                             {p.features.map(f => (
-                              <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
-                                <CheckCircle size={15} className="text-[#4164a8] shrink-0 mt-0.5" />
+                              <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                                <CheckCircle size={15} className="text-primary shrink-0 mt-0.5" />
                                 <span>{f}</span>
                               </li>
                             ))}
@@ -130,16 +132,16 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-[#4164a8]">
+        <section className="section-pad bg-primary">
           <div className="max-w-3xl mx-auto px-4 text-center">
-            <Package size={40} className="text-[#93b4e8] mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-white mb-3"> Need Customize Specification </h2>
+            <Package size={40} className="text-accent mx-auto mb-4" />
+            <h2 className="heading-section-light"> Need Customize Specification </h2>
             <p className="text-white/60 mb-6 text-sm">
               We offer custom sizing, color options, and tailored packaging solutions. Talk to our team to develop a solution that meets your specific requirements.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+              className="btn-light"
             >
               Get in Touch
               <ArrowRight size={15} />

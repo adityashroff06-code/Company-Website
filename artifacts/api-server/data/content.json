@@ -1,1 +1,306 @@
-{"hero":{"headline":"Delivering sustainable pharmaceutical Bottles and Closures for global healthcare, engineered with advanced innovation and protecting integrity of drug inside.","subheadline":"Uncompromised Integrity. Trusted Globally","ctaText":"Request a Sample Kit","ctaLink":"/contact","backgroundImage":"/images/hero-bg.jpg","videoUrl":"https://www.youtube.com/embed/mHR9lM7LZGw","showVideo":false},"stats":[{"value":"100+","label":"Products Portfolio"},{"value":"1B+","label":"Units Annual Capacity"},{"value":"20+","label":"Advanced Machines"},{"value":"100%","label":"Automated Inspection"}],"about":{"title":"Where Formulation meets perfect packaging","description":"At Product Armor we deliver pharmaceutical packaging products manufactured in controlled cleanroom facility and trusted by customers worldwide. Operating within an ISO Class 8 cleanroom environment, we specialize in high-quality containers / bottles and caps / closures that meet the rigorous demands of the pharmaceutical industry. With a vision focused on the future of healthcare, we are continuously advancing our capabilities to support next-generation packaging technologies and drug delivery devices for global markets.","image":"/images/about-family.jpg","strengths":["Sustainable Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"]},"products":[{"id":"hdpe-bottles","name":"Bottles & Containers ","category":"Bottles & Containers ","description":"High quality pharmaceutical Bottles & Containers manufactured under ISO Class 8 certified cleanroom facility ensuring product protection, consistency and compliant with the stringent requirements of regulated pharmaceutical standards.","features":["Automated manufacturing enabling precision, consistency and minimal human intervention throughout the production process.","Low-carbon manufacturing driven by innovative manufacturing technologies that significantly reduce carbon footprint","Advanced process controls with continuous monitoring of critical manufacturing parameters to ensure consistent product quality.","Precision-engineered performance designed for reliable filling, sealing, handling and storage across pharmaceutical applications.","Consistent product specifications delivering dimensional accuracy, dependable sealing performance and protection for product stability throughout its lifecycle.","Trusted by global pharmaceutical companies for reliability, consistency and supply assurance"],"image":"/images/bottles-containers.jpg","sizes":"30cc, 40cc, 60cc, 75cc, 100cc, 120cc, 150cc, 180cc, 200cc, 250cc, 300cc, 400cc, 500cc, 625cc, 750cc, 850cc, 950cc, 1125cc, 1300cc, 1500cc & 2400cc with different weight variants","imageFit":"contain"},{"id":"cr-caps","name":"Child-Resistant Closures (CRC)","category":"Caps & Closures","description":"Our patented technology delivers one of the lowest carbon footprints in Child-Resistant Closure (CRC) manufacturing.","features":["Highly automated production ensuring precision, consistency and minimal human intervention.","Our CR closures are compliance with U.S. PPPA requirements under 16 CFR Part 1700.20. ","Trusted by leading global pharmaceutical brands across a wide range of healthcare applications with an annual manufacturing capacity over 600 million CR closures.","Patented technology featuring a unique CRC manufacturing process, engineered for operational excellence, precision and consistent quality."],"image":"/images/cr-caps.jpg","sizes":"28 mm, 33 mm, 38 mm, 45 mm & 53 mm with different colors","imageFit":"contain"},{"id":"ct-caps","name":"Continuous Thread Closures (CT)","category":"Caps & Closures","description":"Our Continuous Thread (CT) closures deliver secure sealing, product integrity and reliable supply with patented technology enabling one of the lowest carbon footprints in CT closure manufacturing.","features":["Trusted by leading global pharmaceutical brands across a wide range of healthcare applications with an annual manufacturing capacity over 1 Billion CT closures.","Highly automated production ensuring precision, consistency and minimal human intervention.","Comprehensive testing & validation to meet stringent pharmaceutical industry requirements."],"image":"/images/ct-caps.jpg","sizes":"28 mm, 33 mm, 38 mm & 53 mm with different colors","imageFit":"contain"},{"id":"1784714630526","name":"Advancing Beyond Packaging","category":"Drug Delivery Devices","description":"Expanding into next-generation drug delivery solutions, including ophthalmic and other specialized delivery systems designed to support patient safety, dosing accuracy, and improved therapeutic outcomes.","features":["Coming Soon"],"image":"/images/drug-delivery.jpg","imageFit":"contain"}],"certifications":[{"id":"iso9001","name":"ISO 9001:2018","issuer":"Quality Management Systems","year":"IN25/00000630","logo":"/images/certifications/iso9001.png"},{"id":"iso15378","name":"ISO 15378:2017","issuer":"Primary Packaging for Pharmaceuticals","year":"IN22/00000330","logo":"/images/certifications/iso15378.svg"},{"id":"usdmf","name":"USDMF","issuer":"US Drug Master File","year":"DMF 036675 / 037264","logo":"/images/certifications/usdmf.svg"},{"id":"cdmf","name":"Canadian DMF","issuer":"Health Canada","year":"MF2022-108","logo":"/images/certifications/cdmf.svg"},{"id":"chinadmf","name":"China DMF","issuer":"NMPA China","year":"B20220000820","logo":"/images/certifications/chinadmf.png"}],"clients":[{"id":"client-1","name":"Granules India Limited","logo":"/images/clients/granules.png"},{"id":"client-2","name":"Hetero","logo":"/images/clients/hetero.png"},{"id":"client-3","name":"Annora Pharma","logo":"/images/clients/annora.png"},{"id":"client-4","name":"MSN Labs","logo":"/images/clients/msn.png"},{"id":"client-5","name":"VKT Pharma","logo":"/images/clients/vkt-pharma.png"},{"id":"client-6","name":"Remedica","logo":"/images/clients/remedica.png"},{"id":"client-7","name":"Strides","logo":"/images/clients/strides.png"},{"id":"client-8","name":"Chemo","logo":"/images/clients/chemo.png"},{"id":"client-9","name":"Lupin","logo":"/images/clients/lupin.png"},{"id":"client-10","name":"Marksans Pharma Ltd.","logo":"/images/clients/marksans.png"},{"id":"client-11","name":"Graviti Pharma","logo":"/images/clients/graviti.png"},{"id":"client-12","name":"Kusum Healthcare","logo":"/images/clients/kusum.png"},{"id":"client-13","name":"Aizant","logo":"/images/clients/aizant.png"},{"id":"client-14","name":"OrBion Pharmaceuticals","logo":"/images/clients/orbion.png"}],"testimonials":[{"id":"1","quote":"Product Armor consistently delivers on quality and timelines. Their bottles have zero rejection rate in our incoming QC — something we haven't seen with any other supplier.","author":"Rajesh Sharma","company":"Leading Indian Pharma Manufacturer","role":"Head of Procurement"},{"id":"2","quote":"The CR caps meet our export compliance requirements without any modifications. Their team is responsive and understands regulated markets deeply.","author":"Priya Nair","company":"Export-Focused Pharma Company","role":"Quality Assurance Manager"},{"id":"3","quote":"Switching to Product Armor reduced our packaging costs by 18% while maintaining the same quality standards. The sustainable manufacturing approach was a bonus for our ESG reporting.","author":"Amit Verma","company":"Mid-size API Manufacturer","role":"Operations Director"}],"openings":[{"id":"production-engineer","title":"Production Engineer","type":"Full-time","location":"Hyderabad, Telangana","summary":"Own moulding line performance for bottles and caps — set up tooling, optimise cycle times, drive OEE and troubleshoot process deviations while maintaining GMP compliance.","requirements":["B.E./Diploma in Mechanical/Polymer/Plastics","2–5 yrs injection/blow moulding experience","Working knowledge of SPC and preventive maintenance"],"icon":"factory","active":true},{"id":"qa-executive","title":"QA Executive","type":"Full-time","location":"Hyderabad, Telangana","summary":"Execute in-line and incoming quality checks, maintain batch records and CoAs, support ISO 9001:2015 audits, and drive corrective/preventive actions.","requirements":["B.Sc./B.Pharm/M.Sc.","1–4 yrs QA/QC in pharma or packaging","Familiarity with AQL sampling, GDP and documentation"],"icon":"quality","active":true},{"id":"sales-manager","title":"Sales Manager","type":"Full-time","location":"Hyderabad / Field","summary":"Grow B2B relationships with pharmaceutical, nutraceutical and healthcare manufacturers — manage the enquiry-to-order cycle, coordinate samples and support export accounts.","requirements":["Graduate; MBA (Marketing) preferred","3–6 yrs B2B sales, packaging/pharma advantage","Strong client relationship and negotiation skills"],"icon":"people","active":true}],"contact":{"phone":"+91-9154992473","email":"mail@productarmor.com","address":"Survey No. 157, Nallavally Village & Mandal, Gummadidala, Telangana 502313, India","whatsapp":"+919154992473","mapEmbed":"https://www.google.com/maps?q=Survey%20No.%20157%2C%20Nallavally%2C%20Gummadidala%2C%20Telangana%20502313&output=embed"},"company":{"name":"Product Armor Packaging Pvt Ltd","tagline":"Controlled Variables, Specified Outcomes","founded":"2020","employees":"50+","totalClients":"50+"},"downloads":[{"id":"1","title":"Company Brochure","description":"A complete overview of ProductArmor — our facility, capabilities, product range and certifications for pharmaceutical packaging buyers.","fileType":"PDF · 2.8 MB","url":"/api/uploads/doc-1785233604423-fc1ed6a7.pdf"},{"id":"2","title":"Product Catalogue","description":"Full bottle, CR cap and CT cap catalogue with sizes, neck finishes, fill volumes and available colours.","fileType":"PDF · 6.8 MB","url":""}]}
+{
+  "hero": {
+    "headline": "Delivering sustainable pharmaceutical Bottles and Closures for global healthcare, engineered with advanced innovation and protecting integrity of drug inside.",
+    "subheadline": "Uncompromised Integrity. Trusted Globally",
+    "ctaText": "Request a Sample Kit",
+    "ctaLink": "/contact",
+    "backgroundImage": "/images/hero-bg.jpg",
+    "videoUrl": "https://www.youtube.com/embed/mHR9lM7LZGw",
+    "showVideo": false
+  },
+  "stats": [
+    {
+      "value": "100+",
+      "label": "Products Portfolio"
+    },
+    {
+      "value": "1B+",
+      "label": "Units Annual Capacity"
+    },
+    {
+      "value": "20+",
+      "label": "Advanced Machines"
+    },
+    {
+      "value": "100%",
+      "label": "Automated Inspection"
+    }
+  ],
+  "about": {
+    "title": "Where Formulation meets perfect packaging",
+    "description": "At Product Armor we deliver pharmaceutical packaging products manufactured in controlled cleanroom facility and trusted by customers worldwide. Operating within an ISO Class 8 cleanroom environment, we specialize in high-quality containers / bottles and caps / closures that meet the rigorous demands of the pharmaceutical industry. With a vision focused on the future of healthcare, we are continuously advancing our capabilities to support next-generation packaging technologies and drug delivery devices for global markets.",
+    "image": "/images/about-family.jpg",
+    "strengths": [
+      "Sustainable Practices",
+      "End-to-End Automation",
+      "Quality Approach",
+      "Economies of Scale",
+      "Culture"
+    ]
+  },
+  "products": [
+    {
+      "id": "hdpe-bottles",
+      "name": "Bottles & Containers ",
+      "category": "Bottles & Containers ",
+      "description": "High quality pharmaceutical Bottles & Containers manufactured under ISO Class 8 certified cleanroom facility ensuring product protection, consistency and compliant with the stringent requirements of regulated pharmaceutical standards.",
+      "features": [
+        "Automated manufacturing enabling precision, consistency and minimal human intervention throughout the production process.",
+        "Low-carbon manufacturing driven by innovative manufacturing technologies that significantly reduce carbon footprint",
+        "Advanced process controls with continuous monitoring of critical manufacturing parameters to ensure consistent product quality.",
+        "Precision-engineered performance designed for reliable filling, sealing, handling and storage across pharmaceutical applications.",
+        "Consistent product specifications delivering dimensional accuracy, dependable sealing performance and protection for product stability throughout its lifecycle.",
+        "Trusted by global pharmaceutical companies for reliability, consistency and supply assurance"
+      ],
+      "image": "/images/bottles-containers.jpg",
+      "sizes": "30cc, 40cc, 60cc, 75cc, 100cc, 120cc, 150cc, 180cc, 200cc, 250cc, 300cc, 400cc, 500cc, 625cc, 750cc, 850cc, 950cc, 1125cc, 1300cc, 1500cc & 2400cc with different weight variants",
+      "imageFit": "contain"
+    },
+    {
+      "id": "cr-caps",
+      "name": "Child-Resistant Closures (CRC)",
+      "category": "Caps & Closures",
+      "description": "Our patented technology delivers one of the lowest carbon footprints in Child-Resistant Closure (CRC) manufacturing.",
+      "features": [
+        "Highly automated production ensuring precision, consistency and minimal human intervention.",
+        "Our CR closures are compliance with U.S. PPPA requirements under 16 CFR Part 1700.20. ",
+        "Trusted by leading global pharmaceutical brands across a wide range of healthcare applications with an annual manufacturing capacity over 600 million CR closures.",
+        "Patented technology featuring a unique CRC manufacturing process, engineered for operational excellence, precision and consistent quality."
+      ],
+      "image": "/images/cr-caps.jpg",
+      "sizes": "28 mm, 33 mm, 38 mm, 45 mm & 53 mm with different colors",
+      "imageFit": "contain"
+    },
+    {
+      "id": "ct-caps",
+      "name": "Continuous Thread Closures (CT)",
+      "category": "Caps & Closures",
+      "description": "Our Continuous Thread (CT) closures deliver secure sealing, product integrity and reliable supply with patented technology enabling one of the lowest carbon footprints in CT closure manufacturing.",
+      "features": [
+        "Trusted by leading global pharmaceutical brands across a wide range of healthcare applications with an annual manufacturing capacity over 1 Billion CT closures.",
+        "Highly automated production ensuring precision, consistency and minimal human intervention.",
+        "Comprehensive testing & validation to meet stringent pharmaceutical industry requirements."
+      ],
+      "image": "/images/ct-caps.jpg",
+      "sizes": "28 mm, 33 mm, 38 mm & 53 mm with different colors",
+      "imageFit": "contain"
+    },
+    {
+      "id": "1784714630526",
+      "name": "Advancing Beyond Packaging",
+      "category": "Drug Delivery Devices",
+      "description": "Expanding into next-generation drug delivery solutions, including ophthalmic and other specialized delivery systems designed to support patient safety, dosing accuracy, and improved therapeutic outcomes.",
+      "features": [
+        "Coming Soon"
+      ],
+      "image": "/images/drug-delivery.jpg",
+      "imageFit": "contain"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "iso9001",
+      "name": "ISO 9001:2018",
+      "issuer": "Quality Management Systems",
+      "year": "IN25/00000630",
+      "logo": "/images/certifications/iso9001.png"
+    },
+    {
+      "id": "iso15378",
+      "name": "ISO 15378:2017",
+      "issuer": "Primary Packaging for Pharmaceuticals",
+      "year": "IN22/00000330",
+      "logo": "/images/certifications/iso15378.svg"
+    },
+    {
+      "id": "usdmf",
+      "name": "USDMF",
+      "issuer": "US Drug Master File",
+      "year": "DMF 036675 / 037264",
+      "logo": "/images/certifications/usdmf.svg"
+    },
+    {
+      "id": "cdmf",
+      "name": "Canadian DMF",
+      "issuer": "Health Canada",
+      "year": "MF2022-108",
+      "logo": "/images/certifications/cdmf.svg"
+    },
+    {
+      "id": "chinadmf",
+      "name": "China DMF",
+      "issuer": "NMPA China",
+      "year": "B20220000820",
+      "logo": "/images/certifications/chinadmf.png"
+    }
+  ],
+  "clients": [
+    {
+      "id": "client-1",
+      "name": "Granules India Limited",
+      "logo": "/images/clients/granules.png"
+    },
+    {
+      "id": "client-2",
+      "name": "Hetero",
+      "logo": "/images/clients/hetero.png"
+    },
+    {
+      "id": "client-3",
+      "name": "Annora Pharma",
+      "logo": "/images/clients/annora.png"
+    },
+    {
+      "id": "client-4",
+      "name": "MSN Labs",
+      "logo": "/images/clients/msn.png"
+    },
+    {
+      "id": "client-5",
+      "name": "VKT Pharma",
+      "logo": "/images/clients/vkt-pharma.png"
+    },
+    {
+      "id": "client-6",
+      "name": "Remedica",
+      "logo": "/images/clients/remedica.png"
+    },
+    {
+      "id": "client-7",
+      "name": "Strides",
+      "logo": "/images/clients/strides.png"
+    },
+    {
+      "id": "client-8",
+      "name": "Chemo",
+      "logo": "/images/clients/chemo.png"
+    },
+    {
+      "id": "client-9",
+      "name": "Lupin",
+      "logo": "/images/clients/lupin.png"
+    },
+    {
+      "id": "client-10",
+      "name": "Marksans Pharma Ltd.",
+      "logo": "/images/clients/marksans.png"
+    },
+    {
+      "id": "client-11",
+      "name": "Graviti Pharma",
+      "logo": "/images/clients/graviti.png"
+    },
+    {
+      "id": "client-12",
+      "name": "Kusum Healthcare",
+      "logo": "/images/clients/kusum.png"
+    },
+    {
+      "id": "client-13",
+      "name": "Aizant",
+      "logo": "/images/clients/aizant.png"
+    },
+    {
+      "id": "client-14",
+      "name": "OrBion Pharmaceuticals",
+      "logo": "/images/clients/orbion.png"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "quote": "Product Armor consistently delivers on quality and timelines. Their bottles have zero rejection rate in our incoming QC — something we haven't seen with any other supplier.",
+      "author": "Rajesh Sharma",
+      "company": "Leading Indian Pharma Manufacturer",
+      "role": "Head of Procurement"
+    },
+    {
+      "id": "2",
+      "quote": "The CR caps meet our export compliance requirements without any modifications. Their team is responsive and understands regulated markets deeply.",
+      "author": "Priya Nair",
+      "company": "Export-Focused Pharma Company",
+      "role": "Quality Assurance Manager"
+    },
+    {
+      "id": "3",
+      "quote": "Switching to Product Armor reduced our packaging costs by 18% while maintaining the same quality standards. The sustainable manufacturing approach was a bonus for our ESG reporting.",
+      "author": "Amit Verma",
+      "company": "Mid-size API Manufacturer",
+      "role": "Operations Director"
+    }
+  ],
+  "openings": [
+    {
+      "id": "production-engineer",
+      "title": "Production Engineer",
+      "type": "Full-time",
+      "location": "Hyderabad, Telangana",
+      "summary": "Own moulding line performance for bottles and caps — set up tooling, optimise cycle times, drive OEE and troubleshoot process deviations while maintaining GMP compliance.",
+      "requirements": [
+        "B.E./Diploma in Mechanical/Polymer/Plastics",
+        "2–5 yrs injection/blow moulding experience",
+        "Working knowledge of SPC and preventive maintenance"
+      ],
+      "icon": "factory",
+      "active": true
+    },
+    {
+      "id": "qa-executive",
+      "title": "QA Executive",
+      "type": "Full-time",
+      "location": "Hyderabad, Telangana",
+      "summary": "Execute in-line and incoming quality checks, maintain batch records and CoAs, support ISO 9001:2015 audits, and drive corrective/preventive actions.",
+      "requirements": [
+        "B.Sc./B.Pharm/M.Sc.",
+        "1–4 yrs QA/QC in pharma or packaging",
+        "Familiarity with AQL sampling, GDP and documentation"
+      ],
+      "icon": "quality",
+      "active": true
+    },
+    {
+      "id": "sales-manager",
+      "title": "Sales Manager",
+      "type": "Full-time",
+      "location": "Hyderabad / Field",
+      "summary": "Grow B2B relationships with pharmaceutical, nutraceutical and healthcare manufacturers — manage the enquiry-to-order cycle, coordinate samples and support export accounts.",
+      "requirements": [
+        "Graduate; MBA (Marketing) preferred",
+        "3–6 yrs B2B sales, packaging/pharma advantage",
+        "Strong client relationship and negotiation skills"
+      ],
+      "icon": "people",
+      "active": true
+    }
+  ],
+  "contact": {
+    "phone": "+91-9154992473",
+    "email": "mail@productarmor.com",
+    "address": "Survey No. 157, Nallavally Village & Mandal, Gummadidala, Telangana 502313, India",
+    "whatsapp": "+919154992473",
+    "mapEmbed": "https://www.google.com/maps?q=Survey%20No.%20157%2C%20Nallavally%2C%20Gummadidala%2C%20Telangana%20502313&output=embed"
+  },
+  "company": {
+    "name": "Product Armor Packaging Pvt Ltd",
+    "tagline": "Controlled Variables, Specified Outcomes",
+    "founded": "2020",
+    "employees": "50+",
+    "totalClients": "50+"
+  },
+  "downloads": [
+    {
+      "id": "1",
+      "title": "Company Brochure",
+      "description": "A complete overview of ProductArmor — our facility, capabilities, product range and certifications for pharmaceutical packaging buyers.",
+      "fileType": "PDF · 2.8 MB",
+      "url": "/api/uploads/doc-1785233604423-fc1ed6a7.pdf"
+    },
+    {
+      "id": "2",
+      "title": "Product Catalogue",
+      "description": "Full bottle, CR cap and CT cap catalogue with sizes, neck finishes, fill volumes and available colours.",
+      "fileType": "PDF · 6.8 MB",
+      "url": ""
+    }
+  ]
+}

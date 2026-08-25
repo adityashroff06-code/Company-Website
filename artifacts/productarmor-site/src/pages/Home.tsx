@@ -247,7 +247,7 @@ import { useEffect } from "react";
             <div className="text-center mt-10">
               <Link
                 href="/products"
- className="btn-outline text-[#4164a8]"
+ className="btn-primary"
               >
                 View All Products
                 <ArrowRight size={16} />

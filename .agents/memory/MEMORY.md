@@ -1,0 +1,1 @@
+- [Vite dev-server source extraction](vite-source-extraction.md) — cloning a site from a live Vite dev URL: pull original sources from sourcemap sourcesContent or ?raw; watch for /site/ base-path prefixes and 2-space indent artifacts.

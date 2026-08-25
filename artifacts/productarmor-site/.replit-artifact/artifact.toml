@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Product Armor Packaging"
+description = "Corporate website for Product Armor Packaging Pvt Ltd, an ISO-certified cleanroom manufacturer of pharmaceutical HDPE bottles and CR/CT closures. Includes product, industries, quality, careers, downloads and contact pages plus an admin dashboard for editing site content and the management team."
+version = "1.0.0"
+id = "artifacts/productarmor-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23795
+
+[services.development]
+run = "pnpm --filter @workspace/productarmor-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/productarmor-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/productarmor-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23795"
+BASE_PATH = "/"

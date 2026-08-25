@@ -10,13 +10,16 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: content
+    description: Site content management
+  - name: admin
+    description: Admin operations
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +27,65 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /content:
+    get:
+      operationId: getSiteContent
+      tags: [content]
+      summary: Get full site content
+      responses:
+        "200":
+          description: Site content
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteContent"
+    put:
+      operationId: updateSiteContent
+      tags: [content]
+      summary: Update site content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SiteContent"
+      responses:
+        "200":
+          description: Updated content
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteContent"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /admin/login:
+    post:
+      operationId: adminLogin
+      tags: [admin]
+      summary: Admin login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminCredentials"
+      responses:
+        "200":
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminToken"
+        "401":
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +95,144 @@ components:
           type: string
       required:
         - status
-
+    SiteContent:
+      type: object
+      properties:
+        hero:
+          type: object
+          properties:
+            headline: { type: string }
+            subheadline: { type: string }
+            ctaText: { type: string }
+            ctaLink: { type: string }
+            backgroundImage: { type: string }
+            videoUrl: { type: string }
+            showVideo: { type: boolean }
+          required: [headline, subheadline, ctaText, ctaLink, backgroundImage, videoUrl, showVideo]
+        stats:
+          type: array
+          items:
+            type: object
+            properties:
+              value: { type: string }
+              label: { type: string }
+            required: [value, label]
+        about:
+          type: object
+          properties:
+            title: { type: string }
+            description: { type: string }
+            image: { type: string }
+            strengths:
+              type: array
+              items: { type: string }
+          required: [title, description, image]
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              name: { type: string }
+              category: { type: string }
+              description: { type: string }
+              features:
+                type: array
+                items: { type: string }
+              image: { type: string }
+              sizes: { type: string }
+              imageFit: { type: string }
+            required: [id, name, category, description, features, image]
+        certifications:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              name: { type: string }
+              issuer: { type: string }
+              year: { type: string }
+              logo: { type: string }
+            required: [id, name, issuer, year]
+        clients:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              name: { type: string }
+              logo: { type: string }
+            required: [id, name, logo]
+        testimonials:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              quote: { type: string }
+              author: { type: string }
+              company: { type: string }
+              role: { type: string }
+            required: [id, quote, author, company, role]
+        contact:
+          type: object
+          properties:
+            phone: { type: string }
+            email: { type: string }
+            address: { type: string }
+            whatsapp: { type: string }
+            mapEmbed: { type: string }
+          required: [phone, email, address, whatsapp, mapEmbed]
+        company:
+          type: object
+          properties:
+            name: { type: string }
+            tagline: { type: string }
+            founded: { type: string }
+            employees: { type: string }
+            totalClients: { type: string }
+          required: [name, tagline, founded, employees, totalClients]
+        openings:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              title: { type: string }
+              type: { type: string }
+              location: { type: string }
+              summary: { type: string }
+              requirements:
+                type: array
+                items: { type: string }
+              icon: { type: string }
+              active: { type: boolean }
+            required: [id, title, type, location, summary, requirements]
+        downloads:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              title: { type: string }
+              description: { type: string }
+              fileType: { type: string }
+              url: { type: string }
+            required: [id, title, description, fileType, url]
+      required: [hero, stats, about, products, certifications, clients, testimonials, contact, company]
+    AdminCredentials:
+      type: object
+      properties:
+        password: { type: string }
+      required: [password]
+    AdminToken:
+      type: object
+      properties:
+        token: { type: string }
+        message: { type: string }
+      required: [token, message]
+    ErrorResponse:
+      type: object
+      properties:
+        error: { type: string }
+      required: [error]

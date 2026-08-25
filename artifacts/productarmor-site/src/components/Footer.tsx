@@ -53,7 +53,7 @@ export default function Footer() {
                 { href: "/technology", label: "Technology" },
               ].map(l => (
                 <li key={l.href}>
- <Link href={l.href} className="hover: text-sm transition-colors text-white/70 text-[#93b4e8]">{l.label}</Link>
+ <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -72,7 +72,7 @@ export default function Footer() {
                 { href: "/faq", label: "FAQ" },
               ].map(l => (
                 <li key={l.href}>
- <Link href={l.href} className="hover: text-sm transition-colors text-white/70 text-[#93b4e8]">{l.label}</Link>
+ <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -84,11 +84,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5 text-white/70 text-sm">
  <Phone size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
- <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover: transition-colors text-[#93b4e8]">{phone}</a>
+ <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-[#93b4e8] transition-colors">{phone}</a>
               </li>
               <li className="flex items-start gap-2.5 text-white/70 text-sm">
  <Mail size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
- <a href={`mailto:${email}`} className="hover: transition-colors break-all text-[#93b4e8]">{email}</a>
+ <a href={`mailto:${email}`} className="hover:text-[#93b4e8] transition-colors break-all">{email}</a>
               </li>
               <li className="flex items-start gap-2.5 text-white/70 text-sm">
  <MapPin size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />

@@ -68,7 +68,7 @@ export default function Contact() {
               <div className="space-y-4">
                 <a href={`tel:${phone.replace(/\s+/g, "")}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
- <Phone size={18} className="group-hover: transition-colors text-[#4164a8] text-white" />
+ <Phone size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
                   </div>
                   <div>
  <div className="text-xs font-semibold uppercase tracking-widest mb-0.5 text-gray-400">Phone</div>
@@ -78,7 +78,7 @@ export default function Contact() {
 
                 <a href={`mailto:${email}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
- <Mail size={18} className="group-hover: transition-colors text-[#4164a8] text-white" />
+ <Mail size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
                   </div>
                   <div>
  <div className="text-xs font-semibold uppercase tracking-widest mb-0.5 text-gray-400">Email</div>
@@ -106,7 +106,7 @@ export default function Contact() {
                   className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group"
                 >
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
- <Linkedin size={18} className="group-hover: transition-colors text-[#4164a8] text-white" />
+ <Linkedin size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
                   </div>
                   <div>
  <div className="text-xs font-semibold uppercase tracking-widest mb-0.5 text-gray-400">LinkedIn</div>
@@ -120,7 +120,7 @@ export default function Contact() {
                   className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group"
                 >
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
- <MapPin size={18} className="group-hover: transition-colors text-[#4164a8] text-white" />
+ <MapPin size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
                   </div>
                   <div>
  <div className="text-xs font-semibold uppercase tracking-widest mb-0.5 text-gray-400">Address</div>

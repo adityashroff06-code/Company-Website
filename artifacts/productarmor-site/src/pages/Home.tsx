@@ -151,7 +151,7 @@ import { useEffect } from "react";
                 </div>
                 <Link
                   href="/about"
- className="inline-flex items-center gap-2 font-semibold hover: transition-colors group text-[#4164a8] text-[#4164a8]"
+ className="inline-flex items-center gap-2 text-[#4164a8] font-semibold hover:text-[#4164a8] transition-colors group"
                 >
                   Learn more about us
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -234,7 +234,7 @@ import { useEffect } from "react";
                         </ul>
                         <Link
                           href="/products"
- className="inline-flex items-center gap-1.5 font-semibold text-sm hover: transition-colors group/link mt-auto text-[#4164a8] text-[#4164a8]"
+ className="inline-flex items-center gap-1.5 text-[#4164a8] font-semibold text-sm hover:text-[#4164a8] transition-colors group/link mt-auto"
                         >
                           View details
                           <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
@@ -247,7 +247,7 @@ import { useEffect } from "react";
             <div className="text-center mt-10">
               <Link
                 href="/products"
- className="btn-outline text-[#4164a8] text-white"
+ className="btn-outline text-[#4164a8]"
               >
                 View All Products
                 <ArrowRight size={16} />

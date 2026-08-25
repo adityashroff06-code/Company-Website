@@ -130,7 +130,7 @@ function MemberCard({ member, onSelect }: { member: TeamMember; onSelect: () => 
           </span>
         )}
       </div>
- <h3 className="heading-card group-hover: transition-colors text-[#0f2a4e] text-[#4164a8]">
+ <h3 className="heading-card text-[#0f2a4e] group-hover:text-[#4164a8] transition-colors">
         {member.fullName}
       </h3>
  <p className="text-sm font-semibold text-[#4164a8]">{member.designation}</p>

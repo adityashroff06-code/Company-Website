@@ -48,7 +48,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
- isActive("/") ? " font-semibold" : " hover: hover:bg-secondary"
+ isActive("/") ? "text-[#4164a8] font-semibold" : "text-gray-600 hover:text-[#4164a8] hover:bg-secondary"
               }`}
             >
               Home
@@ -58,7 +58,7 @@ export default function Navbar() {
               <div key={group.label} className="relative group">
                 <button
                   className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded transition-colors ${
- groupActive(group.items) ? " font-semibold" : " hover: hover:bg-secondary"
+ groupActive(group.items) ? "text-[#4164a8] font-semibold" : "text-gray-600 hover:text-[#4164a8] hover:bg-secondary"
                   }`}
                 >
                   {group.label}
@@ -74,7 +74,7 @@ export default function Navbar() {
                         className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
                           isActive(item.href)
  ? "bg-primary/10 font-semibold"
- : " hover:bg-secondary hover:"
+ : "text-gray-600 hover:bg-secondary hover:text-[#4164a8]"
                         }`}
                       >
                         {item.label}
@@ -132,7 +132,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`block px-4 py-2.5 text-sm font-medium rounded transition-colors ${
- isActive("/") ? " font-semibold" : " hover: hover:bg-secondary"
+ isActive("/") ? "text-[#4164a8] font-semibold" : "text-gray-600 hover:text-[#4164a8] hover:bg-secondary"
               }`}
             >
               Home
@@ -142,7 +142,7 @@ export default function Navbar() {
               <div key={group.label}>
                 <button
                   onClick={() => setExpanded(e => (e === group.label ? null : group.label))}
- className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium rounded hover: hover:bg-secondary transition-colors text-gray-600 text-[#4164a8]"
+ className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium rounded text-gray-600 hover:text-[#4164a8] hover:bg-secondary transition-colors"
                 >
                   {group.label}
                   <ChevronDown size={15} className={`transition-transform ${expanded === group.label ? "rotate-180" : ""}`} />
@@ -154,7 +154,7 @@ export default function Navbar() {
                         key={item.href}
                         href={item.href}
                         className={`block px-4 py-2 text-sm rounded transition-colors ${
- isActive(item.href) ? " font-semibold" : " hover: hover:bg-secondary"
+ isActive(item.href) ? "text-[#4164a8] font-semibold" : "text-gray-500 hover:text-[#4164a8] hover:bg-secondary"
                         }`}
                       >
                         {item.label}

@@ -47,7 +47,7 @@ import Breadcrumb from "@/components/Breadcrumb";
             {query && (
               <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/90 text-sm">
                 <span>Showing results for “{query}”</span>
- <Link href="/products" className="hover: font-semibold text-[#93b4e8] text-white">Clear</Link>
+ <Link href="/products" className="text-[#93b4e8] hover:text-white font-semibold">Clear</Link>
               </div>
             )}
           </div>

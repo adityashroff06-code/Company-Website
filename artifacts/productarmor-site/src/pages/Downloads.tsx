@@ -138,7 +138,7 @@ export default function Downloads() {
             </p>
             <Link
               href="/contact"
- className="btn-outline text-[#4164a8] text-white"
+ className="btn-outline text-[#4164a8]"
             >
               Request Documentation <ArrowRight size={16} />
             </Link>

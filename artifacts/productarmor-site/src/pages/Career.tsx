@@ -208,10 +208,10 @@ export default function Career() {
  <div className="container-width flex items-center justify-between gap-5 overflow-x-auto py-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#597080]">
  <span className="hidden whitespace-nowrap sm:inline text-[#173454]">Join the build</span>
           <div className="flex min-w-max items-center gap-6 sm:gap-9">
- <a href="#values" data-testid="link-career-values" className="transition-colors hover: text-[#1e5da6]">What defines us</a>
- <a href="#why-join" data-testid="link-career-why-join" className="transition-colors hover: text-[#1e5da6]">Why join</a>
- <a href="#openings" data-testid="link-career-openings" className="transition-colors hover: text-[#1e5da6]">Openings</a>
- <a href="#apply" data-testid="link-career-apply" className="transition-colors hover: text-[#1e5da6]">Apply</a>
+ <a href="#values" data-testid="link-career-values" className="transition-colors hover:text-[#1e5da6]">What defines us</a>
+ <a href="#why-join" data-testid="link-career-why-join" className="transition-colors hover:text-[#1e5da6]">Why join</a>
+ <a href="#openings" data-testid="link-career-openings" className="transition-colors hover:text-[#1e5da6]">Openings</a>
+ <a href="#apply" data-testid="link-career-apply" className="transition-colors hover:text-[#1e5da6]">Apply</a>
           </div>
         </div>
       </nav>
@@ -336,7 +336,7 @@ export default function Career() {
                       data-testid={`button-toggle-opening-${role.id}`}
                       onClick={() => setOpenRole(isOpen ? null : role.id)}
                       aria-expanded={isOpen}
- className="group flex w-full items-center gap-4 py-6 text-left transition-colors hover: sm:gap-7 sm:py-7 text-[#f4c17f]"
+ className="group flex w-full items-center gap-4 py-6 text-left transition-colors hover:text-[#f4c17f] sm:gap-7 sm:py-7"
                     >
  <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/20 transition-colors group-hover:border-accent/80 text-[#f0b36d]">
                         <RoleIcon size={20} strokeWidth={1.4} />
@@ -523,7 +523,7 @@ export default function Career() {
           <Link
             href="/contact"
             data-testid="link-contact-hr-team"
- className="career-reveal inline-flex items-center justify-center gap-3 border border-navy/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-navy hover: text-[#f4c17f]"
+ className="career-reveal inline-flex items-center justify-center gap-3 border border-navy/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-navy hover:text-[#f4c17f]"
             style={{ transitionDelay: "120ms" }}
           >
             Contact our HR team <ArrowRight size={16} />

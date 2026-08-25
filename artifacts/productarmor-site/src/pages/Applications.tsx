@@ -104,7 +104,7 @@ export default function Applications() {
           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
             Applications
           </div>
-          <h1 className="heading-page">
+ <h1 className="heading-page text-white">
             Real-World Packaging Applications
           </h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
@@ -118,13 +118,13 @@ export default function Applications() {
       <section className="section-pad bg-white">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
-            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+ <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
               Use Cases
             </div>
-            <h2 className="heading-section">
+ <h2 className="heading-section text-[#0f2a4e]">
               Matched to Your Dosage Form
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+ <p className="max-w-2xl mx-auto text-gray-500">
               The right container and closure combination keeps your product
               stable, compliant and easy to use from fill line to end user.
             </p>
@@ -137,19 +137,19 @@ export default function Applications() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
-                  <app.icon size={22} className="text-primary" />
+ <app.icon size={22} className="text-[#4164a8]" />
                 </div>
-                <h3 className="heading-card mb-2">
+ <h3 className="heading-card mb-2 text-[#0f2a4e]">
                   {app.name}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+ <p className="text-sm leading-relaxed mb-4 text-gray-500">
                   {app.desc}
                 </p>
                 <div className="border-t border-border pt-3">
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1">
+ <div className="text-xs font-semibold uppercase tracking-widest mb-1 text-gray-400">
                     Recommended fit
                   </div>
-                  <div className="text-primary text-sm font-medium">
+ <div className="text-sm font-medium text-[#4164a8]">
                     {app.fit}
                   </div>
                 </div>
@@ -163,13 +163,13 @@ export default function Applications() {
       <section className="section-pad bg-secondary">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
-            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+ <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
               Product Range
             </div>
-            <h2 className="heading-section">
+ <h2 className="heading-section text-[#0f2a4e]">
               Our Product Fits Each Application
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+ <p className="max-w-2xl mx-auto text-gray-500">
               Our three core product families cover the full spectrum of
               pharmaceutical and nutraceutical packaging needs.
             </p>
@@ -182,12 +182,12 @@ export default function Applications() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
-                  <p.icon size={22} className="text-primary" />
+ <p.icon size={22} className="text-[#4164a8]" />
                 </div>
-                <h3 className="heading-card mb-2">
+ <h3 className="heading-card mb-2 text-[#0f2a4e]">
                   {p.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+ <p className="text-sm leading-relaxed text-gray-500">
                   {p.desc}
                 </p>
               </div>
@@ -202,13 +202,13 @@ export default function Applications() {
           <div className="reveal bg-secondary rounded-2xl border border-border p-8 sm:p-12">
             <div className="flex items-start gap-4 mb-8">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                <Layers size={22} className="text-primary" />
+ <Layers size={22} className="text-[#4164a8]" />
               </div>
               <div>
-                <h2 className="text-2xl heading-card mb-2">
+ <h2 className="text-2xl heading-card mb-2 text-[#0f2a4e]">
                   Closure &amp; Liner Selection
                 </h2>
-                <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+ <p className="text-sm leading-relaxed max-w-2xl text-gray-500">
                   The closure and liner also play key role in protecting your
                   product. Here is how we help you choose the right combination.
                 </p>
@@ -237,10 +237,10 @@ export default function Applications() {
                   key={item.t}
                   className="bg-white rounded-xl border border-border p-6"
                 >
-                  <h3 className="font-bold text-navy text-sm mb-2">
+ <h3 className="font-bold text-sm mb-2 text-[#0f2a4e]">
                     {item.t}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+ <p className="text-sm leading-relaxed text-gray-500">
                     {item.d}
                   </p>
                 </div>
@@ -253,7 +253,7 @@ export default function Applications() {
       {/* CTA */}
       <section className="section-pad bg-navy">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-          <h2 className="heading-section-light">
+ <h2 className="heading-section-light text-white">
             Not Sure Which Combination You Need?
           </h2>
           <p className="text-white/60 mb-10 max-w-xl mx-auto">
@@ -263,7 +263,7 @@ export default function Applications() {
           </p>
           <Link
             href="/contact"
-            className="btn-light hover:scale-105"
+ className="btn-light hover:scale-105 text-[#4164a8]"
           >
             Get a Recommendation
             <ArrowRight size={16} />

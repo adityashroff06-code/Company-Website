@@ -64,7 +64,7 @@ export default function Downloads() {
           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
             Resource Centre
           </div>
-          <h1 className="heading-page">Downloads &amp; Documentation</h1>
+ <h1 className="heading-page text-white">Downloads &amp; Documentation</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
             Access brochures, technical data sheets, certificates and compliance documents — everything your
             procurement and regulatory teams need in one place.
@@ -76,11 +76,11 @@ export default function Downloads() {
       <section className="section-pad bg-white">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
-            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+ <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
               Available Documents
             </div>
-            <h2 className="heading-section">Browse Our Resources</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+ <h2 className="heading-section text-[#0f2a4e]">Browse Our Resources</h2>
+ <p className="max-w-2xl mx-auto text-gray-500">
               Select a document below to download. Need something specific? Our team can share tailored
               documentation on request.
             </p>
@@ -97,15 +97,15 @@ export default function Downloads() {
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Icon size={22} className="text-primary" />
+ <Icon size={22} className="text-[#4164a8]" />
                     </div>
                   </div>
-                  <h3 className="heading-card mb-2">{r.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">{r.description}</p>
+ <h3 className="heading-card mb-2 text-[#0f2a4e]">{r.title}</h3>
+ <p className="text-sm leading-relaxed mb-6 flex-1 text-gray-500">{r.description}</p>
                   <a
                     href={r.url || "#"}
                     {...(r.url ? { target: "_blank", rel: "noopener noreferrer" } : { title: "Placeholder file — to be replaced with the actual document" })}
-                    className="btn-primary"
+ className="btn-primary text-white"
                   >
                     <Download size={16} />
                     Download
@@ -116,7 +116,7 @@ export default function Downloads() {
           </div>
 
           {hasPlaceholders && (
-            <p className="text-center text-muted-foreground text-xs mt-8 max-w-xl mx-auto">
+ <p className="text-center text-xs mt-8 max-w-xl mx-auto text-gray-400">
               Note: Some download links are placeholders to be replaced with the final documents. Contact us if you
               need a file before it is published here.
             </p>
@@ -129,16 +129,16 @@ export default function Downloads() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal bg-white rounded-2xl shadow-sm border border-border p-8 sm:p-10 text-center">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-5">
-              <Mail size={22} className="text-primary" />
+ <Mail size={22} className="text-[#4164a8]" />
             </div>
-            <h2 className="text-2xl heading-card mb-3">Request a Document</h2>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-xl mx-auto mb-6">
+ <h2 className="text-2xl heading-card mb-3 text-[#0f2a4e]">Request a Document</h2>
+ <p className="text-sm leading-relaxed max-w-xl mx-auto mb-6 text-gray-500">
               Looking for a specific data sheet, a Certificate of Analysis, a Drug Master File reference or custom
               regulatory documentation? Let us know and our team will send it across.
             </p>
             <Link
               href="/contact"
-              className="btn-outline"
+ className="btn-outline text-[#4164a8] text-white"
             >
               Request Documentation <ArrowRight size={16} />
             </Link>
@@ -149,14 +149,14 @@ export default function Downloads() {
       {/* CTA */}
       <section className="section-pad bg-navy">
         <div className="max-w-3xl mx-auto px-4 text-center reveal">
-          <h2 className="heading-section-light">Need More Information?</h2>
+ <h2 className="heading-section-light text-white">Need More Information?</h2>
           <p className="text-white/60 mb-8">
             Speak with our team for samples, pricing and complete regulatory documentation for your packaging
             requirement.
           </p>
           <Link
             href="/contact"
-            className="btn-light hover:scale-105"
+ className="btn-light hover:scale-105 text-[#4164a8]"
           >
             Get in Touch <ArrowRight size={16} />
           </Link>

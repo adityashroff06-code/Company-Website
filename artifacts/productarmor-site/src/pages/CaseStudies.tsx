@@ -96,7 +96,7 @@ export default function CaseStudies() {
           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
             Proven Results
           </div>
-          <h1 className="heading-page">Case Studies</h1>
+ <h1 className="heading-page text-white">Case Studies</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
             How pharmaceutical, nutraceutical and healthcare brands solved packaging challenges with our
             Bottles, CR caps and CT caps — from export compliance to cost, quality and lead-time gains.
@@ -114,8 +114,8 @@ export default function CaseStudies() {
               { value: "100%", label: "CR certification pass" },
             ].map((s) => (
               <div key={s.label} className="reveal text-center bg-secondary rounded-xl p-6 border border-border">
-                <div className="text-3xl font-black text-primary">{s.value}</div>
-                <div className="text-muted-foreground text-xs mt-2 leading-relaxed">{s.label}</div>
+ <div className="text-3xl font-black text-[#4164a8]">{s.value}</div>
+ <div className="text-xs mt-2 leading-relaxed text-gray-500">{s.label}</div>
               </div>
             ))}
           </div>
@@ -134,31 +134,31 @@ export default function CaseStudies() {
                   <div className="lg:w-2/3">
                     <div className="flex items-center gap-4 mb-5">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                        <cs.icon size={22} className="text-primary" />
+ <cs.icon size={22} className="text-[#4164a8]" />
                       </div>
                       <div>
-                        <div className="text-xs font-semibold text-primary uppercase tracking-widest">{cs.tag}</div>
-                        <h2 className="text-xl font-bold text-navy mt-0.5">{cs.title}</h2>
+ <div className="text-xs font-semibold uppercase tracking-widest text-[#4164a8]">{cs.tag}</div>
+ <h2 className="text-xl font-bold mt-0.5 text-[#0f2a4e]">{cs.title}</h2>
                       </div>
                     </div>
                     <div className="space-y-4">
                       <div>
-                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
-                          <Target size={15} className="text-primary" /> Challenge
+ <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-[#0f2a4e]">
+ <Target size={15} className="text-[#4164a8]" /> Challenge
                         </div>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.challenge}</p>
+ <p className="text-sm leading-relaxed text-gray-600">{cs.challenge}</p>
                       </div>
                       <div>
-                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
-                          <Lightbulb size={15} className="text-primary" /> Solution
+ <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-[#0f2a4e]">
+ <Lightbulb size={15} className="text-[#4164a8]" /> Solution
                         </div>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.solution}</p>
+ <p className="text-sm leading-relaxed text-gray-600">{cs.solution}</p>
                       </div>
                       <div>
-                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
-                          <TrendingUp size={15} className="text-primary" /> Result
+ <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-[#0f2a4e]">
+ <TrendingUp size={15} className="text-[#4164a8]" /> Result
                         </div>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.result}</p>
+ <p className="text-sm leading-relaxed text-gray-600">{cs.result}</p>
                       </div>
                     </div>
                   </div>
@@ -166,11 +166,11 @@ export default function CaseStudies() {
                     {cs.metrics.map((m) => (
                       <div key={m.label} className="bg-primary/5 rounded-xl p-5 border border-primary/10 flex items-center gap-4">
                         <div className="w-11 h-11 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                          <m.icon size={20} className="text-primary" />
+ <m.icon size={20} className="text-[#4164a8]" />
                         </div>
                         <div>
-                          <div className="text-2xl font-black text-navy">{m.value}</div>
-                          <div className="text-muted-foreground text-xs">{m.label}</div>
+ <div className="text-2xl font-black text-[#0f2a4e]">{m.value}</div>
+ <div className="text-xs text-gray-500">{m.label}</div>
                         </div>
                       </div>
                     ))}
@@ -184,14 +184,14 @@ export default function CaseStudies() {
 
       <section className="section-pad bg-navy">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="heading-section-light">Have a Packaging Challenge to Solve?</h2>
+ <h2 className="heading-section-light text-white">Have a Packaging Challenge to Solve?</h2>
           <p className="text-white/60 mb-8 leading-relaxed">
             Tell us about your product, volumes and compliance targets — our technical team will propose a
             bottle-and-closure solution tailored to your requirements.
           </p>
           <Link
             href="/contact"
-            className="btn-light"
+ className="btn-light text-[#4164a8]"
           >
             Talk to Our Team <ArrowRight size={15} />
           </Link>

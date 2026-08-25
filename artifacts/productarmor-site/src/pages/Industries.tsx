@@ -84,7 +84,7 @@ export default function Industries() {
           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
             Industries
           </div>
-          <h1 className="heading-page">
+ <h1 className="heading-page text-white">
             Industries We Serve
           </h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
@@ -99,13 +99,13 @@ export default function Industries() {
       <section className="section-pad bg-white">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
-            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+ <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
               Sectors
             </div>
-            <h2 className="heading-section">
+ <h2 className="heading-section text-[#0f2a4e]">
               Packaging Built Around Your Product
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+ <p className="max-w-2xl mx-auto text-gray-500">
               Each sector carries distinct compliance, barrier and handling
               requirements. We tailor material, closure and liner choices to
               match.
@@ -119,19 +119,19 @@ export default function Industries() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
-                  <ind.icon size={22} className="text-primary" />
+ <ind.icon size={22} className="text-[#4164a8]" />
                 </div>
-                <h3 className="heading-card mb-2">
+ <h3 className="heading-card mb-2 text-[#0f2a4e]">
                   {ind.name}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+ <p className="text-sm leading-relaxed mb-4 text-gray-500">
                   {ind.desc}
                 </p>
                 <div className="border-t border-border pt-3">
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1">
+ <div className="text-xs font-semibold uppercase tracking-widest mb-1 text-gray-400">
                     Relevant packaging
                   </div>
-                  <div className="text-primary text-sm font-medium">
+ <div className="text-sm font-medium text-[#4164a8]">
                     {ind.packaging}
                   </div>
                 </div>
@@ -145,13 +145,13 @@ export default function Industries() {
       <section className="section-pad bg-secondary">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
-            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+ <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
               Compliance
             </div>
-            <h2 className="heading-section">
+ <h2 className="heading-section text-[#0f2a4e]">
               Regulatory Fit by Industry
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+ <p className="max-w-2xl mx-auto text-gray-500">
               ISO 9001:2018 certified manufacturing means the right
               documentation and material assurance for every market you sell
               into.
@@ -165,12 +165,12 @@ export default function Industries() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
-                  <r.icon size={22} className="text-primary" />
+ <r.icon size={22} className="text-[#4164a8]" />
                 </div>
-                <h3 className="heading-card mb-2">
+ <h3 className="heading-card mb-2 text-[#0f2a4e]">
                   {r.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+ <p className="text-sm leading-relaxed text-gray-500">
                   {r.desc}
                 </p>
               </div>
@@ -182,7 +182,7 @@ export default function Industries() {
       {/* CTA */}
       <section className="section-pad bg-navy">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-          <h2 className="heading-section-light">
+ <h2 className="heading-section-light text-white">
             Don't See Your Industry?
           </h2>
           <p className="text-white/60 mb-10 max-w-xl mx-auto">
@@ -191,7 +191,7 @@ export default function Industries() {
           </p>
           <Link
             href="/contact"
-            className="btn-light hover:scale-105"
+ className="btn-light hover:scale-105 text-[#4164a8]"
           >
             Discuss Your Requirements
             <ArrowRight size={16} />

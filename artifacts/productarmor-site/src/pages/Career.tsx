@@ -130,7 +130,7 @@ export default function Career() {
   };
 
   return (
-    <main className="career-page overflow-hidden bg-background pt-16 text-navy">
+ <main className="career-page overflow-hidden bg-background pt-16 text-[#173454]">
       <style>{`
         .career-reveal {
           opacity: 0;
@@ -158,12 +158,12 @@ export default function Career() {
           <Breadcrumb items={[{ label: "Careers" }]} />
           <div>
             <div className="career-reveal">
-              <p className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-accent/80">
+ <p className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#f0b36d]">
                 <span className="h-px w-8 bg-accent/80" />
                 Careers at Product Armor
               </p>
-              <h1 className="whitespace-nowrap  text-[1.1rem] leading-none tracking-tight text-white sm:text-3xl md:text-5xl lg:text-[4.75rem]">
-                Build the Future. <span className="text-accent">Protect What Matters.</span>
+ <h1 className="whitespace-nowrap font-serif text-[1.1rem] leading-none tracking-[-0.045em] text-[#f8f7f1] sm:text-3xl md:text-5xl lg:text-[4.75rem]">
+ Build the Future. <span className="text-[#74a9e8]">Protect What Matters.</span>
               </h1>
               <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,.72fr)] lg:items-center lg:gap-16">
                 <div>
@@ -181,14 +181,14 @@ export default function Career() {
                   <a
                     href="#openings"
                     data-testid="link-explore-openings"
-                    className="mt-9 inline-flex items-center gap-3 border-b border-accent/80 pb-2 text-sm font-semibold text-accent transition-transform duration-300 hover:translate-x-1"
+ className="mt-9 inline-flex items-center gap-3 border-b border-accent/80 pb-2 text-sm font-semibold transition-transform duration-300 hover:translate-x-1 text-[#f4c17f]"
                   >
                     Explore current openings <ArrowDownRight size={17} />
                   </a>
                 </div>
                 <figure className="career-reveal relative mx-auto w-full max-w-[430px] overflow-hidden border border-white/20 bg-white/10 lg:justify-self-center" style={{ transitionDelay: "120ms" }}>
                   <img
-                    src="/site/images/productarmor-careers-team.jpg"
+                    src="/images/productarmor-careers-team.jpg"
                     alt="ProductArmor manufacturing team collaborating in a cleanroom"
                     data-testid="img-careers-team"
                     className="aspect-[4/3] w-full object-cover opacity-90"
@@ -205,13 +205,13 @@ export default function Career() {
       </section>
 
       <nav aria-label="Career page sections" className="border-b border-border bg-background">
-        <div className="container-width flex items-center justify-between gap-5 overflow-x-auto py-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span className="hidden whitespace-nowrap text-navy sm:inline">Join the build</span>
+ <div className="container-width flex items-center justify-between gap-5 overflow-x-auto py-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#597080]">
+ <span className="hidden whitespace-nowrap sm:inline text-[#173454]">Join the build</span>
           <div className="flex min-w-max items-center gap-6 sm:gap-9">
-            <a href="#values" data-testid="link-career-values" className="transition-colors hover:text-primary">What defines us</a>
-            <a href="#why-join" data-testid="link-career-why-join" className="transition-colors hover:text-primary">Why join</a>
-            <a href="#openings" data-testid="link-career-openings" className="transition-colors hover:text-primary">Openings</a>
-            <a href="#apply" data-testid="link-career-apply" className="transition-colors hover:text-primary">Apply</a>
+ <a href="#values" data-testid="link-career-values" className="transition-colors hover: text-[#1e5da6]">What defines us</a>
+ <a href="#why-join" data-testid="link-career-why-join" className="transition-colors hover: text-[#1e5da6]">Why join</a>
+ <a href="#openings" data-testid="link-career-openings" className="transition-colors hover: text-[#1e5da6]">Openings</a>
+ <a href="#apply" data-testid="link-career-apply" className="transition-colors hover: text-[#1e5da6]">Apply</a>
           </div>
         </div>
       </nav>
@@ -220,11 +220,11 @@ export default function Career() {
         <div className="container-width">
           <div className="grid gap-12 lg:grid-cols-[.62fr_1.38fr] lg:gap-24">
             <div className="career-reveal lg:sticky lg:top-28 lg:self-start">
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">01 / How we work</p>
-              <h2 className="max-w-md  text-5xl leading-[0.98] tracking-tight text-navy sm:text-6xl">
+ <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#1e5da6]">01 / How we work</p>
+ <h2 className="max-w-md font-serif text-5xl leading-[0.98] tracking-[-0.04em] text-[#0b2444] sm:text-6xl">
                 What Defines Us
               </h2>
-              <p className="mt-7 max-w-sm text-body">
+ <p className="mt-7 max-w-sm text-body text-[#627684]">
                 The standards we hold ourselves to are the same standards we bring to every product we make.
               </p>
               <div className="mt-12 hidden h-28 w-px bg-accent/50 lg:block" />
@@ -240,11 +240,11 @@ export default function Career() {
                     style={{ transitionDelay: `${index * 60}ms` }}
                   >
                     <div className="flex items-start justify-between sm:block">
-                      <span className="font-mono text-xs text-primary">{value.number}</span>
-                      <ValueIcon size={21} strokeWidth={1.5} className="text-accent sm:mt-7" />
+ <span className="font-mono text-xs text-[#1e5da6]">{value.number}</span>
+ <ValueIcon size={21} strokeWidth={1.5} className="sm:mt-7 text-[#e09b55]" />
                     </div>
-                    <h3 className="max-w-[220px] text-xl font-semibold leading-tight tracking-[-0.02em] text-navy">{value.title}</h3>
-                    <p className="max-w-xl text-body">{value.description}</p>
+ <h3 className="max-w-[220px] text-xl font-semibold leading-tight tracking-[-0.02em] text-[#0b2444]">{value.title}</h3>
+ <p className="max-w-xl text-body text-[#627684]">{value.description}</p>
                   </article>
                 );
               })}
@@ -258,12 +258,12 @@ export default function Career() {
         <div className="pointer-events-none absolute -left-20 top-28 h-48 w-48 rounded-full border border-accent/20" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.75fr_1.25fr] lg:gap-28 lg:px-12">
           <div className="career-reveal">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">02 / Make your mark</p>
-            <h2 className="max-w-md  text-5xl leading-[0.98] tracking-tight text-navy sm:text-6xl">
+ <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#1e5da6]">02 / Make your mark</p>
+ <h2 className="max-w-md font-serif text-5xl leading-[0.98] tracking-[-0.04em] text-[#0b2444] sm:text-6xl">
               Why Join Product Armor?
             </h2>
-            <div className="mt-8 flex items-start gap-3 text-muted-foreground">
-              <ArrowRight size={18} className="mt-1 shrink-0 text-accent" />
+ <div className="mt-8 flex items-start gap-3 text-[#627684]">
+ <ArrowRight size={18} className="mt-1 shrink-0 text-[#e09b55]" />
               <p className="max-w-xs leading-7">At Product Armor, you'll have the opportunity to:</p>
             </div>
           </div>
@@ -272,9 +272,9 @@ export default function Career() {
               <div
                 key={reason}
                 data-testid={`why-join-item-${index + 1}`}
-                className="flex gap-5 border-b border-navy/15 py-6 text-body text-navy text-lg sm:gap-8 sm:py-7 sm:text-xl"
+ className="flex gap-5 border-b border-navy/15 py-6 text-body text-lg sm:gap-8 sm:py-7 sm:text-xl text-[#173454]"
               >
-                <span className="font-mono text-xs text-primary">0{index + 1}</span>
+ <span className="font-mono text-xs text-[#1e5da6]">0{index + 1}</span>
                 <p>{reason}</p>
               </div>
             ))}
@@ -286,8 +286,8 @@ export default function Career() {
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
           <div className="career-reveal mb-12 flex flex-col justify-between gap-7 border-b border-white/20 pb-10 sm:flex-row sm:items-end">
             <div>
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-accent/80">03 / The next move</p>
-              <h2 className=" text-5xl leading-[0.98] tracking-tight sm:text-6xl">Current Openings</h2>
+ <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#f0b36d]">03 / The next move</p>
+              <h2 className="font-serif text-5xl leading-[0.98] tracking-[-0.04em] sm:text-6xl">Current Openings</h2>
             </div>
             <p className="max-w-sm text-sm leading-6 text-white/60">
               Explore roles across production, quality and sales. Select a position in the form below to apply.
@@ -308,14 +308,14 @@ export default function Career() {
                 type="button"
                 data-testid="button-retry-openings"
                 onClick={() => void refetch()}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-transform hover:translate-x-1"
+ className="mt-5 inline-flex items-center gap-2 text-sm font-semibold transition-transform hover:translate-x-1 text-[#f4c17f]"
               >
                 Try again <ArrowRight size={15} />
               </button>
             </div>
           ) : openRoles.length === 0 ? (
             <div data-testid="empty-current-openings" className="border border-white/15 bg-white/[0.05] p-8 sm:p-10">
-              <BriefcaseBusiness size={24} strokeWidth={1.4} className="text-accent/80" />
+ <BriefcaseBusiness size={24} strokeWidth={1.4} className="text-[#f0b36d]" />
               <p className="mt-5 text-xl font-semibold">There are no open positions at the moment.</p>
               <p className="mt-2 max-w-md text-sm leading-6 text-white/60">Please check back soon, or submit a general application so we can keep your details on file.</p>
             </div>
@@ -336,9 +336,9 @@ export default function Career() {
                       data-testid={`button-toggle-opening-${role.id}`}
                       onClick={() => setOpenRole(isOpen ? null : role.id)}
                       aria-expanded={isOpen}
-                      className="group flex w-full items-center gap-4 py-6 text-left transition-colors hover:text-accent sm:gap-7 sm:py-7"
+ className="group flex w-full items-center gap-4 py-6 text-left transition-colors hover: sm:gap-7 sm:py-7 text-[#f4c17f]"
                     >
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/20 text-accent/80 transition-colors group-hover:border-accent/80">
+ <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/20 transition-colors group-hover:border-accent/80 text-[#f0b36d]">
                         <RoleIcon size={20} strokeWidth={1.4} />
                       </span>
                       <span className="min-w-0 flex-1">
@@ -348,17 +348,17 @@ export default function Career() {
                           <span className="inline-flex items-center gap-1.5"><MapPin size={13} /> {role.location}</span>
                         </span>
                       </span>
-                      <ChevronDown size={20} className={`shrink-0 text-accent/80 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+ <ChevronDown size={20} className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
                     </button>
                     {isOpen && (
                       <div data-testid={`opening-details-${role.id}`} className="grid gap-8 border-t border-white/15 pb-8 pt-7 sm:grid-cols-[1fr_1fr] sm:pl-[70px]">
                         <p className="max-w-xl text-sm leading-7 text-white/70">{role.summary}</p>
                         <div>
-                          <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent/80">What we look for</p>
+ <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f0b36d]">What we look for</p>
                           <ul className="space-y-3">
                             {role.requirements.map((requirement) => (
                               <li key={requirement} className="flex gap-3 text-sm leading-6 text-white/70">
-                                <Check size={15} className="mt-1 shrink-0 text-accent/80" />
+ <Check size={15} className="mt-1 shrink-0 text-[#f0b36d]" />
                                 <span>{requirement}</span>
                               </li>
                             ))}
@@ -367,7 +367,7 @@ export default function Career() {
                             type="button"
                             data-testid={`button-apply-opening-${role.id}`}
                             onClick={() => selectRole(role.title, role.id)}
-                            className="mt-7 inline-flex items-center gap-2 border-b border-accent/80 pb-1 text-sm font-semibold text-accent transition-transform hover:translate-x-1"
+ className="mt-7 inline-flex items-center gap-2 border-b border-accent/80 pb-1 text-sm font-semibold transition-transform hover:translate-x-1 text-[#f4c17f]"
                           >
                             Apply for this role <ArrowRight size={15} />
                           </button>
@@ -386,12 +386,12 @@ export default function Career() {
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
             <div className="career-reveal">
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">04 / Start a conversation</p>
-              <h2 className=" text-5xl leading-[0.98] tracking-tight text-navy sm:text-6xl">Submit Your Application</h2>
-              <p className="mt-7 max-w-sm text-body">
+ <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#1e5da6]">04 / Start a conversation</p>
+ <h2 className="font-serif text-5xl leading-[0.98] tracking-[-0.04em] text-[#0b2444] sm:text-6xl">Submit Your Application</h2>
+ <p className="mt-7 max-w-sm text-body text-[#627684]">
                 Tell us where your experience could make a difference. We review every application and respond to shortlisted candidates.
               </p>
-              <div className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+ <div className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.16em] text-[#627684]">
                 <span className="h-px w-8 bg-accent" /> Product Armor / People
               </div>
             </div>
@@ -399,9 +399,9 @@ export default function Career() {
             <div data-testid="application-form-panel" className="career-reveal border-t border-navy/20 pt-7" style={{ transitionDelay: "100ms" }}>
               {sent ? (
                 <div data-testid="status-application-received" className="border border-primary/20 bg-white p-8 sm:p-12">
-                  <CheckCircle2 size={34} strokeWidth={1.4} className="text-primary" />
-                  <h3 className="mt-7  text-4xl tracking-tight text-navy">Application Received!</h3>
-                  <p className="mt-4 max-w-lg text-sm leading-7 text-muted-foreground">
+ <CheckCircle2 size={34} strokeWidth={1.4} className="text-[#1e5da6]" />
+ <h3 className="mt-7 font-serif text-4xl tracking-[-0.03em] text-[#0b2444]">Application Received!</h3>
+ <p className="mt-4 max-w-lg text-sm leading-7 text-[#627684]">
                     Thank you for your interest in joining ProductArmor. Our HR team will review your application and reach out if there's a fit.
                   </p>
                   <button
@@ -411,7 +411,7 @@ export default function Career() {
                       setSent(false);
                       setForm(initialForm);
                     }}
-                    className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-transform hover:translate-x-1"
+ className="mt-8 inline-flex items-center gap-2 text-sm font-semibold transition-transform hover:translate-x-1 text-[#1e5da6]"
                   >
                     Submit another application <ArrowRight size={15} />
                   </button>
@@ -420,51 +420,51 @@ export default function Career() {
                 <form onSubmit={handleSubmit} className="space-y-6" data-testid="form-application">
                   <div className="grid gap-6 sm:grid-cols-2">
                     <label className="block">
-                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Full Name *</span>
+ <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Full Name *</span>
                       <input
                         type="text"
                         required
                         value={form.name}
                         data-testid="input-application-name"
                         onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-                        className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-navy outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-0"
+ className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder: focus:border-primary focus:ring-0 text-[#173454] text-[#9aaab1]"
                         placeholder="Your full name"
                       />
                     </label>
                     <label className="block">
-                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Email Address *</span>
+ <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Email Address *</span>
                       <input
                         type="email"
                         required
                         value={form.email}
                         data-testid="input-application-email"
                         onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-                        className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-navy outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-0"
+ className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder: focus:border-primary focus:ring-0 text-[#173454] text-[#9aaab1]"
                         placeholder="you@company.com"
                       />
                     </label>
                   </div>
                   <div className="grid gap-6 sm:grid-cols-2">
                     <label className="block">
-                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Phone *</span>
+ <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Phone *</span>
                       <input
                         type="tel"
                         required
                         value={form.phone}
                         data-testid="input-application-phone"
                         onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))}
-                        className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-navy outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-0"
+ className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder: focus:border-primary focus:ring-0 text-[#173454] text-[#9aaab1]"
                         placeholder="+91 98765 43210"
                       />
                     </label>
                     <label className="block">
-                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Position *</span>
+ <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Position *</span>
                       <select
                         required
                         value={form.position}
                         data-testid="select-application-position"
                         onChange={(event) => setForm((current) => ({ ...current, position: event.target.value }))}
-                        className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-navy outline-none transition-colors focus:border-primary focus:ring-0"
+ className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-0 text-[#173454]"
                       >
                         <option value="" disabled>Select a role</option>
                         {openRoles.map((role) => <option key={role.id} value={role.title}>{role.title}</option>)}
@@ -473,19 +473,19 @@ export default function Career() {
                     </label>
                   </div>
                   <label className="block">
-                    <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Message / Cover Note *</span>
+ <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Message / Cover Note *</span>
                     <textarea
                       required
                       rows={5}
                       value={form.message}
                       data-testid="textarea-application-message"
                       onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
-                      className="w-full resize-none border border-border bg-white px-4 py-3 text-sm leading-6 text-navy outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary/20"
+ className="w-full resize-none border border-border bg-white px-4 py-3 text-sm leading-6 outline-none transition-colors placeholder: focus:border-primary focus:ring-1 focus:ring-primary/20 text-[#173454] text-[#9aaab1]"
                       placeholder="Tell us about your experience, notice period and why you'd like to join our team..."
                     />
                   </label>
-                  <div className="flex items-start gap-3 border border-border bg-secondary p-4 text-xs leading-5 text-muted-foreground">
-                    <Paperclip size={15} className="mt-0.5 shrink-0 text-primary" />
+ <div className="flex items-start gap-3 border border-border bg-secondary p-4 text-xs leading-5 text-[#71828a]">
+ <Paperclip size={15} className="mt-0.5 shrink-0 text-[#1e5da6]" />
                     <span>Please email your resume/CV to our careers inbox after submitting this form — attach it in reply to the confirmation, or send it directly to our HR team via the contact page.</span>
                   </div>
                   <button
@@ -510,12 +510,12 @@ export default function Career() {
         </div>
       </section>
 
-      <section className="bg-accent section-pad text-navy sm:py-24">
+ <section className="bg-accent section-pad sm:py-24 text-[#0b2444]">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
           <div className="career-reveal">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-navy/70">The next chapter</p>
-            <h2 className=" text-5xl leading-[0.98] tracking-tight sm:text-7xl">Grow With Us</h2>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-navy/80">
+ <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#173454]/70">The next chapter</p>
+            <h2 className="font-serif text-5xl leading-[0.98] tracking-[-0.04em] sm:text-7xl">Grow With Us</h2>
+ <p className="mt-7 max-w-2xl text-base leading-7 text-[#173454]/80">
               We're always looking for people who are curious, driven and committed to making a difference. Whether you're an experienced professional or just beginning your career, if our values resonate with you, there's a place for you at Product Armor.
             </p>
             <p className="mt-4 text-lg font-semibold">Come build something meaningful with us.</p>
@@ -523,7 +523,7 @@ export default function Career() {
           <Link
             href="/contact"
             data-testid="link-contact-hr-team"
-            className="career-reveal inline-flex items-center justify-center gap-3 border border-navy/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-navy hover:text-accent"
+ className="career-reveal inline-flex items-center justify-center gap-3 border border-navy/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-navy hover: text-[#f4c17f]"
             style={{ transitionDelay: "120ms" }}
           >
             Contact our HR team <ArrowRight size={16} />

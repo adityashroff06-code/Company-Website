@@ -71,7 +71,7 @@ import { useEffect } from "react";
               </>
             ) : (
               <>
-                <h1 className="heading-hero mb-6">
+ <h1 className="heading-hero mb-6 text-[#4364a7]">
                   {(hero?.headline ?? "Pharmaceutical-Grade Packaging")
                     .split(/(sustainable|Delivering pharmaceutical packaging)/i)
                     .map((part, idx) =>
@@ -84,7 +84,7 @@ import { useEffect } from "react";
                       )
                     )}
                 </h1>
-                <p className="text-body sm:text-lg max-w-2xl mx-auto mb-10">
+ <p className="text-body sm:text-lg max-w-2xl mx-auto mb-10 text-gray-600">
                   {hero?.subheadline ?? "ISO-certified bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
                 </p>
               </>
@@ -93,7 +93,7 @@ import { useEffect } from "react";
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/products"
-                className="btn-outline"
+ className="btn-outline text-gray-800"
               >
                 View Products
                 <ChevronRight size={18} />
@@ -115,7 +115,7 @@ import { useEffect } from "react";
                   ))
                 : stats.map((s, i) => (
                     <div key={i} className="text-center reveal">
-                      <div className="text-3xl sm:text-4xl font-black text-accent">{s.value}</div>
+ <div className="text-3xl sm:text-4xl font-black text-[#93b4e8]">{s.value}</div>
                       <div className="text-white/60 text-sm mt-1 font-medium">{s.label}</div>
                     </div>
                   ))
@@ -129,29 +129,29 @@ import { useEffect } from "react";
           <div className="container-width">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="reveal">
-                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+ <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
                   About Us
                 </div>
-                <h2 className="heading-section">
+ <h2 className="heading-section text-[#0f2a4e]">
                   {about?.title ?? "Precision Packaging Built for Pharma"}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-8">
+ <p className="leading-relaxed mb-8 text-gray-600">
                   {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of pharmaceutical bottles, CR and CT caps, delivering world-class packaging at unparalleled value."}
                 </p>
-                <h3 className="heading-card mb-4">
+ <h3 className="heading-card mb-4 text-[#0f2a4e]">
                   Every solution we deliver is supported by the core strengths that define who we are and how we serve.
                 </h3>
                 <div className="space-y-3 mb-8">
                   {(about?.strengths ?? ["Sustainability Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"]).map((f: string) => (
                     <div key={f} className="flex items-center gap-3">
-                      <CheckCircle size={18} className="text-primary shrink-0" />
-                      <span className="text-muted-foreground text-sm">{f}</span>
+ <CheckCircle size={18} className="shrink-0 text-[#4164a8]" />
+ <span className="text-sm text-gray-700">{f}</span>
                     </div>
                   ))}
                 </div>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary transition-colors group"
+ className="inline-flex items-center gap-2 font-semibold hover: transition-colors group text-[#4164a8] text-[#4164a8]"
                 >
                   Learn more about us
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -182,13 +182,13 @@ import { useEffect } from "react";
         <section className="section-pad bg-secondary">
           <div className="container-width">
             <div className="text-center mb-14 reveal">
-              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+ <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
                 Our Products
               </div>
-              <h2 className="heading-section">
+ <h2 className="heading-section text-[#0f2a4e]">
                 Engineered for Protection. Designed for Performance.
               </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
+ <p className="max-w-xl mx-auto text-gray-500">
                 Explore our portfolio of pharmaceutical packaging solutions, including containers &amp; bottles, CT (Continuous Thread) and CRC (Child-Resistant Closures) caps &amp; closures powered by patented technology and recognized globally.
               </p>
             </div>
@@ -222,19 +222,19 @@ import { useEffect } from "react";
                         />
                       </div>
                       <div className="p-6 flex flex-col flex-1">
-                        <h3 className="heading-card mb-2">{p.name}</h3>
-                        <p className="text-body-sm mb-4 line-clamp-2">{p.description}</p>
+ <h3 className="heading-card mb-2 text-[#0f2a4e]">{p.name}</h3>
+ <p className="text-body-sm mb-4 line-clamp-2 text-gray-500">{p.description}</p>
                         <ul className="space-y-1.5 mb-5 flex-1">
                           {p.features.slice(0, 3).map(f => (
-                            <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
-                              <CheckCircle size={13} className="text-primary shrink-0 mt-0.5" />
+ <li key={f} className="flex items-start gap-2 text-xs text-gray-600">
+ <CheckCircle size={13} className="shrink-0 mt-0.5 text-[#4164a8]" />
                               <span>{f}</span>
                             </li>
                           ))}
                         </ul>
                         <Link
                           href="/products"
-                          className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm hover:text-primary/80 transition-colors group/link mt-auto"
+ className="inline-flex items-center gap-1.5 font-semibold text-sm hover: transition-colors group/link mt-auto text-[#4164a8] text-[#4164a8]"
                         >
                           View details
                           <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
@@ -247,7 +247,7 @@ import { useEffect } from "react";
             <div className="text-center mt-10">
               <Link
                 href="/products"
-                className="btn-outline"
+ className="btn-outline text-[#4164a8] text-white"
               >
                 View All Products
                 <ArrowRight size={16} />
@@ -260,10 +260,10 @@ import { useEffect } from "react";
         <section className="section-pad bg-primary">
           <div className="container-width">
             <div className="text-center mb-14 reveal">
-              <div className="section-tag-light">
+ <div className="section-tag-light text-white/80">
                 Quality Assurance
               </div>
-              <h2 className="heading-section-light">
+ <h2 className="heading-section-light text-white">
                 Committed to Quality. Trusted Worldwide.
               </h2>
               <p className="text-white/60 max-w-xl mx-auto text-base leading-relaxed">
@@ -282,18 +282,18 @@ import { useEffect } from "react";
                       <img src={c.logo} alt={`${c.name} logo`} className="max-w-full max-h-full object-contain" />
                     </div>
                   ) : (
-                    <Award size={32} className="text-accent mx-auto mb-4" />
+ <Award size={32} className="mx-auto mb-4 text-[#93b4e8]" />
                   )}
                   <div className="text-white font-bold text-sm mb-1">{c.name}</div>
                   <div className="text-white/50 text-xs">{c.issuer}</div>
-                  <div className="text-accent text-xs font-semibold mt-2">{c.year}</div>
+ <div className="text-xs font-semibold mt-2 text-[#93b4e8]">{c.year}</div>
                 </div>
               ))}
             </div>
             <div className="text-center mt-10">
               <Link
                 href="/quality"
-                className="btn-light"
+ className="btn-light text-[#4164a8]"
               >
                 Our Quality Standards
                 <ArrowRight size={16} />
@@ -307,7 +307,7 @@ import { useEffect } from "react";
           <section className="section-pad bg-white border-b border-border">
             <div className="container-width">
               <div className="text-center mb-10 reveal">
-                <p className="text-muted-foreground text-sm font-medium uppercase tracking-widest">
+ <p className="text-sm font-medium uppercase tracking-widest text-gray-400">
                   Trusted by Global'S Leading Pharmaceutical Companies
                 </p>
               </div>
@@ -319,7 +319,7 @@ import { useEffect } from "react";
                         <img src={c.logo} alt={c.name} className="h-12 md:h-14 w-auto object-contain" loading="lazy" />
                       ) : (
                         <div className="px-6 py-3 border border-border rounded-lg bg-secondary">
-                          <span className="text-muted-foreground font-semibold text-sm">{c.name}</span>
+ <span className="font-semibold text-sm text-gray-500">{c.name}</span>
                         </div>
                       )}
                     </div>
@@ -335,10 +335,10 @@ import { useEffect } from "react";
           <section className="section-pad bg-secondary">
             <div className="container-width">
               <div className="text-center mb-14 reveal">
-                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+ <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
                   Testimonials
                 </div>
-                <h2 className="heading-section">
+ <h2 className="heading-section text-[#0f2a4e]">
                   What Our Clients Say
                 </h2>
               </div>
@@ -351,13 +351,13 @@ import { useEffect } from "react";
                   >
                     <div className="flex gap-1 mb-4">
                       {Array(5).fill(0).map((_, i) => (
-                        <Star key={i} size={14} className="fill-[#4164a8] text-primary" />
+ <Star key={i} size={14} className="fill-[#4164a8] text-[#4164a8]" />
                       ))}
                     </div>
-                    <p className="text-muted-foreground leading-relaxed text-sm mb-5 italic">"{t.quote}"</p>
+ <p className="leading-relaxed text-sm mb-5 italic text-gray-600">"{t.quote}"</p>
                     <div className="border-t border-border pt-4">
-                      <div className="font-semibold text-navy text-sm">{t.author}</div>
-                      <div className="text-muted-foreground text-xs mt-0.5">{t.role}, {t.company}</div>
+ <div className="font-semibold text-sm text-[#0f2a4e]">{t.author}</div>
+ <div className="text-xs mt-0.5 text-gray-400">{t.role}, {t.company}</div>
                     </div>
                   </div>
                 ))}
@@ -369,7 +369,7 @@ import { useEffect } from "react";
         {/* ── CONTACT CTA ── */}
         <section className="section-pad bg-navy">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 className="heading-section-light">
+ <h2 className="heading-section-light text-white">
               Ready to Upgrade Your Packaging?
             </h2>
             <p className="text-white/60 mb-10 max-w-xl mx-auto">
@@ -378,7 +378,7 @@ import { useEffect } from "react";
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
               <Link
                 href="/contact"
-                className="btn-light hover:scale-105"
+ className="btn-light hover:scale-105 text-[#4164a8]"
               >
                 Get in Touch
                 <ArrowRight size={16} />
@@ -386,7 +386,7 @@ import { useEffect } from "react";
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/50 text-sm">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-accent" />
+ <Phone size={14} className="text-[#93b4e8]" />
                 <span>{contactData?.phone ?? "+91-9154992473"}</span>
               </div>
               <a
@@ -402,7 +402,7 @@ import { useEffect } from "react";
                 <span>WhatsApp Us</span>
               </a>
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-accent" />
+ <Mail size={14} className="text-[#93b4e8]" />
                 <span>{contactData?.email ?? "info@productarmor.com"}</span>
               </div>
             </div>

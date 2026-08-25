@@ -23,7 +23,7 @@ import Breadcrumb from "@/components/Breadcrumb";
             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
               Quality & Compliance
             </div>
-            <h1 className="heading-page">Our Quality Framework</h1>
+ <h1 className="heading-page text-white">Our Quality Framework</h1>
             <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
               Quality is not a department — it is embedded in every step of our manufacturing process.
             </p>
@@ -34,8 +34,8 @@ import Breadcrumb from "@/components/Breadcrumb";
         <section className="section-pad bg-white">
           <div className="container-width">
             <div className="text-center mb-14">
-              <h2 className="heading-section">Our Certifications</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
+ <h2 className="heading-section text-[#0f2a4e]">Our Certifications</h2>
+ <p className="max-w-xl mx-auto text-gray-500">
                 Each certification represents a commitment to a specific international quality or compliance standard.
               </p>
             </div>
@@ -51,9 +51,9 @@ import Breadcrumb from "@/components/Breadcrumb";
                       <Award size={30} className="text-white" />
                     </div>
                   )}
-                  <div className="heading-card mb-1">{c.name}</div>
-                  <div className="text-muted-foreground text-sm mb-2">{c.issuer}</div>
-                  <div className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">
+ <div className="heading-card mb-1 text-[#0f2a4e]">{c.name}</div>
+ <div className="text-sm mb-2 text-gray-500">{c.issuer}</div>
+ <div className="inline-block bg-primary/10 text-xs font-semibold px-3 py-1 rounded-full text-[#4164a8]">
                     {c.year}
                   </div>
                 </div>
@@ -71,9 +71,9 @@ import Breadcrumb from "@/components/Breadcrumb";
                       <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
                         <Award size={30} className="text-white" />
                       </div>
-                      <div className="heading-card mb-1">{c.name}</div>
-                      <div className="text-muted-foreground text-sm mb-2">{c.issuer}</div>
-                      <div className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">
+ <div className="heading-card mb-1 text-[#0f2a4e]">{c.name}</div>
+ <div className="text-sm mb-2 text-gray-500">{c.issuer}</div>
+ <div className="inline-block bg-primary/10 text-xs font-semibold px-3 py-1 rounded-full text-[#4164a8]">
                         {c.year}
                       </div>
                     </div>
@@ -88,8 +88,8 @@ import Breadcrumb from "@/components/Breadcrumb";
         <section className="section-pad bg-secondary">
           <div className="container-width">
             <div className="text-center mb-14">
-              <h2 className="heading-section">Our Quality Control Process</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
+ <h2 className="heading-section text-[#0f2a4e]">Our Quality Control Process</h2>
+ <p className="max-w-xl mx-auto text-gray-500">
                 A multi-stage inspection and testing protocol ensures every batch meets specification before dispatch.
               </p>
             </div>
@@ -104,10 +104,10 @@ import Breadcrumb from "@/components/Breadcrumb";
                   </div>
                   <div className="pb-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <s.icon size={16} className="text-primary" />
-                      <h3 className="font-bold text-navy">{s.title}</h3>
+ <s.icon size={16} className="text-[#4164a8]" />
+ <h3 className="font-bold text-[#0f2a4e]">{s.title}</h3>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+ <p className="text-sm leading-relaxed text-gray-500">{s.desc}</p>
                   </div>
                 </div>
               ))}
@@ -118,13 +118,13 @@ import Breadcrumb from "@/components/Breadcrumb";
         {/* CTA */}
         <section className="section-pad bg-primary">
           <div className="max-w-3xl mx-auto px-4 text-center">
-            <h2 className="heading-section-light">Need Compliance Documentation?</h2>
+ <h2 className="heading-section-light text-white">Need Compliance Documentation?</h2>
             <p className="text-white/60 mb-6 text-sm">
               We can provide CoA, GMP certificates, MSDS and regulatory dossiers on request.
             </p>
             <Link
               href="/contact"
-              className="btn-light"
+ className="btn-light text-[#4164a8]"
             >
               Request Documents <ArrowRight size={15} />
             </Link>

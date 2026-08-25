@@ -88,7 +88,7 @@ export default function FAQ() {
           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
             Support
           </div>
-          <h1 className="heading-page">Frequently Asked Questions</h1>
+ <h1 className="heading-page text-white">Frequently Asked Questions</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
             Everything you need to know about our bottles, CR &amp; CT caps, ordering process, certifications and export capabilities.
           </p>
@@ -115,10 +115,10 @@ export default function FAQ() {
                       id={`faq-button-${i}`}
                       className="w-full flex items-center justify-between gap-4 text-left px-6 py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                     >
-                      <span className="font-semibold text-navy text-base">{f.q}</span>
+ <span className="font-semibold text-base text-[#0f2a4e]">{f.q}</span>
                       <ChevronDown
                         size={20}
-                        className={`text-primary shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+ className={` shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                       />
                     </button>
                   </h3>
@@ -129,7 +129,7 @@ export default function FAQ() {
                     hidden={!isOpen}
                     className="px-6 pb-5 -mt-1"
                   >
-                    <p className="text-muted-foreground text-sm leading-relaxed border-t border-border pt-4">{f.a}</p>
+ <p className="text-sm leading-relaxed border-t border-border pt-4 text-gray-600">{f.a}</p>
                   </div>
                 </div>
               );
@@ -143,17 +143,17 @@ export default function FAQ() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal card-standard p-8 flex flex-col sm:flex-row items-start gap-6">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-              <HelpCircle size={22} className="text-primary" />
+ <HelpCircle size={22} className="text-[#4164a8]" />
             </div>
             <div className="flex-1">
-              <h2 className="text-xl heading-card mb-2">Still have questions?</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+ <h2 className="text-xl heading-card mb-2 text-[#0f2a4e]">Still have questions?</h2>
+ <p className="text-sm leading-relaxed mb-5 text-gray-500">
                 Can't find the answer you're looking for? Our technical and sales teams are happy to help with
                 specifications, samples, pricing and regulatory documentation.
               </p>
               <Link
                 href="/contact"
-                className="btn-primary"
+ className="btn-primary text-white"
               >
                 <MessageSquare size={16} />
                 Talk to our team
@@ -166,7 +166,7 @@ export default function FAQ() {
       {/* CTA */}
       <section className="section-pad bg-navy">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-          <h2 className="heading-section-light">
+ <h2 className="heading-section-light text-white">
             Ready to Discuss Your Packaging Needs?
           </h2>
           <p className="text-white/60 mb-10 max-w-xl mx-auto">
@@ -175,7 +175,7 @@ export default function FAQ() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="btn-light hover:scale-105"
+ className="btn-light hover:scale-105 text-[#4164a8]"
             >
               Get in Touch
               <ArrowRight size={16} />

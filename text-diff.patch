@@ -1,0 +1,2648 @@
+diff --git a/artifacts/productarmor-site/src/components/Footer.tsx b/artifacts/productarmor-site/src/components/Footer.tsx
+index 72f3173..1257c8b 100644
+--- a/artifacts/productarmor-site/src/components/Footer.tsx
++++ b/artifacts/productarmor-site/src/components/Footer.tsx
+@@ -14,8 +14,8 @@ export default function Footer() {
+   const companyName = company?.name ?? SITE.name;
+ 
+   return (
+-    <footer className="bg-[#0f2a4e] text-white">
+-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
++    <footer className="bg-navy text-white">
++      <div className="container-width py-14">
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+           {/* Brand */}
+           <div className="lg:col-span-2">
+@@ -36,7 +36,7 @@ export default function Footer() {
+               href={SOCIAL.linkedin}
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Product Armor Packaging on LinkedIn"
+-              className="mt-5 inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 hover:bg-[#4164a8] transition-colors"
++              className="mt-5 inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 hover:bg-primary transition-colors"
+             >
+               <Linkedin size={16} className="text-white" />
+             </a>
+@@ -53,7 +53,7 @@ export default function Footer() {
+                 { href: "/technology", label: "Technology" },
+               ].map(l => (
+                 <li key={l.href}>
+-                  <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
++                  <Link href={l.href} className="text-white/70 hover:text-accent text-sm transition-colors">{l.label}</Link>
+                 </li>
+               ))}
+             </ul>
+@@ -72,7 +72,7 @@ export default function Footer() {
+                 { href: "/faq", label: "FAQ" },
+               ].map(l => (
+                 <li key={l.href}>
+-                  <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
++                  <Link href={l.href} className="text-white/70 hover:text-accent text-sm transition-colors">{l.label}</Link>
+                 </li>
+               ))}
+             </ul>
+@@ -83,15 +83,15 @@ export default function Footer() {
+             <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Get in Touch</h3>
+             <ul className="space-y-3">
+               <li className="flex items-start gap-2.5 text-white/70 text-sm">
+-                <Phone size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
+-                <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-[#93b4e8] transition-colors">{phone}</a>
++                <Phone size={14} className="mt-0.5 shrink-0 text-accent" />
++                <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-accent transition-colors">{phone}</a>
+               </li>
+               <li className="flex items-start gap-2.5 text-white/70 text-sm">
+-                <Mail size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
+-                <a href={`mailto:${email}`} className="hover:text-[#93b4e8] transition-colors break-all">{email}</a>
++                <Mail size={14} className="mt-0.5 shrink-0 text-accent" />
++                <a href={`mailto:${email}`} className="hover:text-accent transition-colors break-all">{email}</a>
+               </li>
+               <li className="flex items-start gap-2.5 text-white/70 text-sm">
+-                <MapPin size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
++                <MapPin size={14} className="mt-0.5 shrink-0 text-accent" />
+                 <span>{address}</span>
+               </li>
+             </ul>
+diff --git a/artifacts/productarmor-site/src/components/Navbar.tsx b/artifacts/productarmor-site/src/components/Navbar.tsx
+index 0050722..b1d877f 100644
+--- a/artifacts/productarmor-site/src/components/Navbar.tsx
++++ b/artifacts/productarmor-site/src/components/Navbar.tsx
+@@ -32,11 +32,11 @@ export default function Navbar() {
+ 
+   return (
+     <header
+-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-white border-b border-gray-200 ${
++      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-white border-b border-border ${
+         scrolled ? "shadow-md" : ""
+       }`}
+     >
+-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <nav className="container-width">
+         <div className="flex items-center justify-between h-16">
+           {/* Logo */}
+           <Link href="/" className="flex items-center group">
+@@ -48,7 +48,7 @@ export default function Navbar() {
+             <Link
+               href="/"
+               className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
+-                isActive("/") ? "text-[#4164a8] font-semibold" : "text-gray-600 hover:text-[#4164a8] hover:bg-gray-100"
++                isActive("/") ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary hover:bg-secondary"
+               }`}
+             >
+               Home
+@@ -58,7 +58,7 @@ export default function Navbar() {
+               <div key={group.label} className="relative group">
+                 <button
+                   className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded transition-colors ${
+-                    groupActive(group.items) ? "text-[#4164a8] font-semibold" : "text-gray-600 hover:text-[#4164a8] hover:bg-gray-100"
++                    groupActive(group.items) ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary hover:bg-secondary"
+                   }`}
+                 >
+                   {group.label}
+@@ -66,15 +66,15 @@ export default function Navbar() {
+                 </button>
+                 {/* Dropdown */}
+                 <div className="absolute left-0 top-full pt-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
+-                  <div className="w-56 bg-white rounded-xl shadow-lg border border-gray-100 p-2">
++                  <div className="w-56 bg-white rounded-xl shadow-lg border border-border p-2">
+                     {group.items.map(item => (
+                       <Link
+                         key={item.href}
+                         href={item.href}
+                         className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
+                           isActive(item.href)
+-                            ? "bg-[#4164a8]/10 text-[#4164a8] font-semibold"
+-                            : "text-gray-600 hover:bg-gray-50 hover:text-[#4164a8]"
++                            ? "bg-primary/10 text-primary font-semibold"
++                            : "text-muted-foreground hover:bg-secondary hover:text-primary"
+                         }`}
+                       >
+                         {item.label}
+@@ -87,19 +87,19 @@ export default function Navbar() {
+ 
+             {/* Search */}
+             <form onSubmit={runSearch} className="relative ml-2">
+-              <Search size={15} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" />
++              <Search size={15} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+               <input
+                 value={query}
+                 onChange={e => setQuery(e.target.value)}
+                 placeholder="Search products…"
+                 aria-label="Search products"
+-                className="w-40 lg:w-44 pl-8 pr-3 py-1.5 text-sm rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 transition-all"
++                className="w-40 lg:w-44 pl-8 pr-3 py-1.5 text-sm rounded-lg border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+               />
+             </form>
+ 
+             <Link
+               href="/contact"
+-              className="ml-2 px-4 py-2 bg-[#4164a8] text-white hover:bg-[#345099] text-sm font-semibold rounded transition-colors"
++              className="ml-2 px-4 py-2 bg-primary text-white hover:bg-primary/90 text-sm font-semibold rounded transition-colors"
+             >
+               Contact Us
+             </Link>
+@@ -107,7 +107,7 @@ export default function Navbar() {
+ 
+           {/* Mobile hamburger */}
+           <button
+-            className="md:hidden text-[#4164a8] p-2 rounded hover:bg-gray-100 transition-colors"
++            className="md:hidden text-primary p-2 rounded hover:bg-secondary transition-colors"
+             onClick={() => setOpen(v => !v)}
+             aria-label="Toggle menu"
+           >
+@@ -117,22 +117,22 @@ export default function Navbar() {
+ 
+         {/* Mobile menu */}
+         {open && (
+-          <div className="md:hidden border-t border-gray-200 py-3 pb-4 space-y-1">
++          <div className="md:hidden border-t border-border py-3 pb-4 space-y-1">
+             <form onSubmit={runSearch} className="relative px-1 mb-2">
+-              <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
++              <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+               <input
+                 value={query}
+                 onChange={e => setQuery(e.target.value)}
+                 placeholder="Search products…"
+                 aria-label="Search products"
+-                className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none"
++                className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-border focus:border-primary focus:outline-none"
+               />
+             </form>
+ 
+             <Link
+               href="/"
+               className={`block px-4 py-2.5 text-sm font-medium rounded transition-colors ${
+-                isActive("/") ? "text-[#4164a8] font-semibold" : "text-gray-600 hover:text-[#4164a8] hover:bg-gray-100"
++                isActive("/") ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary hover:bg-secondary"
+               }`}
+             >
+               Home
+@@ -142,7 +142,7 @@ export default function Navbar() {
+               <div key={group.label}>
+                 <button
+                   onClick={() => setExpanded(e => (e === group.label ? null : group.label))}
+-                  className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium rounded text-gray-600 hover:text-[#4164a8] hover:bg-gray-100 transition-colors"
++                  className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium rounded text-muted-foreground hover:text-primary hover:bg-secondary transition-colors"
+                 >
+                   {group.label}
+                   <ChevronDown size={15} className={`transition-transform ${expanded === group.label ? "rotate-180" : ""}`} />
+@@ -154,7 +154,7 @@ export default function Navbar() {
+                         key={item.href}
+                         href={item.href}
+                         className={`block px-4 py-2 text-sm rounded transition-colors ${
+-                          isActive(item.href) ? "text-[#4164a8] font-semibold" : "text-gray-500 hover:text-[#4164a8] hover:bg-gray-100"
++                          isActive(item.href) ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary hover:bg-secondary"
+                         }`}
+                       >
+                         {item.label}
+@@ -168,7 +168,7 @@ export default function Navbar() {
+             <div className="px-4 pt-2">
+               <Link
+                 href="/contact"
+-                className="block text-center px-4 py-2.5 bg-[#4164a8] text-white hover:bg-[#345099] text-sm font-semibold rounded transition-colors"
++                className="block text-center px-4 py-2.5 bg-primary text-white hover:bg-primary/90 text-sm font-semibold rounded transition-colors"
+               >
+                 Contact Us
+               </Link>
+diff --git a/artifacts/productarmor-site/src/pages/About.tsx b/artifacts/productarmor-site/src/pages/About.tsx
+index 6f02084..11b6ef8 100644
+--- a/artifacts/productarmor-site/src/pages/About.tsx
++++ b/artifacts/productarmor-site/src/pages/About.tsx
+@@ -1,6 +1,7 @@
+ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
+   import { CheckCircle, Users, Leaf, Shield, ArrowRight } from "lucide-react";
+   import { Link } from "wouter";
++import Breadcrumb from "@/components/Breadcrumb";
+ 
+   const values = [
+     { icon: Shield, title: "Quality First", desc: "Every batch meets or exceeds international pharmacopoeia requirements before it leaves our facility." },
+@@ -17,12 +18,13 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+     return (
+       <div className="pt-16">
+         {/* Header */}
+-        <section className="bg-[#4164a8] py-20">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="bg-primary section-pad">
++          <div className="container-width">
++            <Breadcrumb items={[{ label: "About Us" }]} />
+             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               About Us
+             </div>
+-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
++            <h1 className="heading-page">
+               Who We Are
+             </h1>
+             <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+@@ -32,17 +34,17 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+         </section>
+ 
+         {/* Story */}
+-        <section className="py-20 bg-white">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="section-pad bg-white">
++          <div className="container-width">
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+               <div>
+-                <h2 className="text-3xl font-bold text-[#0f2a4e] mb-6">
++                <h2 className="text-3xl font-bold text-navy mb-6">
+                   {about?.title ?? "Precision Packaging Built for Pharma"}
+                 </h2>
+-                <p className="text-gray-600 leading-relaxed mb-6">
++                <p className="text-muted-foreground leading-relaxed mb-6">
+                   {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of pharmaceutical bottles, Child Resistant (CR) caps and Continuous Thread (CT) caps."}
+                 </p>
+-                <p className="text-gray-600 leading-relaxed mb-8">
++                <p className="text-muted-foreground leading-relaxed mb-8">
+                   Founded in {company?.founded ?? "2020"}, we have grown to serve {company?.totalClients ?? "50+"} pharmaceutical clients across India and export markets. Our {company?.employees ?? "50+"} person team brings decades of combined experience in pharmaceutical packaging manufacturing.
+                 </p>
+                 <div className="grid grid-cols-3 gap-4">
+@@ -51,9 +53,9 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+                     { v: company?.employees ?? "50+", l: "Team members" },
+                     { v: company?.totalClients ?? "50+", l: "Clients served" },
+                   ].map(s => (
+-                    <div key={s.l} className="text-center bg-gray-50 rounded-xl p-4 border border-gray-100">
+-                      <div className="text-2xl font-black text-[#4164a8]">{s.v}</div>
+-                      <div className="text-gray-500 text-xs mt-1">{s.l}</div>
++                    <div key={s.l} className="text-center bg-secondary rounded-xl p-4 border border-border">
++                      <div className="text-2xl font-black text-primary">{s.v}</div>
++                      <div className="text-muted-foreground text-xs mt-1">{s.l}</div>
+                     </div>
+                   ))}
+                 </div>
+@@ -61,7 +63,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+               <div className="relative">
+                 <video
+                   src={`${import.meta.env.BASE_URL}videos/facility.mp4`}
+-                  className="rounded-2xl shadow-xl w-full object-cover h-96 bg-gray-100"
++                  className="rounded-2xl shadow-xl w-full object-cover h-96 bg-secondary"
+                   autoPlay
+                   muted
+                   loop
+@@ -74,23 +76,23 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+         </section>
+ 
+         {/* Values */}
+-        <section className="py-20 bg-gray-50">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="section-pad bg-secondary">
++          <div className="container-width">
+             <div className="text-center mb-14">
+-              <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">Our Core Values</h2>
+-              <p className="text-gray-500 max-w-xl mx-auto">
++              <h2 className="heading-section">Our Core Values</h2>
++              <p className="text-muted-foreground max-w-xl mx-auto">
+                 The principles that guide every decision we make, from raw material selection to final delivery.
+               </p>
+             </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+               {values.map(v => (
+-                <div key={v.title} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex gap-5">
+-                  <div className="w-12 h-12 bg-[#4164a8]/10 rounded-xl flex items-center justify-center shrink-0">
+-                    <v.icon size={22} className="text-[#4164a8]" />
++                <div key={v.title} className="bg-white rounded-xl p-8 shadow-sm border border-border flex gap-5">
++                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
++                    <v.icon size={22} className="text-primary" />
+                   </div>
+                   <div>
+-                    <h3 className="font-bold text-[#0f2a4e] mb-2">{v.title}</h3>
+-                    <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
++                    <h3 className="heading-card mb-2">{v.title}</h3>
++                    <p className="text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
+                   </div>
+                 </div>
+               ))}
+@@ -99,15 +101,15 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+         </section>
+ 
+         {/* CTA */}
+-        <section className="py-16 bg-[#4164a8]">
++        <section className="section-pad bg-primary">
+           <div className="max-w-3xl mx-auto px-4 text-center">
+-            <h2 className="text-2xl font-bold text-white mb-3">Partner With Us</h2>
++            <h2 className="heading-section-light">Partner With Us</h2>
+             <p className="text-white/60 mb-6 text-sm">
+               We are always open to new client partnerships and technical collaborations.
+             </p>
+             <Link
+               href="/contact"
+-              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
++              className="btn-light"
+             >
+               Get in Touch <ArrowRight size={15} />
+             </Link>
+diff --git a/artifacts/productarmor-site/src/pages/Applications.tsx b/artifacts/productarmor-site/src/pages/Applications.tsx
+index 6ae645d..6407602 100644
+--- a/artifacts/productarmor-site/src/pages/Applications.tsx
++++ b/artifacts/productarmor-site/src/pages/Applications.tsx
+@@ -98,13 +98,13 @@ export default function Applications() {
+   return (
+     <div className="pt-16">
+       {/* Header */}
+-      <section className="bg-[#4164a8] py-20">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="bg-primary section-pad">
++        <div className="container-width">
+           <Breadcrumb items={[{ label: "Applications" }]} />
+           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+             Applications
+           </div>
+-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
++          <h1 className="heading-page">
+             Real-World Packaging Applications
+           </h1>
+           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+@@ -115,16 +115,16 @@ export default function Applications() {
+       </section>
+ 
+       {/* Applications grid */}
+-      <section className="py-20 bg-white">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-white">
++        <div className="container-width">
+           <div className="text-center mb-14 reveal">
+-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Use Cases
+             </div>
+-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">
++            <h2 className="heading-section">
+               Matched to Your Dosage Form
+             </h2>
+-            <p className="text-gray-500 max-w-2xl mx-auto">
++            <p className="text-muted-foreground max-w-2xl mx-auto">
+               The right container and closure combination keeps your product
+               stable, compliant and easy to use from fill line to end user.
+             </p>
+@@ -133,23 +133,23 @@ export default function Applications() {
+             {applications.map((app, i) => (
+               <div
+                 key={app.name}
+-                className="reveal bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
++                className="reveal card-standard p-6"
+                 style={{ transitionDelay: `${i * 80}ms` }}
+               >
+-                <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center mb-5">
+-                  <app.icon size={22} className="text-[#4164a8]" />
++                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
++                  <app.icon size={22} className="text-primary" />
+                 </div>
+-                <h3 className="font-bold text-[#0f2a4e] text-lg mb-2">
++                <h3 className="heading-card mb-2">
+                   {app.name}
+                 </h3>
+-                <p className="text-gray-500 text-sm leading-relaxed mb-4">
++                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                   {app.desc}
+                 </p>
+-                <div className="border-t border-gray-100 pt-3">
+-                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">
++                <div className="border-t border-border pt-3">
++                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1">
+                     Recommended fit
+                   </div>
+-                  <div className="text-[#4164a8] text-sm font-medium">
++                  <div className="text-primary text-sm font-medium">
+                     {app.fit}
+                   </div>
+                 </div>
+@@ -160,16 +160,16 @@ export default function Applications() {
+       </section>
+ 
+       {/* Which product fits */}
+-      <section className="py-20 bg-gray-50">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-secondary">
++        <div className="container-width">
+           <div className="text-center mb-14 reveal">
+-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Product Range
+             </div>
+-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">
++            <h2 className="heading-section">
+               Our Product Fits Each Application
+             </h2>
+-            <p className="text-gray-500 max-w-2xl mx-auto">
++            <p className="text-muted-foreground max-w-2xl mx-auto">
+               Our three core product families cover the full spectrum of
+               pharmaceutical and nutraceutical packaging needs.
+             </p>
+@@ -178,16 +178,16 @@ export default function Applications() {
+             {productFit.map((p, i) => (
+               <div
+                 key={p.title}
+-                className="reveal bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
++                className="reveal card-standard p-6"
+                 style={{ transitionDelay: `${i * 80}ms` }}
+               >
+-                <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center mb-5">
+-                  <p.icon size={22} className="text-[#4164a8]" />
++                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
++                  <p.icon size={22} className="text-primary" />
+                 </div>
+-                <h3 className="font-bold text-[#0f2a4e] text-lg mb-2">
++                <h3 className="heading-card mb-2">
+                   {p.title}
+                 </h3>
+-                <p className="text-gray-500 text-sm leading-relaxed">
++                <p className="text-muted-foreground text-sm leading-relaxed">
+                   {p.desc}
+                 </p>
+               </div>
+@@ -197,18 +197,18 @@ export default function Applications() {
+       </section>
+ 
+       {/* Closure & liner selection */}
+-      <section className="py-20 bg-white">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+-          <div className="reveal bg-gray-50 rounded-2xl border border-gray-100 p-8 sm:p-12">
++      <section className="section-pad bg-white">
++        <div className="container-width">
++          <div className="reveal bg-secondary rounded-2xl border border-border p-8 sm:p-12">
+             <div className="flex items-start gap-4 mb-8">
+-              <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
+-                <Layers size={22} className="text-[#4164a8]" />
++              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
++                <Layers size={22} className="text-primary" />
+               </div>
+               <div>
+-                <h2 className="text-2xl font-bold text-[#0f2a4e] mb-2">
++                <h2 className="text-2xl heading-card mb-2">
+                   Closure &amp; Liner Selection
+                 </h2>
+-                <p className="text-gray-500 text-sm leading-relaxed max-w-2xl">
++                <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+                   The closure and liner also play key role in protecting your
+                   product. Here is how we help you choose the right combination.
+                 </p>
+@@ -235,12 +235,12 @@ export default function Applications() {
+               ].map((item) => (
+                 <div
+                   key={item.t}
+-                  className="bg-white rounded-xl border border-gray-100 p-6"
++                  className="bg-white rounded-xl border border-border p-6"
+                 >
+-                  <h3 className="font-bold text-[#0f2a4e] text-sm mb-2">
++                  <h3 className="font-bold text-navy text-sm mb-2">
+                     {item.t}
+                   </h3>
+-                  <p className="text-gray-500 text-sm leading-relaxed">
++                  <p className="text-muted-foreground text-sm leading-relaxed">
+                     {item.d}
+                   </p>
+                 </div>
+@@ -251,9 +251,9 @@ export default function Applications() {
+       </section>
+ 
+       {/* CTA */}
+-      <section className="py-20 bg-[#0f2a4e]">
++      <section className="section-pad bg-navy">
+         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
++          <h2 className="heading-section-light">
+             Not Sure Which Combination You Need?
+           </h2>
+           <p className="text-white/60 mb-10 max-w-xl mx-auto">
+@@ -263,7 +263,7 @@ export default function Applications() {
+           </p>
+           <Link
+             href="/contact"
+-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
++            className="btn-light hover:scale-105"
+           >
+             Get a Recommendation
+             <ArrowRight size={16} />
+diff --git a/artifacts/productarmor-site/src/pages/Career.tsx b/artifacts/productarmor-site/src/pages/Career.tsx
+index f141eee..d119878 100644
+--- a/artifacts/productarmor-site/src/pages/Career.tsx
++++ b/artifacts/productarmor-site/src/pages/Career.tsx
+@@ -130,7 +130,7 @@ export default function Career() {
+   };
+ 
+   return (
+-    <main className="career-page overflow-hidden bg-[#f5f7f5] pt-16 text-[#173454]">
++    <main className="career-page overflow-hidden bg-background pt-16 text-navy">
+       <style>{`
+         .career-reveal {
+           opacity: 0;
+@@ -150,7 +150,7 @@ export default function Career() {
+           }
+         }
+       `}</style>
+-      <section className="relative isolate overflow-hidden bg-[#0b2444] text-white">
++      <section className="relative isolate overflow-hidden bg-navy text-white">
+         <div className="pointer-events-none absolute -right-24 top-14 h-96 w-96 rounded-full border border-white/10" />
+         <div className="pointer-events-none absolute -right-8 top-28 h-64 w-64 rounded-full border border-[#e6a35c]/30" />
+         <div className="pointer-events-none absolute bottom-0 left-[52%] h-px w-[42%] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+@@ -158,12 +158,12 @@ export default function Career() {
+           <Breadcrumb items={[{ label: "Careers" }]} />
+           <div>
+             <div className="career-reveal">
+-              <p className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#f0b36d]">
+-                <span className="h-px w-8 bg-[#f0b36d]" />
++              <p className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-accent/80">
++                <span className="h-px w-8 bg-accent/80" />
+                 Careers at Product Armor
+               </p>
+-              <h1 className="whitespace-nowrap font-serif text-[1.1rem] leading-none tracking-[-0.045em] text-[#f8f7f1] sm:text-3xl md:text-5xl lg:text-[4.75rem]">
+-                Build the Future. <span className="text-[#74a9e8]">Protect What Matters.</span>
++              <h1 className="whitespace-nowrap  text-[1.1rem] leading-none tracking-tight text-white sm:text-3xl md:text-5xl lg:text-[4.75rem]">
++                Build the Future. <span className="text-accent">Protect What Matters.</span>
+               </h1>
+               <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,.72fr)] lg:items-center lg:gap-16">
+                 <div>
+@@ -181,7 +181,7 @@ export default function Career() {
+                   <a
+                     href="#openings"
+                     data-testid="link-explore-openings"
+-                    className="mt-9 inline-flex items-center gap-3 border-b border-[#f0b36d] pb-2 text-sm font-semibold text-[#f4c17f] transition-transform duration-300 hover:translate-x-1"
++                    className="mt-9 inline-flex items-center gap-3 border-b border-accent/80 pb-2 text-sm font-semibold text-accent transition-transform duration-300 hover:translate-x-1"
+                   >
+                     Explore current openings <ArrowDownRight size={17} />
+                   </a>
+@@ -204,32 +204,32 @@ export default function Career() {
+         </div>
+       </section>
+ 
+-      <nav aria-label="Career page sections" className="border-b border-[#dbe2e2] bg-[#f5f7f5]">
+-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 overflow-x-auto px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#597080] sm:px-8 lg:px-12">
+-          <span className="hidden whitespace-nowrap text-[#173454] sm:inline">Join the build</span>
++      <nav aria-label="Career page sections" className="border-b border-border bg-background">
++        <div className="container-width flex items-center justify-between gap-5 overflow-x-auto py-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
++          <span className="hidden whitespace-nowrap text-navy sm:inline">Join the build</span>
+           <div className="flex min-w-max items-center gap-6 sm:gap-9">
+-            <a href="#values" data-testid="link-career-values" className="transition-colors hover:text-[#1e5da6]">What defines us</a>
+-            <a href="#why-join" data-testid="link-career-why-join" className="transition-colors hover:text-[#1e5da6]">Why join</a>
+-            <a href="#openings" data-testid="link-career-openings" className="transition-colors hover:text-[#1e5da6]">Openings</a>
+-            <a href="#apply" data-testid="link-career-apply" className="transition-colors hover:text-[#1e5da6]">Apply</a>
++            <a href="#values" data-testid="link-career-values" className="transition-colors hover:text-primary">What defines us</a>
++            <a href="#why-join" data-testid="link-career-why-join" className="transition-colors hover:text-primary">Why join</a>
++            <a href="#openings" data-testid="link-career-openings" className="transition-colors hover:text-primary">Openings</a>
++            <a href="#apply" data-testid="link-career-apply" className="transition-colors hover:text-primary">Apply</a>
+           </div>
+         </div>
+       </nav>
+ 
+-      <section id="values" className="bg-[#f5f7f5] py-20 sm:py-28">
+-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
++      <section id="values" className="bg-background section-pad sm:py-28">
++        <div className="container-width">
+           <div className="grid gap-12 lg:grid-cols-[.62fr_1.38fr] lg:gap-24">
+             <div className="career-reveal lg:sticky lg:top-28 lg:self-start">
+-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#1e5da6]">01 / How we work</p>
+-              <h2 className="max-w-md font-serif text-5xl leading-[0.98] tracking-[-0.04em] text-[#0b2444] sm:text-6xl">
++              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">01 / How we work</p>
++              <h2 className="max-w-md  text-5xl leading-[0.98] tracking-tight text-navy sm:text-6xl">
+                 What Defines Us
+               </h2>
+-              <p className="mt-7 max-w-sm text-base leading-7 text-[#627684]">
++              <p className="mt-7 max-w-sm text-body">
+                 The standards we hold ourselves to are the same standards we bring to every product we make.
+               </p>
+-              <div className="mt-12 hidden h-28 w-px bg-[#e6a35c] lg:block" />
++              <div className="mt-12 hidden h-28 w-px bg-accent/50 lg:block" />
+             </div>
+-            <div className="divide-y divide-[#d5dede] border-t border-[#173454]/20">
++            <div className="divide-y divide-[#d5dede] border-t border-navy/20">
+               {values.map((value, index) => {
+                 const ValueIcon = value.icon;
+                 return (
+@@ -240,11 +240,11 @@ export default function Career() {
+                     style={{ transitionDelay: `${index * 60}ms` }}
+                   >
+                     <div className="flex items-start justify-between sm:block">
+-                      <span className="font-mono text-xs text-[#1e5da6]">{value.number}</span>
+-                      <ValueIcon size={21} strokeWidth={1.5} className="text-[#e09b55] sm:mt-7" />
++                      <span className="font-mono text-xs text-primary">{value.number}</span>
++                      <ValueIcon size={21} strokeWidth={1.5} className="text-accent sm:mt-7" />
+                     </div>
+-                    <h3 className="max-w-[220px] text-xl font-semibold leading-tight tracking-[-0.02em] text-[#0b2444]">{value.title}</h3>
+-                    <p className="max-w-xl text-[15px] leading-7 text-[#627684]">{value.description}</p>
++                    <h3 className="max-w-[220px] text-xl font-semibold leading-tight tracking-[-0.02em] text-navy">{value.title}</h3>
++                    <p className="max-w-xl text-body">{value.description}</p>
+                   </article>
+                 );
+               })}
+@@ -253,28 +253,28 @@ export default function Career() {
+         </div>
+       </section>
+ 
+-      <section id="why-join" className="relative overflow-hidden bg-[#e8eff4] py-20 sm:py-28">
+-        <div className="pointer-events-none absolute -left-32 top-16 h-72 w-72 rounded-full border border-[#1e5da6]/10" />
+-        <div className="pointer-events-none absolute -left-20 top-28 h-48 w-48 rounded-full border border-[#e09b55]/20" />
++      <section id="why-join" className="relative overflow-hidden bg-secondary section-pad sm:py-28">
++        <div className="pointer-events-none absolute -left-32 top-16 h-72 w-72 rounded-full border border-primary/10" />
++        <div className="pointer-events-none absolute -left-20 top-28 h-48 w-48 rounded-full border border-accent/20" />
+         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.75fr_1.25fr] lg:gap-28 lg:px-12">
+           <div className="career-reveal">
+-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#1e5da6]">02 / Make your mark</p>
+-            <h2 className="max-w-md font-serif text-5xl leading-[0.98] tracking-[-0.04em] text-[#0b2444] sm:text-6xl">
++            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">02 / Make your mark</p>
++            <h2 className="max-w-md  text-5xl leading-[0.98] tracking-tight text-navy sm:text-6xl">
+               Why Join Product Armor?
+             </h2>
+-            <div className="mt-8 flex items-start gap-3 text-[#627684]">
+-              <ArrowRight size={18} className="mt-1 shrink-0 text-[#e09b55]" />
++            <div className="mt-8 flex items-start gap-3 text-muted-foreground">
++              <ArrowRight size={18} className="mt-1 shrink-0 text-accent" />
+               <p className="max-w-xs leading-7">At Product Armor, you'll have the opportunity to:</p>
+             </div>
+           </div>
+-          <div className="career-reveal border-t border-[#173454]/20" style={{ transitionDelay: "100ms" }}>
++          <div className="career-reveal border-t border-navy/20" style={{ transitionDelay: "100ms" }}>
+             {joiningReasons.map((reason, index) => (
+               <div
+                 key={reason}
+                 data-testid={`why-join-item-${index + 1}`}
+-                className="flex gap-5 border-b border-[#173454]/15 py-6 text-lg leading-7 text-[#173454] sm:gap-8 sm:py-7 sm:text-xl"
++                className="flex gap-5 border-b border-navy/15 py-6 text-body text-navy text-lg sm:gap-8 sm:py-7 sm:text-xl"
+               >
+-                <span className="font-mono text-xs text-[#1e5da6]">0{index + 1}</span>
++                <span className="font-mono text-xs text-primary">0{index + 1}</span>
+                 <p>{reason}</p>
+               </div>
+             ))}
+@@ -282,12 +282,12 @@ export default function Career() {
+         </div>
+       </section>
+ 
+-      <section id="openings" className="bg-[#0e3158] py-20 text-white sm:py-28">
++      <section id="openings" className="bg-primary section-pad text-white sm:py-28">
+         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+           <div className="career-reveal mb-12 flex flex-col justify-between gap-7 border-b border-white/20 pb-10 sm:flex-row sm:items-end">
+             <div>
+-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#f0b36d]">03 / The next move</p>
+-              <h2 className="font-serif text-5xl leading-[0.98] tracking-[-0.04em] sm:text-6xl">Current Openings</h2>
++              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-accent/80">03 / The next move</p>
++              <h2 className=" text-5xl leading-[0.98] tracking-tight sm:text-6xl">Current Openings</h2>
+             </div>
+             <p className="max-w-sm text-sm leading-6 text-white/60">
+               Explore roles across production, quality and sales. Select a position in the form below to apply.
+@@ -301,21 +301,21 @@ export default function Career() {
+               ))}
+             </div>
+           ) : openingsError ? (
+-            <div data-testid="error-current-openings" className="border border-[#f0b36d]/40 bg-[#f0b36d]/10 p-7">
++            <div data-testid="error-current-openings" className="border border-accent/40 bg-accent/10 p-7">
+               <p className="font-semibold text-white">Openings are taking a moment to load.</p>
+               <p className="mt-2 text-sm text-white/60">Please try again, or send us a general application below.</p>
+               <button
+                 type="button"
+                 data-testid="button-retry-openings"
+                 onClick={() => void refetch()}
+-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#f4c17f] transition-transform hover:translate-x-1"
++                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-transform hover:translate-x-1"
+               >
+                 Try again <ArrowRight size={15} />
+               </button>
+             </div>
+           ) : openRoles.length === 0 ? (
+             <div data-testid="empty-current-openings" className="border border-white/15 bg-white/[0.05] p-8 sm:p-10">
+-              <BriefcaseBusiness size={24} strokeWidth={1.4} className="text-[#f0b36d]" />
++              <BriefcaseBusiness size={24} strokeWidth={1.4} className="text-accent/80" />
+               <p className="mt-5 text-xl font-semibold">There are no open positions at the moment.</p>
+               <p className="mt-2 max-w-md text-sm leading-6 text-white/60">Please check back soon, or submit a general application so we can keep your details on file.</p>
+             </div>
+@@ -336,9 +336,9 @@ export default function Career() {
+                       data-testid={`button-toggle-opening-${role.id}`}
+                       onClick={() => setOpenRole(isOpen ? null : role.id)}
+                       aria-expanded={isOpen}
+-                      className="group flex w-full items-center gap-4 py-6 text-left transition-colors hover:text-[#f4c17f] sm:gap-7 sm:py-7"
++                      className="group flex w-full items-center gap-4 py-6 text-left transition-colors hover:text-accent sm:gap-7 sm:py-7"
+                     >
+-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/20 text-[#f0b36d] transition-colors group-hover:border-[#f0b36d]">
++                      <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/20 text-accent/80 transition-colors group-hover:border-accent/80">
+                         <RoleIcon size={20} strokeWidth={1.4} />
+                       </span>
+                       <span className="min-w-0 flex-1">
+@@ -348,17 +348,17 @@ export default function Career() {
+                           <span className="inline-flex items-center gap-1.5"><MapPin size={13} /> {role.location}</span>
+                         </span>
+                       </span>
+-                      <ChevronDown size={20} className={`shrink-0 text-[#f0b36d] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
++                      <ChevronDown size={20} className={`shrink-0 text-accent/80 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                     </button>
+                     {isOpen && (
+                       <div data-testid={`opening-details-${role.id}`} className="grid gap-8 border-t border-white/15 pb-8 pt-7 sm:grid-cols-[1fr_1fr] sm:pl-[70px]">
+                         <p className="max-w-xl text-sm leading-7 text-white/70">{role.summary}</p>
+                         <div>
+-                          <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#f0b36d]">What we look for</p>
++                          <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent/80">What we look for</p>
+                           <ul className="space-y-3">
+                             {role.requirements.map((requirement) => (
+                               <li key={requirement} className="flex gap-3 text-sm leading-6 text-white/70">
+-                                <Check size={15} className="mt-1 shrink-0 text-[#f0b36d]" />
++                                <Check size={15} className="mt-1 shrink-0 text-accent/80" />
+                                 <span>{requirement}</span>
+                               </li>
+                             ))}
+@@ -367,7 +367,7 @@ export default function Career() {
+                             type="button"
+                             data-testid={`button-apply-opening-${role.id}`}
+                             onClick={() => selectRole(role.title, role.id)}
+-                            className="mt-7 inline-flex items-center gap-2 border-b border-[#f0b36d] pb-1 text-sm font-semibold text-[#f4c17f] transition-transform hover:translate-x-1"
++                            className="mt-7 inline-flex items-center gap-2 border-b border-accent/80 pb-1 text-sm font-semibold text-accent transition-transform hover:translate-x-1"
+                           >
+                             Apply for this role <ArrowRight size={15} />
+                           </button>
+@@ -382,26 +382,26 @@ export default function Career() {
+         </div>
+       </section>
+ 
+-      <section id="apply" className="bg-[#f5f7f5] py-20 sm:py-28">
++      <section id="apply" className="bg-background section-pad sm:py-28">
+         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+           <div className="grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
+             <div className="career-reveal">
+-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#1e5da6]">04 / Start a conversation</p>
+-              <h2 className="font-serif text-5xl leading-[0.98] tracking-[-0.04em] text-[#0b2444] sm:text-6xl">Submit Your Application</h2>
+-              <p className="mt-7 max-w-sm text-base leading-7 text-[#627684]">
++              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">04 / Start a conversation</p>
++              <h2 className=" text-5xl leading-[0.98] tracking-tight text-navy sm:text-6xl">Submit Your Application</h2>
++              <p className="mt-7 max-w-sm text-body">
+                 Tell us where your experience could make a difference. We review every application and respond to shortlisted candidates.
+               </p>
+-              <div className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.16em] text-[#627684]">
+-                <span className="h-px w-8 bg-[#e09b55]" /> Product Armor / People
++              <div className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
++                <span className="h-px w-8 bg-accent" /> Product Armor / People
+               </div>
+             </div>
+ 
+-            <div data-testid="application-form-panel" className="career-reveal border-t border-[#173454]/20 pt-7" style={{ transitionDelay: "100ms" }}>
++            <div data-testid="application-form-panel" className="career-reveal border-t border-navy/20 pt-7" style={{ transitionDelay: "100ms" }}>
+               {sent ? (
+-                <div data-testid="status-application-received" className="border border-[#1e5da6]/20 bg-white p-8 sm:p-12">
+-                  <CheckCircle2 size={34} strokeWidth={1.4} className="text-[#1e5da6]" />
+-                  <h3 className="mt-7 font-serif text-4xl tracking-[-0.03em] text-[#0b2444]">Application Received!</h3>
+-                  <p className="mt-4 max-w-lg text-sm leading-7 text-[#627684]">
++                <div data-testid="status-application-received" className="border border-primary/20 bg-white p-8 sm:p-12">
++                  <CheckCircle2 size={34} strokeWidth={1.4} className="text-primary" />
++                  <h3 className="mt-7  text-4xl tracking-tight text-navy">Application Received!</h3>
++                  <p className="mt-4 max-w-lg text-sm leading-7 text-muted-foreground">
+                     Thank you for your interest in joining ProductArmor. Our HR team will review your application and reach out if there's a fit.
+                   </p>
+                   <button
+@@ -411,7 +411,7 @@ export default function Career() {
+                       setSent(false);
+                       setForm(initialForm);
+                     }}
+-                    className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#1e5da6] transition-transform hover:translate-x-1"
++                    className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-transform hover:translate-x-1"
+                   >
+                     Submit another application <ArrowRight size={15} />
+                   </button>
+@@ -420,51 +420,51 @@ export default function Career() {
+                 <form onSubmit={handleSubmit} className="space-y-6" data-testid="form-application">
+                   <div className="grid gap-6 sm:grid-cols-2">
+                     <label className="block">
+-                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Full Name *</span>
++                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Full Name *</span>
+                       <input
+                         type="text"
+                         required
+                         value={form.name}
+                         data-testid="input-application-name"
+                         onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
+-                        className="w-full border-0 border-b border-[#bfcdd2] bg-transparent px-0 py-3 text-sm text-[#173454] outline-none transition-colors placeholder:text-[#9aaab1] focus:border-[#1e5da6] focus:ring-0"
++                        className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-navy outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-0"
+                         placeholder="Your full name"
+                       />
+                     </label>
+                     <label className="block">
+-                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Email Address *</span>
++                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Email Address *</span>
+                       <input
+                         type="email"
+                         required
+                         value={form.email}
+                         data-testid="input-application-email"
+                         onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
+-                        className="w-full border-0 border-b border-[#bfcdd2] bg-transparent px-0 py-3 text-sm text-[#173454] outline-none transition-colors placeholder:text-[#9aaab1] focus:border-[#1e5da6] focus:ring-0"
++                        className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-navy outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-0"
+                         placeholder="you@company.com"
+                       />
+                     </label>
+                   </div>
+                   <div className="grid gap-6 sm:grid-cols-2">
+                     <label className="block">
+-                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Phone *</span>
++                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Phone *</span>
+                       <input
+                         type="tel"
+                         required
+                         value={form.phone}
+                         data-testid="input-application-phone"
+                         onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))}
+-                        className="w-full border-0 border-b border-[#bfcdd2] bg-transparent px-0 py-3 text-sm text-[#173454] outline-none transition-colors placeholder:text-[#9aaab1] focus:border-[#1e5da6] focus:ring-0"
++                        className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-navy outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-0"
+                         placeholder="+91 98765 43210"
+                       />
+                     </label>
+                     <label className="block">
+-                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Position *</span>
++                      <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Position *</span>
+                       <select
+                         required
+                         value={form.position}
+                         data-testid="select-application-position"
+                         onChange={(event) => setForm((current) => ({ ...current, position: event.target.value }))}
+-                        className="w-full border-0 border-b border-[#bfcdd2] bg-transparent px-0 py-3 text-sm text-[#173454] outline-none transition-colors focus:border-[#1e5da6] focus:ring-0"
++                        className="w-full border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-navy outline-none transition-colors focus:border-primary focus:ring-0"
+                       >
+                         <option value="" disabled>Select a role</option>
+                         {openRoles.map((role) => <option key={role.id} value={role.title}>{role.title}</option>)}
+@@ -473,26 +473,26 @@ export default function Career() {
+                     </label>
+                   </div>
+                   <label className="block">
+-                    <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Message / Cover Note *</span>
++                    <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Message / Cover Note *</span>
+                     <textarea
+                       required
+                       rows={5}
+                       value={form.message}
+                       data-testid="textarea-application-message"
+                       onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
+-                      className="w-full resize-none border border-[#bfcdd2] bg-white px-4 py-3 text-sm leading-6 text-[#173454] outline-none transition-colors placeholder:text-[#9aaab1] focus:border-[#1e5da6] focus:ring-1 focus:ring-[#1e5da6]/20"
++                      className="w-full resize-none border border-border bg-white px-4 py-3 text-sm leading-6 text-navy outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary/20"
+                       placeholder="Tell us about your experience, notice period and why you'd like to join our team..."
+                     />
+                   </label>
+-                  <div className="flex items-start gap-3 border border-[#dbe2e2] bg-[#edf2f1] p-4 text-xs leading-5 text-[#71828a]">
+-                    <Paperclip size={15} className="mt-0.5 shrink-0 text-[#1e5da6]" />
++                  <div className="flex items-start gap-3 border border-border bg-secondary p-4 text-xs leading-5 text-muted-foreground">
++                    <Paperclip size={15} className="mt-0.5 shrink-0 text-primary" />
+                     <span>Please email your resume/CV to our careers inbox after submitting this form — attach it in reply to the confirmation, or send it directly to our HR team via the contact page.</span>
+                   </div>
+                   <button
+                     type="submit"
+                     disabled={loading}
+                     data-testid="button-submit-application"
+-                    className="inline-flex w-full items-center justify-center gap-3 bg-[#1e5da6] px-6 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#174d8d] hover:shadow-lg disabled:cursor-wait disabled:opacity-70"
++                    className="inline-flex w-full items-center justify-center gap-3 bg-primary px-6 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-lg disabled:cursor-wait disabled:opacity-70"
+                   >
+                     {loading ? (
+                       <>
+@@ -510,12 +510,12 @@ export default function Career() {
+         </div>
+       </section>
+ 
+-      <section className="bg-[#e09b55] py-20 text-[#0b2444] sm:py-24">
++      <section className="bg-accent section-pad text-navy sm:py-24">
+         <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
+           <div className="career-reveal">
+-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#173454]/70">The next chapter</p>
+-            <h2 className="font-serif text-5xl leading-[0.98] tracking-[-0.04em] sm:text-7xl">Grow With Us</h2>
+-            <p className="mt-7 max-w-2xl text-base leading-7 text-[#173454]/80">
++            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-navy/70">The next chapter</p>
++            <h2 className=" text-5xl leading-[0.98] tracking-tight sm:text-7xl">Grow With Us</h2>
++            <p className="mt-7 max-w-2xl text-base leading-7 text-navy/80">
+               We're always looking for people who are curious, driven and committed to making a difference. Whether you're an experienced professional or just beginning your career, if our values resonate with you, there's a place for you at Product Armor.
+             </p>
+             <p className="mt-4 text-lg font-semibold">Come build something meaningful with us.</p>
+@@ -523,7 +523,7 @@ export default function Career() {
+           <Link
+             href="/contact"
+             data-testid="link-contact-hr-team"
+-            className="career-reveal inline-flex items-center justify-center gap-3 border border-[#0b2444]/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-[#0b2444] hover:text-[#f4c17f]"
++            className="career-reveal inline-flex items-center justify-center gap-3 border border-navy/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-navy hover:text-accent"
+             style={{ transitionDelay: "120ms" }}
+           >
+             Contact our HR team <ArrowRight size={16} />
+diff --git a/artifacts/productarmor-site/src/pages/CaseStudies.tsx b/artifacts/productarmor-site/src/pages/CaseStudies.tsx
+index 9e56bf5..6ca1cb8 100644
+--- a/artifacts/productarmor-site/src/pages/CaseStudies.tsx
++++ b/artifacts/productarmor-site/src/pages/CaseStudies.tsx
+@@ -90,13 +90,13 @@ export default function CaseStudies() {
+ 
+   return (
+     <div className="pt-16">
+-      <section className="bg-[#4164a8] py-20">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="bg-primary section-pad">
++        <div className="container-width">
+           <Breadcrumb items={[{ label: "Case Studies" }]} />
+           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+             Proven Results
+           </div>
+-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Case Studies</h1>
++          <h1 className="heading-page">Case Studies</h1>
+           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+             How pharmaceutical, nutraceutical and healthcare brands solved packaging challenges with our
+             Bottles, CR caps and CT caps — from export compliance to cost, quality and lead-time gains.
+@@ -104,8 +104,8 @@ export default function CaseStudies() {
+         </div>
+       </section>
+ 
+-      <section className="py-20 bg-white">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-white">
++        <div className="container-width">
+           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+             {[
+               { value: "18%", label: "Average cost reduction" },
+@@ -113,64 +113,64 @@ export default function CaseStudies() {
+               { value: "40%", label: "Faster lead times" },
+               { value: "100%", label: "CR certification pass" },
+             ].map((s) => (
+-              <div key={s.label} className="reveal text-center bg-gray-50 rounded-xl p-6 border border-gray-100">
+-                <div className="text-3xl font-black text-[#4164a8]">{s.value}</div>
+-                <div className="text-gray-500 text-xs mt-2 leading-relaxed">{s.label}</div>
++              <div key={s.label} className="reveal text-center bg-secondary rounded-xl p-6 border border-border">
++                <div className="text-3xl font-black text-primary">{s.value}</div>
++                <div className="text-muted-foreground text-xs mt-2 leading-relaxed">{s.label}</div>
+               </div>
+             ))}
+           </div>
+         </div>
+       </section>
+ 
+-      <section className="py-20 bg-gray-50">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-secondary">
++        <div className="container-width">
+           <div className="space-y-8">
+             {caseStudies.map((cs) => (
+               <div
+                 key={cs.title}
+-                className="reveal bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6 sm:p-8"
++                className="reveal card-standard p-6 sm:p-8"
+               >
+                 <div className="flex flex-col lg:flex-row gap-8">
+                   <div className="lg:w-2/3">
+                     <div className="flex items-center gap-4 mb-5">
+-                      <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
+-                        <cs.icon size={22} className="text-[#4164a8]" />
++                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
++                        <cs.icon size={22} className="text-primary" />
+                       </div>
+                       <div>
+-                        <div className="text-xs font-semibold text-[#4164a8] uppercase tracking-widest">{cs.tag}</div>
+-                        <h2 className="text-xl font-bold text-[#0f2a4e] mt-0.5">{cs.title}</h2>
++                        <div className="text-xs font-semibold text-primary uppercase tracking-widest">{cs.tag}</div>
++                        <h2 className="text-xl font-bold text-navy mt-0.5">{cs.title}</h2>
+                       </div>
+                     </div>
+                     <div className="space-y-4">
+                       <div>
+-                        <div className="flex items-center gap-2 text-[#0f2a4e] font-semibold text-sm mb-1">
+-                          <Target size={15} className="text-[#4164a8]" /> Challenge
++                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
++                          <Target size={15} className="text-primary" /> Challenge
+                         </div>
+-                        <p className="text-gray-600 text-sm leading-relaxed">{cs.challenge}</p>
++                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.challenge}</p>
+                       </div>
+                       <div>
+-                        <div className="flex items-center gap-2 text-[#0f2a4e] font-semibold text-sm mb-1">
+-                          <Lightbulb size={15} className="text-[#4164a8]" /> Solution
++                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
++                          <Lightbulb size={15} className="text-primary" /> Solution
+                         </div>
+-                        <p className="text-gray-600 text-sm leading-relaxed">{cs.solution}</p>
++                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.solution}</p>
+                       </div>
+                       <div>
+-                        <div className="flex items-center gap-2 text-[#0f2a4e] font-semibold text-sm mb-1">
+-                          <TrendingUp size={15} className="text-[#4164a8]" /> Result
++                        <div className="flex items-center gap-2 text-navy font-semibold text-sm mb-1">
++                          <TrendingUp size={15} className="text-primary" /> Result
+                         </div>
+-                        <p className="text-gray-600 text-sm leading-relaxed">{cs.result}</p>
++                        <p className="text-muted-foreground text-sm leading-relaxed">{cs.result}</p>
+                       </div>
+                     </div>
+                   </div>
+                   <div className="lg:w-1/3 flex flex-col gap-4 justify-center">
+                     {cs.metrics.map((m) => (
+-                      <div key={m.label} className="bg-[#4164a8]/5 rounded-xl p-5 border border-[#4164a8]/10 flex items-center gap-4">
+-                        <div className="w-11 h-11 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
+-                          <m.icon size={20} className="text-[#4164a8]" />
++                      <div key={m.label} className="bg-primary/5 rounded-xl p-5 border border-primary/10 flex items-center gap-4">
++                        <div className="w-11 h-11 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
++                          <m.icon size={20} className="text-primary" />
+                         </div>
+                         <div>
+-                          <div className="text-2xl font-black text-[#0f2a4e]">{m.value}</div>
+-                          <div className="text-gray-500 text-xs">{m.label}</div>
++                          <div className="text-2xl font-black text-navy">{m.value}</div>
++                          <div className="text-muted-foreground text-xs">{m.label}</div>
+                         </div>
+                       </div>
+                     ))}
+@@ -182,16 +182,16 @@ export default function CaseStudies() {
+         </div>
+       </section>
+ 
+-      <section className="py-20 bg-[#0f2a4e]">
++      <section className="section-pad bg-navy">
+         <div className="max-w-3xl mx-auto px-4 text-center">
+-          <h2 className="text-3xl font-bold text-white mb-4">Have a Packaging Challenge to Solve?</h2>
++          <h2 className="heading-section-light">Have a Packaging Challenge to Solve?</h2>
+           <p className="text-white/60 mb-8 leading-relaxed">
+             Tell us about your product, volumes and compliance targets — our technical team will propose a
+             bottle-and-closure solution tailored to your requirements.
+           </p>
+           <Link
+             href="/contact"
+-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
++            className="btn-light"
+           >
+             Talk to Our Team <ArrowRight size={15} />
+           </Link>
+diff --git a/artifacts/productarmor-site/src/pages/Contact.tsx b/artifacts/productarmor-site/src/pages/Contact.tsx
+index 8a223b9..a8c6e04 100644
+--- a/artifacts/productarmor-site/src/pages/Contact.tsx
++++ b/artifacts/productarmor-site/src/pages/Contact.tsx
+@@ -38,93 +38,93 @@ export default function Contact() {
+   return (
+     <div className="pt-16">
+       {/* Header */}
+-      <section className="bg-[#4164a8] py-20">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="bg-primary section-pad">
++        <div className="container-width">
+           <Breadcrumb items={[{ label: "Contact" }]} />
+           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+             Contact
+           </div>
+-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Get in Touch</h1>
++          <h1 className="heading-page">Get in Touch</h1>
+           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+             Request a sample kit, get a quote, or speak with our technical team.
+           </p>
+         </div>
+       </section>
+ 
+-      <section className="py-20 bg-gray-50">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-secondary">
++        <div className="container-width">
+           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+             {/* Contact info */}
+             <div className="lg:col-span-2 space-y-6">
+               <div>
+-                <h2 className="text-2xl font-bold text-[#0f2a4e] mb-2">
++                <h2 className="text-2xl heading-card mb-2">
+                   {company?.name ?? "Product Armor Packaging Pvt Ltd"}
+                 </h2>
+-                <p className="text-gray-500 text-sm leading-relaxed">
++                <p className="text-muted-foreground text-sm leading-relaxed">
+                   Reach out to us for samples, technical queries, pricing or regulatory documentation.
+                 </p>
+               </div>
+ 
+               <div className="space-y-4">
+-                <a href={`tel:${phone.replace(/\s+/g, "")}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#4164a8]/30 hover:shadow-sm transition-all duration-200 group">
+-                  <div className="w-10 h-10 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#4164a8] transition-colors">
+-                    <Phone size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
++                <a href={`tel:${phone.replace(/\s+/g, "")}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group">
++                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
++                    <Phone size={18} className="text-primary group-hover:text-white transition-colors" />
+                   </div>
+                   <div>
+-                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">Phone</div>
+-                    <div className="text-[#0f2a4e] font-semibold text-sm">{phone}</div>
++                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-0.5">Phone</div>
++                    <div className="text-navy font-semibold text-sm">{phone}</div>
+                   </div>
+                 </a>
+ 
+-                <a href={`mailto:${email}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#4164a8]/30 hover:shadow-sm transition-all duration-200 group">
+-                  <div className="w-10 h-10 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#4164a8] transition-colors">
+-                    <Mail size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
++                <a href={`mailto:${email}`} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group">
++                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
++                    <Mail size={18} className="text-primary group-hover:text-white transition-colors" />
+                   </div>
+                   <div>
+-                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">Email</div>
+-                    <div className="text-[#0f2a4e] font-semibold text-sm">{email}</div>
++                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-0.5">Email</div>
++                    <div className="text-navy font-semibold text-sm">{email}</div>
+                   </div>
+                 </a>
+ 
+                 <a
+                   href={`https://wa.me/${whatsapp.replace(/\D/g, "")}?text=Hello, I'm interested in your pharmaceutical packaging products.`}
+                   target="_blank" rel="noopener noreferrer"
+-                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#25d366]/40 hover:shadow-sm transition-all duration-200 group"
++                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-[#25d366]/40 hover:shadow-sm transition-all duration-200 group"
+                 >
+                   <div className="w-10 h-10 bg-[#25d366]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#25d366] transition-colors">
+                     <MessageSquare size={18} className="text-[#25d366] group-hover:text-white transition-colors" />
+                   </div>
+                   <div>
+-                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">WhatsApp</div>
+-                    <div className="text-[#0f2a4e] font-semibold text-sm">{whatsapp}</div>
++                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-0.5">WhatsApp</div>
++                    <div className="text-navy font-semibold text-sm">{whatsapp}</div>
+                   </div>
+                 </a>
+ 
+                 <a
+                   href={SOCIAL.linkedin}
+                   target="_blank" rel="noopener noreferrer"
+-                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#4164a8]/30 hover:shadow-sm transition-all duration-200 group"
++                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group"
+                 >
+-                  <div className="w-10 h-10 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#4164a8] transition-colors">
+-                    <Linkedin size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
++                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
++                    <Linkedin size={18} className="text-primary group-hover:text-white transition-colors" />
+                   </div>
+                   <div>
+-                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">LinkedIn</div>
+-                    <div className="text-[#0f2a4e] font-semibold text-sm">Product Armor Packaging</div>
++                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-0.5">LinkedIn</div>
++                    <div className="text-navy font-semibold text-sm">Product Armor Packaging</div>
+                   </div>
+                 </a>
+ 
+                 <a
+                   href={SOCIAL.mapLink}
+                   target="_blank" rel="noopener noreferrer"
+-                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-[#4164a8]/30 hover:shadow-sm transition-all duration-200 group"
++                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all duration-200 group"
+                 >
+-                  <div className="w-10 h-10 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#4164a8] transition-colors">
+-                    <MapPin size={18} className="text-[#4164a8] group-hover:text-white transition-colors" />
++                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors">
++                    <MapPin size={18} className="text-primary group-hover:text-white transition-colors" />
+                   </div>
+                   <div>
+-                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">Address</div>
+-                    <div className="text-[#0f2a4e] font-medium text-sm leading-relaxed">{address}</div>
++                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-0.5">Address</div>
++                    <div className="text-navy font-medium text-sm leading-relaxed">{address}</div>
+                   </div>
+                 </a>
+               </div>
+@@ -132,19 +132,19 @@ export default function Contact() {
+ 
+             {/* Contact form */}
+             <div className="lg:col-span-3">
+-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
++              <div className="bg-white rounded-2xl shadow-sm border border-border p-8">
+                 {sent ? (
+                   <div className="text-center py-12">
+                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                       <CheckCircle size={32} className="text-green-600" />
+                     </div>
+-                    <h3 className="text-xl font-bold text-[#0f2a4e] mb-2">Message Sent!</h3>
+-                    <p className="text-gray-500 text-sm">
++                    <h3 className="text-xl heading-card mb-2">Message Sent!</h3>
++                    <p className="text-muted-foreground text-sm">
+                       Thank you for reaching out. Our team will respond within 1 business day.
+                     </p>
+                     <button
+                       onClick={() => { setSent(false); setForm({ name: "", company: "", email: "", message: "" }); }}
+-                      className="mt-6 text-[#4164a8] font-semibold text-sm hover:underline"
++                      className="mt-6 text-primary font-semibold text-sm hover:underline"
+                     >
+                       Send another message
+                     </button>
+@@ -152,50 +152,50 @@ export default function Contact() {
+                 ) : (
+                   <form onSubmit={handleSubmit} className="space-y-5">
+                     <div>
+-                      <h2 className="text-xl font-bold text-[#0f2a4e] mb-1">Send us a Message</h2>
+-                      <p className="text-gray-400 text-sm">We typically respond within 24 hours on business days.</p>
++                      <h2 className="heading-card mb-1">Send us a Message</h2>
++                      <p className="text-muted-foreground text-sm">We typically respond within 24 hours on business days.</p>
+                     </div>
+                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                       <div>
+-                        <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Your Name *</label>
++                        <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Your Name *</label>
+                         <input
+                           type="text" required value={form.name}
+                           onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+-                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all"
++                          className="w-full px-4 py-2.5 rounded-lg border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm transition-all"
+                           placeholder="Raj Sharma"
+                         />
+                       </div>
+                       <div>
+-                        <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Company *</label>
++                        <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Company *</label>
+                         <input
+                           type="text" required value={form.company}
+                           onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
+-                          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all"
++                          className="w-full px-4 py-2.5 rounded-lg border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm transition-all"
+                           placeholder="Pharma Co. Ltd"
+                         />
+                       </div>
+                     </div>
+                     <div>
+-                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Email Address *</label>
++                      <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Email Address *</label>
+                       <input
+                         type="email" required value={form.email}
+                         onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+-                        className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all"
++                        className="w-full px-4 py-2.5 rounded-lg border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm transition-all"
+                         placeholder="raj@company.com"
+                       />
+                     </div>
+                     <div>
+-                      <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Message *</label>
++                      <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Message *</label>
+                       <textarea
+                         required value={form.message} rows={5}
+                         onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+-                        className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:border-[#4164a8] focus:outline-none focus:ring-2 focus:ring-[#4164a8]/20 text-sm transition-all resize-none"
++                        className="w-full px-4 py-2.5 rounded-lg border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm transition-all resize-none"
+                         placeholder="Tell us about your packaging requirements — product type, volumes, specifications needed..."
+                       />
+                     </div>
+                     <button
+                       type="submit" disabled={loading}
+-                      className="w-full flex items-center justify-center gap-2 bg-[#4164a8] hover:bg-[#345099] disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg"
++                      className="btn-primary w-full"
+                     >
+                       {loading ? (
+                         <span className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+@@ -215,9 +215,9 @@ export default function Contact() {
+       </section>
+ 
+       {/* Google Map */}
+-      <section className="pb-20 bg-gray-50">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+-          <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
++      <section className="pb-20 bg-secondary">
++        <div className="container-width">
++          <div className="rounded-2xl overflow-hidden shadow-sm border border-border">
+             <iframe
+               title="Product Armor Packaging location"
+               src={mapEmbed}
+diff --git a/artifacts/productarmor-site/src/pages/Downloads.tsx b/artifacts/productarmor-site/src/pages/Downloads.tsx
+index b83d41f..a9d8d2f 100644
+--- a/artifacts/productarmor-site/src/pages/Downloads.tsx
++++ b/artifacts/productarmor-site/src/pages/Downloads.tsx
+@@ -58,13 +58,13 @@ export default function Downloads() {
+   return (
+     <div className="pt-16">
+       {/* Header */}
+-      <section className="bg-[#4164a8] py-20">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="bg-primary section-pad">
++        <div className="container-width">
+           <Breadcrumb items={[{ label: "Downloads" }]} />
+           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+             Resource Centre
+           </div>
+-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Downloads &amp; Documentation</h1>
++          <h1 className="heading-page">Downloads &amp; Documentation</h1>
+           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+             Access brochures, technical data sheets, certificates and compliance documents — everything your
+             procurement and regulatory teams need in one place.
+@@ -73,14 +73,14 @@ export default function Downloads() {
+       </section>
+ 
+       {/* Downloads grid */}
+-      <section className="py-20 bg-white">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-white">
++        <div className="container-width">
+           <div className="text-center mb-14 reveal">
+-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Available Documents
+             </div>
+-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">Browse Our Resources</h2>
+-            <p className="text-gray-500 max-w-2xl mx-auto">
++            <h2 className="heading-section">Browse Our Resources</h2>
++            <p className="text-muted-foreground max-w-2xl mx-auto">
+               Select a document below to download. Need something specific? Our team can share tailored
+               documentation on request.
+             </p>
+@@ -92,20 +92,20 @@ export default function Downloads() {
+               return (
+                 <div
+                   key={r.id}
+-                  className="reveal flex flex-col bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
++                  className="reveal flex flex-col card-standard p-6"
+                   style={{ transitionDelay: `${i * 60}ms` }}
+                 >
+                   <div className="flex items-center justify-between mb-4">
+-                    <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center">
+-                      <Icon size={22} className="text-[#4164a8]" />
++                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
++                      <Icon size={22} className="text-primary" />
+                     </div>
+                   </div>
+-                  <h3 className="font-bold text-[#0f2a4e] mb-2">{r.title}</h3>
+-                  <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">{r.description}</p>
++                  <h3 className="heading-card mb-2">{r.title}</h3>
++                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">{r.description}</p>
+                   <a
+                     href={r.url || "#"}
+                     {...(r.url ? { target: "_blank", rel: "noopener noreferrer" } : { title: "Placeholder file — to be replaced with the actual document" })}
+-                    className="inline-flex items-center justify-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-md text-sm"
++                    className="btn-primary"
+                   >
+                     <Download size={16} />
+                     Download
+@@ -116,7 +116,7 @@ export default function Downloads() {
+           </div>
+ 
+           {hasPlaceholders && (
+-            <p className="text-center text-gray-400 text-xs mt-8 max-w-xl mx-auto">
++            <p className="text-center text-muted-foreground text-xs mt-8 max-w-xl mx-auto">
+               Note: Some download links are placeholders to be replaced with the final documents. Contact us if you
+               need a file before it is published here.
+             </p>
+@@ -125,20 +125,20 @@ export default function Downloads() {
+       </section>
+ 
+       {/* Request a document */}
+-      <section className="py-20 bg-gray-50">
++      <section className="section-pad bg-secondary">
+         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+-          <div className="reveal bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-10 text-center">
+-            <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center mx-auto mb-5">
+-              <Mail size={22} className="text-[#4164a8]" />
++          <div className="reveal bg-white rounded-2xl shadow-sm border border-border p-8 sm:p-10 text-center">
++            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-5">
++              <Mail size={22} className="text-primary" />
+             </div>
+-            <h2 className="text-2xl font-bold text-[#0f2a4e] mb-3">Request a Document</h2>
+-            <p className="text-gray-500 text-sm leading-relaxed max-w-xl mx-auto mb-6">
++            <h2 className="text-2xl heading-card mb-3">Request a Document</h2>
++            <p className="text-muted-foreground text-sm leading-relaxed max-w-xl mx-auto mb-6">
+               Looking for a specific data sheet, a Certificate of Analysis, a Drug Master File reference or custom
+               regulatory documentation? Let us know and our team will send it across.
+             </p>
+             <Link
+               href="/contact"
+-              className="inline-flex items-center gap-2 border-2 border-[#4164a8] text-[#4164a8] hover:bg-[#4164a8] hover:text-white font-semibold px-7 py-3 rounded-lg transition-all duration-200"
++              className="btn-outline"
+             >
+               Request Documentation <ArrowRight size={16} />
+             </Link>
+@@ -147,16 +147,16 @@ export default function Downloads() {
+       </section>
+ 
+       {/* CTA */}
+-      <section className="py-20 bg-[#0f2a4e]">
++      <section className="section-pad bg-navy">
+         <div className="max-w-3xl mx-auto px-4 text-center reveal">
+-          <h2 className="text-3xl font-bold text-white mb-4">Need More Information?</h2>
++          <h2 className="heading-section-light">Need More Information?</h2>
+           <p className="text-white/60 mb-8">
+             Speak with our team for samples, pricing and complete regulatory documentation for your packaging
+             requirement.
+           </p>
+           <Link
+             href="/contact"
+-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
++            className="btn-light hover:scale-105"
+           >
+             Get in Touch <ArrowRight size={16} />
+           </Link>
+diff --git a/artifacts/productarmor-site/src/pages/FAQ.tsx b/artifacts/productarmor-site/src/pages/FAQ.tsx
+index 96d9a8e..475ac85 100644
+--- a/artifacts/productarmor-site/src/pages/FAQ.tsx
++++ b/artifacts/productarmor-site/src/pages/FAQ.tsx
+@@ -82,13 +82,13 @@ export default function FAQ() {
+   return (
+     <div className="pt-16">
+       {/* Header */}
+-      <section className="bg-[#4164a8] py-20">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="bg-primary section-pad">
++        <div className="container-width">
+           <Breadcrumb items={[{ label: "FAQ" }]} />
+           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+             Support
+           </div>
+-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h1>
++          <h1 className="heading-page">Frequently Asked Questions</h1>
+           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+             Everything you need to know about our bottles, CR &amp; CT caps, ordering process, certifications and export capabilities.
+           </p>
+@@ -96,7 +96,7 @@ export default function FAQ() {
+       </section>
+ 
+       {/* FAQ Accordion */}
+-      <section className="py-20 bg-white">
++      <section className="section-pad bg-white">
+         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="space-y-4">
+             {faqs.map((f, i) => {
+@@ -104,7 +104,7 @@ export default function FAQ() {
+               return (
+                 <div
+                   key={f.q}
+-                  className="reveal bg-white rounded-xl border border-gray-100 shadow-sm hover:border-[#4164a8]/20 transition-all duration-300 overflow-hidden"
++                  className="reveal bg-white rounded-xl border border-border shadow-sm hover:border-primary/20 transition-all duration-300 overflow-hidden"
+                 >
+                   <h3>
+                     <button
+@@ -113,12 +113,12 @@ export default function FAQ() {
+                       aria-expanded={isOpen}
+                       aria-controls={`faq-panel-${i}`}
+                       id={`faq-button-${i}`}
+-                      className="w-full flex items-center justify-between gap-4 text-left px-6 py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4164a8]/40"
++                      className="w-full flex items-center justify-between gap-4 text-left px-6 py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                     >
+-                      <span className="font-semibold text-[#0f2a4e] text-base">{f.q}</span>
++                      <span className="font-semibold text-navy text-base">{f.q}</span>
+                       <ChevronDown
+                         size={20}
+-                        className={`text-[#4164a8] shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
++                        className={`text-primary shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                       />
+                     </button>
+                   </h3>
+@@ -129,7 +129,7 @@ export default function FAQ() {
+                     hidden={!isOpen}
+                     className="px-6 pb-5 -mt-1"
+                   >
+-                    <p className="text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">{f.a}</p>
++                    <p className="text-muted-foreground text-sm leading-relaxed border-t border-border pt-4">{f.a}</p>
+                   </div>
+                 </div>
+               );
+@@ -139,21 +139,21 @@ export default function FAQ() {
+       </section>
+ 
+       {/* Still have questions */}
+-      <section className="py-20 bg-gray-50">
++      <section className="section-pad bg-secondary">
+         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+-          <div className="reveal bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col sm:flex-row items-start gap-6">
+-            <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
+-              <HelpCircle size={22} className="text-[#4164a8]" />
++          <div className="reveal card-standard p-8 flex flex-col sm:flex-row items-start gap-6">
++            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
++              <HelpCircle size={22} className="text-primary" />
+             </div>
+             <div className="flex-1">
+-              <h2 className="text-xl font-bold text-[#0f2a4e] mb-2">Still have questions?</h2>
+-              <p className="text-gray-500 text-sm leading-relaxed mb-5">
++              <h2 className="text-xl heading-card mb-2">Still have questions?</h2>
++              <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                 Can't find the answer you're looking for? Our technical and sales teams are happy to help with
+                 specifications, samples, pricing and regulatory documentation.
+               </p>
+               <Link
+                 href="/contact"
+-                className="inline-flex items-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg"
++                className="btn-primary"
+               >
+                 <MessageSquare size={16} />
+                 Talk to our team
+@@ -164,9 +164,9 @@ export default function FAQ() {
+       </section>
+ 
+       {/* CTA */}
+-      <section className="py-20 bg-[#0f2a4e]">
++      <section className="section-pad bg-navy">
+         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
++          <h2 className="heading-section-light">
+             Ready to Discuss Your Packaging Needs?
+           </h2>
+           <p className="text-white/60 mb-10 max-w-xl mx-auto">
+@@ -175,7 +175,7 @@ export default function FAQ() {
+           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+             <Link
+               href="/contact"
+-              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
++              className="btn-light hover:scale-105"
+             >
+               Get in Touch
+               <ArrowRight size={16} />
+diff --git a/artifacts/productarmor-site/src/pages/Home.tsx b/artifacts/productarmor-site/src/pages/Home.tsx
+index 760d161..6aa9f10 100644
+--- a/artifacts/productarmor-site/src/pages/Home.tsx
++++ b/artifacts/productarmor-site/src/pages/Home.tsx
+@@ -63,7 +63,7 @@ import { useEffect } from "react";
+             />
+           )}
+ 
+-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 sm:pt-12 pb-16 sm:pb-20">
++          <div className="relative z-10 container-width text-center pt-10 sm:pt-12 pb-16 sm:pb-20">
+             {isLoading ? (
+               <>
+                 <Skeleton className="h-16 w-4/5 mx-auto mb-4" />
+@@ -71,7 +71,7 @@ import { useEffect } from "react";
+               </>
+             ) : (
+               <>
+-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#4364a7] leading-[1.1] tracking-tight mb-6">
++                <h1 className="heading-hero mb-6">
+                   {(hero?.headline ?? "Pharmaceutical-Grade Packaging")
+                     .split(/(sustainable|Delivering pharmaceutical packaging)/i)
+                     .map((part, idx) =>
+@@ -84,7 +84,7 @@ import { useEffect } from "react";
+                       )
+                     )}
+                 </h1>
+-                <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
++                <p className="text-body sm:text-lg max-w-2xl mx-auto mb-10">
+                   {hero?.subheadline ?? "ISO-certified bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
+                 </p>
+               </>
+@@ -93,19 +93,18 @@ import { useEffect } from "react";
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+               <Link
+                 href="/products"
+-                className="inline-flex items-center gap-2 bg-transparent hover:bg-gray-100 border border-gray-300 text-gray-800 font-medium px-8 py-3.5 rounded-lg transition-all duration-200 text-base"
++                className="btn-outline"
+               >
+                 View Products
+                 <ChevronRight size={18} />
+               </Link>
+             </div>
+-
+           </div>
+         </section>
+ 
+         {/* ── STATS BAR ── */}
+-        <section className="bg-[#0f2a4e] py-8">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="bg-navy py-8">
++          <div className="container-width">
+             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+               {isLoading
+                 ? Array(4).fill(0).map((_, i) => (
+@@ -116,7 +115,7 @@ import { useEffect } from "react";
+                   ))
+                 : stats.map((s, i) => (
+                     <div key={i} className="text-center reveal">
+-                      <div className="text-3xl sm:text-4xl font-black text-[#93b4e8]">{s.value}</div>
++                      <div className="text-3xl sm:text-4xl font-black text-accent">{s.value}</div>
+                       <div className="text-white/60 text-sm mt-1 font-medium">{s.label}</div>
+                     </div>
+                   ))
+@@ -126,33 +125,33 @@ import { useEffect } from "react";
+         </section>
+ 
+         {/* ── ABOUT ── */}
+-        <section className="py-20 bg-white">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="section-pad bg-white">
++          <div className="container-width">
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+               <div className="reveal">
+-                <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                   About Us
+                 </div>
+-                <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] leading-tight mb-6">
++                <h2 className="heading-section">
+                   {about?.title ?? "Precision Packaging Built for Pharma"}
+                 </h2>
+-                <p className="text-gray-600 leading-relaxed mb-8">
++                <p className="text-muted-foreground leading-relaxed mb-8">
+                   {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of pharmaceutical bottles, CR and CT caps, delivering world-class packaging at unparalleled value."}
+                 </p>
+-                <h3 className="text-lg font-semibold text-[#0f2a4e] mb-4">
++                <h3 className="heading-card mb-4">
+                   Every solution we deliver is supported by the core strengths that define who we are and how we serve.
+                 </h3>
+                 <div className="space-y-3 mb-8">
+                   {(about?.strengths ?? ["Sustainability Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"]).map((f: string) => (
+                     <div key={f} className="flex items-center gap-3">
+-                      <CheckCircle size={18} className="text-[#4164a8] shrink-0" />
+-                      <span className="text-gray-700 text-sm">{f}</span>
++                      <CheckCircle size={18} className="text-primary shrink-0" />
++                      <span className="text-muted-foreground text-sm">{f}</span>
+                     </div>
+                   ))}
+                 </div>
+                 <Link
+                   href="/about"
+-                  className="inline-flex items-center gap-2 text-[#4164a8] font-semibold hover:text-[#4164a8] transition-colors group"
++                  className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary transition-colors group"
+                 >
+                   Learn more about us
+                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+@@ -160,7 +159,7 @@ import { useEffect } from "react";
+               </div>
+               <div className="reveal">
+                 <div className="relative">
+-                  <div className="absolute -inset-4 bg-[#4164a8]/5 rounded-2xl" />
++                  <div className="absolute -inset-4 bg-primary/5 rounded-2xl" />
+                   <img
+                     src={about?.image ?? "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"}
+                     alt="Manufacturing facility"
+@@ -168,7 +167,7 @@ import { useEffect } from "react";
+                     onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"; }}
+                   />
+                   {company && (
+-                    <div className="absolute -bottom-6 -right-6 bg-[#4164a8] text-white rounded-xl p-5 shadow-xl">
++                    <div className="absolute -bottom-6 -right-6 bg-primary text-white rounded-xl p-5 shadow-xl">
+                       <div className="text-3xl font-black">{company.founded}</div>
+                       <div className="text-white/70 text-xs mt-0.5">Est.</div>
+                     </div>
+@@ -180,16 +179,16 @@ import { useEffect } from "react";
+         </section>
+ 
+         {/* ── PRODUCTS ── */}
+-        <section className="py-20 bg-gray-50">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="section-pad bg-secondary">
++          <div className="container-width">
+             <div className="text-center mb-14 reveal">
+-              <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                 Our Products
+               </div>
+-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
++              <h2 className="heading-section">
+                 Engineered for Protection. Designed for Performance.
+               </h2>
+-              <p className="text-gray-500 max-w-xl mx-auto">
++              <p className="text-muted-foreground max-w-xl mx-auto">
+                 Explore our portfolio of pharmaceutical packaging solutions, including containers &amp; bottles, CT (Continuous Thread) and CRC (Child-Resistant Closures) caps &amp; closures powered by patented technology and recognized globally.
+               </p>
+             </div>
+@@ -206,15 +205,15 @@ import { useEffect } from "react";
+                 : products.map((p, i) => (
+                     <div
+                       key={p.id}
+-                      className="reveal bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group border border-gray-100 hover:border-[#4164a8]/20"
++                      className="reveal card-standard p-0 sm:p-0 overflow-hidden group"
+                       style={{ transitionDelay: `${i * 80}ms` }}
+                     >
+                       <div className="px-6 pt-5 pb-3">
+-                        <span className="inline-block bg-[#4164a8] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
++                        <span className="inline-block bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                           {p.category}
+                         </span>
+                       </div>
+-                      <div className="relative overflow-hidden h-52 bg-gray-100">
++                      <div className="relative overflow-hidden h-52 bg-secondary">
+                         <img
+                           src={p.image}
+                           alt={p.name}
+@@ -222,20 +221,20 @@ import { useEffect } from "react";
+                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"; }}
+                         />
+                       </div>
+-                      <div className="p-6">
+-                        <h3 className="font-bold text-[#0f2a4e] text-lg mb-2">{p.name}</h3>
+-                        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">{p.description}</p>
+-                        <ul className="space-y-1.5 mb-5">
++                      <div className="p-6 flex flex-col flex-1">
++                        <h3 className="heading-card mb-2">{p.name}</h3>
++                        <p className="text-body-sm mb-4 line-clamp-2">{p.description}</p>
++                        <ul className="space-y-1.5 mb-5 flex-1">
+                           {p.features.slice(0, 3).map(f => (
+-                            <li key={f} className="flex items-start gap-2 text-xs text-gray-600">
+-                              <CheckCircle size={13} className="text-[#4164a8] shrink-0 mt-0.5" />
++                            <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
++                              <CheckCircle size={13} className="text-primary shrink-0 mt-0.5" />
+                               <span>{f}</span>
+                             </li>
+                           ))}
+                         </ul>
+                         <Link
+                           href="/products"
+-                          className="inline-flex items-center gap-1.5 text-[#4164a8] font-semibold text-sm hover:text-[#4164a8] transition-colors group/link"
++                          className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm hover:text-primary/80 transition-colors group/link mt-auto"
+                         >
+                           View details
+                           <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+@@ -248,7 +247,7 @@ import { useEffect } from "react";
+             <div className="text-center mt-10">
+               <Link
+                 href="/products"
+-                className="inline-flex items-center gap-2 border-2 border-[#4164a8] text-[#4164a8] hover:bg-[#4164a8] hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200"
++                className="btn-outline"
+               >
+                 View All Products
+                 <ArrowRight size={16} />
+@@ -258,16 +257,16 @@ import { useEffect } from "react";
+         </section>
+ 
+         {/* ── CERTIFICATIONS ── */}
+-        <section className="py-20 bg-[#4164a8]">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="section-pad bg-primary">
++          <div className="container-width">
+             <div className="text-center mb-14 reveal">
+-              <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
++              <div className="section-tag-light">
+                 Quality Assurance
+               </div>
+-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
++              <h2 className="heading-section-light">
+                 Committed to Quality. Trusted Worldwide.
+               </h2>
+-              <p className="text-white/60 max-w-xl mx-auto">
++              <p className="text-white/60 max-w-xl mx-auto text-base leading-relaxed">
+                 Powered by advanced technology, rigorous quality controls, and end-to-end traceability to deliver reliable pharmaceutical packaging solutions.
+               </p>
+             </div>
+@@ -283,18 +282,18 @@ import { useEffect } from "react";
+                       <img src={c.logo} alt={`${c.name} logo`} className="max-w-full max-h-full object-contain" />
+                     </div>
+                   ) : (
+-                    <Award size={32} className="text-[#93b4e8] mx-auto mb-4" />
++                    <Award size={32} className="text-accent mx-auto mb-4" />
+                   )}
+                   <div className="text-white font-bold text-sm mb-1">{c.name}</div>
+                   <div className="text-white/50 text-xs">{c.issuer}</div>
+-                  <div className="text-[#93b4e8] text-xs font-semibold mt-2">{c.year}</div>
++                  <div className="text-accent text-xs font-semibold mt-2">{c.year}</div>
+                 </div>
+               ))}
+             </div>
+             <div className="text-center mt-10">
+               <Link
+                 href="/quality"
+-                className="inline-flex items-center gap-2 bg-white text-[#4164a8] hover:bg-gray-50 font-semibold px-8 py-3 rounded-lg transition-all duration-200"
++                className="btn-light"
+               >
+                 Our Quality Standards
+                 <ArrowRight size={16} />
+@@ -305,10 +304,10 @@ import { useEffect } from "react";
+ 
+         {/* ── CLIENTS ── */}
+         {clients.length > 0 && (
+-          <section className="py-16 bg-white border-b border-gray-100">
+-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++          <section className="section-pad bg-white border-b border-border">
++            <div className="container-width">
+               <div className="text-center mb-10 reveal">
+-                <p className="text-gray-400 text-sm font-medium uppercase tracking-widest">
++                <p className="text-muted-foreground text-sm font-medium uppercase tracking-widest">
+                   Trusted by Global'S Leading Pharmaceutical Companies
+                 </p>
+               </div>
+@@ -319,8 +318,8 @@ import { useEffect } from "react";
+                       {c.logo ? (
+                         <img src={c.logo} alt={c.name} className="h-12 md:h-14 w-auto object-contain" loading="lazy" />
+                       ) : (
+-                        <div className="px-6 py-3 border border-gray-200 rounded-lg bg-gray-50">
+-                          <span className="text-gray-500 font-semibold text-sm">{c.name}</span>
++                        <div className="px-6 py-3 border border-border rounded-lg bg-secondary">
++                          <span className="text-muted-foreground font-semibold text-sm">{c.name}</span>
+                         </div>
+                       )}
+                     </div>
+@@ -333,13 +332,13 @@ import { useEffect } from "react";
+ 
+         {/* ── TESTIMONIALS ── */}
+         {testimonials.length > 0 && (
+-          <section className="py-20 bg-gray-50">
+-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++          <section className="section-pad bg-secondary">
++            <div className="container-width">
+               <div className="text-center mb-14 reveal">
+-                <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                   Testimonials
+                 </div>
+-                <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
++                <h2 className="heading-section">
+                   What Our Clients Say
+                 </h2>
+               </div>
+@@ -347,18 +346,18 @@ import { useEffect } from "react";
+                 {testimonials.map((t, i) => (
+                   <div
+                     key={t.id}
+-                    className="reveal bg-white rounded-xl p-7 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:border-[#4164a8]/20"
++                    className="reveal bg-white rounded-xl p-7 shadow-sm border border-border hover:shadow-md transition-all duration-300 hover:border-primary/20"
+                     style={{ transitionDelay: `${i * 80}ms` }}
+                   >
+                     <div className="flex gap-1 mb-4">
+                       {Array(5).fill(0).map((_, i) => (
+-                        <Star key={i} size={14} className="fill-[#4164a8] text-[#4164a8]" />
++                        <Star key={i} size={14} className="fill-[#4164a8] text-primary" />
+                       ))}
+                     </div>
+-                    <p className="text-gray-600 leading-relaxed text-sm mb-5 italic">"{t.quote}"</p>
+-                    <div className="border-t border-gray-100 pt-4">
+-                      <div className="font-semibold text-[#0f2a4e] text-sm">{t.author}</div>
+-                      <div className="text-gray-400 text-xs mt-0.5">{t.role}, {t.company}</div>
++                    <p className="text-muted-foreground leading-relaxed text-sm mb-5 italic">"{t.quote}"</p>
++                    <div className="border-t border-border pt-4">
++                      <div className="font-semibold text-navy text-sm">{t.author}</div>
++                      <div className="text-muted-foreground text-xs mt-0.5">{t.role}, {t.company}</div>
+                     </div>
+                   </div>
+                 ))}
+@@ -368,9 +367,9 @@ import { useEffect } from "react";
+         )}
+ 
+         {/* ── CONTACT CTA ── */}
+-        <section className="py-20 bg-[#0f2a4e]">
++        <section className="section-pad bg-navy">
+           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
++            <h2 className="heading-section-light">
+               Ready to Upgrade Your Packaging?
+             </h2>
+             <p className="text-white/60 mb-10 max-w-xl mx-auto">
+@@ -379,7 +378,7 @@ import { useEffect } from "react";
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+               <Link
+                 href="/contact"
+-                className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
++                className="btn-light hover:scale-105"
+               >
+                 Get in Touch
+                 <ArrowRight size={16} />
+@@ -387,7 +386,7 @@ import { useEffect } from "react";
+             </div>
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/50 text-sm">
+               <div className="flex items-center gap-2">
+-                <Phone size={14} className="text-[#93b4e8]" />
++                <Phone size={14} className="text-accent" />
+                 <span>{contactData?.phone ?? "+91-9154992473"}</span>
+               </div>
+               <a
+@@ -403,7 +402,7 @@ import { useEffect } from "react";
+                 <span>WhatsApp Us</span>
+               </a>
+               <div className="flex items-center gap-2">
+-                <Mail size={14} className="text-[#93b4e8]" />
++                <Mail size={14} className="text-accent" />
+                 <span>{contactData?.email ?? "info@productarmor.com"}</span>
+               </div>
+             </div>
+diff --git a/artifacts/productarmor-site/src/pages/Industries.tsx b/artifacts/productarmor-site/src/pages/Industries.tsx
+index 2bf308d..5f469cf 100644
+--- a/artifacts/productarmor-site/src/pages/Industries.tsx
++++ b/artifacts/productarmor-site/src/pages/Industries.tsx
+@@ -78,13 +78,13 @@ export default function Industries() {
+   return (
+     <div className="pt-16">
+       {/* Header */}
+-      <section className="bg-[#4164a8] py-20">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="bg-primary section-pad">
++        <div className="container-width">
+           <Breadcrumb items={[{ label: "Industries" }]} />
+           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+             Industries
+           </div>
+-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
++          <h1 className="heading-page">
+             Industries We Serve
+           </h1>
+           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+@@ -96,16 +96,16 @@ export default function Industries() {
+       </section>
+ 
+       {/* Industry cards */}
+-      <section className="py-20 bg-white">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-white">
++        <div className="container-width">
+           <div className="text-center mb-14 reveal">
+-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Sectors
+             </div>
+-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">
++            <h2 className="heading-section">
+               Packaging Built Around Your Product
+             </h2>
+-            <p className="text-gray-500 max-w-2xl mx-auto">
++            <p className="text-muted-foreground max-w-2xl mx-auto">
+               Each sector carries distinct compliance, barrier and handling
+               requirements. We tailor material, closure and liner choices to
+               match.
+@@ -115,23 +115,23 @@ export default function Industries() {
+             {industries.map((ind, i) => (
+               <div
+                 key={ind.name}
+-                className="reveal bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
++                className="reveal card-standard p-6"
+                 style={{ transitionDelay: `${i * 80}ms` }}
+               >
+-                <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center mb-5">
+-                  <ind.icon size={22} className="text-[#4164a8]" />
++                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
++                  <ind.icon size={22} className="text-primary" />
+                 </div>
+-                <h3 className="font-bold text-[#0f2a4e] text-lg mb-2">
++                <h3 className="heading-card mb-2">
+                   {ind.name}
+                 </h3>
+-                <p className="text-gray-500 text-sm leading-relaxed mb-4">
++                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                   {ind.desc}
+                 </p>
+-                <div className="border-t border-gray-100 pt-3">
+-                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">
++                <div className="border-t border-border pt-3">
++                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-1">
+                     Relevant packaging
+                   </div>
+-                  <div className="text-[#4164a8] text-sm font-medium">
++                  <div className="text-primary text-sm font-medium">
+                     {ind.packaging}
+                   </div>
+                 </div>
+@@ -142,16 +142,16 @@ export default function Industries() {
+       </section>
+ 
+       {/* Regulatory fit */}
+-      <section className="py-20 bg-gray-50">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-secondary">
++        <div className="container-width">
+           <div className="text-center mb-14 reveal">
+-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Compliance
+             </div>
+-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">
++            <h2 className="heading-section">
+               Regulatory Fit by Industry
+             </h2>
+-            <p className="text-gray-500 max-w-2xl mx-auto">
++            <p className="text-muted-foreground max-w-2xl mx-auto">
+               ISO 9001:2018 certified manufacturing means the right
+               documentation and material assurance for every market you sell
+               into.
+@@ -161,16 +161,16 @@ export default function Industries() {
+             {regulatory.map((r, i) => (
+               <div
+                 key={r.title}
+-                className="reveal bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
++                className="reveal card-standard p-6"
+                 style={{ transitionDelay: `${i * 80}ms` }}
+               >
+-                <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center mb-5">
+-                  <r.icon size={22} className="text-[#4164a8]" />
++                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
++                  <r.icon size={22} className="text-primary" />
+                 </div>
+-                <h3 className="font-bold text-[#0f2a4e] text-lg mb-2">
++                <h3 className="heading-card mb-2">
+                   {r.title}
+                 </h3>
+-                <p className="text-gray-500 text-sm leading-relaxed">
++                <p className="text-muted-foreground text-sm leading-relaxed">
+                   {r.desc}
+                 </p>
+               </div>
+@@ -180,9 +180,9 @@ export default function Industries() {
+       </section>
+ 
+       {/* CTA */}
+-      <section className="py-20 bg-[#0f2a4e]">
++      <section className="section-pad bg-navy">
+         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
++          <h2 className="heading-section-light">
+             Don't See Your Industry?
+           </h2>
+           <p className="text-white/60 mb-10 max-w-xl mx-auto">
+@@ -191,7 +191,7 @@ export default function Industries() {
+           </p>
+           <Link
+             href="/contact"
+-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
++            className="btn-light hover:scale-105"
+           >
+             Discuss Your Requirements
+             <ArrowRight size={16} />
+diff --git a/artifacts/productarmor-site/src/pages/ManagementTeam.tsx b/artifacts/productarmor-site/src/pages/ManagementTeam.tsx
+index 6df5fb2..3de613c 100644
+--- a/artifacts/productarmor-site/src/pages/ManagementTeam.tsx
++++ b/artifacts/productarmor-site/src/pages/ManagementTeam.tsx
+@@ -1,5 +1,6 @@
+ import { useState } from "react";
+ import { Link } from "wouter";
++import Breadcrumb from "@/components/Breadcrumb";
+ import { X, Linkedin, Quote, Users, ArrowRight, Star } from "lucide-react";
+ import { usePageMeta } from "@/hooks/usePageMeta";
+ import { fetchPublicTeam, type TeamMember } from "@/lib/managementTeam";
+@@ -27,8 +28,8 @@ function Photo({ member, className, sizes }: { member: TeamMember; className: st
+     );
+   }
+   return (
+-    <div className={`${className} bg-[#4164a8]/10 flex items-center justify-center`}>
+-      <span className="text-[#4164a8] font-black text-3xl">{initials(member.fullName)}</span>
++    <div className={`${className} bg-primary/10 flex items-center justify-center`}>
++      <span className="text-primary font-black text-3xl">{initials(member.fullName)}</span>
+     </div>
+   );
+ }
+@@ -37,7 +38,7 @@ function Photo({ member, className, sizes }: { member: TeamMember; className: st
+ function boldParts(text: string) {
+   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+     part.startsWith("**") && part.endsWith("**") ? (
+-      <strong key={i} className="font-semibold text-[#0f2a4e]">{part.slice(2, -2)}</strong>
++      <strong key={i} className="font-semibold text-navy">{part.slice(2, -2)}</strong>
+     ) : (
+       part
+     )
+@@ -49,7 +50,7 @@ function FormattedDescription({ text }: { text: string }) {
+   return (
+     <div className="space-y-3">
+       {paragraphs.map((p, i) => (
+-        <p key={i} className="text-gray-600 text-sm leading-relaxed whitespace-pre-line text-justify">
++        <p key={i} className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line text-justify">
+           {boldParts(p)}
+         </p>
+       ))}
+@@ -74,18 +75,18 @@ function MemberModal({ member, onClose }: { member: TeamMember; onClose: () => v
+           <button
+             onClick={onClose}
+             aria-label="Close profile"
+-            className="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-500 rounded-full p-2 transition-colors"
++            className="absolute top-4 right-4 bg-secondary hover:bg-gray-200 text-muted-foreground rounded-full p-2 transition-colors"
+           >
+             <X size={18} />
+           </button>
+ 
+           <Photo
+             member={member}
+-            className="w-32 h-32 rounded-full border-4 border-[#4164a8]/10 shadow-md mx-auto mb-5"
++            className="w-32 h-32 rounded-full border-4 border-primary/10 shadow-md mx-auto mb-5"
+             sizes="128px"
+           />
+-          <h3 className="text-2xl font-bold text-[#0f2a4e]">{member.fullName}</h3>
+-          <p className="text-[#4164a8] font-semibold text-sm mb-6">{member.designation}</p>
++          <h3 className="text-2xl font-bold text-navy">{member.fullName}</h3>
++          <p className="text-primary font-semibold text-sm mb-6">{member.designation}</p>
+ 
+           {member.shortDescription.trim() && (
+             <div className="text-left">
+@@ -115,24 +116,24 @@ function MemberCard({ member, onSelect }: { member: TeamMember; onSelect: () =>
+     <button
+       type="button"
+       onClick={onSelect}
+-      className="group w-full bg-white rounded-2xl border border-gray-100 shadow-sm p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#4164a8]/40"
++      className="group w-full bg-white rounded-2xl border border-border shadow-sm p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/40"
+     >
+       <div className="relative w-36 h-36 mx-auto mb-6">
+         <Photo
+           member={member}
+-          className="w-36 h-36 rounded-full border-4 border-[#4164a8]/10 shadow-md group-hover:scale-105 transition-transform duration-300"
++          className="w-36 h-36 rounded-full border-4 border-primary/10 shadow-md group-hover:scale-105 transition-transform duration-300"
+           sizes="144px"
+         />
+         {member.featured && (
+-          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-[#4164a8] text-white text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
++          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-primary text-white text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
+             <Star size={11} /> Featured
+           </span>
+         )}
+       </div>
+-      <h3 className="font-bold text-[#0f2a4e] text-lg group-hover:text-[#4164a8] transition-colors">
++      <h3 className="heading-card group-hover:text-primary transition-colors">
+         {member.fullName}
+       </h3>
+-      <p className="text-[#4164a8] text-sm font-semibold">{member.designation}</p>
++      <p className="text-primary text-sm font-semibold">{member.designation}</p>
+     </button>
+   );
+ }
+@@ -162,12 +163,13 @@ export default function ManagementTeam() {
+   return (
+     <div className="pt-16">
+       {/* Header */}
+-      <section className="bg-[#4164a8] py-20">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="bg-primary section-pad">
++        <div className="container-width">
++            <Breadcrumb items={[{ label: "Management Team" }]} />
+           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+             Management Team
+           </div>
+-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Our Leadership</h1>
++          <h1 className="heading-page">Our Leadership</h1>
+           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+             The directors and senior management guiding Product Armor's commitment to
+             pharmaceutical packaging excellence.
+@@ -176,27 +178,27 @@ export default function ManagementTeam() {
+       </section>
+ 
+       {/* Grid */}
+-      <section className="py-20 bg-gray-50">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-secondary">
++        <div className="container-width">
+           {isLoading ? (
+             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+               {[0, 1, 2].map(i => (
+-                <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 animate-pulse">
+-                  <div className="w-36 h-36 bg-gray-100 rounded-full mx-auto mb-6" />
++                <div key={i} className="bg-white rounded-2xl border border-border shadow-sm p-8 animate-pulse">
++                  <div className="w-36 h-36 bg-secondary rounded-full mx-auto mb-6" />
+                   <div className="space-y-3">
+-                    <div className="h-4 bg-gray-100 rounded w-2/3 mx-auto" />
+-                    <div className="h-3 bg-gray-100 rounded w-1/2 mx-auto" />
++                    <div className="h-4 bg-secondary rounded w-2/3 mx-auto" />
++                    <div className="h-3 bg-secondary rounded w-1/2 mx-auto" />
+                   </div>
+                 </div>
+               ))}
+             </div>
+           ) : !members || members.length === 0 ? (
+-            <div className="text-center py-16">
+-              <div className="w-16 h-16 bg-[#4164a8]/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+-                <Users size={28} className="text-[#4164a8]" />
++            <div className="text-center section-pad">
++              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
++                <Users size={28} className="text-primary" />
+               </div>
+-              <h2 className="text-xl font-bold text-[#0f2a4e] mb-2">Team profiles coming soon</h2>
+-              <p className="text-gray-500 text-sm max-w-md mx-auto">
++              <h2 className="text-xl heading-card mb-2">Team profiles coming soon</h2>
++              <p className="text-muted-foreground text-sm max-w-md mx-auto">
+                 We are preparing detailed profiles of our directors and senior management team.
+                 Please check back shortly.
+               </p>
+@@ -223,16 +225,16 @@ export default function ManagementTeam() {
+       </section>
+ 
+       {/* CTA */}
+-      <section className="py-16 bg-[#4164a8]">
++      <section className="section-pad bg-primary">
+         <div className="max-w-3xl mx-auto px-4 text-center">
+           <Quote size={26} className="text-white/40 mx-auto mb-4" />
+-          <h2 className="text-2xl font-bold text-white mb-3">Leadership You Can Rely On</h2>
++          <h2 className="heading-section-light">Leadership You Can Rely On</h2>
+           <p className="text-white/60 mb-6 text-sm">
+             Our management team brings decades of combined pharmaceutical packaging experience to every partnership.
+           </p>
+           <Link
+             href="/contact"
+-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
++            className="btn-light"
+           >
+             Get in Touch <ArrowRight size={15} />
+           </Link>
+diff --git a/artifacts/productarmor-site/src/pages/Products.tsx b/artifacts/productarmor-site/src/pages/Products.tsx
+index ed1d1ec..7b0c47c 100644
+--- a/artifacts/productarmor-site/src/pages/Products.tsx
++++ b/artifacts/productarmor-site/src/pages/Products.tsx
+@@ -1,6 +1,7 @@
+ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
+   import { CheckCircle, Package, ArrowRight, SearchX } from "lucide-react";
+   import { Link, useSearch } from "wouter";
++import Breadcrumb from "@/components/Breadcrumb";
+   import { usePageMeta } from "@/hooks/usePageMeta";
+ 
+   export default function Products() {
+@@ -31,12 +32,13 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+     return (
+       <div className="pt-16">
+         {/* Header */}
+-        <section className="bg-[#4164a8] py-20">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="bg-primary section-pad">
++          <div className="container-width">
++            <Breadcrumb items={[{ label: "Products" }]} />
+             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Product Range
+             </div>
+-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
++            <h1 className="heading-page">
+               Pharmaceutical Packaging Solutions
+             </h1>
+             <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+@@ -45,15 +47,15 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+             {query && (
+               <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/90 text-sm">
+                 <span>Showing results for “{query}”</span>
+-                <Link href="/products" className="text-[#93b4e8] hover:text-white font-semibold">Clear</Link>
++                <Link href="/products" className="text-accent hover:text-white font-semibold">Clear</Link>
+               </div>
+             )}
+           </div>
+         </section>
+ 
+         {/* Products */}
+-        <section className="py-20 bg-gray-50">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="section-pad bg-secondary">
++          <div className="container-width">
+             {isLoading ? (
+               <div className="space-y-12">
+                 {Array(3).fill(0).map((_, i) => (
+@@ -70,15 +72,15 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+                 ))}
+               </div>
+             ) : products.length === 0 ? (
+-              <div className="text-center py-16">
+-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+-                  <SearchX size={28} className="text-gray-400" />
++              <div className="text-center section-pad">
++                <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
++                  <SearchX size={28} className="text-muted-foreground" />
+                 </div>
+-                <h2 className="text-xl font-bold text-[#0f2a4e] mb-2">No products matched “{query}”</h2>
+-                <p className="text-gray-500 text-sm mb-6">Try a different term, or browse our full product range.</p>
++                <h2 className="text-xl heading-card mb-2">No products matched “{query}”</h2>
++                <p className="text-muted-foreground text-sm mb-6">Try a different term, or browse our full product range.</p>
+                 <Link
+                   href="/products"
+-                  className="inline-flex items-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 text-sm"
++                  className="btn-primary"
+                 >
+                   View all products
+                   <ArrowRight size={15} />
+@@ -87,9 +89,9 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+             ) : (
+               <div className="space-y-12">
+                 {products.map((p, i) => (
+-                  <div key={p.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
++                  <div key={p.id} className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow">
+                     <div className={`grid grid-cols-1 lg:grid-cols-2 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}>
+-                      <div className={`relative h-72 lg:h-auto min-h-64 bg-gray-100 ${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
++                      <div className={`relative h-72 lg:h-auto min-h-64 bg-secondary ${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
+                         <img
+                           src={p.image}
+                           alt={p.name}
+@@ -97,24 +99,24 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"; }}
+                         />
+                         <div className="absolute top-4 left-4">
+-                          <span className="bg-[#4164a8] text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
++                          <span className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
+                         </div>
+                       </div>
+                       <div className={`p-10 flex flex-col justify-center ${i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
+-                        <h2 className="text-2xl font-bold text-[#0f2a4e] mb-3">{p.name}</h2>
+-                        <p className="text-gray-500 leading-relaxed mb-6">{p.description}</p>
++                        <h2 className="text-2xl heading-card mb-3">{p.name}</h2>
++                        <p className="text-muted-foreground leading-relaxed mb-6">{p.description}</p>
+                         {p.sizes && (
+                           <p className="mb-6 text-sm">
+-                            <span className="font-bold text-[#4164a8] uppercase tracking-widest text-xs">Available Sizes: </span>
+-                            <span className="text-gray-600">{p.sizes}</span>
++                            <span className="font-bold text-primary uppercase tracking-widest text-xs">Available Sizes: </span>
++                            <span className="text-muted-foreground">{p.sizes}</span>
+                           </p>
+                         )}
+                         <div>
+-                          <h3 className="text-xs font-bold text-[#4164a8] uppercase tracking-widest mb-3">Key Features</h3>
++                          <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-3">Key Features</h3>
+                           <ul className="space-y-2">
+                             {p.features.map(f => (
+-                              <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
+-                                <CheckCircle size={15} className="text-[#4164a8] shrink-0 mt-0.5" />
++                              <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
++                                <CheckCircle size={15} className="text-primary shrink-0 mt-0.5" />
+                                 <span>{f}</span>
+                               </li>
+                             ))}
+@@ -130,16 +132,16 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+         </section>
+ 
+         {/* CTA */}
+-        <section className="py-16 bg-[#4164a8]">
++        <section className="section-pad bg-primary">
+           <div className="max-w-3xl mx-auto px-4 text-center">
+-            <Package size={40} className="text-[#93b4e8] mx-auto mb-4" />
+-            <h2 className="text-2xl font-bold text-white mb-3"> Need Customize Specification </h2>
++            <Package size={40} className="text-accent mx-auto mb-4" />
++            <h2 className="heading-section-light"> Need Customize Specification </h2>
+             <p className="text-white/60 mb-6 text-sm">
+               We offer custom sizing, color options, and tailored packaging solutions. Talk to our team to develop a solution that meets your specific requirements.
+             </p>
+             <Link
+               href="/contact"
+-              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
++              className="btn-light"
+             >
+               Get in Touch
+               <ArrowRight size={15} />
+diff --git a/artifacts/productarmor-site/src/pages/Quality.tsx b/artifacts/productarmor-site/src/pages/Quality.tsx
+index cd0a8d8..22c6f78 100644
+--- a/artifacts/productarmor-site/src/pages/Quality.tsx
++++ b/artifacts/productarmor-site/src/pages/Quality.tsx
+@@ -1,6 +1,7 @@
+ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
+   import { Award, CheckCircle, ClipboardCheck, FlaskConical, ArrowRight } from "lucide-react";
+   import { Link } from "wouter";
++import Breadcrumb from "@/components/Breadcrumb";
+ 
+   const qcSteps = [
+     { icon: FlaskConical, title: "Raw Material Testing", desc: "Every incoming resin batch is tested for melt flow index, density, and compliance with USP Class VI requirements before use." },
+@@ -16,12 +17,13 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+     return (
+       <div className="pt-16">
+         {/* Header */}
+-        <section className="bg-[#4164a8] py-20">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="bg-primary section-pad">
++          <div className="container-width">
++            <Breadcrumb items={[{ label: "Quality" }]} />
+             <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Quality & Compliance
+             </div>
+-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Our Quality Framework</h1>
++            <h1 className="heading-page">Our Quality Framework</h1>
+             <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+               Quality is not a department — it is embedded in every step of our manufacturing process.
+             </p>
+@@ -29,29 +31,29 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+         </section>
+ 
+         {/* Certifications grid */}
+-        <section className="py-20 bg-white">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="section-pad bg-white">
++          <div className="container-width">
+             <div className="text-center mb-14">
+-              <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">Our Certifications</h2>
+-              <p className="text-gray-500 max-w-xl mx-auto">
++              <h2 className="heading-section">Our Certifications</h2>
++              <p className="text-muted-foreground max-w-xl mx-auto">
+                 Each certification represents a commitment to a specific international quality or compliance standard.
+               </p>
+             </div>
+             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+               {certifications.map(c => (
+-                <div key={c.id} className="border-2 border-[#4164a8]/10 hover:border-[#4164a8]/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
++                <div key={c.id} className="border-2 border-primary/10 hover:border-primary/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
+                   {c.logo ? (
+-                    <div className="w-20 h-20 mx-auto mb-5 bg-gray-50 rounded-xl p-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
++                    <div className="w-20 h-20 mx-auto mb-5 bg-secondary rounded-xl p-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                       <img src={c.logo} alt={`${c.name} logo`} className="max-w-full max-h-full object-contain" />
+                     </div>
+                   ) : (
+-                    <div className="w-16 h-16 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
++                    <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                       <Award size={30} className="text-white" />
+                     </div>
+                   )}
+-                  <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
+-                  <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
+-                  <div className="inline-block bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold px-3 py-1 rounded-full">
++                  <div className="heading-card mb-1">{c.name}</div>
++                  <div className="text-muted-foreground text-sm mb-2">{c.issuer}</div>
++                  <div className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">
+                     {c.year}
+                   </div>
+                 </div>
+@@ -65,13 +67,13 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+                     { name: "Canadian DMF", issuer: "Health Canada", year: "MF2022-108" },
+                     { name: "China DMF", issuer: "NMPA China", year: "B20220000820" },
+                   ].map(c => (
+-                    <div key={c.name} className="border-2 border-[#4164a8]/10 hover:border-[#4164a8]/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
+-                      <div className="w-16 h-16 bg-[#4164a8] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
++                    <div key={c.name} className="border-2 border-primary/10 hover:border-primary/30 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-lg group">
++                      <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                         <Award size={30} className="text-white" />
+                       </div>
+-                      <div className="font-bold text-[#0f2a4e] text-lg mb-1">{c.name}</div>
+-                      <div className="text-gray-500 text-sm mb-2">{c.issuer}</div>
+-                      <div className="inline-block bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold px-3 py-1 rounded-full">
++                      <div className="heading-card mb-1">{c.name}</div>
++                      <div className="text-muted-foreground text-sm mb-2">{c.issuer}</div>
++                      <div className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">
+                         {c.year}
+                       </div>
+                     </div>
+@@ -83,29 +85,29 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+         </section>
+ 
+         {/* QC Process */}
+-        <section className="py-20 bg-gray-50">
+-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++        <section className="section-pad bg-secondary">
++          <div className="container-width">
+             <div className="text-center mb-14">
+-              <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">Our Quality Control Process</h2>
+-              <p className="text-gray-500 max-w-xl mx-auto">
++              <h2 className="heading-section">Our Quality Control Process</h2>
++              <p className="text-muted-foreground max-w-xl mx-auto">
+                 A multi-stage inspection and testing protocol ensures every batch meets specification before dispatch.
+               </p>
+             </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+               {qcSteps.map((s, i) => (
+-                <div key={s.title} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex gap-5">
++                <div key={s.title} className="bg-white rounded-xl p-8 shadow-sm border border-border flex gap-5">
+                   <div className="flex flex-col items-center">
+-                    <div className="w-12 h-12 bg-[#4164a8] rounded-xl flex items-center justify-center shrink-0 text-white font-bold text-lg">
++                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shrink-0 text-white font-bold text-lg">
+                       {i + 1}
+                     </div>
+-                    {i < qcSteps.length - 1 && <div className="w-0.5 flex-1 bg-[#4164a8]/10 mt-3" />}
++                    {i < qcSteps.length - 1 && <div className="w-0.5 flex-1 bg-primary/10 mt-3" />}
+                   </div>
+                   <div className="pb-4">
+                     <div className="flex items-center gap-2 mb-2">
+-                      <s.icon size={16} className="text-[#4164a8]" />
+-                      <h3 className="font-bold text-[#0f2a4e]">{s.title}</h3>
++                      <s.icon size={16} className="text-primary" />
++                      <h3 className="font-bold text-navy">{s.title}</h3>
+                     </div>
+-                    <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
++                    <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                   </div>
+                 </div>
+               ))}
+@@ -114,15 +116,15 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
+         </section>
+ 
+         {/* CTA */}
+-        <section className="py-16 bg-[#4164a8]">
++        <section className="section-pad bg-primary">
+           <div className="max-w-3xl mx-auto px-4 text-center">
+-            <h2 className="text-2xl font-bold text-white mb-3">Need Compliance Documentation?</h2>
++            <h2 className="heading-section-light">Need Compliance Documentation?</h2>
+             <p className="text-white/60 mb-6 text-sm">
+               We can provide CoA, GMP certificates, MSDS and regulatory dossiers on request.
+             </p>
+             <Link
+               href="/contact"
+-              className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-7 py-3 rounded-lg transition-all duration-200"
++              className="btn-light"
+             >
+               Request Documents <ArrowRight size={15} />
+             </Link>
+diff --git a/artifacts/productarmor-site/src/pages/Technology.tsx b/artifacts/productarmor-site/src/pages/Technology.tsx
+index a52e01b..5b45f86 100644
+--- a/artifacts/productarmor-site/src/pages/Technology.tsx
++++ b/artifacts/productarmor-site/src/pages/Technology.tsx
+@@ -115,13 +115,13 @@ export default function Technology() {
+   return (
+     <div className="pt-16">
+       {/* Header */}
+-      <section className="bg-[#4164a8] py-20">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="bg-primary section-pad">
++        <div className="container-width">
+           <Breadcrumb items={[{ label: "Technology" }]} />
+           <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+             Manufacturing Technology
+           </div>
+-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
++          <h1 className="heading-page">
+             Engineered for Precision. Built for Performance.
+           </h1>
+           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
+@@ -133,16 +133,16 @@ export default function Technology() {
+       </section>
+ 
+       {/* Process timeline */}
+-      <section className="py-20 bg-white">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-white">
++        <div className="container-width">
+           <div className="text-center mb-14 reveal">
+-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Our Process
+             </div>
+-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">
++            <h2 className="heading-section">
+               Design to Dispatch — A Controlled Workflow
+             </h2>
+-            <p className="text-gray-500 max-w-2xl mx-auto">
++            <p className="text-muted-foreground max-w-2xl mx-auto">
+               Every batch follows the same six-stage process, so quality is engineered in rather than inspected in
+               afterwards.
+             </p>
+@@ -152,19 +152,19 @@ export default function Technology() {
+             {processSteps.map((step, i) => (
+               <div
+                 key={step.title}
+-                className="reveal relative bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
++                className="reveal relative card-standard p-6"
+                 style={{ transitionDelay: `${i * 80}ms` }}
+               >
+                 <div className="flex items-center gap-4 mb-4">
+-                  <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center shrink-0">
+-                    <step.icon size={22} className="text-[#4164a8]" />
++                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
++                    <step.icon size={22} className="text-primary" />
+                   </div>
+-                  <span className="text-4xl font-black text-[#4164a8]/15 leading-none">
++                  <span className="text-4xl font-black text-primary/15 leading-none">
+                     {String(i + 1).padStart(2, "0")}
+                   </span>
+                 </div>
+-                <h3 className="font-bold text-[#0f2a4e] mb-2">{step.title}</h3>
+-                <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
++                <h3 className="heading-card mb-2">{step.title}</h3>
++                <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+               </div>
+             ))}
+           </div>
+@@ -172,14 +172,14 @@ export default function Technology() {
+       </section>
+ 
+       {/* Capabilities */}
+-      <section className="py-20 bg-gray-50">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-secondary">
++        <div className="container-width">
+           <div className="text-center mb-14 reveal">
+-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++            <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+               Capabilities
+             </div>
+-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">Technology That Sets Us Apart</h2>
+-            <p className="text-gray-500 max-w-2xl mx-auto">
++            <h2 className="heading-section">Technology That Sets Us Apart</h2>
++            <p className="text-muted-foreground max-w-2xl mx-auto">
+               A tightly integrated manufacturing platform that combines material science, automation and
+               sustainability.
+             </p>
+@@ -189,14 +189,14 @@ export default function Technology() {
+             {capabilities.map((cap, i) => (
+               <div
+                 key={cap.title}
+-                className="reveal bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
++                className="reveal card-standard p-6"
+                 style={{ transitionDelay: `${i * 80}ms` }}
+               >
+-                <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center mb-4">
+-                  <cap.icon size={22} className="text-[#4164a8]" />
++                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
++                  <cap.icon size={22} className="text-primary" />
+                 </div>
+-                <h3 className="font-bold text-[#0f2a4e] mb-2">{cap.title}</h3>
+-                <p className="text-gray-500 text-sm leading-relaxed">{cap.desc}</p>
++                <h3 className="heading-card mb-2">{cap.title}</h3>
++                <p className="text-muted-foreground text-sm leading-relaxed">{cap.desc}</p>
+               </div>
+             ))}
+           </div>
+@@ -204,17 +204,17 @@ export default function Technology() {
+       </section>
+ 
+       {/* Material science highlight */}
+-      <section className="py-20 bg-white">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++      <section className="section-pad bg-white">
++        <div className="container-width">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+             <div className="reveal">
+-              <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
++              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                 Material Excellence & Full Traceability
+               </div>
+-              <h2 className="text-3xl font-bold text-[#0f2a4e] mb-6">
++              <h2 className="text-3xl font-bold text-navy mb-6">
+                 Pharmaceutical-Grade Materials. Built on Quality and Traceability.
+               </h2>
+-              <p className="text-gray-600 leading-relaxed mb-6">
++              <p className="text-muted-foreground leading-relaxed mb-6">
+                 The foundation of every pharmaceutical packaging solution begins with carefully selected raw
+                 materials sourced from qualified suppliers. Our material qualification process is designed to
+                 support product safety, regulatory compliance, and consistent performance across every batch,
+@@ -229,8 +229,8 @@ export default function Technology() {
+                   "SKU-specific quality and performance validation",
+                 ].map((f) => (
+                   <li key={f} className="flex items-start gap-3">
+-                    <ShieldCheck size={18} className="text-[#4164a8] shrink-0 mt-0.5" />
+-                    <span className="text-gray-700 text-sm">{f}</span>
++                    <ShieldCheck size={18} className="text-primary shrink-0 mt-0.5" />
++                    <span className="text-muted-foreground text-sm">{f}</span>
+                   </li>
+                 ))}
+               </ul>
+@@ -251,16 +251,16 @@ export default function Technology() {
+       </section>
+ 
+       {/* CTA */}
+-      <section className="py-20 bg-[#0f2a4e]">
++      <section className="section-pad bg-navy">
+         <div className="max-w-3xl mx-auto px-4 text-center reveal">
+-          <h2 className="text-3xl font-bold text-white mb-4">Talk to Our Technical Team</h2>
++          <h2 className="heading-section-light">Talk to Our Technical Team</h2>
+           <p className="text-white/60 mb-8">
+             Have a challenging packaging specification? Our engineers can review your requirement and recommend the
+             right material, mould and closure system.
+           </p>
+           <Link
+             href="/contact"
+-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
++            className="btn-light hover:scale-105"
+           >
+             Discuss Your Project <ArrowRight size={16} />
+           </Link>
+diff --git a/artifacts/productarmor-site/src/pages/not-found.tsx b/artifacts/productarmor-site/src/pages/not-found.tsx
+index dba9f83..d884698 100644
+--- a/artifacts/productarmor-site/src/pages/not-found.tsx
++++ b/artifacts/productarmor-site/src/pages/not-found.tsx
+@@ -3,15 +3,15 @@ import { AlertCircle } from "lucide-react";
+ 
+ export default function NotFound() {
+   return (
+-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
++    <div className="min-h-screen w-full flex items-center justify-center bg-secondary">
+       <Card className="w-full max-w-md mx-4">
+         <CardContent className="pt-6">
+           <div className="flex mb-4 gap-2">
+             <AlertCircle className="h-8 w-8 text-red-500" />
+-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
++            <h1 className="text-2xl font-bold text-foreground">404 Page Not Found</h1>
+           </div>
+ 
+-          <p className="mt-4 text-sm text-gray-600">
++          <p className="mt-4 text-sm text-muted-foreground">
+             Did you forget to add the page to the router?
+           </p>
+         </CardContent>

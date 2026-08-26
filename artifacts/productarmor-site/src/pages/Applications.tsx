@@ -126,7 +126,7 @@ export default function Applications() {
             </h2>
  <p className="max-w-2xl mx-auto text-gray-500">
               The right container and closure combination keeps your product
-              stable, compliant and easy to use from fill line to end user.
+              stable, compliant and easy to use from filling line to end user.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

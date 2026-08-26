@@ -37,7 +37,7 @@ const industries = [
   {
     icon: Leaf,
     name: "Nutraceuticals, Healthcare & Supplements",
-    desc: "Wide-mouth bottles and secure closures for vitamins, minerals, and softgel supplements that demand better barrier performance.",
+    desc: "Wide-mouth bottles and secure closures for vitamins, minerals and softgel supplements that demand better barrier performance.",
     packaging: "Wide-mouth bottles · CT / CR caps with customer-specific liners",
   },
   {

@@ -387,10 +387,10 @@ import { useEffect } from "react";
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/50 text-sm">
               <div className="flex items-center gap-2">
  <Phone size={14} className="text-[#93b4e8]" />
-                <span>{contactData?.phone ?? "+91-9154992473"}</span>
+                <span>{contactData?.phone ?? "+91-7416207700"}</span>
               </div>
               <a
-                href={`https://wa.me/${(contactData?.whatsapp ?? "+919154992473").replace(/[^0-9]/g, "")}`}
+                href={`https://wa.me/${(contactData?.whatsapp ?? "+917416207700").replace(/[^0-9]/g, "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-white transition-colors"

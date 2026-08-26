@@ -1,34 +1,13 @@
 import { Router, type IRouter } from "express";
-import fs from "fs";
 import path from "path";
 import { Buffer } from "buffer";
 import { sendMail, type MailAttachment } from "../lib/mailer";
+import { getPool } from "../lib/db";
 
 const router: IRouter = Router();
 
 const CONTACT_EMAIL = "mail@productarmor.com";
 const HR_EMAIL = "hr@productarmor.com";
-
-const workspaceRoot = process.cwd().endsWith(path.join("artifacts", "api-server"))
-  ? path.resolve(process.cwd(), "../..")
-  : process.cwd();
-
-const submissionsDir = path.resolve(workspaceRoot, "artifacts/api-server/data/submissions");
-const resumesDir = path.resolve(submissionsDir, "resumes");
-
-function appendSubmission(file: string, entry: Record<string, unknown>): void {
-  fs.mkdirSync(submissionsDir, { recursive: true });
-  const target = path.resolve(submissionsDir, file);
-  let list: unknown[] = [];
-  try {
-    list = JSON.parse(fs.readFileSync(target, "utf-8"));
-    if (!Array.isArray(list)) list = [];
-  } catch {
-    list = [];
-  }
-  list.push(entry);
-  fs.writeFileSync(target, JSON.stringify(list, null, 2));
-}
 
 function cleanString(value: unknown, maxLen: number): string {
   return typeof value === "string" ? value.trim().slice(0, maxLen) : "";
@@ -58,6 +37,11 @@ const RESUME_TYPES: Record<string, Buffer> = {
 };
 const MAX_RESUME_BYTES = 10 * 1024 * 1024;
 
+function requireAdmin(authHeader: string | undefined): boolean {
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  return Boolean(adminPassword) && authHeader === `Bearer ${adminPassword}`;
+}
+
 router.post("/contact", async (req, res): Promise<void> => {
   const body = req.body ?? {};
 
@@ -85,14 +69,12 @@ router.post("/contact", async (req, res): Promise<void> => {
     return;
   }
 
-  const entry = {
-    name,
-    company,
-    email,
-    message,
-    submittedAt: new Date().toISOString(),
-  };
-  appendSubmission("contact.json", entry);
+  const submittedAt = new Date().toISOString();
+  const insert = await getPool().query(
+    `INSERT INTO contact_submissions (name, company, email, message) VALUES ($1, $2, $3, $4) RETURNING id`,
+    [name, company, email, message],
+  );
+  const submissionId = insert.rows[0].id as number;
 
   let emailed = false;
   try {
@@ -110,14 +92,17 @@ router.post("/contact", async (req, res): Promise<void> => {
         "Message:",
         message,
         "",
-        `Submitted at: ${entry.submittedAt}`,
+        `Submitted at: ${submittedAt}`,
       ].join("\n"),
     });
   } catch (err) {
     req.log.error({ err }, "Contact form email delivery failed");
   }
+  if (emailed) {
+    await getPool().query(`UPDATE contact_submissions SET emailed = true WHERE id = $1`, [submissionId]);
+  }
 
-  req.log.info({ emailed }, "Contact form submission stored");
+  req.log.info({ emailed, submissionId }, "Contact form submission stored");
   res.json({ ok: true, emailed });
 });
 
@@ -149,7 +134,6 @@ router.post("/careers/apply", async (req, res): Promise<void> => {
   }
 
   // Optional resume: { filename, data } with base64 or data-URL content.
-  let resumePath: string | null = null;
   let attachment: MailAttachment | undefined;
   const resume = body.resume;
   if (resume && typeof resume === "object") {
@@ -182,23 +166,16 @@ router.post("/careers/apply", async (req, res): Promise<void> => {
       res.status(400).json({ error: "Resume file content does not match its type." });
       return;
     }
-    fs.mkdirSync(resumesDir, { recursive: true });
-    const safeName = `${Date.now()}-${filename.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
-    resumePath = path.resolve(resumesDir, safeName);
-    fs.writeFileSync(resumePath, content);
     attachment = { filename, content };
   }
 
-  const entry = {
-    name,
-    email,
-    phone,
-    position,
-    message,
-    resume: resumePath ? path.basename(resumePath) : null,
-    submittedAt: new Date().toISOString(),
-  };
-  appendSubmission("applications.json", entry);
+  const submittedAt = new Date().toISOString();
+  const insert = await getPool().query(
+    `INSERT INTO job_applications (name, email, phone, position, message, resume_filename, resume_data)
+     VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id`,
+    [name, email, phone, position, message, attachment?.filename ?? null, attachment?.content ?? null],
+  );
+  const submissionId = insert.rows[0].id as number;
 
   let emailed = false;
   try {
@@ -218,36 +195,68 @@ router.post("/careers/apply", async (req, res): Promise<void> => {
         message,
         "",
         attachment ? `Resume attached: ${attachment.filename}` : "No resume attached.",
-        `Submitted at: ${entry.submittedAt}`,
+        `Submitted at: ${submittedAt}`,
       ].join("\n"),
       attachments: attachment ? [attachment] : undefined,
     });
   } catch (err) {
     req.log.error({ err }, "Job application email delivery failed");
   }
+  if (emailed) {
+    await getPool().query(`UPDATE job_applications SET emailed = true WHERE id = $1`, [submissionId]);
+  }
 
-  req.log.info({ emailed }, "Job application stored");
+  req.log.info({ emailed, submissionId }, "Job application stored");
   res.json({ ok: true, emailed });
 });
 
 // Admin-only: review stored submissions.
 router.get("/submissions/:kind", async (req, res): Promise<void> => {
-  const adminPassword = process.env.ADMIN_PASSWORD;
-  if (!adminPassword) {
-    res.status(503).json({ error: "Admin access not configured" });
+  if (!requireAdmin(req.headers.authorization)) {
+    res.status(process.env.ADMIN_PASSWORD ? 401 : 503).json({ error: "Unauthorized" });
     return;
   }
-  if (req.headers.authorization !== `Bearer ${adminPassword}`) {
-    res.status(401).json({ error: "Unauthorized" });
+  if (req.params.kind === "applications") {
+    const result = await getPool().query(
+      `SELECT id, name, email, phone, position, message, resume_filename, emailed, created_at
+       FROM job_applications ORDER BY created_at DESC LIMIT 500`,
+    );
+    res.json(result.rows);
     return;
   }
-  const kind = req.params.kind === "applications" ? "applications.json" : "contact.json";
-  try {
-    const data = JSON.parse(fs.readFileSync(path.resolve(submissionsDir, kind), "utf-8"));
-    res.json(data);
-  } catch {
-    res.json([]);
+  const result = await getPool().query(
+    `SELECT id, name, company, email, message, emailed, created_at
+     FROM contact_submissions ORDER BY created_at DESC LIMIT 500`,
+  );
+  res.json(result.rows);
+});
+
+// Admin-only: download a stored resume.
+router.get("/submissions/applications/:id/resume", async (req, res): Promise<void> => {
+  if (!requireAdmin(req.headers.authorization)) {
+    res.status(process.env.ADMIN_PASSWORD ? 401 : 503).json({ error: "Unauthorized" });
+    return;
   }
+  const id = Number.parseInt(req.params.id, 10);
+  if (!Number.isInteger(id)) {
+    res.status(400).json({ error: "Invalid id" });
+    return;
+  }
+  const result = await getPool().query(
+    `SELECT resume_filename, resume_data FROM job_applications WHERE id = $1`,
+    [id],
+  );
+  const row = result.rows[0];
+  if (!row || !row.resume_data) {
+    res.status(404).json({ error: "No resume for this application" });
+    return;
+  }
+  res.setHeader(
+    "Content-Disposition",
+    `attachment; filename="${String(row.resume_filename ?? "resume").replace(/["\\]/g, "_")}"`,
+  );
+  res.setHeader("Content-Type", "application/octet-stream");
+  res.send(row.resume_data);
 });
 
 export default router;

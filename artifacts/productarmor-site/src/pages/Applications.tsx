@@ -4,9 +4,7 @@ import {
   Pill,
   Droplet,
   Wind,
-  Sparkles,
   Candy,
-  Hand,
   FlaskConical,
   Layers,
   ArrowRight,
@@ -49,22 +47,10 @@ const applications = [
     fit: "Wide-mouth bottle + CT cap",
   },
   {
-    icon: Sparkles,
-    name: "Effervescent Products",
-    desc: "Effervescent tablets that react with moisture, needing tight-sealing closures and desiccant-compatible packaging.",
-    fit: "bottle + CR/CT cap + desiccant liner",
-  },
-  {
     icon: Candy,
     name: "Nutraceutical Gummies",
     desc: "Sticky, temperature-sensitive gummies and chewables that require a wide mouth, secure closure and good barrier performance.",
     fit: "Wide-mouth bottle + CT cap + seal",
-  },
-  {
-    icon: Hand,
-    name: "Topical & Personal Care",
-    desc: "Creams, oils and lotions where finish, chemical resistance and reliable dispensing closures are essential.",
-    fit: "bottle + CT cap (dispensing options)",
   },
 ];
 

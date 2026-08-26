@@ -46,7 +46,7 @@ const processSteps = [
   {
     icon: Factory,
     title: "Moulding",
-    desc: "Engineered for Purity. Built for Precision - Advanced injection & blow moulding technology, pharmaceutical-grade resin materials, and controlled cleanroom environment to minimize air particulate contamination and deliver packaging engineered for consistent performance and quality.",
+    desc: "Engineered for Purity; Built for Precision - Advanced injection & blow moulding technology, pharmaceutical-grade resin materials, and controlled cleanroom environment to minimize air particulate contamination and deliver packaging engineered for consistent performance and quality.",
   },
   {
     icon: ScanLine,

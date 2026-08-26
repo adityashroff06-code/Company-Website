@@ -72,7 +72,7 @@ const productFit = [
   {
     icon: FlaskConical,
     title: "Bottles",
-    desc: "Manufactured using food-grade resins, we supply pharmaceutical bottles in round, oval and wide-mouth profiles from 30 ml to 1000 ml — the primary container for tablets/capsule.",
+    desc: "Manufactured using food-grade resins, we supply pharmaceutical bottles in round, oval and wide-mouth profiles from 30 ml to 2400 ml — the primary container for tablets/capsule.",
   },
   {
     icon: Pill,

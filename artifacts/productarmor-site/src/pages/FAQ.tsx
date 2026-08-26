@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Can I customise bottle sizes, neck finishes and colours?",
-    a: "Yes. We manufacture bottles across a wide range of volumes (typically 30 ml to 1000 ml) with common pharma neck finishes, and closures in CR and CT formats. Colours are matched to Pantone references, and we support masterbatch matching for brand consistency. Custom geometries are achievable through dedicated tooling.",
+    a: "Yes. We manufacture bottles across a wide range of volumes (typically 30 ml to 2400 ml) with common pharma neck finishes, and closures in CR and CT formats. Colours are matched to Pantone references, and we support masterbatch matching for brand consistency. Custom geometries are achievable through dedicated tooling.",
   },
   {
     q: "Which certifications and quality standards do you hold?",

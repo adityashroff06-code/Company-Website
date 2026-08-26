@@ -35,8 +35,8 @@ const applications = [
   },
   {
     icon: Droplet,
-    name: "Liquid Orals & Syrups",
-    desc: "Cough syrups, suspensions and tonics requiring leak-proof, low-extractable containers that survive transport and dosing.",
+    name: "Liquid Orals",
+    desc: "Suspensions and tonics requiring leak-proof, low-extractable containers that survive transport and dosing.",
     fit: "bottle + CT cap + wad seal",
   },
   {

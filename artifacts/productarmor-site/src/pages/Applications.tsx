@@ -4,7 +4,6 @@ import {
   Pill,
   Droplet,
   Wind,
-  Candy,
   FlaskConical,
   Layers,
   ArrowRight,
@@ -45,12 +44,6 @@ const applications = [
     name: "Dry Powders & Granules",
     desc: "Reconstitutable powders and granular formulations that demand a strong moisture barrier and a wide neck for easy filling.",
     fit: "Wide-mouth bottle + CT cap",
-  },
-  {
-    icon: Candy,
-    name: "Nutraceutical Gummies",
-    desc: "Sticky, temperature-sensitive gummies and chewables that require a wide mouth, secure closure and good barrier performance.",
-    fit: "Wide-mouth bottle + CT cap + seal",
   },
 ];
 

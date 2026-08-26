@@ -22,9 +22,12 @@ import type {
 import type {
   AdminCredentials,
   AdminToken,
+  ContactSubmission,
   ErrorResponse,
   HealthStatus,
-  SiteContent
+  JobApplication,
+  SiteContent,
+  SubmissionResult
 } from './api.schemas';
 
 import { customFetch } from '../custom-fetch';
@@ -348,5 +351,147 @@ export const useAdminLogin = <TError = ErrorType<ErrorResponse>,
         TContext
       > => {
       return useMutation(getAdminLoginMutationOptions(options));
+    }
+
+export const getSubmitContactMessageUrl = () => {
+
+
+
+
+  return `/api/contact`
+}
+
+/**
+ * @summary Submit the contact form
+ */
+export const submitContactMessage = async (contactSubmission: ContactSubmission, options?: Parameters<typeof customFetch>[1]): Promise<SubmissionResult> => {
+
+  return customFetch<SubmissionResult>(getSubmitContactMessageUrl(),
+  {
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(contactSubmission)
+  }
+);}
+
+
+
+
+
+export const getSubmitContactMessageMutationOptions = <TError = ErrorType<ErrorResponse>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof submitContactMessage>>, TError,{data: BodyType<ContactSubmission>}, TContext>, request?: SecondParameter<typeof customFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof submitContactMessage>>, TError,{data: BodyType<ContactSubmission>}, TContext> => {
+
+const mutationKey = ['submitContactMessage'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof submitContactMessage>>, {data: BodyType<ContactSubmission>}> = (props) => {
+          const {data} = props ?? {};
+
+          return  submitContactMessage(data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type SubmitContactMessageMutationResult = NonNullable<Awaited<ReturnType<typeof submitContactMessage>>>
+    export type SubmitContactMessageMutationBody = BodyType<ContactSubmission>
+    export type SubmitContactMessageMutationError = ErrorType<ErrorResponse>
+
+    /**
+ * @summary Submit the contact form
+ */
+export const useSubmitContactMessage = <TError = ErrorType<ErrorResponse>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof submitContactMessage>>, TError,{data: BodyType<ContactSubmission>}, TContext>, request?: SecondParameter<typeof customFetch>}
+ ): UseMutationResult<
+        Awaited<ReturnType<typeof submitContactMessage>>,
+        TError,
+        {data: BodyType<ContactSubmission>},
+        TContext
+      > => {
+      return useMutation(getSubmitContactMessageMutationOptions(options));
+    }
+
+export const getSubmitJobApplicationUrl = () => {
+
+
+
+
+  return `/api/careers/apply`
+}
+
+/**
+ * @summary Submit a job application
+ */
+export const submitJobApplication = async (jobApplication: JobApplication, options?: Parameters<typeof customFetch>[1]): Promise<SubmissionResult> => {
+
+  return customFetch<SubmissionResult>(getSubmitJobApplicationUrl(),
+  {
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(jobApplication)
+  }
+);}
+
+
+
+
+
+export const getSubmitJobApplicationMutationOptions = <TError = ErrorType<ErrorResponse>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof submitJobApplication>>, TError,{data: BodyType<JobApplication>}, TContext>, request?: SecondParameter<typeof customFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof submitJobApplication>>, TError,{data: BodyType<JobApplication>}, TContext> => {
+
+const mutationKey = ['submitJobApplication'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof submitJobApplication>>, {data: BodyType<JobApplication>}> = (props) => {
+          const {data} = props ?? {};
+
+          return  submitJobApplication(data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type SubmitJobApplicationMutationResult = NonNullable<Awaited<ReturnType<typeof submitJobApplication>>>
+    export type SubmitJobApplicationMutationBody = BodyType<JobApplication>
+    export type SubmitJobApplicationMutationError = ErrorType<ErrorResponse>
+
+    /**
+ * @summary Submit a job application
+ */
+export const useSubmitJobApplication = <TError = ErrorType<ErrorResponse>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof submitJobApplication>>, TError,{data: BodyType<JobApplication>}, TContext>, request?: SecondParameter<typeof customFetch>}
+ ): UseMutationResult<
+        Awaited<ReturnType<typeof submitJobApplication>>,
+        TError,
+        {data: BodyType<JobApplication>},
+        TContext
+      > => {
+      return useMutation(getSubmitJobApplicationMutationOptions(options));
     }
 

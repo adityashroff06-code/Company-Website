@@ -8,8 +8,11 @@
 
 export * from './adminCredentials';
 export * from './adminToken';
+export * from './contactSubmission';
 export * from './errorResponse';
 export * from './healthStatus';
+export * from './jobApplication';
+export * from './jobApplicationResume';
 export * from './siteContent';
 export * from './siteContentAbout';
 export * from './siteContentCertificationsItem';
@@ -22,3 +25,4 @@ export * from './siteContentOpeningsItem';
 export * from './siteContentProductsItem';
 export * from './siteContentStatsItem';
 export * from './siteContentTestimonialsItem';
+export * from './submissionResult';

@@ -86,8 +86,105 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
+  /contact:
+    post:
+      operationId: submitContactMessage
+      tags: [content]
+      summary: Submit the contact form
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactSubmission"
+      responses:
+        "200":
+          description: Submission accepted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmissionResult"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /careers/apply:
+    post:
+      operationId: submitJobApplication
+      tags: [content]
+      summary: Submit a job application
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobApplication"
+      responses:
+        "200":
+          description: Submission accepted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmissionResult"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
+    ContactSubmission:
+      type: object
+      required: [name, company, email, message]
+      properties:
+        name:
+          type: string
+        company:
+          type: string
+        email:
+          type: string
+        message:
+          type: string
+        website:
+          type: string
+          description: Honeypot field, must be empty
+    JobApplication:
+      type: object
+      required: [name, email, phone, position, message]
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        position:
+          type: string
+        message:
+          type: string
+        website:
+          type: string
+          description: Honeypot field, must be empty
+        resume:
+          type: object
+          required: [filename, data]
+          properties:
+            filename:
+              type: string
+            data:
+              type: string
+              description: Base64-encoded file content (or data URL)
+    SubmissionResult:
+      type: object
+      required: [ok]
+      properties:
+        ok:
+          type: boolean
+        emailed:
+          type: boolean
     HealthStatus:
       type: object
       properties:

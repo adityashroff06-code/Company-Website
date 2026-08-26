@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Test Applicant",
+    "email": "appl@example.com",
+    "phone": "+911234567890",
+    "position": "Other / General Application",
+    "message": "Test cover note",
+    "resume": "1787730611961-resume.pdf",
+    "submittedAt": "2026-08-26T07:50:11.961Z"
+  },
+  {
+    "name": "EK7m08",
+    "email": "e2e-hr@example.com",
+    "phone": "+911112223334",
+    "position": "Other / General Application",
+    "message": "E2E application test EK7m08",
+    "resume": null,
+    "submittedAt": "2026-08-26T07:52:02.390Z"
+  }
+]

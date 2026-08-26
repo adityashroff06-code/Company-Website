@@ -5,6 +5,37 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
+export interface ContactSubmission {
+  name: string;
+  company: string;
+  email: string;
+  message: string;
+  /** Honeypot field, must be empty */
+  website?: string;
+}
+
+export type JobApplicationResume = {
+  filename: string;
+  /** Base64-encoded file content (or data URL) */
+  data: string;
+};
+
+export interface JobApplication {
+  name: string;
+  email: string;
+  phone: string;
+  position: string;
+  message: string;
+  /** Honeypot field, must be empty */
+  website?: string;
+  resume?: JobApplicationResume;
+}
+
+export interface SubmissionResult {
+  ok: boolean;
+  emailed?: boolean;
+}
+
 export interface HealthStatus {
   status: string;
 }

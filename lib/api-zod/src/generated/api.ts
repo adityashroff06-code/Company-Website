@@ -283,3 +283,42 @@ export const AdminLoginResponse = zod.object({
 })
 
 
+/**
+ * @summary Submit the contact form
+ */
+export const SubmitContactMessageBody = zod.object({
+  "name": zod.string(),
+  "company": zod.string(),
+  "email": zod.string(),
+  "message": zod.string(),
+  "website": zod.string().optional().describe('Honeypot field, must be empty')
+})
+
+export const SubmitContactMessageResponse = zod.object({
+  "ok": zod.boolean(),
+  "emailed": zod.boolean().optional()
+})
+
+
+/**
+ * @summary Submit a job application
+ */
+export const SubmitJobApplicationBody = zod.object({
+  "name": zod.string(),
+  "email": zod.string(),
+  "phone": zod.string(),
+  "position": zod.string(),
+  "message": zod.string(),
+  "website": zod.string().optional().describe('Honeypot field, must be empty'),
+  "resume": zod.object({
+  "filename": zod.string(),
+  "data": zod.string().describe('Base64-encoded file content (or data URL)')
+}).optional()
+})
+
+export const SubmitJobApplicationResponse = zod.object({
+  "ok": zod.boolean(),
+  "emailed": zod.boolean().optional()
+})
+
+

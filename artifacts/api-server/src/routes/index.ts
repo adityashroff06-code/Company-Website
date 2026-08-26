@@ -3,6 +3,7 @@ import { Router, type IRouter } from "express";
   import contentRouter from "./content";
   import adminRouter from "./admin";
   import managementTeamRouter from "./management-team";
+  import submissionsRouter from "./submissions";
 
   const router: IRouter = Router();
 
@@ -10,6 +11,7 @@ import { Router, type IRouter } from "express";
   router.use(contentRouter);
   router.use(adminRouter);
   router.use(managementTeamRouter);
+  router.use(submissionsRouter);
 
   export default router;
   

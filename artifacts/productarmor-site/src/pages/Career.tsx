@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-import { getGetSiteContentQueryKey, useGetSiteContent } from "@workspace/api-client-react";
+import { getGetSiteContentQueryKey, useGetSiteContent, useSubmitJobApplication } from "@workspace/api-client-react";
 
 const roleIcons = {
   factory: Factory,
@@ -106,8 +106,12 @@ export default function Career() {
 
   const [openRole, setOpenRole] = useState<string | null>(null);
   const [form, setForm] = useState(initialForm);
+  const [honeypot, setHoneypot] = useState("");
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const submitMutation = useSubmitJobApplication();
+  const loading = submitMutation.isPending;
   const { data: content, isLoading: openingsLoading, isError: openingsError, refetch } = useGetSiteContent({
     query: { queryKey: getGetSiteContentQueryKey() },
   });
@@ -123,10 +127,27 @@ export default function Career() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setSent(true);
-    setLoading(false);
+    setError(null);
+    if (resumeFile && resumeFile.size > 10 * 1024 * 1024) {
+      setError("Resume must be 10 MB or smaller.");
+      return;
+    }
+    try {
+      let resume: { filename: string; data: string } | undefined;
+      if (resumeFile) {
+        const data = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () => reject(reader.error);
+          reader.readAsDataURL(resumeFile);
+        });
+        resume = { filename: resumeFile.name, data };
+      }
+      await submitMutation.mutateAsync({ data: { ...form, website: honeypot, resume } });
+      setSent(true);
+    } catch {
+      setError("Something went wrong while sending your application. Please try again.");
+    }
   };
 
   return (
@@ -410,6 +431,8 @@ export default function Career() {
                     onClick={() => {
                       setSent(false);
                       setForm(initialForm);
+                      setResumeFile(null);
+                      setHoneypot("");
                     }}
  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold transition-transform hover:translate-x-1 text-[#1e5da6]"
                   >
@@ -418,6 +441,11 @@ export default function Career() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6" data-testid="form-application">
+                  <input
+                    type="text" name="website" value={honeypot} tabIndex={-1} autoComplete="off"
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    className="sr-only" aria-hidden="true"
+                  />
                   <div className="grid gap-6 sm:grid-cols-2">
                     <label className="block">
  <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Full Name *</span>
@@ -484,10 +512,22 @@ export default function Career() {
                       placeholder="Tell us about your experience, notice period and why you'd like to join our team..."
                     />
                   </label>
+                  <label className="block">
+ <span className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.18em] text-[#627684]">Resume / CV (PDF, DOC or DOCX — max 10 MB)</span>
  <div className="flex items-start gap-3 border border-border bg-secondary p-4 text-xs leading-5 text-[#71828a]">
  <Paperclip size={15} className="mt-0.5 shrink-0 text-[#1e5da6]" />
-                    <span>Please email your resume/CV to our careers inbox after submitting this form — attach it in reply to the confirmation, or send it directly to our HR team via the contact page.</span>
-                  </div>
+                      <input
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        data-testid="input-application-resume"
+                        onChange={(event) => setResumeFile(event.target.files?.[0] ?? null)}
+                        className="w-full text-xs file:mr-3 file:cursor-pointer file:border file:border-border file:bg-white file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-[#1e5da6]"
+                      />
+                    </div>
+                  </label>
+                  {error && (
+ <p className="text-xs font-semibold text-red-600" role="alert">{error}</p>
+                  )}
                   <button
                     type="submit"
                     disabled={loading}

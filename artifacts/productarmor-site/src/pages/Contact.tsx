@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
+import { useGetSiteContent, getGetSiteContentQueryKey, useSubmitContactMessage } from "@workspace/api-client-react";
 import { Phone, Mail, MapPin, Send, CheckCircle, MessageSquare, Linkedin } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
 import { usePageMeta } from "@/hooks/usePageMeta";
@@ -18,15 +18,21 @@ export default function Contact() {
   const company = content?.company;
 
   const [form, setForm] = useState({ name: "", company: "", email: "", message: "" });
+  const [honeypot, setHoneypot] = useState("");
   const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const submitMutation = useSubmitContactMessage();
+  const loading = submitMutation.isPending;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    await new Promise(r => setTimeout(r, 1000));
-    setSent(true);
-    setLoading(false);
+    setError(null);
+    try {
+      await submitMutation.mutateAsync({ data: { ...form, website: honeypot } });
+      setSent(true);
+    } catch {
+      setError("Something went wrong while sending your message. Please try again, or email us directly.");
+    }
   };
 
   const phone = contact?.phone ?? CONTACT.phone;
@@ -151,6 +157,11 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
+                    <input
+                      type="text" name="website" value={honeypot} tabIndex={-1} autoComplete="off"
+                      onChange={e => setHoneypot(e.target.value)}
+                      className="sr-only" aria-hidden="true"
+                    />
                     <div>
  <h2 className="heading-card mb-1 text-[#0f2a4e]">Send us a Message</h2>
  <p className="text-sm text-gray-400">We typically respond within 24 hours on business days.</p>
@@ -193,6 +204,9 @@ export default function Contact() {
                         placeholder="Tell us about your packaging requirements — product type, volumes, specifications needed..."
                       />
                     </div>
+                    {error && (
+                      <p className="text-sm text-red-600" role="alert">{error}</p>
+                    )}
                     <button
                       type="submit" disabled={loading}
  className="btn-primary w-full text-white"

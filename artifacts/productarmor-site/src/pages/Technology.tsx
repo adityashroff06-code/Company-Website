@@ -143,7 +143,7 @@ export default function Technology() {
               Design to Dispatch — A Controlled Workflow
             </h2>
  <p className="max-w-2xl mx-auto text-gray-500">
-              Every batch follows the same six-stage process, so quality is engineered in rather than inspected in
+              Every batch follows the same six-stage process, so quality is engineered rather than inspected
               afterwards.
             </p>
           </div>

@@ -51,12 +51,12 @@ const processSteps = [
   {
     icon: ScanLine,
     title: "In-Line Inspection",
-    desc: "Inspecting in Real Time. Protecting Quality at Every Step - Advanced vision systems and automated torque, leak, and drop testing continuously monitor production—detecting deviations in real time and preventing defects from moving to the next stage.",
+    desc: "Inspecting in Real Time; Protecting Quality at Every Step - Advanced vision systems and automated torque, leak, and drop testing continuously monitor production—detecting deviations in real time and preventing defects from moving to the next stage.",
   },
   {
     icon: PackageCheck,
     title: "Packaging",
-    desc: "Packed with Precision. Traceable by Design - Approved products are counted, securely poly-bagged, and cartoned in controlled packing areas, with every carton fully labeled for end-to-end batch traceability, rapid identification, and recall readiness.",
+    desc: "Packed with Precision; Traceable by Design - Approved products are counted, securely poly-bagged, and cartoned in controlled packing areas, with every carton fully labeled for end-to-end batch traceability, rapid identification, and recall readiness.",
   },
   {
     icon: Truck,

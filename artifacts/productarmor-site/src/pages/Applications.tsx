@@ -51,12 +51,12 @@ const productFit = [
   {
     icon: FlaskConical,
     title: "Bottles",
-    desc: "Manufactured using food-grade resins, we supply pharmaceutical bottles in round, oval and wide-mouth profiles from 30 ml to 2400 ml — the primary container for tablets/capsule.",
+    desc: "Manufactured using food-grade resins, we supply pharmaceutical bottles in round, oval and wide-mouth profiles from 30 cc to 2400 cc — the primary container for tablets/capsule.",
   },
   {
     icon: Pill,
     title: "CR (Child-Resistant) Caps",
-    desc: "Push-and-turn closures certified to ISO 8317 and US 16 CFR 1700.20, protecting children while remaining accessible for adults.",
+    desc: "Push-and-turn closures certified to US 16 CFR 1700.20, protecting children while remaining accessible for adults.",
   },
   {
     icon: Layers,

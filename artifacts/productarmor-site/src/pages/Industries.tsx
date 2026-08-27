@@ -52,7 +52,7 @@ const regulatory = [
   {
     icon: ShieldCheck,
     title: "Pharmaceuticals",
-    desc: "Regulatory bodies approved food-grade resin, GMP manufacturing and CR caps certified to ISO 8317 / US 16 CFR 1700.20 child-resistance standards.",
+    desc: "Regulatory bodies approved food-grade resin, GMP manufacturing, and CR caps designed to meet stringent child-resistance standards.",
   },
   {
     icon: FileCheck,

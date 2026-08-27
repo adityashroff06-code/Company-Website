@@ -18,44 +18,44 @@ function useReveal() {
 
 const faqs = [
   {
-    q: "What is your minimum order quantity (MOQ)?",
-    a: "For standard bottles, CR caps and CT caps our typical MOQ starts at 10,000 units per SKU, though this varies with neck size, bottle volume and colour. For custom moulds or specialised colours, higher volumes may apply to keep unit costs competitive. Share your annual requirement and we will recommend the most economical batch structure.",
+    q: "What is your Minimum Order Quantity (MOQ)?",
+    a: "For bottles, containers, and CR & CT closures, our standard MOQ starts at 5,000 units per SKU. MOQ requirements may vary depending on factors such as neck size, bottle volume or weight, colour, and other product specifications. For customised moulds or specialised products, higher order volumes may apply to ensure efficient production and competitive unit pricing. Please share your annual requirement, and our team will recommend the most economical batch size and order structure for your needs.",
   },
   {
     q: "What are your standard lead times?",
-    a: "Stocked and standard specifications are usually dispatched within 7-10 working days of a confirmed purchase order. Custom colours, printed or decorated components, and new mould tooling extend lead times to 3-5 weeks. We provide a firm dispatch schedule at order confirmation and share production updates through your account manager.",
+    a: "Stocked products and standard products are typically dispatched within 7–10 working days of receiving a confirmed purchase order. For customised products and new mould tooling, lead times are generally 12–15 weeks, depending on the specific requirements. We provide a firm dispatch schedule at order confirmation and keep you informed of production updates through our dedicated account manager.",
   },
   {
-    q: "Can I customise bottle sizes, neck finishes and colours?",
-    a: "Yes. We manufacture bottles across a wide range of volumes (typically 30 ml to 2400 ml) with common pharma neck finishes, and closures in CR and CT formats. Colours are matched to Pantone references, and we support masterbatch matching for brand consistency. Custom geometries are achievable through dedicated tooling.",
+    q: "Can I customize bottle sizes, closure sizes, neck finishes, liners, and colors?",
+    a: "Yes. We manufacture bottles in a wide range of volumes, typically from 30 cc to 2400 cc, with SP 400 threading profiles. We also offer closures in CR and CT formats across 28 mm, 33 mm, 38 mm, 45 mm, and 53 mm sizes. Colors can be matched to Pantone references, and we support masterbatch color matching to ensure consistent brand identity across products.",
   },
   {
     q: "Which certifications and quality standards do you hold?",
-    a: "Our facility is ISO 9001:2015 certified and operates under GMP guidelines. Production runs under controlled clean conditions with documented in-process and final inspection. Certificate copies and quality documentation can be provided to support your regulatory filings and vendor qualification.",
+    a: "Our facility is certified to ISO 9001:2015 and ISO 15378:2017 standards and operates in accordance with GMP guidelines. We maintain US, Canada, and China DMFs to support regulatory and customer requirements. Production is carried out under Class 8 controlled cleanroom conditions, with documented in-process quality checks and final ERP-based inspection to ensure consistent product quality and traceability. Certificate copies and quality documents are available to support regulatory filings and vendor qualification.",
   },
   {
     q: "Do you provide free samples before I place an order?",
-    a: "We provide product samples so your team can validate fit, compatibility and line performance before committing to volume. Sample kits typically include representative bottles and closures for your specified neck size. Contact our team with your target specification and application and we will arrange a sample dispatch.",
+    a: "Yes, we provide product samples so your team can evaluate fit, compatibility, and line performance before placing a bulk order. Sample kits typically include representative bottles and closures based on your specified sizes. Share your product specifications and application with our team, and we will arrange the sample dispatch.",
   },
   {
-    q: "Are your child-resistant (CR) caps compliant with regulatory standards?",
-    a: "Our CR closures are designed to align with recognised child-resistant performance requirements, including principles set out in US 16 CFR 1700.20 and ISO 8317. The correct CR performance depends on the complete bottle-and-closure system, so we recommend validating the assembled pack for your specific product and market.",
+    q: "Are your child-resistant closures compliant with regulatory standards?",
+    a: "Our CR closures are designed to meet recognised child-resistant requirements, including US 16 CFR 1700.20. Final performance depends on the complete bottle and closure system, so we recommend testing the assembled pack for your specific product and market.",
   },
   {
     q: "What liner and wadding options do you offer?",
-    a: "We supply closures with a range of liner and sealing options, including induction heat seal (IHS) wads, EPE (foam) liners, pressure-sensitive liners and plain/unlined variants. Liner selection depends on your product's moisture sensitivity, tamper-evidence needs and filling process — our technical team helps you specify the right combination.",
+    a: "We offer a range of liner and sealing options to suit different packaging requirements, including induction heat seal (IHS) wads, EPE (foam) liners, PET liners, and plain or printed variants. The right liner depends on factors such as product compatibility, moisture sensitivity, tamper-evidence requirements, and filling process. Our technical team can help you select the most suitable liner and sealing solution for your application.",
   },
   {
-    q: "Which export markets do you supply?",
-    a: "We export pharmaceutical packaging to the USA, Europe, the Middle East and across Asia, in addition to serving clients throughout India. Our documentation, quality systems and packaging standards are structured to support the requirements of regulated export markets.",
+    q: "Which export markets do you serve?",
+    a: "We export pharmaceutical packaging solutions to the USA, Europe, the Middle East, and markets across Asia, while also serving customers throughout India. Our documentation, quality management systems, and packaging standards are designed to meet the requirements of regulated international markets, supporting reliable and compliant supply to customers worldwide.",
   },
   {
     q: "How do you ensure consistent quality across production runs?",
-    a: "Every run follows controlled process parameters with in-line inspection and defined acceptance criteria. We monitor critical dimensions, weight, torque performance and visual quality, and maintain batch traceability. This 'controlled variables, specified outcomes' approach delivers predictable, repeatable quality batch after batch.",
+    a: "Every production run follows controlled process parameters, supported by in-line inspection, documented Batch Manufacturing Records (BMRs), and clearly defined acceptance criteria. We monitor critical dimensions, weight, torque performance, and visual quality at each relevant stage. Complete batch traceability is maintained through BMR documentation, ensuring that process parameters, inspections, and results are recorded and verified. This controlled variables, specified outcomes approach ensures predictable, repeatable quality and full traceability from batch to batch.",
   },
   {
-    q: "What materials are used in your bottles and caps?",
-    a: "Our bottles and closures are manufactured primarily from pharmaceutical-grade materials selected for chemical resistance, mechanical strength and compatibility with oral solid and liquid dosage forms. Material compliance documentation can be provided to support your product's stability and regulatory requirements.",
+    q: "What materials are used in your bottles and closures?",
+    a: "Our bottles and closures are manufactured primarily from pharmaceutical-grade materials, carefully selected for their chemical resistance, mechanical strength, and compatibility with oral solid dosage forms. We ensure that our packaging materials meet applicable quality and safety requirements. Material compliance and technical documentation can be provided to support product stability, quality assurance, and regulatory requirements.",
   },
   {
     q: "What are your payment and logistics terms?",
@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: "Can you support new product development and regulatory documentation?",
-    a: "Yes. Our technical team assists with component selection, closure and liner recommendations, and pack compatibility guidance during your development phase. We also provide the quality and material documentation you need for vendor qualification, regulatory filings and audits.",
+    a: "Yes, our technical team supports you throughout the new product development process from component selection and bottle, closure, and liner recommendations to packaging compatibility guidance. We also provide the quality, material, and compliance documentation required for vendor qualification, regulatory submissions, customer approvals, and audits. This comprehensive support helps you move seamlessly from product development to commercialization with confidence.",
   },
 ];
 

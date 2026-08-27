@@ -14,8 +14,8 @@ export default function Footer() {
   const companyName = company?.name ?? SITE.name;
 
   return (
-    <footer className="bg-[#0f2a4e] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <footer className="grain relative bg-[#0a1626] text-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -36,7 +36,7 @@ export default function Footer() {
               href={SOCIAL.linkedin}
               target="_blank" rel="noopener noreferrer"
               aria-label="Product Armor Packaging on LinkedIn"
-              className="mt-5 inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 hover:bg-[#4164a8] transition-colors"
+              className="mt-5 inline-flex items-center justify-center w-9 h-9 rounded-sm bg-white/[0.07] border border-white/10 hover:border-[#c2a15f]/60 hover:bg-white/10 transition-colors"
             >
               <Linkedin size={16} className="text-white" />
             </a>
@@ -44,7 +44,7 @@ export default function Footer() {
 
           {/* Solutions */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Solutions</h3>
+            <h3 className="lux-kicker text-[#c2a15f]/80 mb-5">Solutions</h3>
             <ul className="space-y-2.5">
               {[
                 { href: "/products", label: "Products" },
@@ -53,7 +53,7 @@ export default function Footer() {
                 { href: "/technology", label: "Technology" },
               ].map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-white/55 hover:text-white text-sm transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -61,7 +61,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Company</h3>
+            <h3 className="lux-kicker text-[#c2a15f]/80 mb-5">Company</h3>
             <ul className="space-y-2.5">
               {[
                 { href: "/about", label: "About Us" },
@@ -72,7 +72,7 @@ export default function Footer() {
                 { href: "/faq", label: "FAQ" },
               ].map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-white/55 hover:text-white text-sm transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -80,7 +80,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Get in Touch</h3>
+            <h3 className="lux-kicker text-[#c2a15f]/80 mb-5">Get in Touch</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5 text-white/70 text-sm">
                 <Phone size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
@@ -98,7 +98,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-16 pt-7 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/40 text-xs">
             &copy; {new Date().getFullYear()} {companyName}. All rights reserved.
           </p>

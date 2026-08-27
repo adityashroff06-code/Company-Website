@@ -103,7 +103,7 @@ import { useState } from "react";
               </form>
 
               <p className="text-center text-xs text-gray-400 mt-6">
-                Default password: <code className="bg-gray-100 px-1.5 py-0.5 rounded font-mono">productarmor2024</code>
+                Access is restricted to authorized administrators.
               </p>
             </div>
           </div>

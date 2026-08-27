@@ -49,22 +49,10 @@
     --font-sans: var(--app-font-sans);
     --font-serif: var(--app-font-serif);
     --font-mono: var(--app-font-mono);
-    --radius-sm: calc(var(--radius) - 2px);
-    --radius-md: calc(var(--radius) - 1px);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
     --radius-xl: calc(var(--radius) + 4px);
-    --radius-2xl: calc(var(--radius) + 8px);
-
-    /* Flat, tightly-cast shadows — precision-instrument feel rather than
-       soft/diffuse. Mapped here so the shadow-* utilities use them. */
-    --shadow-2xs: var(--app-shadow-2xs);
-    --shadow-xs:  var(--app-shadow-xs);
-    --shadow-sm:  var(--app-shadow-sm);
-    --shadow:     var(--app-shadow);
-    --shadow-md:  var(--app-shadow-md);
-    --shadow-lg:  var(--app-shadow-lg);
-    --shadow-xl:  var(--app-shadow-xl);
-    --shadow-2xl: var(--app-shadow-2xl);
   }
 
   :root {
@@ -77,10 +65,10 @@
     /* Navy/Orange ProductArmor brand */
     --background:      0 0% 100%;
     --foreground:      218 30% 15%;
-    --border:          218 20% 82%;
+    --border:          218 15% 88%;
     --card:            0 0% 100%;
     --card-foreground: 218 30% 15%;
-    --card-border:     218 20% 84%;
+    --card-border:     218 15% 90%;
     --sidebar:         218 35% 12%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-border:  218 30% 20%;
@@ -91,7 +79,7 @@
     --sidebar-ring:    218 64% 45%;
     --popover:         0 0% 100%;
     --popover-foreground: 218 30% 15%;
-    --popover-border:  218 20% 82%;
+    --popover-border:  218 15% 88%;
     --primary:         218 64% 33%;
     --primary-foreground: 0 0% 100%;
     --secondary:       218 20% 95%;
@@ -102,7 +90,7 @@
     --accent-foreground: 0 0% 100%;
     --destructive:     0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --input:           218 20% 78%;
+    --input:           218 15% 88%;
     --ring:            218 64% 33%;
     --chart-1: 218 64% 33%;
     --chart-2: 24 90% 53%;
@@ -111,23 +99,31 @@
     --chart-5: 280 65% 55%;
 
     --app-font-sans: 'Inter', system-ui, sans-serif;
-    --app-font-serif: Georgia, serif;
-    --app-font-mono: Menlo, monospace;
-    --radius: 0.25rem;
-    --app-shadow-2xs: 0 1px 1px 0 rgba(23,42,71,0.05);
-    --app-shadow-xs:  0 1px 2px 0 rgba(23,42,71,0.06);
-    --app-shadow-sm:  0 1px 2px 0 rgba(23,42,71,0.08);
-    --app-shadow:     0 1px 3px 0 rgba(23,42,71,0.09);
-    --app-shadow-md:  0 2px 4px -1px rgba(23,42,71,0.10);
-    --app-shadow-lg:  0 4px 8px -2px rgba(23,42,71,0.11);
-    --app-shadow-xl:  0 8px 16px -4px rgba(23,42,71,0.13);
-    --app-shadow-2xl: 0 12px 24px -6px rgba(23,42,71,0.17);
+    --app-font-serif: 'Fraunces', Georgia, serif;
+    --app-font-mono: 'IBM Plex Mono', Menlo, monospace;
+
+    /* Luxe palette — premium layer over the navy brand */
+    --lux-ink:       #0a1626;   /* near-black navy, cinematic sections */
+    --lux-ink-soft:  #0f2a4e;   /* existing brand deep navy */
+    --lux-steel:     #4164a8;   /* brand steel blue */
+    --lux-ice:       #93b4e8;   /* accent on dark */
+    --lux-brass:     #c2a15f;   /* champagne brass, used sparingly */
+    --lux-porcelain: #f6f7f9;   /* warm off-white section ground */
+    --radius: 0.5rem;
+    --shadow-2xs: 0 1px 2px 0 rgba(30,75,138,0.06);
+    --shadow-xs:  0 1px 3px 0 rgba(30,75,138,0.08);
+    --shadow-sm:  0 1px 3px 0 rgba(30,75,138,0.10), 0 1px 2px -1px rgba(30,75,138,0.06);
+    --shadow:     0 4px 6px -1px rgba(30,75,138,0.10), 0 2px 4px -2px rgba(30,75,138,0.06);
+    --shadow-md:  0 10px 15px -3px rgba(30,75,138,0.10), 0 4px 6px -4px rgba(30,75,138,0.05);
+    --shadow-lg:  0 20px 25px -5px rgba(30,75,138,0.10), 0 8px 10px -6px rgba(30,75,138,0.04);
+    --shadow-xl:  0 25px 50px -12px rgba(30,75,138,0.18);
+    --shadow-2xl: 0 25px 50px -12px rgba(30,75,138,0.25);
     --tracking-normal: 0em;
     --spacing: 0.25rem;
 
     --primary-border: hsl(218 64% 25%);
-    --secondary-border: hsl(218 20% 82%);
-    --muted-border: hsl(220 15% 84%);
+    --secondary-border: hsl(218 20% 88%);
+    --muted-border: hsl(220 15% 90%);
     --accent-border: hsl(24 90% 45%);
     --destructive-border: hsl(0 84% 52%);
     --sidebar-primary-border: hsl(218 64% 38%);
@@ -143,10 +139,10 @@
 
     --background:      218 30% 9%;
     --foreground:      218 10% 94%;
-    --border:          218 22% 28%;
+    --border:          218 20% 22%;
     --card:            218 28% 12%;
     --card-foreground: 218 10% 94%;
-    --card-border:     218 22% 26%;
+    --card-border:     218 20% 20%;
     --sidebar:         218 35% 7%;
     --sidebar-foreground: 0 0% 90%;
     --sidebar-border:  218 30% 14%;
@@ -157,7 +153,7 @@
     --sidebar-ring:    218 64% 50%;
     --popover:         218 28% 12%;
     --popover-foreground: 218 10% 94%;
-    --popover-border:  218 22% 28%;
+    --popover-border:  218 20% 22%;
     --primary:         218 64% 50%;
     --primary-foreground: 0 0% 100%;
     --secondary:       218 25% 16%;
@@ -168,7 +164,7 @@
     --accent-foreground: 0 0% 100%;
     --destructive:     0 75% 55%;
     --destructive-foreground: 0 0% 100%;
-    --input:           218 22% 28%;
+    --input:           218 20% 22%;
     --ring:            218 64% 50%;
     --chart-1: 218 64% 50%;
     --chart-2: 24 90% 55%;
@@ -223,4 +219,138 @@
 }
 .logo-marquee:hover .logo-marquee-track {
   animation-play-state: paused;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   LUXE DESIGN LAYER — premium motion & texture vocabulary
+   ════════════════════════════════════════════════════════════════ */
+
+/* Display serif + technical mono shorthands */
+.font-display { font-family: var(--app-font-serif); }
+.lux-kicker {
+  font-family: var(--app-font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Film-grain overlay for dark cinematic sections */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hairline rules */
+.hairline   { border-color: rgba(255, 255, 255, 0.12); }
+.hairline-d { border-color: rgba(10, 22, 38, 0.10); }
+
+/* Scroll-reveal variants (driven by the .reveal IntersectionObserver) */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Kinetic typography: headline words rise through a clipped window */
+@keyframes kinetic-rise {
+  from { transform: translateY(112%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.kinetic-word { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.kinetic-word > span {
+  display: inline-block;
+  transform: translateY(112%);
+  opacity: 0;
+}
+.reveal.visible .kinetic-word > span,
+.kinetic-live .kinetic-word > span {
+  animation: kinetic-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--kinetic-delay, 0s);
+}
+
+/* Rotating word: stacked spans roll up on a continuous loop */
+@keyframes kinetic-cycle {
+  0%, 3%    { transform: translateY(108%);  opacity: 0; }
+  9%, 30%   { transform: translateY(0);     opacity: 1; }
+  36%, 100% { transform: translateY(-108%); opacity: 0; }
+}
+.kinetic-cycle { position: relative; display: inline-grid; overflow: hidden; vertical-align: bottom; }
+.kinetic-cycle > span {
+  grid-area: 1 / 1;
+  transform: translateY(108%);
+  opacity: 0;
+  animation: kinetic-cycle 8.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: var(--cycle-delay, 0s);
+}
+.kinetic-cycle > .kinetic-sizer { visibility: hidden; animation: none; position: static; }
+
+/* Ken Burns slow zoom for real photography */
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.slow-zoom { animation: slow-zoom 22s ease-in-out infinite alternate; }
+
+/* Play-button pulse rings */
+@keyframes play-pulse {
+  from { transform: scale(1);   opacity: 0.45; }
+  to   { transform: scale(1.9); opacity: 0; }
+}
+.play-pulse::before,
+.play-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  animation: play-pulse 2.4s ease-out infinite;
+}
+.play-pulse::after { animation-delay: 1.2s; }
+
+/* Scroll cue: a falling hairline */
+@keyframes scroll-cue {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  45%  { transform: scaleY(1); transform-origin: top; }
+  55%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-cue { animation: scroll-cue 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+
+/* Marquee: premium pace, monochrome until hover */
+.logo-marquee-track { animation-duration: 55s; }
+.marquee-logo {
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.4s ease;
+}
+.marquee-logo:hover { filter: grayscale(0) opacity(1); }
+
+/* 3D tilt cards (transform set from a pointermove handler) */
+.tilt-card {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(0);
+  transition: transform 0.18s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kinetic-word > span,
+  .reveal.visible .kinetic-word > span,
+  .kinetic-live .kinetic-word > span { animation: none; transform: none; opacity: 1; }
+  .kinetic-cycle > span { animation: none; }
+  .kinetic-cycle > span:first-child { transform: none; opacity: 1; }
+  .play-pulse::before, .play-pulse::after { animation: none; }
+  .slow-zoom, .scroll-cue { animation: none; }
+  .reveal-left, .reveal-right { opacity: 1; transform: none; }
+  .tilt-card { transform: none; }
 }

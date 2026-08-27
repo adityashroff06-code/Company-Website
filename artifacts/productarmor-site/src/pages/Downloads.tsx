@@ -18,7 +18,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
 function useReveal(ready: boolean) {
   useEffect(() => {
     if (!ready) return;
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-left, .reveal-right");
     const obs = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
@@ -56,15 +56,15 @@ export default function Downloads() {
   const hasPlaceholders = resources.some(r => !r.url);
 
   return (
-    <div className="pt-16">
+    <div>
       {/* Header */}
-      <section className="bg-[#4164a8] py-20">
+      <section className="grain relative bg-[#0a1626] overflow-hidden pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[{ label: "Downloads" }]} />
-          <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+          <div className="lux-kicker text-[#c2a15f] mb-5 block">
             Resource Centre
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Downloads &amp; Documentation</h1>
+          <h1 className="font-display text-5xl sm:text-6xl font-light text-white tracking-tight mb-4">Downloads &amp; Documentation</h1>
           <p className="text-white/65 max-w-2xl text-lg leading-relaxed">
             Access brochures, technical data sheets, certificates and compliance documents — everything your
             procurement and regulatory teams need in one place.
@@ -73,13 +73,13 @@ export default function Downloads() {
       </section>
 
       {/* Downloads grid */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14 reveal">
-            <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
+            <div className="lux-kicker text-[#b08d3e] mb-5 block">
               Available Documents
             </div>
-            <h2 className="text-3xl font-bold text-[#0f2a4e] mb-4">Browse Our Resources</h2>
+            <h2 className="font-display text-4xl font-light text-[#0a1626] tracking-tight mb-4">Browse Our Resources</h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
               Select a document below to download. Need something specific? Our team can share tailored
               documentation on request.
@@ -92,7 +92,7 @@ export default function Downloads() {
               return (
                 <div
                   key={r.id}
-                  className="reveal flex flex-col bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
+                  className="reveal flex flex-col bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md hover:border-[#4164a8]/20 transition-all duration-300 p-6"
                   style={{ transitionDelay: `${i * 60}ms` }}
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -100,12 +100,12 @@ export default function Downloads() {
                       <Icon size={22} className="text-[#4164a8]" />
                     </div>
                   </div>
-                  <h3 className="font-bold text-[#0f2a4e] mb-2">{r.title}</h3>
+                  <h3 className="font-semibold text-[#0a1626] mb-2">{r.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">{r.description}</p>
                   <a
                     href={r.url || "#"}
                     {...(r.url ? { target: "_blank", rel: "noopener noreferrer" } : { title: "Placeholder file — to be replaced with the actual document" })}
-                    className="inline-flex items-center justify-center gap-2 bg-[#4164a8] hover:bg-[#345099] text-white font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-md text-sm"
+                    className="inline-flex items-center justify-center gap-2 bg-[#0a1626] hover:bg-[#1a2f52] text-white font-semibold px-5 py-2.5 rounded-sm tracking-wide transition-all duration-200 hover:shadow-md text-sm"
                   >
                     <Download size={16} />
                     Download
@@ -125,20 +125,20 @@ export default function Downloads() {
       </section>
 
       {/* Request a document */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-[#f6f7f9]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-10 text-center">
+          <div className="reveal bg-white rounded-lg shadow-sm border border-gray-100 p-8 sm:p-10 text-center">
             <div className="w-12 h-12 bg-[#4164a8]/10 rounded-lg flex items-center justify-center mx-auto mb-5">
               <Mail size={22} className="text-[#4164a8]" />
             </div>
-            <h2 className="text-2xl font-bold text-[#0f2a4e] mb-3">Request a Document</h2>
+            <h2 className="font-display text-3xl font-light text-[#0a1626] tracking-tight mb-3">Request a Document</h2>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xl mx-auto mb-6">
               Looking for a specific data sheet, a Certificate of Analysis, a Drug Master File reference or custom
               regulatory documentation? Let us know and our team will send it across.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 border-2 border-[#4164a8] text-[#4164a8] hover:bg-[#4164a8] hover:text-white font-semibold px-7 py-3 rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-2 border border-[#0a1626]/25 text-[#0a1626] hover:border-[#0a1626] font-semibold px-7 py-3 rounded-sm transition-all duration-200"
             >
               Request Documentation <ArrowRight size={16} />
             </Link>
@@ -147,16 +147,16 @@ export default function Downloads() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#0f2a4e]">
+      <section className="grain relative bg-[#0a1626] overflow-hidden py-24">
         <div className="max-w-3xl mx-auto px-4 text-center reveal">
-          <h2 className="text-3xl font-bold text-white mb-4">Need More Information?</h2>
+          <h2 className="font-display text-4xl font-light text-white tracking-tight mb-4">Need More Information?</h2>
           <p className="text-white/60 mb-8">
             Speak with our team for samples, pricing and complete regulatory documentation for your packaging
             requirement.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
+            className="inline-flex items-center gap-2 bg-white hover:bg-[#e9edf4] text-[#0a1626] font-semibold px-8 py-3.5 rounded-sm tracking-wide transition-all duration-200 hover:shadow-xl"
           >
             Get in Touch <ArrowRight size={16} />
           </Link>

@@ -1,415 +1,624 @@
-import { useEffect } from "react";
-  import { Link } from "wouter";
-  import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
-  import { CheckCircle, Award, Users, Package, ChevronRight, Star, ArrowRight, Phone, Mail } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "wouter";
+import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
+import { CheckCircle, ChevronRight, Star, ArrowRight, ArrowUpRight, Phone, Mail, Play } from "lucide-react";
+import { CONTACT, SITE } from "@/constants/site";
 
-  function useReveal(ready?: boolean) {
-    useEffect(() => {
-      const els = document.querySelectorAll<HTMLElement>(".reveal");
-      const obs = new IntersectionObserver(
-        entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-        { threshold: 0.12 }
-      );
-      els.forEach(el => obs.observe(el));
-      return () => obs.disconnect();
-    }, [ready]);
-  }
+const CORPORATE_VIDEO_ID = "mHR9lM7LZGw";
+const BASE = import.meta.env.BASE_URL;
 
-  function Skeleton({ className }: { className?: string }) {
-    return <div className={`animate-pulse bg-gray-200 rounded ${className ?? ""}`} />;
-  }
+/* Observes every reveal variant; elements animate once when scrolled into view. */
+function useReveal(ready?: boolean) {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-left, .reveal-right");
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.12 }
+    );
+    els.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, [ready]);
+}
 
-  export default function Home() {
-    const { data: content, isLoading } = useGetSiteContent({
-      query: { queryKey: getGetSiteContentQueryKey() }
-    });
-    useReveal(!isLoading);
+function Skeleton({ className }: { className?: string }) {
+  return <div className={`animate-pulse bg-gray-200 rounded ${className ?? ""}`} />;
+}
 
-    const hero = content?.hero;
-    const stats = content?.stats ?? [];
-    const about = content?.about;
-    const products = content?.products ?? [];
-    const certifications = content?.certifications ?? [];
-    const clients = content?.clients ?? [];
-    const testimonials = content?.testimonials ?? [];
-    const contactData = content?.contact;
-    const company = content?.company;
+/* Counts a stat like "100+" / "1B+" / "100%" up from zero on first view. */
+function StatCounter({ value, label }: { value: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [display, setDisplay] = useState(value);
 
-    return (
-      <div className="overflow-x-hidden">
+  useEffect(() => {
+    const m = value.match(/^(\d+)(.*)$/);
+    const el = ref.current;
+    if (!m || !el) return;
+    const target = Number(m[1]);
+    const suffix = m[2] ?? "";
+    const obs = new IntersectionObserver(
+      entries => {
+        if (!entries.some(e => e.isIntersecting)) return;
+        obs.disconnect();
+        const start = performance.now();
+        const dur = 1600;
+        const tick = (now: number) => {
+          const t = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          setDisplay(`${Math.round(target * eased)}${suffix}`);
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [value]);
 
-        {/* ── HERO ── */}
-        <section className="relative flex items-center justify-center bg-white overflow-hidden pt-16">
-          {/* Geometric background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 right-0 w-96 h-96 border border-gray-400 rounded-full translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 border border-gray-400 rounded-full -translate-x-1/2 translate-y-1/2" />
-            <div className="absolute top-1/2 left-1/4 w-48 h-48 border border-gray-300 rounded-full" />
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9ca3af" strokeWidth="0.5"/>
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-          </div>
+  return (
+    <div ref={ref} className="text-center sm:text-left">
+      <div className="font-display text-4xl sm:text-5xl font-light text-white tabular-nums">{display}</div>
+      <div className="lux-kicker text-white/40 mt-2">{label}</div>
+    </div>
+  );
+}
 
-          {/* Hero background image */}
-          {hero?.backgroundImage && (
-            <div
-              className="absolute inset-0 bg-cover bg-center opacity-20"
-              style={{ backgroundImage: `url(${hero.backgroundImage})` }}
+/* Pointer-tracked 3D tilt for editorial cards. */
+function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onMove = (e: React.PointerEvent) => {
+    const el = ref.current;
+    if (!el || e.pointerType === "touch") return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    el.style.setProperty("--tilt-y", `${px * 7}deg`);
+    el.style.setProperty("--tilt-x", `${py * -7}deg`);
+  };
+  const onLeave = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.setProperty("--tilt-x", "0deg");
+    el.style.setProperty("--tilt-y", "0deg");
+  };
+
+  return (
+    <div ref={ref} onPointerMove={onMove} onPointerLeave={onLeave} className={`tilt-card ${className ?? ""}`}>
+      {children}
+    </div>
+  );
+}
+
+/* Click-to-play facade: only the thumbnail ships with the page. */
+function FilmPlayer() {
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <div className="relative reveal" style={{ transitionDelay: "160ms" }}>
+      <div className="absolute -inset-8 sm:-inset-12 bg-[#4164a8]/20 blur-3xl rounded-full pointer-events-none" />
+      <div className="relative aspect-video rounded-lg overflow-hidden ring-1 ring-white/15 shadow-2xl shadow-black/60 bg-black">
+        {playing ? (
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube-nocookie.com/embed/${CORPORATE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
+            title="Product Armor Corporate Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            className="group absolute inset-0 w-full h-full cursor-pointer"
+            aria-label="Play the Product Armor corporate film"
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${CORPORATE_VIDEO_ID}/maxresdefault.jpg`}
+              alt="Product Armor corporate film preview"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              onError={e => { (e.target as HTMLImageElement).src = `${BASE}images/hero-poster.jpg`; }}
             />
-          )}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1626]/85 via-[#0a1626]/20 to-transparent" />
+            <span className="play-pulse absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/95 shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-white">
+              <Play size={32} className="text-[#0a1626] fill-[#0a1626] translate-x-0.5" />
+            </span>
+            <span className="lux-kicker absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 whitespace-nowrap">
+              Watch the corporate film
+            </span>
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
 
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 sm:pt-12 pb-16 sm:pb-20">
+/* Kinetic headline: leading words rise in, the closing word rolls forever. */
+function KineticHeadline() {
+  const lead = ["Engineered", "for"];
+  const cycle = ["Precision.", "Protection.", "Performance."];
+
+  return (
+    <h2 aria-label="Engineered for Precision, Protection, Performance" className="font-display text-4xl sm:text-6xl font-light text-white leading-[1.08] tracking-tight">
+      {lead.map((w, i) => (
+        <span key={w} className="kinetic-word mr-[0.28em]">
+          <span style={{ "--kinetic-delay": `${i * 0.14}s` } as React.CSSProperties}>{w}</span>
+        </span>
+      ))}
+      <span className="kinetic-cycle italic text-[#c2a15f]">
+        {cycle.map((w, i) => (
+          <span key={w} style={{ "--cycle-delay": `${i * 2.8}s` } as React.CSSProperties}>{w}</span>
+        ))}
+        <span aria-hidden="true" className="kinetic-sizer">Performance.</span>
+      </span>
+    </h2>
+  );
+}
+
+/* Real local assets as fallbacks so the site stays premium even without the content API. */
+const FALLBACK_STATS = [
+  { value: "100+", label: "Products Portfolio" },
+  { value: "1B+", label: "Units Annual Capacity" },
+  { value: "20+", label: "Advanced Machines" },
+  { value: "100%", label: "Automated Inspection" },
+];
+
+const FALLBACK_PRODUCTS = [
+  {
+    id: "bottles",
+    category: "Bottles & Containers",
+    name: "Pharmaceutical HDPE Bottles",
+    description:
+      "High-quality pharmaceutical bottles and containers manufactured in an ISO Class 8 cleanroom, engineered for product protection and regulatory compliance.",
+    image: `${BASE}images/hdpe-bottles-real.png`,
+    features: ["ISO Class 8 cleanroom production", "100% automated camera inspection", "Low-carbon manufacturing"],
+  },
+  {
+    id: "cr-caps",
+    category: "Caps & Closures",
+    name: "Child-Resistant Closures (CRC)",
+    description:
+      "Patented technology delivering one of the lowest carbon footprints in CRC manufacturing, compliant with U.S. PPPA 16 CFR 1700.20.",
+    image: `${BASE}images/cr-caps-real.png`,
+    features: ["Patented CRC process", "U.S. PPPA compliant", "Trusted by global pharma brands"],
+  },
+  {
+    id: "ct-caps",
+    category: "Caps & Closures",
+    name: "Continuous Thread (CT) Caps",
+    description:
+      "Precision-moulded CT caps with consistent torque performance, produced under continuous automated quality monitoring.",
+    image: `${BASE}images/ct-caps-real.png`,
+    features: ["Consistent torque performance", "Automated quality monitoring", "Global regulatory support"],
+  },
+];
+
+const FALLBACK_CLIENT_LOGOS = [
+  "granules", "hetero", "annora", "msn", "vkt-pharma", "remedica", "strides",
+  "chemo", "lupin", "marksans", "graviti", "kusum", "aizant", "orbion",
+].map(n => ({ id: n, name: n, logo: `${BASE}images/clients/${n}.png` }));
+
+export default function Home() {
+  const { data: content, isLoading } = useGetSiteContent({
+    query: { queryKey: getGetSiteContentQueryKey() }
+  });
+  useReveal(!isLoading);
+
+  const hero = content?.hero;
+  const stats = (content?.stats?.length ? content.stats : FALLBACK_STATS);
+  const about = content?.about;
+  const products = (content?.products?.length ? content.products : FALLBACK_PRODUCTS);
+  const certifications = content?.certifications ?? [];
+  const clients = (content?.clients?.length ? content.clients : FALLBACK_CLIENT_LOGOS);
+  const testimonials = content?.testimonials ?? [];
+  const contactData = content?.contact;
+
+  const headline = hero?.headline ?? "Delivering sustainable pharmaceutical bottles and closures for global healthcare";
+  const headlineWords = headline.split(/\s+/);
+
+  const scrollToFilm = () => document.getElementById("corporate-film")?.scrollIntoView({ behavior: "smooth" });
+
+  return (
+    <div className="overflow-x-hidden bg-white">
+
+      {/* ── CINEMATIC VIDEO HERO ── */}
+      <section className="grain relative min-h-screen flex flex-col justify-end bg-[#0a1626] overflow-hidden">
+        {/* Real facility footage, muted loop */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.42]"
+          src={`${BASE}videos/hero-loop.mp4`}
+          poster={`${BASE}images/hero-poster.jpg`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1626]/70 via-[#0a1626]/30 to-[#0a1626]" />
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-36 pb-14">
+          <div className="max-w-4xl">
+            <p className="lux-kicker text-[#c2a15f] mb-7 reveal kinetic-live">
+              ISO Class 8 Cleanroom&ensp;·&ensp;Gummadidala, Telangana&ensp;·&ensp;Est. {SITE.founded}
+            </p>
+
             {isLoading ? (
               <>
-                <Skeleton className="h-16 w-4/5 mx-auto mb-4" />
-                <Skeleton className="h-8 w-3/5 mx-auto mb-8" />
+                <Skeleton className="h-16 w-4/5 mb-4 bg-white/10" />
+                <Skeleton className="h-8 w-3/5 mb-8 bg-white/10" />
               </>
             ) : (
               <>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#4364a7] leading-[1.1] tracking-tight mb-6">
-                  {(hero?.headline ?? "Pharmaceutical-Grade Packaging")
-                    .split(/(sustainable|Delivering pharmaceutical packaging)/i)
-                    .map((part, idx) =>
-                      /^sustainable$/i.test(part) ? (
-                        <span key={idx} className="text-[#32CD32]">{part}</span>
-                      ) : /^Delivering pharmaceutical packaging$/i.test(part) ? (
-                        <span key={idx} className="whitespace-nowrap">{part}</span>
-                      ) : (
-                        part
-                      )
-                    )}
+                <h1 aria-label={headline} className="kinetic-live font-display text-[2.6rem] leading-[1.06] sm:text-6xl lg:text-[4.4rem] font-light text-white tracking-tight mb-8">
+                  {headlineWords.map((w, i) => (
+                    <span key={`${w}-${i}`} className="kinetic-word mr-[0.24em]">
+                      <span
+                        className={/sustainable/i.test(w) ? "italic text-[#c2a15f]" : undefined}
+                        style={{ "--kinetic-delay": `${0.15 + i * 0.055}s` } as React.CSSProperties}
+                      >
+                        {w}
+                      </span>
+                    </span>
+                  ))}
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-                  {hero?.subheadline ?? "ISO-certified bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
+                <p className="text-base sm:text-lg text-white/60 max-w-xl leading-relaxed mb-10 reveal">
+                  {hero?.subheadline ?? "Uncompromised integrity, engineered under controlled conditions and trusted by regulated markets worldwide."}
                 </p>
               </>
             )}
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-16 reveal">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 bg-transparent hover:bg-gray-100 border border-gray-300 text-gray-800 font-medium px-8 py-3.5 rounded-lg transition-all duration-200 text-base"
+                className="inline-flex items-center gap-3 bg-white text-[#0a1626] hover:bg-[#e9edf4] px-8 py-4 text-sm font-semibold tracking-wide transition-all duration-300 rounded-sm"
               >
-                View Products
-                <ChevronRight size={18} />
-              </Link>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ── STATS BAR ── */}
-        <section className="bg-[#0f2a4e] py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {isLoading
-                ? Array(4).fill(0).map((_, i) => (
-                    <div key={i} className="text-center">
-                      <Skeleton className="h-10 w-24 mx-auto mb-2" />
-                      <Skeleton className="h-4 w-32 mx-auto" />
-                    </div>
-                  ))
-                : stats.map((s, i) => (
-                    <div key={i} className="text-center reveal">
-                      <div className="text-3xl sm:text-4xl font-black text-[#93b4e8]">{s.value}</div>
-                      <div className="text-white/60 text-sm mt-1 font-medium">{s.label}</div>
-                    </div>
-                  ))
-              }
-            </div>
-          </div>
-        </section>
-
-        {/* ── ABOUT ── */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="reveal">
-                <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
-                  About Us
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] leading-tight mb-6">
-                  {about?.title ?? "Precision Packaging Built for Pharma"}
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  {about?.description ?? "Product Armor Packaging Pvt Ltd is a dedicated manufacturer of pharmaceutical bottles, CR and CT caps, delivering world-class packaging at unparalleled value."}
-                </p>
-                <h3 className="text-lg font-semibold text-[#0f2a4e] mb-4">
-                  Every solution we deliver is supported by the core strengths that define who we are and how we serve.
-                </h3>
-                <div className="space-y-3 mb-8">
-                  {(about?.strengths ?? ["Sustainability Practices","End-to-End Automation","Quality Approach","Economies of Scale","Culture"]).map(f => (
-                    <div key={f} className="flex items-center gap-3">
-                      <CheckCircle size={18} className="text-[#4164a8] shrink-0" />
-                      <span className="text-gray-700 text-sm">{f}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 text-[#4164a8] font-semibold hover:text-[#4164a8] transition-colors group"
-                >
-                  Learn more about us
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-              <div className="reveal">
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-[#4164a8]/5 rounded-2xl" />
-                  <img
-                    src={about?.image ?? "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"}
-                    alt="Manufacturing facility"
-                    className="relative rounded-xl shadow-xl object-cover w-full h-80"
-                    onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80"; }}
-                  />
-                  {company && (
-                    <div className="absolute -bottom-6 -right-6 bg-[#4164a8] text-white rounded-xl p-5 shadow-xl">
-                      <div className="text-3xl font-black">{company.founded}</div>
-                      <div className="text-white/70 text-xs mt-0.5">Est.</div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── PRODUCTS ── */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-14 reveal">
-              <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
-                Our Products
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
-                Engineered for Protection. Designed for Performance.
-              </h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
-                Explore our portfolio of pharmaceutical packaging solutions, including containers &amp; bottles, CT (Continuous Thread) and CRC (Child-Resistant Closures) caps &amp; closures powered by patented technology and recognized globally.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {isLoading
-                ? Array(3).fill(0).map((_, i) => (
-                    <div key={i} className="bg-white rounded-xl p-6 shadow-sm">
-                      <Skeleton className="h-48 w-full mb-4 rounded-lg" />
-                      <Skeleton className="h-6 w-3/4 mb-2" />
-                      <Skeleton className="h-4 w-full mb-1" />
-                      <Skeleton className="h-4 w-5/6" />
-                    </div>
-                  ))
-                : products.map((p, i) => (
-                    <div
-                      key={p.id}
-                      className="reveal bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group border border-gray-100 hover:border-[#4164a8]/20"
-                      style={{ transitionDelay: `${i * 80}ms` }}
-                    >
-                      <div className="px-6 pt-5 pb-3">
-                        <span className="inline-block bg-[#4164a8] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
-                          {p.category}
-                        </span>
-                      </div>
-                      <div className="relative overflow-hidden h-52 bg-gray-100">
-                        <img
-                          src={p.image}
-                          alt={p.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80"; }}
-                        />
-                      </div>
-                      <div className="p-6">
-                        <h3 className="font-bold text-[#0f2a4e] text-lg mb-2">{p.name}</h3>
-                        <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">{p.description}</p>
-                        <ul className="space-y-1.5 mb-5">
-                          {p.features.slice(0, 3).map(f => (
-                            <li key={f} className="flex items-start gap-2 text-xs text-gray-600">
-                              <CheckCircle size={13} className="text-[#4164a8] shrink-0 mt-0.5" />
-                              <span>{f}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <Link
-                          href="/products"
-                          className="inline-flex items-center gap-1.5 text-[#4164a8] font-semibold text-sm hover:text-[#4164a8] transition-colors group/link"
-                        >
-                          View details
-                          <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-                        </Link>
-                      </div>
-                    </div>
-                  ))
-              }
-            </div>
-            <div className="text-center mt-10">
-              <Link
-                href="/products"
-                className="inline-flex items-center gap-2 border-2 border-[#4164a8] text-[#4164a8] hover:bg-[#4164a8] hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200"
-              >
-                View All Products
+                Explore Products
                 <ArrowRight size={16} />
               </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ── CERTIFICATIONS ── */}
-        <section className="py-20 bg-[#4164a8]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-14 reveal">
-              <div className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
-                Quality Assurance
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Committed to Quality. Trusted Worldwide.
-              </h2>
-              <p className="text-white/60 max-w-xl mx-auto">
-                Powered by advanced technology, rigorous quality controls, and end-to-end traceability to deliver reliable pharmaceutical packaging solutions.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {certifications.map((c, i) => (
-                <div
-                  key={c.id}
-                  className="reveal bg-white/10 backdrop-blur border border-white/20 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300"
-                  style={{ transitionDelay: `${i * 80}ms` }}
-                >
-                  {c.logo ? (
-                    <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-xl p-2 flex items-center justify-center">
-                      <img src={c.logo} alt={`${c.name} logo`} className="max-w-full max-h-full object-contain" />
-                    </div>
-                  ) : (
-                    <Award size={32} className="text-[#93b4e8] mx-auto mb-4" />
-                  )}
-                  <div className="text-white font-bold text-sm mb-1">{c.name}</div>
-                  <div className="text-white/50 text-xs">{c.issuer}</div>
-                  <div className="text-[#93b4e8] text-xs font-semibold mt-2">{c.year}</div>
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-10">
-              <Link
-                href="/quality"
-                className="inline-flex items-center gap-2 bg-white text-[#4164a8] hover:bg-gray-50 font-semibold px-8 py-3 rounded-lg transition-all duration-200"
+              <button
+                type="button"
+                onClick={scrollToFilm}
+                className="inline-flex items-center gap-3 text-white/80 hover:text-white border border-white/25 hover:border-white/60 px-8 py-4 text-sm font-medium tracking-wide transition-all duration-300 rounded-sm cursor-pointer"
               >
-                Our Quality Standards
-                <ArrowRight size={16} />
-              </Link>
+                <Play size={14} className="fill-current" />
+                Watch the Film
+              </button>
             </div>
           </div>
-        </section>
 
-        {/* ── CLIENTS ── */}
-        {clients.length > 0 && (
-          <section className="py-16 bg-white border-b border-gray-100">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-10 reveal">
-                <p className="text-gray-400 text-sm font-medium uppercase tracking-widest">
-                  Trusted by Global'S Leading Pharmaceutical Companies
-                </p>
-              </div>
-              <div className="logo-marquee relative overflow-hidden">
-                <div className="logo-marquee-track flex items-center gap-14 w-max">
-                  {[...clients, ...clients].map((c, i) => (
-                    <div key={`${c.id}-${i}`} className="shrink-0 flex items-center justify-center" title={c.name}>
-                      {c.logo ? (
-                        <img src={c.logo} alt={c.name} className="h-12 md:h-14 w-auto object-contain" loading="lazy" />
-                      ) : (
-                        <div className="px-6 py-3 border border-gray-200 rounded-lg bg-gray-50">
-                          <span className="text-gray-500 font-semibold text-sm">{c.name}</span>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
+          {/* Stats strip with live counters */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10 border-t hairline">
+            {stats.map(s => (
+              <StatCounter key={s.label} value={s.value} label={s.label} />
+            ))}
+          </div>
+        </div>
 
-        {/* ── TESTIMONIALS ── */}
-        {testimonials.length > 0 && (
-          <section className="py-20 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-14 reveal">
-                <div className="inline-block px-3 py-1 bg-[#4164a8]/10 text-[#4164a8] text-xs font-semibold uppercase tracking-widest rounded mb-4">
-                  Testimonials
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2a4e] mb-4">
-                  What Our Clients Say
-                </h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {testimonials.map((t, i) => (
-                  <div
-                    key={t.id}
-                    className="reveal bg-white rounded-xl p-7 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:border-[#4164a8]/20"
-                    style={{ transitionDelay: `${i * 80}ms` }}
-                  >
-                    <div className="flex gap-1 mb-4">
-                      {Array(5).fill(0).map((_, i) => (
-                        <Star key={i} size={14} className="fill-[#4164a8] text-[#4164a8]" />
-                      ))}
-                    </div>
-                    <p className="text-gray-600 leading-relaxed text-sm mb-5 italic">"{t.quote}"</p>
-                    <div className="border-t border-gray-100 pt-4">
-                      <div className="font-semibold text-[#0f2a4e] text-sm">{t.author}</div>
-                      <div className="text-gray-400 text-xs mt-0.5">{t.role}, {t.company}</div>
-                    </div>
+        {/* Scroll cue */}
+        <div className="absolute bottom-8 right-8 hidden lg:flex flex-col items-center gap-3" aria-hidden="true">
+          <span className="lux-kicker text-white/30 [writing-mode:vertical-rl]">Scroll</span>
+          <div className="w-px h-14 bg-white/10 overflow-hidden">
+            <div className="scroll-cue w-px h-full bg-white/60" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── CLIENT MARQUEE ── */}
+      {clients.length > 0 && (
+        <section className="py-14 bg-[#f6f7f9] border-b hairline-d border-b-[1px]">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8">
+            <p className="lux-kicker text-gray-400 text-center mb-10 reveal">
+              Trusted by the world's leading pharmaceutical companies
+            </p>
+            <div className="logo-marquee relative overflow-hidden">
+              <div className="logo-marquee-track flex items-center gap-16 w-max">
+                {[...clients, ...clients].map((c, i) => (
+                  <div key={`${c.id}-${i}`} className="shrink-0 flex items-center justify-center" title={c.name}>
+                    {c.logo ? (
+                      <img src={c.logo} alt={c.name} className="marquee-logo h-11 md:h-12 w-auto object-contain" loading="lazy" />
+                    ) : (
+                      <span className="text-gray-400 font-medium text-sm">{c.name}</span>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
+      )}
 
-        {/* ── CONTACT CTA ── */}
-        <section className="py-20 bg-[#0f2a4e]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ready to Upgrade Your Packaging?
-            </h2>
-            <p className="text-white/60 mb-10 max-w-xl mx-auto">
-              Request a free sample kit or schedule a technical consultation with our packaging specialists.
+      {/* ── MANIFESTO ── */}
+      <section className="py-28 sm:py-36 bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+            <div className="lg:col-span-7 reveal-left">
+              <p className="lux-kicker text-[#b08d3e] mb-7">The Product Armor Standard</p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-light text-[#0a1626] leading-[1.12] tracking-tight mb-8">
+                {(() => {
+                  const words = (about?.title ?? "Where formulation meets perfect packaging").trim().replace(/\.$/, "").split(/\s+/);
+                  const lead = words.slice(0, -2).join(" ");
+                  const em = words.slice(-2).join(" ");
+                  return (<>{lead}<br /><em className="text-[#4164a8]">{em}.</em></>);
+                })()}
+              </h2>
+              <p className="text-gray-500 text-lg leading-relaxed max-w-xl mb-10">
+                {about?.description ??
+                  "Operating within an ISO Class 8 cleanroom environment, we manufacture high-quality containers and closures that meet the rigorous demands of the pharmaceutical industry — advancing toward next-generation packaging technologies and drug-delivery devices for global markets."}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-12 max-w-xl">
+                {(about?.strengths ?? ["Sustainable Practices", "End-to-End Automation", "Quality Approach", "Economies of Scale"]).slice(0, 6).map(f => (
+                  <div key={f} className="flex items-center gap-3 py-3 border-b hairline-d border-b-[1px]">
+                    <span className="w-1 h-1 rounded-full bg-[#c2a15f] shrink-0" />
+                    <span className="text-[#0a1626] text-sm font-medium tracking-wide">{f}</span>
+                  </div>
+                ))}
+              </div>
+              <Link
+                href="/about"
+                className="group inline-flex items-center gap-3 text-[#0a1626] font-semibold text-sm tracking-wide"
+              >
+                <span className="border-b border-[#c2a15f] pb-1">The company in depth</span>
+                <ArrowUpRight size={16} className="text-[#c2a15f] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
+
+            <div className="lg:col-span-5 reveal-right">
+              <div className="relative overflow-hidden rounded-lg">
+                <img
+                  src={about?.image ?? `${BASE}images/cleanroom-corridor.jpg`}
+                  alt="Product Armor cleanroom corridor"
+                  className="slow-zoom w-full h-[520px] object-cover"
+                  onError={e => { (e.target as HTMLImageElement).src = `${BASE}images/about-home.jpg`; }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1626]/60 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                  <div>
+                    <div className="lux-kicker text-white/60 mb-1">Facility</div>
+                    <div className="text-white font-display text-xl font-light">ISO Class 8 Cleanroom</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-display text-4xl font-light text-white">{SITE.founded}</div>
+                    <div className="lux-kicker text-white/50">Est.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CORPORATE FILM ── */}
+      <section id="corporate-film" className="grain relative bg-[#0a1626] py-28 sm:py-32 overflow-hidden">
+        <div className="relative max-w-5xl mx-auto px-5 sm:px-8">
+          <div className="text-center mb-14 reveal">
+            <p className="lux-kicker text-[#c2a15f] mb-6">Inside Product Armor</p>
+            <KineticHeadline />
+            <p className="text-white/50 max-w-2xl mx-auto mt-7 leading-relaxed">
+              Step inside the cleanroom — where a billion units a year are moulded,
+              inspected and armored, virtually untouched by human hands.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+          </div>
+          <FilmPlayer />
+        </div>
+      </section>
+
+      {/* ── CAPABILITIES — editorial product rows ── */}
+      <section className="py-28 sm:py-36 bg-[#f6f7f9]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="max-w-2xl mb-20 reveal">
+            <p className="lux-kicker text-[#b08d3e] mb-6">Capabilities</p>
+            <h2 className="font-display text-4xl sm:text-5xl font-light text-[#0a1626] leading-tight tracking-tight">
+              Engineered for protection.<br />Designed for performance.
+            </h2>
+          </div>
+
+          <div className="space-y-24">
+            {isLoading
+              ? Array(3).fill(0).map((_, i) => (
+                  <div key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <Skeleton className="h-96 w-full rounded-lg" />
+                    <div className="space-y-3 py-8">
+                      <Skeleton className="h-8 w-2/3" />
+                      <Skeleton className="h-4 w-full" />
+                      <Skeleton className="h-4 w-4/5" />
+                    </div>
+                  </div>
+                ))
+              : products.slice(0, 3).map((p, i) => (
+                  <div
+                    key={p.id}
+                    className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? "" : ""}`}
+                  >
+                    <div className={`lg:col-span-6 ${i % 2 === 1 ? "lg:order-2 reveal-right" : "reveal-left"}`}>
+                      <TiltCard className="relative overflow-hidden rounded-lg bg-white shadow-xl shadow-[#0a1626]/[0.07]">
+                        <div className="relative h-[380px] sm:h-[440px] overflow-hidden">
+                          <img
+                            src={p.image}
+                            alt={p.name}
+                            className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out hover:scale-[1.045]"
+                            onError={e => { (e.target as HTMLImageElement).src = `${BASE}images/bottles-containers.jpg`; }}
+                          />
+                        </div>
+                        <div className="absolute top-5 left-5">
+                          <span className="lux-kicker bg-[#0a1626]/80 backdrop-blur text-white/90 px-3.5 py-2 rounded-sm">
+                            {p.category}
+                          </span>
+                        </div>
+                      </TiltCard>
+                    </div>
+                    <div className={`lg:col-span-6 ${i % 2 === 1 ? "lg:order-1 reveal-left" : "reveal-right"}`}>
+                      <div className="font-display text-[#c2a15f] text-xl mb-4">{String(i + 1).padStart(2, "0")}</div>
+                      <h3 className="font-display text-3xl sm:text-4xl font-light text-[#0a1626] tracking-tight mb-5">{p.name}</h3>
+                      <p className="text-gray-500 leading-relaxed mb-8 max-w-lg">{p.description}</p>
+                      <ul className="space-y-3 mb-9 max-w-lg">
+                        {p.features.slice(0, 3).map(f => (
+                          <li key={f} className="flex items-start gap-3 text-sm text-gray-600">
+                            <CheckCircle size={15} className="text-[#4164a8] shrink-0 mt-0.5" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        href="/products"
+                        className="group inline-flex items-center gap-2 text-[#0a1626] font-semibold text-sm tracking-wide"
+                      >
+                        <span className="border-b border-[#c2a15f] pb-1">View specifications</span>
+                        <ChevronRight size={15} className="text-[#c2a15f] group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                ))
+            }
+          </div>
+        </div>
+      </section>
+
+      {/* ── CLEANROOM IMMERSIVE BAND ── */}
+      <section className="relative py-40 sm:py-52 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${BASE}images/hero-bg.jpg)` }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[#0a1626]/78" />
+        <div className="relative max-w-4xl mx-auto px-5 sm:px-8 text-center reveal">
+          <p className="lux-kicker text-[#c2a15f] mb-7">Technology</p>
+          <blockquote className="font-display text-3xl sm:text-5xl font-light text-white leading-[1.2] tracking-tight mb-9">
+            "Controlled variables,<br /><em className="text-[#93b4e8]">specified outcomes.</em>"
+          </blockquote>
+          <p className="text-white/50 max-w-xl mx-auto mb-10 leading-relaxed">
+            Fully automated moulding, 100% camera inspection and end-to-end traceability —
+            the discipline of pharmaceutical science, applied to packaging.
+          </p>
+          <Link
+            href="/technology"
+            className="inline-flex items-center gap-3 border border-white/25 hover:border-white/70 text-white px-8 py-4 text-sm font-medium tracking-wide transition-all duration-300 rounded-sm"
+          >
+            Explore the Technology
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+      </section>
+
+      {/* ── CERTIFICATIONS ── */}
+      {certifications.length > 0 && (
+        <section className="grain relative bg-[#0a1626] py-24 sm:py-28">
+          <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14 reveal">
+              <div>
+                <p className="lux-kicker text-[#c2a15f] mb-5">Compliance</p>
+                <h2 className="font-display text-3xl sm:text-4xl font-light text-white tracking-tight">
+                  Certified to global standards.
+                </h2>
+              </div>
+              <Link
+                href="/quality"
+                className="group inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium tracking-wide transition-colors"
+              >
+                Quality standards
+                <ArrowUpRight size={15} className="text-[#c2a15f] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {certifications.map((c, i) => (
+                <div
+                  key={c.id}
+                  className="reveal bg-white/[0.04] border hairline border-[1px] rounded-lg p-6 text-center hover:bg-white/[0.08] transition-colors duration-300"
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  {c.logo ? (
+                    <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-md p-2 flex items-center justify-center">
+                      <img src={c.logo} alt={`${c.name} logo`} className="max-w-full max-h-full object-contain" />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-md border hairline border-[1px] flex items-center justify-center">
+                      <span className="font-display text-[#c2a15f] text-lg">{c.name.slice(0, 3)}</span>
+                    </div>
+                  )}
+                  <div className="text-white font-semibold text-sm mb-1">{c.name}</div>
+                  <div className="text-white/40 text-xs">{c.issuer}</div>
+                  <div className="lux-kicker text-[#c2a15f] mt-3">{c.year}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── TESTIMONIALS ── */}
+      {testimonials.length > 0 && (
+        <section className="py-28 sm:py-32 bg-white">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8">
+            <div className="text-center mb-16 reveal">
+              <p className="lux-kicker text-[#b08d3e] mb-6">Testimonials</p>
+              <h2 className="font-display text-4xl sm:text-5xl font-light text-[#0a1626] tracking-tight">
+                In their words.
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-200 border border-gray-200">
+              {testimonials.map((t, i) => (
+                <div
+                  key={t.id}
+                  className="reveal bg-white p-9 flex flex-col"
+                  style={{ transitionDelay: `${i * 90}ms` }}
+                >
+                  <div className="flex gap-1 mb-6">
+                    {Array(5).fill(0).map((_, j) => (
+                      <Star key={j} size={12} className="fill-[#c2a15f] text-[#c2a15f]" />
+                    ))}
+                  </div>
+                  <p className="font-display text-lg font-light text-[#0a1626] leading-relaxed mb-8 flex-1">
+                    "{t.quote}"
+                  </p>
+                  <div className="pt-5 border-t hairline-d border-t-[1px]">
+                    <div className="font-semibold text-[#0a1626] text-sm">{t.author}</div>
+                    <div className="lux-kicker text-gray-400 mt-1.5">{t.role} · {t.company}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── FINAL CTA ── */}
+      <section className="grain relative bg-[#0a1626] py-28 sm:py-36 overflow-hidden">
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#c2a15f]/40 to-transparent" />
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-8 reveal">
+              <p className="lux-kicker text-[#c2a15f] mb-7">Begin the Conversation</p>
+              <h2 className="font-display text-4xl sm:text-6xl font-light text-white leading-[1.1] tracking-tight mb-8">
+                Let's armor your<br /><em className="text-[#93b4e8]">next launch.</em>
+              </h2>
+              <p className="text-white/50 max-w-lg leading-relaxed">
+                Request a sample kit or a technical consultation with our packaging specialists —
+                from feasibility to filed DMF.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex flex-col gap-5 reveal" style={{ transitionDelay: "120ms" }}>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-[#4164a8] font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center justify-center gap-3 bg-white text-[#0a1626] hover:bg-[#e9edf4] px-8 py-4 text-sm font-semibold tracking-wide transition-all duration-300 rounded-sm"
               >
                 Get in Touch
                 <ArrowRight size={16} />
               </Link>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/50 text-sm">
-              <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#93b4e8]" />
-                <span>{contactData?.phone ?? "+91-9154992473"}</span>
-              </div>
-              <a
-                href={`https://wa.me/${(contactData?.whatsapp ?? "+919154992473").replace(/[^0-9]/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-white transition-colors"
-                aria-label="Chat with us on WhatsApp"
-              >
-                <svg viewBox="0 0 24 24" width={16} height={16} fill="#25D366" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                <span>WhatsApp Us</span>
-              </a>
-              <div className="flex items-center gap-2">
-                <Mail size={14} className="text-[#93b4e8]" />
-                <span>{contactData?.email ?? "info@productarmor.com"}</span>
+              <div className="space-y-3 pt-3">
+                <a href={`tel:${(contactData?.phone ?? CONTACT.phone).replace(/[^+0-9]/g, "")}`} className="flex items-center gap-3 text-white/50 hover:text-white text-sm transition-colors font-mono">
+                  <Phone size={13} className="text-[#c2a15f]" />
+                  {contactData?.phone ?? CONTACT.phone}
+                </a>
+                <a href={`mailto:${contactData?.email ?? CONTACT.email}`} className="flex items-center gap-3 text-white/50 hover:text-white text-sm transition-colors font-mono">
+                  <Mail size={13} className="text-[#c2a15f]" />
+                  {contactData?.email ?? CONTACT.email}
+                </a>
               </div>
             </div>
           </div>
-        </section>
-      </div>
-    );
-  }
-  
+        </div>
+      </section>
+    </div>
+  );
+}

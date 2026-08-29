@@ -2,6 +2,7 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
   import { CheckCircle, Package, ArrowRight, SearchX } from "lucide-react";
   import { Link, useSearch } from "wouter";
   import { usePageMeta } from "@/hooks/usePageMeta";
+  import { TiltFrame, ImageReveal } from "@/components/Lux3D";
 
   export default function Products() {
     usePageMeta({
@@ -90,15 +91,19 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                   <div key={p.id} className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
                     <div className={`grid grid-cols-1 lg:grid-cols-2 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}>
                       <div className={`relative h-72 lg:h-auto min-h-64 bg-gray-100 ${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
-                        <img
-                          src={p.image}
-                          alt={p.name}
-                          className={`w-full h-full ${p.imageFit === "contain" ? "object-contain bg-white" : "object-cover"}`}
-                          onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"; }}
-                        />
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-[#4164a8] text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
-                        </div>
+                        <ImageReveal from={i % 2 === 1 ? "right" : "left"} className="h-full">
+                          <TiltFrame className="h-full [&>div]:h-full">
+                            <img
+                              src={p.image}
+                              alt={p.name}
+                              className={`w-full h-full ${p.imageFit === "contain" ? "object-contain bg-white" : "object-cover"}`}
+                              onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"; }}
+                            />
+                            <div className="lux3d-float absolute top-4 left-4">
+                              <span className="bg-[#4164a8] text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
+                            </div>
+                          </TiltFrame>
+                        </ImageReveal>
                       </div>
                       <div className={`p-10 flex flex-col justify-center ${i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
                         <h2 className="font-display text-2xl font-semibold text-[#0a1626] tracking-tight mb-3">{p.name}</h2>

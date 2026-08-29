@@ -4,6 +4,7 @@ import { X, Linkedin, Quote, Users, ArrowRight, Star } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { fetchPublicTeam, type TeamMember } from "@/lib/managementTeam";
 import { useQuery } from "@tanstack/react-query";
+import { TiltFrame, ImageReveal } from "@/components/Lux3D";
 
 function initials(name: string): string {
   return name
@@ -118,13 +119,17 @@ function MemberCard({ member, onSelect }: { member: TeamMember; onSelect: () => 
       className="group w-full bg-white rounded-lg border border-gray-100 shadow-sm p-8 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#4164a8]/40"
     >
       <div className="relative w-36 h-36 mx-auto mb-6">
-        <Photo
-          member={member}
-          className="w-36 h-36 rounded-full border-4 border-[#4164a8]/10 shadow-md group-hover:scale-105 transition-transform duration-300"
-          sizes="144px"
-        />
+        <ImageReveal from="bottom">
+          <TiltFrame className="w-36 h-36 rounded-full border-4 border-[#4164a8]/10 shadow-md" max={5}>
+            <Photo
+              member={member}
+              className="w-full h-full"
+              sizes="144px"
+            />
+          </TiltFrame>
+        </ImageReveal>
         {member.featured && (
-          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-[#4164a8] text-white text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
+          <span className="lux3d-float absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-[#4164a8] text-white text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
             <Star size={11} /> Featured
           </span>
         )}

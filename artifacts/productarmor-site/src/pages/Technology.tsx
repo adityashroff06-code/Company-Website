@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import { TiltFrame, ImageReveal } from "@/components/Lux3D";
 
 function useReveal() {
   useEffect(() => {
@@ -236,15 +237,19 @@ export default function Technology() {
               </ul>
             </div>
             <div className="reveal relative">
-              <img
-                src="/site/images/cleanroom-corridor.jpg"
-                alt="Cleanroom manufacturing corridor at ProductArmor"
-                className="rounded-lg shadow-md w-full object-cover h-96"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src =
-                    "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80";
-                }}
-              />
+              <ImageReveal from="right">
+                <TiltFrame className="rounded-lg" max={7}>
+                  <img
+                    src="/site/images/cleanroom-corridor.jpg"
+                    alt="Cleanroom manufacturing corridor at ProductArmor"
+                    className="w-full object-cover h-96"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src =
+                        "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80";
+                    }}
+                  />
+                </TiltFrame>
+              </ImageReveal>
             </div>
           </div>
         </div>

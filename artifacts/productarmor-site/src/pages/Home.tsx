@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
 import { CheckCircle, ChevronRight, Star, ArrowRight, ArrowUpRight, Phone, Mail, Play } from "lucide-react";
 import { CONTACT, SITE } from "@/constants/site";
+import { TiltFrame, ImageReveal } from "@/components/Lux3D";
 
 const CORPORATE_VIDEO_ID = "mHR9lM7LZGw";
 const BASE = import.meta.env.BASE_URL;
@@ -59,33 +60,6 @@ function StatCounter({ value, label }: { value: string; label: string }) {
     <div ref={ref} className="text-center sm:text-left">
       <div className="font-display text-4xl sm:text-5xl font-light text-white tabular-nums">{display}</div>
       <div className="lux-kicker text-white/40 mt-2">{label}</div>
-    </div>
-  );
-}
-
-/* Pointer-tracked 3D tilt for editorial cards. */
-function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const onMove = (e: React.PointerEvent) => {
-    const el = ref.current;
-    if (!el || e.pointerType === "touch") return;
-    const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width - 0.5;
-    const py = (e.clientY - r.top) / r.height - 0.5;
-    el.style.setProperty("--tilt-y", `${px * 7}deg`);
-    el.style.setProperty("--tilt-x", `${py * -7}deg`);
-  };
-  const onLeave = () => {
-    const el = ref.current;
-    if (!el) return;
-    el.style.setProperty("--tilt-x", "0deg");
-    el.style.setProperty("--tilt-y", "0deg");
-  };
-
-  return (
-    <div ref={ref} onPointerMove={onMove} onPointerLeave={onLeave} className={`tilt-card ${className ?? ""}`}>
-      {children}
     </div>
   );
 }
@@ -363,26 +337,28 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="lg:col-span-5 reveal-right">
-              <div className="relative overflow-hidden rounded-lg">
-                <img
-                  src={about?.image ?? `${BASE}images/cleanroom-corridor.jpg`}
-                  alt="Product Armor cleanroom corridor"
-                  className="slow-zoom w-full h-[520px] object-cover"
-                  onError={e => { (e.target as HTMLImageElement).src = `${BASE}images/about-home.jpg`; }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1626]/60 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <div>
-                    <div className="lux-kicker text-white/60 mb-1">Facility</div>
-                    <div className="text-white font-display text-xl font-light">ISO Class 8 Cleanroom</div>
+            <div className="lg:col-span-5">
+              <ImageReveal from="right">
+                <TiltFrame className="rounded-lg" max={6}>
+                  <img
+                    src={about?.image ?? `${BASE}images/cleanroom-corridor.jpg`}
+                    alt="Product Armor cleanroom corridor"
+                    className="w-full h-[520px] object-cover"
+                    onError={e => { (e.target as HTMLImageElement).src = `${BASE}images/about-home.jpg`; }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1626]/60 to-transparent" />
+                  <div className="lux3d-float absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                    <div>
+                      <div className="lux-kicker text-white/60 mb-1">Facility</div>
+                      <div className="text-white font-display text-xl font-light">ISO Class 8 Cleanroom</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="font-display text-4xl font-light text-white">{SITE.founded}</div>
+                      <div className="lux-kicker text-white/50">Est.</div>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <div className="font-display text-4xl font-light text-white">{SITE.founded}</div>
-                    <div className="lux-kicker text-white/50">Est.</div>
-                  </div>
-                </div>
-              </div>
+                </TiltFrame>
+              </ImageReveal>
             </div>
           </div>
         </div>
@@ -430,22 +406,24 @@ export default function Home() {
                     key={p.id}
                     className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? "" : ""}`}
                   >
-                    <div className={`lg:col-span-6 ${i % 2 === 1 ? "lg:order-2 reveal-right" : "reveal-left"}`}>
-                      <TiltCard className="relative overflow-hidden rounded-lg bg-white shadow-xl shadow-[#0a1626]/[0.07]">
-                        <div className="relative h-[380px] sm:h-[440px] overflow-hidden">
-                          <img
-                            src={p.image}
-                            alt={p.name}
-                            className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out hover:scale-[1.045]"
-                            onError={e => { (e.target as HTMLImageElement).src = `${BASE}images/bottles-containers.jpg`; }}
-                          />
-                        </div>
-                        <div className="absolute top-5 left-5">
-                          <span className="lux-kicker bg-[#0a1626]/80 backdrop-blur text-white/90 px-3.5 py-2 rounded-sm">
-                            {p.category}
-                          </span>
-                        </div>
-                      </TiltCard>
+                    <div className={`lg:col-span-6 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                      <ImageReveal from={i % 2 === 1 ? "right" : "left"}>
+                        <TiltFrame className="rounded-lg bg-white">
+                          <div className="relative h-[380px] sm:h-[440px] overflow-hidden lux3d-media">
+                            <img
+                              src={p.image}
+                              alt={p.name}
+                              className="w-full h-full object-cover"
+                              onError={e => { (e.target as HTMLImageElement).src = `${BASE}images/bottles-containers.jpg`; }}
+                            />
+                          </div>
+                          <div className="lux3d-float absolute top-5 left-5">
+                            <span className="lux-kicker bg-[#0a1626]/80 backdrop-blur text-white/90 px-3.5 py-2 rounded-sm inline-block">
+                              {p.category}
+                            </span>
+                          </div>
+                        </TiltFrame>
+                      </ImageReveal>
                     </div>
                     <div className={`lg:col-span-6 ${i % 2 === 1 ? "lg:order-1 reveal-left" : "reveal-right"}`}>
                       <div className="font-display text-[#c2a15f] text-xl mb-4">{String(i + 1).padStart(2, "0")}</div>

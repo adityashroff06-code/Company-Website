@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import { TiltFrame, ImageReveal } from "@/components/Lux3D";
 import { getGetSiteContentQueryKey, useGetSiteContent } from "@workspace/api-client-react";
 
 const roleIcons = {
@@ -186,16 +187,20 @@ export default function Career() {
                     Explore current openings <ArrowDownRight size={17} />
                   </a>
                 </div>
-                <figure className="career-reveal relative mx-auto w-full max-w-[430px] overflow-hidden border border-white/20 bg-white/10 lg:justify-self-center" style={{ transitionDelay: "120ms" }}>
-                  <img
-                    src="/site/images/productarmor-careers-team.jpg"
-                    alt="ProductArmor manufacturing team collaborating in a cleanroom"
-                    data-testid="img-careers-team"
-                    className="aspect-[4/3] w-full object-cover opacity-90"
-                  />
-                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0a1626]/90 to-transparent px-5 pb-4 pt-12 text-xs uppercase tracking-[0.18em] text-white/75">
-                    People who protect what matters
-                  </figcaption>
+                <figure className="career-reveal relative mx-auto w-full max-w-[430px] lg:justify-self-center" style={{ transitionDelay: "120ms" }}>
+                  <ImageReveal from="right">
+                    <TiltFrame className="overflow-hidden border border-white/20 bg-white/10" max={7}>
+                      <img
+                        src="/site/images/productarmor-careers-team.jpg"
+                        alt="ProductArmor manufacturing team collaborating in a cleanroom"
+                        data-testid="img-careers-team"
+                        className="aspect-[4/3] w-full object-cover opacity-90"
+                      />
+                      <figcaption className="lux3d-float absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0a1626]/90 to-transparent px-5 pb-4 pt-12 text-xs uppercase tracking-[0.18em] text-white/75">
+                        People who protect what matters
+                      </figcaption>
+                    </TiltFrame>
+                  </ImageReveal>
                 </figure>
               </div>
             </div>
@@ -287,7 +292,7 @@ export default function Career() {
           <div className="career-reveal mb-12 flex flex-col justify-between gap-7 border-b border-white/20 pb-10 sm:flex-row sm:items-end">
             <div>
               <p className="lux-kicker mb-5 block text-[#c2a15f]">03 / The next move</p>
-              <h2 className="font-display font-light text-5xl leading-[0.98] tracking-tight sm:text-6xl">Current Openings</h2>
+              <h2 className="font-display font-light text-5xl leading-[0.98] tracking-tight text-white sm:text-6xl">Current Openings</h2>
             </div>
             <p className="max-w-sm text-sm leading-6 text-white/60">
               Explore roles across production, quality and sales. Select a position in the form below to apply.
@@ -514,7 +519,7 @@ export default function Career() {
         <div className="relative mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
           <div className="career-reveal">
             <p className="lux-kicker mb-5 block text-[#c2a15f]">The next chapter</p>
-            <h2 className="font-display font-light text-5xl leading-[0.98] tracking-tight sm:text-7xl">Grow With Us</h2>
+            <h2 className="font-display font-light text-5xl leading-[0.98] tracking-tight text-white sm:text-7xl">Grow With Us</h2>
             <p className="mt-7 max-w-2xl text-base leading-7 text-white/70">
               We're always looking for people who are curious, driven and committed to making a difference. Whether you're an experienced professional or just beginning your career, if our values resonate with you, there's a place for you at Product Armor.
             </p>

@@ -1,6 +1,7 @@
 import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
   import { CheckCircle, Users, Leaf, Shield, ArrowRight } from "lucide-react";
   import { Link } from "wouter";
+  import { TiltFrame, ImageReveal } from "@/components/Lux3D";
 
   const values = [
     { icon: Shield, title: "Quality First", desc: "Every batch meets or exceeds international pharmacopoeia requirements before it leaves our facility." },
@@ -59,15 +60,19 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
                 </div>
               </div>
               <div className="relative">
-                <video
-                  src={`${import.meta.env.BASE_URL}videos/facility-web.mp4`}
-                  className="rounded-lg shadow-md w-full object-cover h-96 bg-gray-100"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                />
+                <ImageReveal from="right">
+                  <TiltFrame className="rounded-lg" max={5}>
+                    <video
+                      src={`${import.meta.env.BASE_URL}videos/facility-web.mp4`}
+                      className="w-full object-cover h-96 bg-gray-100"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                    />
+                  </TiltFrame>
+                </ImageReveal>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /*
  * Lux3D — interactive 3-D imagery toolkit for the luxe design language.
@@ -72,24 +72,42 @@ type RevealProps = {
 export function ImageReveal({ children, className, from = "left", delayMs = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
+  // React state (not classList) so the classes survive parent re-renders,
+  // e.g. when the content API resolves after the observer has fired.
+  const [stage, setStage] = useState<"pending" | "visible" | "settled">("pending");
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    let settle: ReturnType<typeof setTimeout>;
+    let fired = false;
+    const show = () => {
+      if (fired) return;
+      fired = true;
+      setStage("visible");
+      // once the curtain finishes, lift the clip so tilt shadows can escape the box
+      settle = setTimeout(() => setStage("settled"), 1100 + delayMs);
+    };
+    if (typeof IntersectionObserver === "undefined") { show(); return; }
     const obs = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) { el.classList.add("visible"); obs.disconnect(); } }),
+      entries => entries.forEach(e => { if (e.isIntersecting) { obs.disconnect(); show(); } }),
       { threshold: 0.18 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+    // safety net: never leave an image stranded behind the curtain if the
+    // observer misbehaves (prerender, hidden tabs, exotic browsers)
+    const fallback = setTimeout(show, 3000);
+    return () => { obs.disconnect(); clearTimeout(settle); clearTimeout(fallback); };
+  }, [delayMs]);
 
   return (
     <div
       ref={ref}
-      className={`img-reveal img-reveal-${from} ${className ?? ""}`}
+      className={`img-reveal img-reveal-${from} ${stage !== "pending" ? "visible" : ""} ${stage === "settled" ? "settled" : ""} ${className ?? ""}`}
       style={delayMs ? ({ "--reveal-delay": `${delayMs}ms` } as React.CSSProperties) : undefined}
     >
-      {children}
+      {/* dedicated zoom layer so the settle-zoom never fights the tilt transform */}
+      <div className="img-reveal-zoomer">{children}</div>
     </div>
   );
 }

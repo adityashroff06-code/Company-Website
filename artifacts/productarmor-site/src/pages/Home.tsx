@@ -4,6 +4,15 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
 import { CheckCircle, ChevronRight, Star, ArrowRight, ArrowUpRight, Phone, Mail, Play } from "lucide-react";
 import { CONTACT, SITE } from "@/constants/site";
 import { TiltFrame, ImageReveal } from "@/components/Lux3D";
+import ProductViewer3D, { type ProductModel } from "@/components/ProductViewer3D";
+
+/* Which engineering model belongs beside a given product heading. */
+function modelFor(name: string, category: string): ProductModel | null {
+  const t = `${name} ${category}`;
+  if (/child|crc|\bcr\b/i.test(t)) return "crCap";
+  if (/bottle|container/i.test(t)) return "bottle";
+  return null;
+}
 
 const CORPORATE_VIDEO_ID = "mHR9lM7LZGw";
 const BASE = import.meta.env.BASE_URL;
@@ -437,6 +446,14 @@ export default function Home() {
                           </li>
                         ))}
                       </ul>
+                      {modelFor(p.name, p.category) && (
+                        <div className="mb-9 max-w-lg">
+                          <ProductViewer3D model={modelFor(p.name, p.category)!} className="h-[250px]" />
+                          <p className="lux-kicker text-gray-400 mt-3">
+                            Interactive 3-D · built from our engineering drawings
+                          </p>
+                        </div>
+                      )}
                       <Link
                         href="/products"
                         className="group inline-flex items-center gap-2 text-[#0a1626] font-semibold text-sm tracking-wide"

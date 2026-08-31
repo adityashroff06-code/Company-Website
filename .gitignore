@@ -47,3 +47,7 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Confidential engineering drawings kept local only
+/*.pdf
+/productarmor-site-netlify-drop.zip

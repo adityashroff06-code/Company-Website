@@ -354,3 +354,114 @@
   .reveal-left, .reveal-right { opacity: 1; transform: none; }
   .tilt-card { transform: none; }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   LUX3D — interactive 3-D imagery (TiltFrame / ImageReveal)
+   ════════════════════════════════════════════════════════════════ */
+
+.lux3d {
+  transform: perspective(1100px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
+  will-change: transform;
+  /* depth-shifted shadow leans away from the pointer; box-shadow (unlike
+     filter) is not a 3-D-flattening property */
+  box-shadow: var(--shadow-x, 0px) var(--shadow-y, 18px) 34px -6px rgba(10, 22, 38, 0.28);
+}
+.lux3d-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+  transform-style: preserve-3d;
+}
+/* inner media drifts against the frame for parallax depth */
+.lux3d-inner > img,
+.lux3d-inner > video,
+.lux3d-inner > .lux3d-media {
+  transform: translate3d(var(--par-x, 0px), var(--par-y, 0px), 0) scale(1.06);
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+/* moving specular glare */
+.lux3d-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--glare-o, 0);
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    520px circle at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.06) 42%,
+    transparent 62%
+  );
+  mix-blend-mode: soft-light;
+}
+/* elements that levitate on their own Z-plane inside a TiltFrame */
+.lux3d-float {
+  transform: translateZ(42px);
+  will-change: transform;
+}
+
+/* Scroll-triggered curtain reveal + settle-from-overzoom.
+   The zoom lives on its own .img-reveal-zoomer layer so it can never
+   override a TiltFrame's 3-D transform; .settled lifts the clip-path
+   so the tilt's drop shadow can extend past the box. */
+.img-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.img-reveal-right  { clip-path: inset(0 0 0 100%); }
+.img-reveal-bottom { clip-path: inset(100% 0 0 0); }
+.img-reveal.visible { clip-path: inset(0 0 0 0); }
+.img-reveal.settled { clip-path: none; }
+.img-reveal > .img-reveal-zoomer {
+  transform: scale(1.12);
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.img-reveal.visible > .img-reveal-zoomer { transform: scale(1); }
+
+/* Idle float: frames breathe in 3-D even before any interaction, so the
+   depth reads on touch screens too. Lives on the inner layer, composing
+   with (never fighting) the pointer tilt on .lux3d itself. */
+@keyframes lux3d-idle {
+  0%, 100% { transform: rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0); }
+  25%      { transform: rotateX(1.3deg) rotateY(-1.7deg) translate3d(0, -4px, 0); }
+  60%      { transform: rotateX(-1.1deg) rotateY(1.5deg) translate3d(0, 3px, 0); }
+}
+.lux3d { perspective: 1100px; }
+.lux3d-inner { animation: lux3d-idle 9s ease-in-out infinite; }
+
+/* ════════════════════════════════════════════════════════════════
+   TYPOGRAPHY CORRECTNESS
+   ════════════════════════════════════════════════════════════════ */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.font-display {
+  font-optical-sizing: auto;    /* let Fraunces pick its display cut */
+  font-synthesis: none;          /* never fake weights or italics */
+}
+/* balance multi-line display headings */
+h1.font-display, h2.font-display, .font-display.text-balance { text-wrap: balance; }
+/* keep Fraunces descenders (g, y, p) out of the clip windows */
+.kinetic-word, .kinetic-cycle {
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.kinetic-word > span, .kinetic-cycle > span { padding-bottom: 0.02em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lux3d { transform: none; box-shadow: 0 14px 24px -6px rgba(10, 22, 38, 0.2); }
+  .lux3d-inner > img, .lux3d-inner > video, .lux3d-inner > .lux3d-media { transform: none; }
+  .lux3d-glare { display: none; }
+  .lux3d-float { transform: none; }
+  .img-reveal, .img-reveal-right, .img-reveal-bottom { clip-path: none; transition: none; }
+  .img-reveal > .img-reveal-zoomer { transform: none; transition: none; }
+  .lux3d-inner { animation: none; }
+}

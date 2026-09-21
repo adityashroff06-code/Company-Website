@@ -1,0 +1,240 @@
+
+==== scoped counts  (occurrences / files) ====
+hex #rrggbb                        all= 345/28f   no-admin= 262/25f   no-admin-no-Career= 197/24f
+#4164a8                            all= 157/21f   no-admin=  90/18f   no-admin-no-Career=  90/18f
+#0f2a4e                            all=  64/15f   no-admin=  53/12f   no-admin-no-Career=  53/12f
+#93b4e8                            all=  17/ 6f   no-admin=  17/ 6f   no-admin-no-Career=  17/ 6f
+#32cd32                            all=   1/ 1f   no-admin=   1/ 1f   no-admin-no-Career=   1/ 1f
+#25d366                            all=   6/ 3f   no-admin=   6/ 3f   no-admin-no-Career=   6/ 3f
+text-white/50                      all=   9/ 4f   no-admin=   9/ 4f   no-admin-no-Career=   9/ 4f
+text-white/60                      all=  25/17f   no-admin=  23/15f   no-admin-no-Career=  20/14f
+text-white/65                      all=  12/12f   no-admin=  12/12f   no-admin-no-Career=  12/12f
+text-white/(50|60)                 all=  34/17f   no-admin=  32/15f   no-admin-no-Career=  29/14f
+text-white/(50|60|65)              all=  46/19f   no-admin=  44/17f   no-admin-no-Career=  41/16f
+font-black                         all=   7/ 5f   no-admin=   7/ 5f   no-admin-no-Career=   7/ 5f
+font-extrabold                     all=   0/ 0f   no-admin=   0/ 0f   no-admin-no-Career=   0/ 0f
+font-bold                          all=  27/15f   no-admin=  20/12f   no-admin-no-Career=  20/12f
+font-semibold                      all= 138/26f   no-admin= 111/23f   no-admin-no-Career=  84/22f
+section-pad                        all=  60/14f   no-admin=  60/14f   no-admin-no-Career=  55/13f
+card-standard                      all=  10/ 7f   no-admin=  10/ 7f   no-admin-no-Career=  10/ 7f
+heading-(hero|page|section|card)   all=  62/12f   no-admin=  62/12f   no-admin-no-Career=  62/12f
+text-body(-sm)? class              all=   6/ 2f   no-admin=   6/ 2f   no-admin-no-Career=   2/ 1f
+container-width                    all=  50/18f   no-admin=  50/18f   no-admin-no-Career=  48/17f
+section-tag(-light)?               all=  10/ 6f   no-admin=  10/ 6f   no-admin-no-Career=  10/ 6f
+btn-(primary|outline|light)        all=  21/13f   no-admin=  21/13f   no-admin-no-Career=  21/13f
+ease-out utility                   all=   0/ 0f   no-admin=   0/ 0f   no-admin-no-Career=   0/ 0f
+rounded-* utilities                all= 227/27f   no-admin= 155/24f   no-admin-no-Career= 148/23f
+shadow-* utilities                 all=  46/17f   no-admin=  42/14f   no-admin-no-Career=  41/13f
+border-2                           all=  16/ 5f   no-admin=   3/ 2f   no-admin-no-Career=   3/ 2f
+backdrop-blur                      all=   8/ 7f   no-admin=   8/ 7f   no-admin-no-Career=   8/ 7f
+hsl(var(--                         all=   0/ 0f   no-admin=   0/ 0f   no-admin-no-Career=   0/ 0f
+style={{ (inline styles)           all=  38/14f   no-admin=  38/14f   no-admin-no-Career=  32/13f
+rgba?( literals                    all=  11/ 3f   no-admin=  11/ 3f   no-admin-no-Career=  11/ 3f
+career-reveal                      all=  20/ 1f   no-admin=  20/ 1f   no-admin-no-Career=   0/ 0f
+
+==== hex inside three/ â€” split className vs three.js args ====
+three/ total:                 29
+three/ on lines w/ className or [#: 22
+-- every hex line in three/ --
+src/components/three/Hero3D.tsx:85:        <BadgeCheck size={15} className="text-[#4164a8]" />
+src/components/three/Hero3D.tsx:89:        <ShieldCheck size={15} className="text-[#4164a8]" />
+src/components/three/HomeJourney.tsx:31:      className="relative bg-[#07172e]"
+src/components/three/HomeJourney.tsx:37:        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_72%_46%,#eaf1fc_0%,#ffffff_62%)]" />
+src/components/three/HomeJourney.tsx:45:          className="absolute inset-0 bg-[radial-gradient(110%_85%_at_50%_42%,#1d4478_0%,#0f2a4d_48%,#07172e_100%)]"
+src/components/three/HomeJourney.tsx:119:                <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#a9c4f0] hover:text-white transition-colors">
+src/components/three/HomeJourney.tsx:143:                  className="inline-flex items-center gap-2 bg-[#07172e]/55 hover:bg-[#07172e]/75 border border-white/30 backdrop-blur text-white font-medium px-7 py-3 rounded-lg transition
+src/components/three/HomeJourney.tsx:159:          className="absolute bottom-5 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 text-[#4164a8]/70 pointer-events-none"
+src/components/three/HomeJourneyScene.tsx:326:              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#93b4e8]">
+src/components/three/Showroom.tsx:29:      <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a9c4f0] mb-2">{m.code}</p>
+src/components/three/Showroom.tsx:107:      className="relative bg-[#07172e]"
+src/components/three/Showroom.tsx:113:        className="sticky top-0 h-screen supports-[height:100dvh]:h-dvh w-full overflow-hidden bg-[radial-gradient(110%_85%_at_38%_46%,#1d4478_0%,#0f2a4d_48%,#07172e_100%)]"
+src/components/three/Showroom.tsx:168:                <Link href="/contact" className="btn-light text-[#4164a8]">
+src/components/three/ShowroomScene.tsx:75:        <lineBasicMaterial color="#c7d8f5" transparent opacity={0.55} toneMapped={false} />
+src/components/three/ShowroomScene.tsx:81:          className="block -translate-y-1/2 whitespace-nowrap text-[11px] font-semibold tabular-nums text-[#c7d8f5]"
+src/components/three/Stage.tsx:120:        <Lightformer form="rect" intensity={2.8} color="#ffffff" position={[0, 5, 1.5]} rotation={[-Math.PI / 2.3, 0, 0]} scale={[9, 6, 1]} />
+src/components/three/Stage.tsx:121:        <Lightformer form="rect" intensity={1.5} color="#dbe7fb" position={[6, 1.2, -2.5]} rotation={[0, -Math.PI / 2.5, 0]} scale={[5, 8, 1]} />
+src/components/three/Stage.tsx:122:        <Lightformer form="rect" intensity={1.1} color="#ffffff" position={[-5.5, 0.6, 3.5]} rotation={[0, Math.PI / 2.8, 0]} scale={[5, 7, 1]} />
+src/components/three/Stage.tsx:123:        <Lightformer form="rect" intensity={0.65} color="#e8f0fd" position={[0, -4, 1]} rotation={[Math.PI / 2.2, 0, 0]} scale={[9, 9, 1]} />
+src/components/three/Stage.tsx:133:          color="#0f2a4d"
+src/components/three/Stage.tsx:143:  color = "#9db9ec",
+src/components/three/Stage.tsx:321:        className={`h-full origin-left transition-transform duration-300 ${tone === "dark" ? "bg-[#93b4e8]" : "bg-[#4164a8]"}`}
+
+==== hex in video/ ====
+src/components/video/AmbientVideo.tsx:133:          <span className="w-1.5 h-1.5 rounded-full bg-[#93b4e8]" />
+src/components/video/ImmersiveFilm.tsx:104:    <section ref={track} className="relative bg-[#07172e]" style={{ height: `${150 + n * 85}vh` }} aria-label={ariaLabel}>
+
+==== hsl(var( / inline colour usage outside @theme ====
+-- in index.css outside @theme --
+183:    background-color: hsl(var(--background));
+184:    color: hsl(var(--foreground));
+
+==== ui/card importers ====
+  src/pages/not-found.tsx:1:import { Card, CardContent } from "@/components/ui/card";
+
+==== Career.tsx bespoke system ====
+81:    const elements = document.querySelectorAll<HTMLElement>(".career-reveal");
+82:    const observer = new IntersectionObserver(
+86:            entry.target.classList.add("career-revealed");
+155:      <style>{`
+156:        .career-reveal {
+161:        .career-reveal.career-revealed {
+166:          .career-reveal,
+167:          .career-reveal.career-revealed {
+181:            <div className="career-reveal">
+210:                <figure className="career-reveal relative mx-auto w-full max-w-[430px] overflow-hidden border border-white/20 bg-white/10 lg:justify-self-center" style={{ transitionDelay: "120ms" }}>
+243:            <div className="career-reveal lg:sticky lg:top-28 lg:self-start">
+260:                    className="career-reveal grid gap-5 py-8 sm:grid-cols-[58px_235px_1fr] sm:gap-7"
+281:          <div className="career-reveal">
+291:          <div className="career-reveal border-t border-navy/20" style={{ transitionDelay: "100ms" }}>
+308:          <div className="career-reveal mb-12 flex flex-col justify-between gap-7 border-b border-white/20 pb-10 sm:flex-row sm:items-end">
+352:                    className="career-reveal border-b border-white/20"
+409:            <div className="career-reveal">
+420:            <div data-testid="application-form-panel" className="career-reveal border-t border-navy/20 pt-7" style={{ transitionDelay: "100ms" }}>
+555:          <div className="career-reveal">
+566: className="career-reveal inline-flex items-center justify-center gap-3 border border-navy/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-navy hover:text-[#f4c17f]"
+-- Career hex by value --
+     13 #1e5da6
+     12 #627684
+     10 #173454
+      7 #0b2444
+      6 #f0b36d
+      5 #f4c17f
+      4 #9aaab1
+      2 #e09b55
+      1 #f8f7f1
+      1 #e6a35c
+      1 #d5dede
+      1 #74a9e8
+      1 #71828a
+      1 #597080
+
+==== admin hex by value (out of scope) ====
+     67 #4164a8
+     11 #0f2a4e
+      5 #345099
+
+==== routes (src/App.tsx) ====
+  59:      <Route path="/" component={() => <PublicLayout><Home /></PublicLayout>} />
+  60:      <Route path="/products" component={() => <PublicLayout><Products /></PublicLayout>} />
+  61:      <Route path="/industries" component={() => <PublicLayout><Industries /></PublicLayout>} />
+  62:      <Route path="/applications" component={() => <PublicLayout><Applications /></PublicLayout>} />
+  63:      <Route path="/technology" component={() => <PublicLayout><Technology /></PublicLayout>} />
+  64:      <Route path="/downloads" component={() => <PublicLayout><Downloads /></PublicLayout>} />
+  65:      <Route path="/case-studies" component={() => <PublicLayout><CaseStudies /></PublicLayout>} />
+  66:      <Route path="/career" component={() => <PublicLayout><Career /></PublicLayout>} />
+  67:      <Route path="/faq" component={() => <PublicLayout><FAQ /></PublicLayout>} />
+  68:      <Route path="/about" component={() => <PublicLayout><About /></PublicLayout>} />
+  69:      <Route path="/management-team" component={() => <PublicLayout><ManagementTeam /></PublicLayout>} />
+  70:      <Route path="/quality" component={() => <PublicLayout><Quality /></PublicLayout>} />
+  71:      <Route path="/contact" component={() => <PublicLayout><Contact /></PublicLayout>} />
+  72:      <Route path="/admin" component={AdminLogin} />
+  73:      <Route path="/admin/dashboard" component={AdminDashboard} />
+  74:      <Route component={NotFound} />
+  85:          <Router />
+
+==== package.json â€” 3D / motion deps ====
+  41:    "@react-three/drei": "^10.7.8",
+  42:    "@react-three/fiber": "^9.7.0",
+  48:    "@tanstack/react-query": "catalog:",
+  52:    "@types/three": "^0.185.4",
+  60:    "framer-motion": "catalog:",
+  64:    "react": "catalog:",
+  66:    "react-dom": "catalog:",
+  73:    "tailwindcss": "catalog:",
+  74:    "three": "^0.185.1",
+  77:    "vite": "catalog:",
+  78:    "wouter": "^3.3.5",
+-- catalog entries (pnpm-workspace.yaml) --
+  56:  framer-motion: ^12.23.24
+  57:  lucide-react: ^0.545.0
+  59:  react: 19.1.0
+  61:  react-dom: 19.1.0
+  63:  tailwindcss: ^4.1.14
+  65:  vite: ^7.3.2
+
+==== assets â€” public/models ====
+     2806700  pa04-150cc.glb
+     2973824  pa14-950cc.glb
+     2147208  pa19-30cc.glb
+      629648  pa19-bottle.glb
+     2728952  pa20-40cc.glb
+     2780776  pa43-120cc.glb
+     5223300  pacrc03-38mm.glb
+     1228540  pacrc03-closure.glb
+-- references per model file in src --
+  pa04-150cc.glb               refs=1
+  pa14-950cc.glb               refs=1
+  pa19-30cc.glb                refs=1
+  pa19-bottle.glb              refs=0
+  pa20-40cc.glb                refs=1
+  pa43-120cc.glb               refs=1
+  pacrc03-38mm.glb             refs=1
+  pacrc03-closure.glb          refs=0
+-- totals --
+  referenced: 18660760 bytes (18.66 MB, 17.80 MiB)
+  orphaned:   1858188 bytes (1.86 MB, 1.77 MiB)
+
+==== assets â€” public/videos ====
+   8168791  public/videos/facility.webm
+    566421  public/videos/loops/home-bottle.mp4
+    384610  public/videos/loops/home-bottle.webm
+   1648259  public/videos/loops/products-line.mp4
+   1302805  public/videos/loops/products-line.webm
+   1020694  public/videos/loops/quality-leaktest.mp4
+    936856  public/videos/loops/quality-leaktest.webm
+    861911  public/videos/loops/quality-vision.mp4
+    691930  public/videos/loops/quality-vision.webm
+   1455524  public/videos/loops/tech-capfeed.mp4
+   1357966  public/videos/loops/tech-capfeed.webm
+   1905362  public/videos/loops/tech-moulding.mp4
+   1850442  public/videos/loops/tech-moulding.webm
+    774000  public/videos/loops/tech-robot.mp4
+    558526  public/videos/loops/tech-robot.webm
+     49972  public/videos/posters/facility.jpg
+     20644  public/videos/posters/home-bottle.jpg
+     96365  public/videos/posters/products-line.jpg
+     54065  public/videos/posters/quality-leaktest.jpg
+     52551  public/videos/posters/quality-vision.jpg
+     17560  public/videos/posters/tech-capfeed.jpg
+     54135  public/videos/posters/tech-moulding.jpg
+     34000  public/videos/posters/tech-robot.jpg
+-- totals --
+  loops:   15315306 bytes (15.32 MB) in 14 files
+  posters: 379292 bytes (0.38 MB) in 8 files
+
+==== assets â€” public/images ====
+     89560  public/images/about-family.jpg
+     33067  public/images/bottles-containers.jpg
+     71862  public/images/cleanroom-corridor.jpg
+     66890  public/images/cr-caps.jpg
+     39623  public/images/ct-caps.jpg
+     89288  public/images/drug-delivery.jpg
+   3582306  public/images/hero-bg.jpg
+    135653  public/images/productarmor-careers-team.jpg
+clients:        14 files
+certifications: 5 files
+-- hero-bg references --
+<repo>/artifacts/api-server/data/content.json:7:    "backgroundImage": "/images/hero-bg.jpg",
+src/pages/Home.tsx:126:                className="absolute inset-0 bg-cover bg-center opacity-[0.06]"
+-- public/ total --
+  49058219 bytes (49.06 MB) in 61 files
+
+==== video wiring ====
+src/pages/About.tsx:5:import AmbientVideo from "@/components/video/AmbientVideo";
+src/pages/About.tsx:6:import ImmersiveFilm, { type FilmClip } from "@/components/video/ImmersiveFilm";
+src/pages/About.tsx:9:  const floorClips: FilmClip[] = [
+src/pages/About.tsx:91:                <AmbientVideo
+src/pages/About.tsx:92:                  src={videoSrc("facility.mp4")}
+src/pages/About.tsx:93:                  webmSrc={videoWebm("facility.mp4")}
+src/pages/About.tsx:104:        <ImmersiveFilm clips={floorClips} ariaLabel="Footage from the Product Armor production floor">
+src/pages/About.tsx:111:        </ImmersiveFilm>
+src/pages/Home.tsx:5:  import AmbientVideo from "@/components/video/AmbientVideo";
+src/pages/Home.tsx:252:                <AmbientVideo
+src/pages/Products.tsx:7:  import AmbientVideo from "@/components/video/AmbientVideo";
+src/pages/Products.tsx:71:                <AmbientVideo
+src/pages/Quality.tsx:5:  import AmbientVideo from "@/components/video/AmbientVideo";
+src/pages/Quality.tsx:102:                <AmbientVideo
+src/pages/Quality.tsx:117:                <AmbientVideo
+src/pages/Technology.tsx:19:import AmbientVideo from "@/components/video/AmbientVideo";
+src/pages/Technology.tsx:211:                <AmbientVideo
+-- videos.ts keys --

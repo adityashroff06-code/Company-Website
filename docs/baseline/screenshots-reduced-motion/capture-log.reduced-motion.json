@@ -1,0 +1,409 @@
+﻿{
+    "capturedAt":  "2026-09-21T18:32:24",
+    "baseUrl":  "http://localhost:4173",
+    "browser":  "Chrome/153.0.8010.48",
+    "reducedMotion":  true,
+    "webglDisabled":  false,
+    "pages":  [
+                  {
+                      "route":  "/",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  6943,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  1,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  7273229,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/home-bottle.jpg",
+                                              "bytes":  20644
+                                          },
+                                          {
+                                              "path":  "/images/about-family.jpg",
+                                              "bytes":  89560
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso9001.png",
+                                              "bytes":  282594
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso15378.svg",
+                                              "bytes":  1394
+                                          },
+                                          {
+                                              "path":  "/images/certifications/usdmf.svg",
+                                              "bytes":  9879
+                                          },
+                                          {
+                                              "path":  "/images/certifications/cdmf.svg",
+                                              "bytes":  16143
+                                          },
+                                          {
+                                              "path":  "/images/certifications/chinadmf.png",
+                                              "bytes":  51464
+                                          },
+                                          {
+                                              "path":  "/images/hero-bg.jpg",
+                                              "bytes":  3582306
+                                          },
+                                          {
+                                              "path":  "/models/pa04-150cc.glb",
+                                              "bytes":  2806700
+                                          },
+                                          {
+                                              "path":  "/images/clients/granules.png",
+                                              "bytes":  12688
+                                          },
+                                          {
+                                              "path":  "/images/clients/hetero.png",
+                                              "bytes":  3234
+                                          },
+                                          {
+                                              "path":  "/images/clients/annora.png",
+                                              "bytes":  6370
+                                          },
+                                          {
+                                              "path":  "/images/clients/msn.png",
+                                              "bytes":  11704
+                                          },
+                                          {
+                                              "path":  "/images/clients/vkt-pharma.png",
+                                              "bytes":  15070
+                                          },
+                                          {
+                                              "path":  "/images/clients/remedica.png",
+                                              "bytes":  14278
+                                          },
+                                          {
+                                              "path":  "/images/clients/strides.png",
+                                              "bytes":  18837
+                                          },
+                                          {
+                                              "path":  "/images/clients/chemo.png",
+                                              "bytes":  15704
+                                          },
+                                          {
+                                              "path":  "/images/clients/lupin.png",
+                                              "bytes":  8058
+                                          },
+                                          {
+                                              "path":  "/images/clients/marksans.png",
+                                              "bytes":  9889
+                                          },
+                                          {
+                                              "path":  "/images/clients/graviti.png",
+                                              "bytes":  20226
+                                          },
+                                          {
+                                              "path":  "/images/clients/kusum.png",
+                                              "bytes":  15680
+                                          },
+                                          {
+                                              "path":  "/images/clients/aizant.png",
+                                              "bytes":  18320
+                                          },
+                                          {
+                                              "path":  "/images/clients/orbion.png",
+                                              "bytes":  13619
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  20
+                  },
+                  {
+                      "route":  "/products",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  4459,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  325233,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/products-line.jpg",
+                                              "bytes":  96365
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  12
+                  },
+                  {
+                      "route":  "/",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  10579,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  1,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  7171733,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          },
+                                          {
+                                              "path":  "/images/about-family.jpg",
+                                              "bytes":  89560
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso9001.png",
+                                              "bytes":  282594
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso15378.svg",
+                                              "bytes":  1394
+                                          },
+                                          {
+                                              "path":  "/images/certifications/usdmf.svg",
+                                              "bytes":  9879
+                                          },
+                                          {
+                                              "path":  "/images/certifications/cdmf.svg",
+                                              "bytes":  16143
+                                          },
+                                          {
+                                              "path":  "/images/certifications/chinadmf.png",
+                                              "bytes":  51464
+                                          },
+                                          {
+                                              "path":  "/images/hero-bg.jpg",
+                                              "bytes":  3582306
+                                          },
+                                          {
+                                              "path":  "/models/pa04-150cc.glb",
+                                              "bytes":  2806700
+                                          },
+                                          {
+                                              "path":  "/videos/posters/home-bottle.jpg",
+                                              "bytes":  20644
+                                          },
+                                          {
+                                              "path":  "/images/clients/granules.png",
+                                              "bytes":  12688
+                                          },
+                                          {
+                                              "path":  "/images/clients/hetero.png",
+                                              "bytes":  3234
+                                          },
+                                          {
+                                              "path":  "/images/clients/annora.png",
+                                              "bytes":  6370
+                                          },
+                                          {
+                                              "path":  "/images/clients/msn.png",
+                                              "bytes":  11704
+                                          },
+                                          {
+                                              "path":  "/images/clients/vkt-pharma.png",
+                                              "bytes":  15070
+                                          },
+                                          {
+                                              "path":  "/images/clients/remedica.png",
+                                              "bytes":  14278
+                                          },
+                                          {
+                                              "path":  "/images/clients/strides.png",
+                                              "bytes":  18837
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  17.8
+                  },
+                  {
+                      "route":  "/products",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  6701,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  325233,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/products-line.jpg",
+                                              "bytes":  96365
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  12.5
+                  }
+              ]
+}

@@ -1,0 +1,296 @@
+
+==== tree ====
+tsx files: 36   (non-admin: 33)
+three/ dir: Hero3D.tsx HomeJourney.tsx HomeJourneyScene.tsx Showroom.tsx ShowroomScene.tsx Stage.tsx boundary.tsx pa-models.ts scroll.ts showroom-steps.ts 
+video/ dir: AmbientVideo.tsx ImmersiveFilm.tsx videos.ts 
+ui/ dir:    card.tsx toast.tsx toaster.tsx tooltip.tsx 
+tailwind.config.*: [none if blank]
+
+==== Â§2.3 hex literals â€” acceptance command: grep -rhoiE '#[0-9a-f]{6}' src --include=*.tsx | wc -l ====
+total occurrences: 345
+files containing:  28
+-- per file --
+  51  src/admin/AdminDashboard.tsx
+   7  src/admin/AdminLogin.tsx
+  25  src/admin/TeamManager.tsx
+   1  src/components/Breadcrumb.tsx
+   7  src/components/Footer.tsx
+  11  src/components/Navbar.tsx
+   2  src/components/WhatsAppFloat.tsx
+   2  src/components/three/Hero3D.tsx
+  10  src/components/three/HomeJourney.tsx
+   1  src/components/three/HomeJourneyScene.tsx
+   6  src/components/three/Showroom.tsx
+   2  src/components/three/ShowroomScene.tsx
+   8  src/components/three/Stage.tsx
+   1  src/components/video/AmbientVideo.tsx
+   1  src/components/video/ImmersiveFilm.tsx
+   6  src/pages/About.tsx
+  13  src/pages/Applications.tsx
+  65  src/pages/Career.tsx
+  13  src/pages/CaseStudies.tsx
+  17  src/pages/Contact.tsx
+   8  src/pages/Downloads.tsx
+   4  src/pages/FAQ.tsx
+  30  src/pages/Home.tsx
+  10  src/pages/Industries.tsx
+  12  src/pages/ManagementTeam.tsx
+  10  src/pages/Products.tsx
+   9  src/pages/Quality.tsx
+  13  src/pages/Technology.tsx
+-- by value (case-folded) --
+    157 #4164a8
+     64 #0f2a4e
+     17 #93b4e8
+     13 #1e5da6
+     12 #627684
+     10 #173454
+      7 #0b2444
+      7 #07172e
+      6 #f0b36d
+      6 #25d366
+      5 #f4c17f
+      5 #345099
+      5 #0f2a4d
+      4 #9aaab1
+      3 #ffffff
+      2 #e09b55
+      2 #c7d8f5
+      2 #a9c4f0
+      2 #1d4478
+      1 #f8f7f1
+      1 #eaf1fc
+      1 #e8f0fd
+      1 #e6a35c
+      1 #dbe7fb
+      1 #d5dede
+      1 #9db9ec
+      1 #9ca3af
+      1 #74a9e8
+      1 #71828a
+      1 #597080
+      1 #4364a7
+      1 #32cd32
+      1 #1ebe57
+      1 #0a66c2
+      1 #084d92
+-- inside src/components/three --
+three/ total: 29
+-- inside src/admin (out of scope per brief) --
+admin total: 83
+-- hex literals in .ts files (not covered by acceptance grep) --
+(none)
+-- 3-digit hex in tsx (not matched by the 6-digit regex) --
+-- lines with non-className hex in three/ (candidate legit three.js colour args) --
+src/components/three/ShowroomScene.tsx:75:        <lineBasicMaterial color="#c7d8f5" transparent opacity={0.55} toneMapped={false} />
+src/components/three/Stage.tsx:120:        <Lightformer form="rect" intensity={2.8} color="#ffffff" position={[0, 5, 1.5]} rotation={[-Math.PI / 2.3, 0, 0]} scale={[9, 6, 1]} />
+src/components/three/Stage.tsx:121:        <Lightformer form="rect" intensity={1.5} color="#dbe7fb" position={[6, 1.2, -2.5]} rotation={[0, -Math.PI / 2.5, 0]} scale={[5, 8, 1]} />
+src/components/three/Stage.tsx:122:        <Lightformer form="rect" intensity={1.1} color="#ffffff" position={[-5.5, 0.6, 3.5]} rotation={[0, Math.PI / 2.8, 0]} scale={[5, 7, 1]} />
+src/components/three/Stage.tsx:123:        <Lightformer form="rect" intensity={0.65} color="#e8f0fd" position={[0, -4, 1]} rotation={[Math.PI / 2.2, 0, 0]} scale={[9, 9, 1]} />
+src/components/three/Stage.tsx:133:          color="#0f2a4d"
+src/components/three/Stage.tsx:143:  color = "#9db9ec",
+
+==== Â§2.4 palette collisions ====
+#32CD32: 1 occurrence(s) in: src/pages/Home.tsx 
+#25D366: 6 occurrence(s) in: src/components/WhatsAppFloat.tsx src/pages/Contact.tsx src/pages/Home.tsx 
+-- --accent / --accent-border in index.css --
+93:  --accent:          217 65% 74%;
+94:  --accent-foreground: 214 68% 18%;
+123:  --accent-border: hsl(24 90% 45%);
+159:  --accent:          24 90% 55%;
+160:  --accent-foreground: 0 0% 100%;
+174:  --accent-border: hsl(24 90% 62%);
+
+==== Â§2.5 .reveal ====
+-- className uses of the 'reveal' class per file (token-exact) --
+   6  src/pages/Applications.tsx
+   2  src/pages/CaseStudies.tsx
+   4  src/pages/Downloads.tsx
+   3  src/pages/FAQ.tsx
+  13  src/pages/Home.tsx
+   5  src/pages/Industries.tsx
+   9  src/pages/Technology.tsx
+total className uses: 42
+-- querySelectorAll('.reveal') blocks --
+count: 0
+-- .reveal CSS --
+194:.reveal {
+199:.reveal.visible {
+-- framer-motion imports --
+count: 0
+
+==== Â§2.2 font weight ====
+font-black           7 occurrences in   5 tsx files
+font-extrabold       1 occurrences in   1 tsx files
+font-bold           31 occurrences in  16 tsx files
+font-semibold      143 occurrences in  27 tsx files
+font-medium         34 occurrences in  14 tsx files
+-- font-weight declarations in index.css --
+      1 351:@apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-white text-primary hover:bg-blue-50 text-sm font-semibold
+      1 348:@apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-semibold
+      1 345:@apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-semibold
+      1 337:@apply inline-block px-3 py-1 bg-white/10 text-white/90 text-xs font-semibold
+      1 334:@apply inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold
+      1 317:@apply font-bold
+      1 314:@apply text-3xl sm:text-4xl font-bold
+      1 311:@apply text-3xl sm:text-4xl font-bold
+      1 308:@apply text-4xl sm:text-5xl font-bold
+      1 305:@apply text-4xl sm:text-5xl lg:text-6xl font-extrabold
+      1 259:font-weight: 800
+      1 253:font-weight: 800
+-- heading-hero / pa-stage-hero-title definitions --
+257:.pa-stage-hero-title {
+304:  .heading-hero {
+-- Google Fonts link --
+31:    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+==== Â§2.1 stripe layout ====
+-- page header band: bg-primary section-pad (first <section>) --
+  src/pages/About.tsx:48:        <section className="bg-primary section-pad">
+  src/pages/Applications.tsx:80:      <section className="bg-primary section-pad">
+  src/pages/Career.tsx:306:      <section id="openings" className="bg-primary section-pad text-white sm:py-28">
+  src/pages/CaseStudies.tsx:93:      <section className="bg-primary section-pad">
+  src/pages/Contact.tsx:47:      <section className="bg-primary section-pad">
+  src/pages/Downloads.tsx:61:      <section className="bg-primary section-pad">
+  src/pages/FAQ.tsx:85:      <section className="bg-primary section-pad">
+  src/pages/Industries.tsx:81:      <section className="bg-primary section-pad">
+  src/pages/ManagementTeam.tsx:166:      <section className="bg-primary section-pad">
+  src/pages/Products.tsx:42:        <section className="bg-primary section-pad">
+  src/pages/Quality.tsx:22:        <section className="bg-primary section-pad">
+  src/pages/Technology.tsx:141:      <section className="bg-primary section-pad">
+pages with it: 12
+-- section-pad uses --
+total: 61  in 15 files
+-- <section> background classes per page --
+About.tsx                        bg-primary bg-white bg-secondary bg-primary 
+Applications.tsx                 bg-primary bg-white bg-secondary bg-white bg-navy 
+Career.tsx                       bg-navy bg-background bg-secondary bg-primary bg-background 
+CaseStudies.tsx                  bg-primary bg-white bg-secondary bg-navy 
+Contact.tsx                      bg-primary bg-secondary bg-secondary 
+Downloads.tsx                    bg-primary bg-white bg-secondary bg-navy 
+FAQ.tsx                          bg-primary bg-white bg-secondary bg-navy 
+Home.tsx                         bg-white bg-navy bg-white bg-navy bg-secondary bg-primary bg-white bg-secondary bg-navy 
+Industries.tsx                   bg-primary bg-white bg-secondary bg-navy 
+ManagementTeam.tsx               bg-primary bg-secondary bg-primary 
+Products.tsx                     bg-primary bg-white bg-secondary bg-primary 
+Quality.tsx                      bg-primary bg-white bg-navy bg-secondary bg-primary 
+Technology.tsx                   bg-primary bg-white bg-navy bg-secondary bg-white bg-navy 
+not-found.tsx                    
+
+==== Â§2.8 cards ====
+card-standard uses: 11 in 8 files
+imports of ui/card: 1
+341:  .card-standard {
+342-    @apply bg-card rounded-xl p-6 sm:p-7 shadow-sm border border-card-border hover:shadow-md transition-all duration-300 hover:border-primary/20 flex flex-col h-full;
+343-  }
+344-  .btn-primary {
+345-    @apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-semibold rounded-lg transition-all duration-200;
+
+==== Â§2.9 contrast classes ====
+text-white/40       4 occurrences in   3 files
+text-white/50       9 occurrences in   4 files
+text-white/60      25 occurrences in  17 files
+text-white/65      12 occurrences in  12 files
+text-white/70      13 occurrences in   5 files
+text-white/75       1 occurrences in   1 files
+text-white/80      18 occurrences in  14 files
+files with /50 or /60:        17
+files with /50, /60 or /65:   19
+
+==== Â§2.6 / Â§5 three.js pipeline ====
+toneMapping|outputColorSpace|onCreated occurrences: 0
+-- <Canvas> sites --
+  src/components/three/Hero3D.tsx:69:        <Canvas
+  src/components/three/HomeJourneyScene.tsx:362:      <Canvas
+  src/components/three/ShowroomScene.tsx:275:      <Canvas
+-- dpr --
+  src/components/three/Hero3D.tsx:70:          dpr={[1, 2]}
+  src/components/three/HomeJourneyScene.tsx:363:        dpr={[1, 1.75]}
+  src/components/three/ShowroomScene.tsx:276:        dpr={[1, 1.75]}
+-- frameloop --
+  src/components/three/Hero3D.tsx:73:          frameloop={inView ? "always" : "never"}
+  src/components/three/HomeJourneyScene.tsx:366:        frameloop={active ? "always" : "never"}
+  src/components/three/ShowroomScene.tsx:279:        frameloop={active ? "always" : "never"}
+-- useGLTF.preload --
+  src/components/three/Hero3D.tsx:9:useGLTF.preload(MODELS.pa04.url);
+  src/components/three/HomeJourneyScene.tsx:10:useGLTF.preload(MODELS.pa04.url);
+  src/components/three/HomeJourneyScene.tsx:11:useGLTF.preload(MODELS.pacrc03.url);
+  src/components/three/ShowroomScene.tsx:10:ALL_KEYS.forEach((k) => useGLTF.preload(MODELS[k].url));
+-- aria-live --
+  src/components/three/Showroom.tsx:164:              <div aria-live="polite">
+-- supportsImmersive call sites --
+  src/components/three/scroll.ts:17:export function supportsImmersive() {
+  src/pages/Home.tsx:7:  import { supportsImmersive } from "@/components/three/scroll";
+  src/pages/Home.tsx:44:    const [immersive] = useState(supportsImmersive);
+  src/pages/Products.tsx:10:  import { supportsImmersive } from "@/components/three/scroll";
+  src/pages/Products.tsx:25:    const [immersive] = useState(supportsImmersive);
+-- tuneMaterials --
+  src/components/three/Stage.tsx:11:function tuneMaterials(root: THREE.Object3D) {
+  src/components/three/Stage.tsx:26:    tuneMaterials(clone);
+  src/components/three/Stage.tsx:48:    tuneMaterials(clone);
+  src/components/three/Stage.tsx:83:    tuneMaterials(clone);
+-- postprocessing / gsap / lenis / locomotive --
+  src/pages/CaseStudies.tsx:74:      "Reliable replenishment eliminated stock-outs and allowed the brand to launch new SKUs on schedule.",
+(blank above = none)
+
+==== Â§4.4 motion tokens ====
+cubic-bezier(0.22, 1, 0.36, 1) occurrences in index.css: 4
+  227:  animation: pa-hero-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  240:    pa-hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards,
+  245:    pa-hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards,
+  274:.pa-spec-swap { animation: pa-spec-swap-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+same curve in tsx: 0
+--ease-* / --dur-* custom properties: 0
+-- all distinct cubic-bezier curves in index.css --
+      4 cubic-bezier(0.22, 1, 0.36, 1)
+
+==== Â§4.3 radius ====
+  54:  --radius-sm: calc(var(--radius) - 4px);
+  55:  --radius-md: calc(var(--radius) - 2px);
+  56:  --radius-lg: var(--radius);
+  57:  --radius-xl: calc(var(--radius) + 4px);
+  108:  --radius: 0.5rem;
+
+==== Â§6 unsplash fallbacks ====
+  src/pages/Home.tsx:212:images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80
+  src/pages/Home.tsx:215:images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80
+  src/pages/Home.tsx:306:images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80
+  src/pages/Products.tsx:141:images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80
+  src/pages/Technology.tsx:297:images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80
+files: src/pages/Home.tsx src/pages/Products.tsx src/pages/Technology.tsx 
+
+==== line counts ====
+   353 src/index.css
+    91 src/App.tsx
+   155 src/pages/About.tsx
+   254 src/pages/Applications.tsx
+   574 src/pages/Career.tsx
+   202 src/pages/CaseStudies.tsx
+   249 src/pages/Contact.tsx
+   167 src/pages/Downloads.tsx
+   195 src/pages/FAQ.tsx
+   498 src/pages/Home.tsx
+   203 src/pages/Industries.tsx
+   247 src/pages/ManagementTeam.tsx
+   195 src/pages/Products.tsx
+   183 src/pages/Quality.tsx
+   323 src/pages/Technology.tsx
+    21 src/pages/not-found.tsx
+    40 src/components/Breadcrumb.tsx
+   112 src/components/Footer.tsx
+   181 src/components/Navbar.tsx
+    21 src/components/WhatsAppFloat.tsx
+    94 src/components/three/Hero3D.tsx
+   168 src/components/three/HomeJourney.tsx
+   374 src/components/three/HomeJourneyScene.tsx
+   219 src/components/three/Showroom.tsx
+   287 src/components/three/ShowroomScene.tsx
+   335 src/components/three/Stage.tsx
+    19 src/components/three/boundary.tsx
+   121 src/components/three/pa-models.ts
+   250 src/components/three/scroll.ts
+    23 src/components/three/showroom-steps.ts
+   139 src/components/video/AmbientVideo.tsx
+   168 src/components/video/ImmersiveFilm.tsx
+    26 src/components/video/videos.ts
+  6487 total

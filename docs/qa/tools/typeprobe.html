@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Type probe — design-system §2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: Inter, system-ui, sans-serif; font-optical-sizing: auto; font-feature-settings: "cv11" 1, "ss01" 1; color: #12304F; background: #fff; padding: 24px; }
+  h2 { font-size: 13px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #55637A; margin: 28px 0 10px; }
+  .row { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+  .box { border: 1px dashed #A9C4F0; position: relative; }
+  .box > .cap { position: absolute; top: -18px; left: 0; font-size: 11px; color: #55637A; white-space: nowrap; font-feature-settings: normal; }
+  .d1 { font-weight: 600; line-height: 0.96; letter-spacing: -0.035em; }
+  .rest { display: block; font-size: 1.1875rem; line-height: 1.6; letter-spacing: -0.006em; font-weight: 400; color: #55637A; margin-top: 12px; }
+  .eco { color: #2E8B6B; }
+  .feat { font-size: 64px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+  .feat small { display: block; font-size: 12px; letter-spacing: 0; font-weight: 500; color: #55637A; font-feature-settings: normal; }
+  .off { font-feature-settings: normal; }
+  pre { font: 12px/1.5 ui-monospace, Consolas, monospace; background: #F1F4F8; padding: 12px; border-radius: 8px; margin-top: 16px; white-space: pre-wrap; font-feature-settings: normal; }
+</style>
+</head>
+<body>
+<div id="root"><div>
+
+<h2>1 · OpenType features on the Google Fonts variable Inter — left: off · right: "cv11","ss01" on</h2>
+<div class="row">
+  <div class="feat off">a 0469 <small>font-feature-settings: normal</small></div>
+  <div class="feat">a 0469 <small>"cv11" 1, "ss01" 1</small></div>
+</div>
+
+<h2>2 · Hero first clause at display-1 (600 / 0.96 / −0.035em) in the real content widths</h2>
+<div class="row" style="margin-top:26px" id="boxes"></div>
+
+<pre id="out">measuring…</pre>
+
+</div></div>
+<script>
+const CLAUSE = "Delivering sustainable pharmaceutical Bottles and Closures for global healthcare";
+const REST = ", engineered with advanced innovation and protecting integrity of drug inside.";
+// viewport -> [content width, display-1 px at that viewport]
+const d1 = (vw) => Math.min(84, Math.max(44, 24 + 0.044 * vw));
+const gutter = (vw) => Math.min(40, Math.max(24, 0.04 * vw));
+const cases = [
+  { label: "320 viewport, full width", vw: 320, width: 320 - 2 * gutter(320) },
+  { label: "390 viewport, full width", vw: 390, width: 390 - 2 * gutter(390) },
+  { label: "768 viewport, full width", vw: 768, width: 768 - 2 * gutter(768) },
+  { label: "1366 viewport, half-width copy column (pinned hero)", vw: 1366, width: 600 },
+  { label: "1440 viewport, half-width copy column (pinned hero)", vw: 1440, width: 640 },
+];
+const host = document.getElementById("boxes");
+for (const c of cases) {
+  const box = document.createElement("div"); box.className = "box"; box.style.width = c.width + "px";
+  box.innerHTML = `<span class="cap">${c.label} — ${Math.round(c.width)}px wide, display-1 = ${d1(c.vw).toFixed(1)}px</span>
+    <h1 class="d1" style="font-size:${d1(c.vw)}px">${CLAUSE.replace("sustainable", '<span class="eco">sustainable</span>')}<span class="rest">${REST.slice(2)}</span></h1>`;
+  host.appendChild(box); c.el = box;
+}
+document.fonts.ready.then(() => requestAnimationFrame(() => {
+  const lines = [];
+  // feature check: does turning the feature on change the rendered advance width / glyph?
+  const measure = (text, feat, px = 200) => { const s = document.createElement("span"); s.style.cssText = `position:absolute;visibility:hidden;white-space:nowrap;font:600 ${px}px Inter;font-feature-settings:${feat}`; s.textContent = text; document.body.appendChild(s); const w = s.getBoundingClientRect().width; s.remove(); return w; };
+  lines.push("Inter loaded: " + document.fonts.check('600 20px Inter') + "   faces: " + [...document.fonts].filter(f => f.status === "loaded").length);
+  lines.push(`cv11 (single-storey a): width of "a" off=${measure("a", "normal").toFixed(2)} on=${measure("a", '"cv11" 1').toFixed(2)}  -> ${measure("a", "normal") !== measure("a", '"cv11" 1') ? "feature PRESENT (advance changes)" : "no advance change — compare glyphs in the screenshot"}`);
+  lines.push(`ss01 (open digits):     width of "469" off=${measure("469", "normal").toFixed(2)} on=${measure("469", '"ss01" 1').toFixed(2)}  -> compare glyphs in the screenshot`);
+  lines.push(`tabular-nums:           "1111" proportional=${measure("1111", "normal").toFixed(2)} tabular=${measure("1111", '"tnum" 1').toFixed(2)}  -> ${measure("1111", "normal") !== measure("1111", '"tnum" 1') ? "tnum PRESENT" : "tnum has no effect"}`);
+  lines.push("");
+  for (const c of cases) {
+    const h1 = c.el.querySelector("h1"); const px = d1(c.vw);
+    const range = document.createRange(); range.selectNodeContents(h1.firstChild.parentNode);
+    // widest single word at this size
+    let widest = "", ww = 0;
+    for (const w of CLAUSE.split(" ")) { const s = document.createElement("span"); s.style.cssText = `position:absolute;visibility:hidden;white-space:nowrap;font:600 ${px}px Inter;letter-spacing:-0.035em;font-feature-settings:"cv11" 1,"ss01" 1`; s.textContent = w; document.body.appendChild(s); const x = s.getBoundingClientRect().width; s.remove(); if (x > ww) { ww = x; widest = w; } }
+    const restEl = h1.querySelector(".rest");
+    const clauseHeight = restEl.offsetTop - 12; const clauseLines = Math.round(clauseHeight / (px * 0.96));
+    lines.push(`${c.label}: width ${Math.round(c.width)}px · display-1 ${px.toFixed(1)}px · clause wraps to ${clauseLines} lines (${Math.round(clauseHeight)}px) · h1 total ${h1.offsetHeight}px · widest word "${widest}" = ${ww.toFixed(1)}px -> ${ww > c.width ? "OVERFLOWS by " + (ww - c.width).toFixed(1) + "px" : "fits"}`);
+  }
+  document.getElementById("out").textContent = lines.join("\n");
+  window.__probe = lines;
+}));
+</script>
+</body>
+</html>

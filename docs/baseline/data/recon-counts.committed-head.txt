@@ -1,0 +1,227 @@
+
+==== tree ====
+tsx files: 27   (non-admin: 24)
+three/ dir: MISSING
+video/ dir: MISSING
+ui/ dir:    card.tsx toast.tsx toaster.tsx tooltip.tsx 
+tailwind.config.*: [none if blank]
+
+==== Â§2.3 hex literals â€” acceptance command: grep -rhoiE '#[0-9a-f]{6}' src --include=*.tsx | wc -l ====
+total occurrences: 310
+files containing:  20
+-- per file --
+  51  src/admin/AdminDashboard.tsx
+   7  src/admin/AdminLogin.tsx
+  25  src/admin/TeamManager.tsx
+   1  src/components/Breadcrumb.tsx
+   7  src/components/Footer.tsx
+  11  src/components/Navbar.tsx
+   2  src/components/WhatsAppFloat.tsx
+   6  src/pages/About.tsx
+  13  src/pages/Applications.tsx
+  65  src/pages/Career.tsx
+  13  src/pages/CaseStudies.tsx
+  17  src/pages/Contact.tsx
+   8  src/pages/Downloads.tsx
+   4  src/pages/FAQ.tsx
+  28  src/pages/Home.tsx
+  10  src/pages/Industries.tsx
+  12  src/pages/ManagementTeam.tsx
+   8  src/pages/Products.tsx
+   9  src/pages/Quality.tsx
+  13  src/pages/Technology.tsx
+-- by value (case-folded) --
+    150 #4164a8
+     64 #0f2a4e
+     14 #93b4e8
+     13 #1e5da6
+     12 #627684
+     10 #173454
+      7 #0b2444
+      6 #f0b36d
+      6 #25d366
+      5 #f4c17f
+      5 #345099
+      4 #9aaab1
+      2 #e09b55
+      1 #f8f7f1
+      1 #e6a35c
+      1 #d5dede
+      1 #9ca3af
+      1 #74a9e8
+      1 #71828a
+      1 #597080
+      1 #4364a7
+      1 #32cd32
+      1 #1ebe57
+      1 #0a66c2
+      1 #084d92
+-- inside src/components/three --
+three/ total: 0
+-- inside src/admin (out of scope per brief) --
+admin total: 83
+-- hex literals in .ts files (not covered by acceptance grep) --
+(none)
+-- 3-digit hex in tsx (not matched by the 6-digit regex) --
+-- lines with non-className hex in three/ (candidate legit three.js colour args) --
+
+==== Â§2.4 palette collisions ====
+#32CD32: 1 occurrence(s) in: src/pages/Home.tsx 
+#25D366: 6 occurrence(s) in: src/components/WhatsAppFloat.tsx src/pages/Contact.tsx src/pages/Home.tsx 
+-- --accent / --accent-border in index.css --
+93:  --accent:          217 65% 74%;
+94:  --accent-foreground: 214 68% 18%;
+123:  --accent-border: hsl(24 90% 45%);
+159:  --accent:          24 90% 55%;
+160:  --accent-foreground: 0 0% 100%;
+174:  --accent-border: hsl(24 90% 62%);
+
+==== Â§2.5 .reveal ====
+-- className uses of the 'reveal' class per file (token-exact) --
+   6  src/pages/Applications.tsx
+   2  src/pages/CaseStudies.tsx
+   4  src/pages/Downloads.tsx
+   3  src/pages/FAQ.tsx
+  11  src/pages/Home.tsx
+   5  src/pages/Industries.tsx
+   7  src/pages/Technology.tsx
+total className uses: 38
+-- querySelectorAll('.reveal') blocks --
+count: 0
+-- .reveal CSS --
+194:.reveal {
+199:.reveal.visible {
+-- framer-motion imports --
+count: 0
+
+==== Â§2.2 font weight ====
+font-black           7 occurrences in   5 tsx files
+font-extrabold       1 occurrences in   1 tsx files
+font-bold           23 occurrences in  13 tsx files
+font-semibold      128 occurrences in  22 tsx files
+font-medium         29 occurrences in  10 tsx files
+-- font-weight declarations in index.css --
+      1 269:@apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-white text-primary hover:bg-blue-50 text-sm font-semibold
+      1 266:@apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-semibold
+      1 263:@apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-semibold
+      1 255:@apply inline-block px-3 py-1 bg-white/10 text-white/90 text-xs font-semibold
+      1 252:@apply inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold
+      1 235:@apply font-bold
+      1 232:@apply text-3xl sm:text-4xl font-bold
+      1 229:@apply text-3xl sm:text-4xl font-bold
+      1 226:@apply text-4xl sm:text-5xl font-bold
+      1 223:@apply text-4xl sm:text-5xl lg:text-6xl font-extrabold
+-- heading-hero / pa-stage-hero-title definitions --
+222:  .heading-hero {
+-- Google Fonts link --
+31:    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+==== Â§2.1 stripe layout ====
+-- page header band: bg-primary section-pad (first <section>) --
+  src/pages/About.tsx:21:        <section className="bg-primary section-pad">
+  src/pages/Applications.tsx:80:      <section className="bg-primary section-pad">
+  src/pages/Career.tsx:306:      <section id="openings" className="bg-primary section-pad text-white sm:py-28">
+  src/pages/CaseStudies.tsx:93:      <section className="bg-primary section-pad">
+  src/pages/Contact.tsx:47:      <section className="bg-primary section-pad">
+  src/pages/Downloads.tsx:61:      <section className="bg-primary section-pad">
+  src/pages/FAQ.tsx:85:      <section className="bg-primary section-pad">
+  src/pages/Industries.tsx:81:      <section className="bg-primary section-pad">
+  src/pages/ManagementTeam.tsx:166:      <section className="bg-primary section-pad">
+  src/pages/Products.tsx:35:        <section className="bg-primary section-pad">
+  src/pages/Quality.tsx:20:        <section className="bg-primary section-pad">
+  src/pages/Technology.tsx:118:      <section className="bg-primary section-pad">
+pages with it: 12
+-- section-pad uses --
+total: 56  in 14 files
+-- <section> background classes per page --
+About.tsx                        bg-primary bg-white bg-secondary bg-primary 
+Applications.tsx                 bg-primary bg-white bg-secondary bg-white bg-navy 
+Career.tsx                       bg-navy bg-background bg-secondary bg-primary bg-background 
+CaseStudies.tsx                  bg-primary bg-white bg-secondary bg-navy 
+Contact.tsx                      bg-primary bg-secondary bg-secondary 
+Downloads.tsx                    bg-primary bg-white bg-secondary bg-navy 
+FAQ.tsx                          bg-primary bg-white bg-secondary bg-navy 
+Home.tsx                         bg-white bg-navy bg-white bg-secondary bg-primary bg-white bg-secondary bg-navy 
+Industries.tsx                   bg-primary bg-white bg-secondary bg-navy 
+ManagementTeam.tsx               bg-primary bg-secondary bg-primary 
+Products.tsx                     bg-primary bg-secondary bg-primary 
+Quality.tsx                      bg-primary bg-white bg-secondary bg-primary 
+Technology.tsx                   bg-primary bg-white bg-secondary bg-white bg-navy 
+not-found.tsx                    
+
+==== Â§2.8 cards ====
+card-standard uses: 11 in 8 files
+imports of ui/card: 1
+259:  .card-standard {
+260-    @apply bg-card rounded-xl p-6 sm:p-7 shadow-sm border border-card-border hover:shadow-md transition-all duration-300 hover:border-primary/20 flex flex-col h-full;
+261-  }
+262-  .btn-primary {
+263-    @apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-semibold rounded-lg transition-all duration-200;
+
+==== Â§2.9 contrast classes ====
+text-white/40       4 occurrences in   3 files
+text-white/50       6 occurrences in   2 files
+text-white/60      21 occurrences in  16 files
+text-white/65      11 occurrences in  11 files
+text-white/70       9 occurrences in   3 files
+text-white/75       1 occurrences in   1 files
+text-white/80      12 occurrences in  12 files
+files with /50 or /60:        16
+files with /50, /60 or /65:   17
+
+==== Â§2.6 / Â§5 three.js pipeline ====
+toneMapping|outputColorSpace|onCreated occurrences: 0
+-- <Canvas> sites --
+-- dpr --
+-- frameloop --
+-- useGLTF.preload --
+-- aria-live --
+-- supportsImmersive call sites --
+-- tuneMaterials --
+-- postprocessing / gsap / lenis / locomotive --
+  src/pages/CaseStudies.tsx:74:      "Reliable replenishment eliminated stock-outs and allowed the brand to launch new SKUs on schedule.",
+(blank above = none)
+
+==== Â§4.4 motion tokens ====
+cubic-bezier(0.22, 1, 0.36, 1) occurrences in index.css: 0
+same curve in tsx: 0
+--ease-* / --dur-* custom properties: 0
+-- all distinct cubic-bezier curves in index.css --
+
+==== Â§4.3 radius ====
+  54:  --radius-sm: calc(var(--radius) - 4px);
+  55:  --radius-md: calc(var(--radius) - 2px);
+  56:  --radius-lg: var(--radius);
+  57:  --radius-xl: calc(var(--radius) + 4px);
+  108:  --radius: 0.5rem;
+
+==== Â§6 unsplash fallbacks ====
+  src/pages/Home.tsx:164:images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80
+  src/pages/Home.tsx:167:images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80
+  src/pages/Home.tsx:221:images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80
+  src/pages/Products.tsx:99:images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80
+  src/pages/Technology.tsx:245:images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80
+files: src/pages/Home.tsx src/pages/Products.tsx src/pages/Technology.tsx 
+
+==== line counts ====
+   271 src/index.css
+    74 src/App.tsx
+   120 src/pages/About.tsx
+   254 src/pages/Applications.tsx
+   574 src/pages/Career.tsx
+   202 src/pages/CaseStudies.tsx
+   249 src/pages/Contact.tsx
+   167 src/pages/Downloads.tsx
+   195 src/pages/FAQ.tsx
+   413 src/pages/Home.tsx
+   203 src/pages/Industries.tsx
+   247 src/pages/ManagementTeam.tsx
+   153 src/pages/Products.tsx
+   135 src/pages/Quality.tsx
+   271 src/pages/Technology.tsx
+    21 src/pages/not-found.tsx
+    40 src/components/Breadcrumb.tsx
+   112 src/components/Footer.tsx
+   181 src/components/Navbar.tsx
+    21 src/components/WhatsAppFloat.tsx
+  3903 total

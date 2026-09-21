@@ -1,0 +1,65 @@
+# Working-tree delta of the MEASURED tree against commit fb2cdc6 ('Published your App').
+# Generated 2026-09-21T18:32:33 from: <repo>
+# Columns: status  git-blob-sha1 (as git add would store it)  bytes  path        status: M modified · A untracked (new) · D deleted
+# Verify later with:  git ls-tree -r <commit> -- <path>   (blob ids must match once this work is committed)
+
+M  41b0b6b5d67b8324c32e9498f44cd6350965aae3        755  .gitignore
+M  590f01373c255260acdb1a6c245b6205877f332b       2870  artifacts/productarmor-site/package.json
+M  85e494e4f0fdce9ef401f0253d4606195523854f       3765  artifacts/productarmor-site/src/App.tsx
+M  ed58c41053a89bbe8f62e8db0d05f3d58a3be330       1702  artifacts/productarmor-site/src/hooks/usePageMeta.ts
+M  29c0a519f4748de853be13d31f23aebff13c35b2      12198  artifacts/productarmor-site/src/index.css
+M  10cdedb16bcecd6ed62009ce926c9795f7dcfcf0       7217  artifacts/productarmor-site/src/pages/About.tsx
+M  10e1c7a0fcac05d7bb3c0d28d277bf4ba38be664      25154  artifacts/productarmor-site/src/pages/Home.tsx
+M  eb573432ef2457af80b7bf14f391779e338ceda1       9591  artifacts/productarmor-site/src/pages/Products.tsx
+M  0af5c3b49415354b96d9ff928e04ee34087956df       9879  artifacts/productarmor-site/src/pages/Quality.tsx
+M  030ff1b621d4acca4fffe29b6325c736e0b44fef      13786  artifacts/productarmor-site/src/pages/Technology.tsx
+M  9a502b6cad2bb9a3352b366d29b0e55aa0b20a38       2219  artifacts/productarmor-site/vite.config.ts
+M  e6816aed82b810c237e99c9ae615255c13f3afa2     227147  pnpm-lock.yaml
+M  53a17b35025f23a2eeb4b2f9a46a231cc9255cdc       6630  pnpm-workspace.yaml
+A  a0b0462f9c778889a03a5b5992414712af2f4eae    2806700  artifacts/productarmor-site/public/models/pa04-150cc.glb
+A  75cabf91bfd9745fc09b6ff6364b4ac59a24abd2    2973824  artifacts/productarmor-site/public/models/pa14-950cc.glb
+A  5efc4898271e1578191031ae8e8f0a1a02c80503    2147208  artifacts/productarmor-site/public/models/pa19-30cc.glb
+A  a8a7bbd079df8838d84e04ccb96b2204a64163e6     629648  artifacts/productarmor-site/public/models/pa19-bottle.glb
+A  fde45711c6be11c0df0bcce0a3f64c676dd062c6    2728952  artifacts/productarmor-site/public/models/pa20-40cc.glb
+A  a8d7a15223b6b1b678e47ba1bfd95d9e8adab5ac    2780776  artifacts/productarmor-site/public/models/pa43-120cc.glb
+A  c9d760e4541b6b981f13beee37b6ade9f78abfce    5223300  artifacts/productarmor-site/public/models/pacrc03-38mm.glb
+A  0ab453967f01767b547077399cb8505f20bb35e0    1228540  artifacts/productarmor-site/public/models/pacrc03-closure.glb
+A  1f1e3f27177b1cb1608faf30e5a8db103fbb3c30    8168791  artifacts/productarmor-site/public/videos/facility.webm
+A  769304924048042f00e2af829b0e7524377ab2e7     566421  artifacts/productarmor-site/public/videos/loops/home-bottle.mp4
+A  b02465b02be3f2f1e4463dd86742ae2e792a7979     384610  artifacts/productarmor-site/public/videos/loops/home-bottle.webm
+A  e0a5c23f495a7dd21d7006ee2ddcc967c9e2c438    1648259  artifacts/productarmor-site/public/videos/loops/products-line.mp4
+A  cbcc30fdc2883689e19cd66dbe2e749bd49c6a9b    1302805  artifacts/productarmor-site/public/videos/loops/products-line.webm
+A  3336f57c3c83a67c59aa74cae1843c2ccaa54cc0    1020694  artifacts/productarmor-site/public/videos/loops/quality-leaktest.mp4
+A  aa2710c4786d0eebb84efff86c8141d29268a2bd     936856  artifacts/productarmor-site/public/videos/loops/quality-leaktest.webm
+A  329161f88cb284dca0729c21ea08c477e3b6aef7     861911  artifacts/productarmor-site/public/videos/loops/quality-vision.mp4
+A  4328d5ec9182a41978774297b0b884f06d8fa0d4     691930  artifacts/productarmor-site/public/videos/loops/quality-vision.webm
+A  acf8c365b666a950e31bdd909bd0db649afbe5d6    1455524  artifacts/productarmor-site/public/videos/loops/tech-capfeed.mp4
+A  1b9b019f6d12890b7fddff51e0092d7fd6e538d2    1357966  artifacts/productarmor-site/public/videos/loops/tech-capfeed.webm
+A  64ad9d6cc96663ae35c8aef64c2405c48262d223    1905362  artifacts/productarmor-site/public/videos/loops/tech-moulding.mp4
+A  0de607339232ee77f6dd884fd419d86f32a1ab1d    1850442  artifacts/productarmor-site/public/videos/loops/tech-moulding.webm
+A  22df79626f520ce74fd32d036c0737bee9ef8311     774000  artifacts/productarmor-site/public/videos/loops/tech-robot.mp4
+A  c2b3d6b95e376b92ef038f72014672b8d5145032     558526  artifacts/productarmor-site/public/videos/loops/tech-robot.webm
+A  625a0e5eb8b76ffb3426d893221f176806d4c815      49972  artifacts/productarmor-site/public/videos/posters/facility.jpg
+A  80161de7a2353402c2926ba6dd34df3042111053      20644  artifacts/productarmor-site/public/videos/posters/home-bottle.jpg
+A  85948394b5f5ef32fe4a864bf0fbbee56f51598e      96365  artifacts/productarmor-site/public/videos/posters/products-line.jpg
+A  42455a61ce4fba59f947cb2879ca4934223cb3bc      54065  artifacts/productarmor-site/public/videos/posters/quality-leaktest.jpg
+A  89577090a84696e64d7af476feeaa2e0f3219352      52551  artifacts/productarmor-site/public/videos/posters/quality-vision.jpg
+A  f7ea81e16422bfb5f2f4303318522b768f3d9952      17560  artifacts/productarmor-site/public/videos/posters/tech-capfeed.jpg
+A  61fd014ce4629a22c3eb94b53653617ce2adad87      54135  artifacts/productarmor-site/public/videos/posters/tech-moulding.jpg
+A  b2fd17855f5f5c861c07129b32d77bc07f37ab21      34000  artifacts/productarmor-site/public/videos/posters/tech-robot.jpg
+A  0835acffa1c86d4e5174e67d56fb0511f07c1b72        624  artifacts/productarmor-site/src/components/three/boundary.tsx
+A  b16c03e5afa5794aebe5b3e5ff387fc99318882c       3687  artifacts/productarmor-site/src/components/three/Hero3D.tsx
+A  8a4382a79cb4927bd2aff5d30caa832ab647ac89       7875  artifacts/productarmor-site/src/components/three/HomeJourney.tsx
+A  a72a45a43c6c1cc0f430ff919f89402938540ccd      14288  artifacts/productarmor-site/src/components/three/HomeJourneyScene.tsx
+A  a6c7996012b75a999dc6dbfca7769754e61c1564       3736  artifacts/productarmor-site/src/components/three/pa-models.ts
+A  17708e025159b52b959929bc3eb3521a203913e1      10041  artifacts/productarmor-site/src/components/three/scroll.ts
+A  64fdb33a030118bcd86810568266a406fe9af361       9715  artifacts/productarmor-site/src/components/three/Showroom.tsx
+A  4a6c67c53c64f879169b1a6c0e285fb15cdca1f0      10735  artifacts/productarmor-site/src/components/three/ShowroomScene.tsx
+A  c2a9017bc47f6722d7d74ec100d45fde3a351ef4       1008  artifacts/productarmor-site/src/components/three/showroom-steps.ts
+A  60606ddd60b37468be31fd9aa6f5d63de104e242      11054  artifacts/productarmor-site/src/components/three/Stage.tsx
+A  28068e0fee2d0662070a819344093775f82b796a       4413  artifacts/productarmor-site/src/components/video/AmbientVideo.tsx
+A  f5a08c10faaa551d0ad210848df5d002b70c77ca       6967  artifacts/productarmor-site/src/components/video/ImmersiveFilm.tsx
+A  b58c480fa71d0f2bebce61573eca420db9ab1815       1030  artifacts/productarmor-site/src/components/video/videos.ts
+D  ----------------------------------------          0  artifacts/productarmor-site/public/videos/facility.mp4
+
+# 13 modified, 44 new, 1 deleted; 42.7 MB of modified+new content

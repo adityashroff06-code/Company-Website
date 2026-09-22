@@ -22,6 +22,7 @@ a parent of this history.
 | Live preview of this state | `pnpm --filter @workspace/productarmor-site build` → serve `dist/public` (see *Running it*) |
 | Working branch | `redesign/design-elevation` (identical to `main` after each phase) |
 | Next up | **Phase 2 — primitives** (`Reveal` / `RevealGroup` on framer-motion, `Chapter`, `Surface`, `Eyebrow`, `SpecList`, `MediaFrame`, `Button`) |
+| Task-level checklist | [`docs/PROGRESS.md`](docs/PROGRESS.md) — done / next / every remaining phase, housekeeping, how to resume |
 
 ### Progress by phase
 

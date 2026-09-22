@@ -2,6 +2,33 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
   import { CheckCircle, Users, Leaf, Shield, ArrowRight } from "lucide-react";
   import { Link } from "wouter";
 import Breadcrumb from "@/components/Breadcrumb";
+import AmbientVideo from "@/components/video/AmbientVideo";
+import ImmersiveFilm, { type FilmClip } from "@/components/video/ImmersiveFilm";
+import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
+
+  const floorClips: FilmClip[] = [
+    {
+      file: "loops/tech-moulding.mp4",
+      poster: "tech-moulding",
+      tag: "Moulding",
+      title: "Continuous Compression Moulding",
+      text: "Patented CRC closure moulding running at production speed.",
+    },
+    {
+      file: "loops/tech-robot.mp4",
+      poster: "tech-robot",
+      tag: "Handling",
+      title: "Robotic Handling",
+      text: "Automated transfer keeps human contact off the product.",
+    },
+    {
+      file: "loops/quality-vision.mp4",
+      poster: "quality-vision",
+      tag: "Inspection",
+      title: "Inspecting in Real Time",
+      text: "Advanced vision systems monitor production continuously — detecting deviations in real time and preventing defects from moving to the next stage.",
+    },
+  ];
 
   const values = [
     { icon: Shield, title: "Quality First", desc: "Every batch meets or exceeds international pharmacopoeia requirements before it leaves our facility." },
@@ -61,19 +88,27 @@ import Breadcrumb from "@/components/Breadcrumb";
                 </div>
               </div>
               <div className="relative">
-                <video
-                  src={`${import.meta.env.BASE_URL}videos/facility.mp4`}
-                  className="rounded-2xl shadow-xl w-full object-cover h-96 bg-secondary"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
+                <AmbientVideo
+                  src={videoSrc("facility.mp4")}
+                  webmSrc={videoWebm("facility.mp4")}
+                  poster={posterSrc("facility")}
+                  ariaLabel="A walk through the Product Armor manufacturing facility"
+                  className="h-96 rounded-2xl shadow-xl"
                 />
               </div>
             </div>
           </div>
         </section>
+
+        {/* On the floor — footage you scroll into, cut to the process it shows */}
+        <ImmersiveFilm clips={floorClips} ariaLabel="Footage from the Product Armor production floor">
+          <Link
+            href="/technology"
+            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 backdrop-blur text-white font-medium px-7 py-3 rounded-lg transition-all duration-200"
+          >
+            Explore Technology <ArrowRight size={16} />
+          </Link>
+        </ImmersiveFilm>
 
         {/* Values */}
         <section className="section-pad bg-secondary">

@@ -16,6 +16,29 @@ import {
 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import AmbientVideo from "@/components/video/AmbientVideo";
+import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
+
+const automationClips = [
+  {
+    file: "loops/tech-moulding.mp4",
+    poster: "tech-moulding",
+    title: "Continuous Compression Moulding",
+    desc: "Patented CRC closure moulding running at production speed.",
+  },
+  {
+    file: "loops/tech-robot.mp4",
+    poster: "tech-robot",
+    title: "Robotic Handling",
+    desc: "Automated transfer keeps human contact off the product.",
+  },
+  {
+    file: "loops/tech-capfeed.mp4",
+    poster: "tech-capfeed",
+    title: "High-Speed Cap Feeding",
+    desc: "Closures oriented and fed without manual intervention.",
+  },
+];
 
 function useReveal() {
   useEffect(() => {
@@ -165,6 +188,35 @@ export default function Technology() {
                 </div>
  <h3 className="heading-card mb-2 text-[#0f2a4e]">{step.title}</h3>
  <p className="text-sm leading-relaxed text-gray-500">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Automation in motion */}
+      <section className="section-pad bg-navy">
+        <div className="container-width">
+          <div className="text-center mb-14 reveal">
+            <div className="section-tag-light">Automation in Motion</div>
+ <h2 className="heading-section-light text-white">See the Platform Run</h2>
+            <p className="text-white/60 max-w-2xl mx-auto">
+              Unedited footage from the production floor — the same machines that mould, handle and feed
+              every bottle and closure we ship.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {automationClips.map((v, i) => (
+              <div key={v.title} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                <AmbientVideo
+                  src={videoSrc(v.file)}
+                  webmSrc={videoWebm(v.file)}
+                  poster={posterSrc(v.poster)}
+                  ariaLabel={v.title}
+                  className="aspect-video rounded-xl ring-1 ring-white/10 shadow-lg mb-4"
+                />
+                <h3 className="text-white font-bold mb-1">{v.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>

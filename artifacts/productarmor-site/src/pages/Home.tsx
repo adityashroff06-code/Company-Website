@@ -1,7 +1,13 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
   import { Link } from "wouter";
   import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
   import { CheckCircle, Award, Users, Package, ChevronRight, Star, ArrowRight, Phone, Mail } from "lucide-react";
+  import AmbientVideo from "@/components/video/AmbientVideo";
+  import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
+  import { supportsImmersive } from "@/components/three/scroll";
+  import HomeJourney from "@/components/three/HomeJourney";
+
+  const Hero3D = lazy(() => import("@/components/three/Hero3D"));
 
   function useReveal(ready?: boolean) {
     useEffect(() => {
@@ -34,12 +40,70 @@ import { useEffect } from "react";
     const testimonials = content?.testimonials ?? [];
     const contactData = content?.contact;
     const company = content?.company;
+    // Scroll-driven 3D journey where the device can run it; the classic static hero otherwise.
+    const [immersive] = useState(supportsImmersive);
+
+    // Shared by both hero layouts. Inside the pinned journey the headline uses a
+    // viewport-fitted size so the whole block always fits one screen.
+    const heroCopy = (
+      <>
+        {isLoading ? (
+          <>
+            <Skeleton className="h-16 w-4/5 mx-auto lg:mx-0 mb-4" />
+            <Skeleton className="h-8 w-3/5 mx-auto lg:mx-0 mb-8" />
+          </>
+        ) : (
+          <>
+            <div className="pa-hero-reveal inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full mb-4 sm:mb-6 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] sm:tracking-widest whitespace-nowrap text-[#4164a8]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4164a8]" />
+              Pharmaceutical Packaging · Only Pharma
+            </div>
+            <h1 className={`pa-hero-reveal pa-hero-reveal-1 mb-4 sm:mb-6 text-[#4364a7] ${immersive ? "pa-stage-hero-title" : "heading-hero"}`}>
+              {(hero?.headline ?? "Pharmaceutical-Grade Packaging")
+                .split(/(sustainable|Delivering pharmaceutical packaging)/i)
+                .map((part, idx) =>
+                  /^sustainable$/i.test(part) ? (
+                    <span key={idx} className="text-[#32CD32]">{part}</span>
+                  ) : /^Delivering pharmaceutical packaging$/i.test(part) ? (
+                    <span key={idx} className="whitespace-nowrap">{part}</span>
+                  ) : (
+                    part
+                  )
+                )}
+            </h1>
+            <p className={`pa-hero-reveal pa-hero-reveal-2 text-body sm:text-lg max-w-2xl mx-auto lg:mx-0 text-gray-600 ${immersive ? "max-sm:text-sm mb-5 sm:mb-8" : "mb-10"}`}>
+              {hero?.subheadline ?? "ISO-certified bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
+            </p>
+          </>
+        )}
+
+        {/* In the pinned journey the two CTAs share a row on phones, leaving the bottle its space */}
+        <div
+          className={`pa-hero-reveal pa-hero-reveal-3 flex items-center lg:items-start justify-center lg:justify-start ${
+            immersive ? "flex-row flex-wrap gap-3 sm:gap-4 max-sm:[&>a]:px-4 max-sm:[&>a]:py-3" : "flex-col sm:flex-row gap-4"
+          }`}
+        >
+          <Link href="/products" className="btn-outline text-gray-800">
+            View Products
+            <ChevronRight size={18} />
+          </Link>
+          <Link href="/contact" className="btn-primary text-white">
+            Request a Sample
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </>
+    );
 
     return (
-      <div className="overflow-x-hidden">
+      <div className={immersive ? "overflow-x-clip" : "overflow-x-hidden"}>
 
-        {/* ── HERO ── */}
-        <section className="relative flex items-center justify-center bg-white overflow-hidden pt-16">
+        {/* ── HERO → CAPPING → RANGE → LINE FOOTAGE: one scroll-driven 3D journey ── */}
+        {immersive && <HomeJourney hero={heroCopy} />}
+
+        {/* ── HERO (classic) ── */}
+        {!immersive && (
+        <section className="relative bg-white overflow-hidden pt-16">
           {/* Geometric background pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 right-0 w-96 h-96 border border-gray-400 rounded-full translate-x-1/2 -translate-y-1/2" />
@@ -55,52 +119,36 @@ import { useEffect } from "react";
             </svg>
           </div>
 
-          {/* Hero background image */}
+          {/* Hero background image — kept very subtle so the 3D model reads as the focal point */}
           {hero?.backgroundImage && (
-            <div
-              className="absolute inset-0 bg-cover bg-center opacity-20"
-              style={{ backgroundImage: `url(${hero.backgroundImage})` }}
-            />
+            <>
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-[0.06]"
+                style={{ backgroundImage: `url(${hero.backgroundImage})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
+            </>
           )}
+          {/* Soft brand glow behind the model */}
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[520px] h-[520px] rounded-full bg-primary/5 blur-3xl hidden lg:block" />
 
-          <div className="relative z-10 container-width text-center pt-10 sm:pt-12 pb-16 sm:pb-20">
-            {isLoading ? (
-              <>
-                <Skeleton className="h-16 w-4/5 mx-auto mb-4" />
-                <Skeleton className="h-8 w-3/5 mx-auto mb-8" />
-              </>
-            ) : (
-              <>
- <h1 className="heading-hero mb-6 text-[#4364a7]">
-                  {(hero?.headline ?? "Pharmaceutical-Grade Packaging")
-                    .split(/(sustainable|Delivering pharmaceutical packaging)/i)
-                    .map((part, idx) =>
-                      /^sustainable$/i.test(part) ? (
-                        <span key={idx} className="text-[#32CD32]">{part}</span>
-                      ) : /^Delivering pharmaceutical packaging$/i.test(part) ? (
-                        <span key={idx} className="whitespace-nowrap">{part}</span>
-                      ) : (
-                        part
-                      )
-                    )}
-                </h1>
- <p className="text-body sm:text-lg max-w-2xl mx-auto mb-10 text-gray-600">
-                  {hero?.subheadline ?? "ISO-certified bottles, child-resistant closures and CT caps — manufactured under controlled conditions, delivered on time."}
-                </p>
-              </>
-            )}
+          <div className="relative z-10 container-width pt-8 sm:pt-10 lg:pt-6 pb-16 sm:pb-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center">
+              {/* Copy */}
+              <div className="text-center lg:text-left order-2 lg:order-1">
+                {heroCopy}
+              </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/products"
- className="btn-outline text-gray-800"
-              >
-                View Products
-                <ChevronRight size={18} />
-              </Link>
+              {/* 3D bottle */}
+              <div className="order-1 lg:order-2">
+                <Suspense fallback={<div className="h-[340px] sm:h-[420px] lg:h-[540px] w-full" />}>
+                  <Hero3D />
+                </Suspense>
+              </div>
             </div>
           </div>
         </section>
+        )}
 
         {/* ── STATS BAR ── */}
         <section className="bg-navy py-8">
@@ -177,6 +225,43 @@ import { useEffect } from "react";
             </div>
           </div>
         </section>
+
+        {/* ── INSIDE OUR FACILITY (classic layout only — the journey above ends inside the line footage) ── */}
+        {!immersive && (
+        <section className="section-pad bg-navy overflow-hidden">
+          <div className="container-width">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="reveal">
+                <div className="section-tag-light">Inside Our Facility</div>
+ <h2 className="heading-section-light text-white">Precision, In Motion.</h2>
+                <p className="text-white/60 leading-relaxed mb-8 max-w-lg">
+                  Step inside our ISO Class 8 cleanroom — where bottles and closures are moulded, conveyed,
+                  inspected and packed by an automated line that never lets quality slip.
+                </p>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <Link
+                    href="/technology"
+                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium px-8 py-3.5 rounded-lg transition-all duration-200"
+                  >
+                    Explore Technology
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </div>
+              <div className="reveal">
+                <AmbientVideo
+                  src={videoSrc("loops/home-bottle.mp4")}
+                  webmSrc={videoWebm("loops/home-bottle.mp4")}
+                  poster={posterSrc("home-bottle")}
+                  ariaLabel="A bottle passing through inline inspection on the production line"
+                  label="Inline inspection — live line footage"
+                  className="aspect-video rounded-2xl ring-1 ring-white/10 shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        )}
 
         {/* ── PRODUCTS ── */}
         <section className="section-pad bg-secondary">

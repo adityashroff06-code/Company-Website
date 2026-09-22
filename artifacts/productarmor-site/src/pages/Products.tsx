@@ -1,8 +1,14 @@
-import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
+import { useState } from "react";
+  import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
   import { CheckCircle, Package, ArrowRight, SearchX } from "lucide-react";
   import { Link, useSearch } from "wouter";
 import Breadcrumb from "@/components/Breadcrumb";
   import { usePageMeta } from "@/hooks/usePageMeta";
+  import AmbientVideo from "@/components/video/AmbientVideo";
+  import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
+
+  import { supportsImmersive } from "@/components/three/scroll";
+  import Showroom from "@/components/three/Showroom";
 
   export default function Products() {
     usePageMeta({
@@ -16,6 +22,7 @@ import Breadcrumb from "@/components/Breadcrumb";
       query: { queryKey: getGetSiteContentQueryKey() }
     });
     const allProducts = content?.products ?? [];
+    const [immersive] = useState(supportsImmersive);
 
     const searchString = useSearch();
     const query = (new URLSearchParams(searchString).get("q") ?? "").trim();
@@ -52,6 +59,41 @@ import Breadcrumb from "@/components/Breadcrumb";
             )}
           </div>
         </section>
+
+        {/* The range in 3D — a scroll-driven walk past all six products at true scale */}
+        {!query && immersive && <Showroom />}
+
+        {!query && (
+          <section className="section-pad bg-white">
+            <div className="container-width">
+              {/* Production line — ambient footage */}
+              <div className="relative rounded-3xl overflow-hidden shadow-lg">
+                <AmbientVideo
+                  src={videoSrc("loops/products-line.mp4")}
+                  webmSrc={videoWebm("loops/products-line.mp4")}
+                  poster={posterSrc("products-line")}
+                  ariaLabel="HDPE bottles moving along the automated production line"
+                  className="aspect-video sm:aspect-[21/9]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0f2a4d]/85 via-[#0f2a4d]/35 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 flex items-center pointer-events-none">
+                  <div className="px-8 sm:px-12 max-w-xl">
+                    <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
+                      Production Line
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight mb-3">
+                      From Resin to Shelf-Ready
+                    </h3>
+                    <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+                      Moulded, conveyed, inspected and packed on one automated line — with 100% visual
+                      inspection before dispatch.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Products */}
         <section className="section-pad bg-secondary">

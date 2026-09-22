@@ -1,4 +1,5 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { useEffect } from "react";
+import { Switch, Route, Router as WouterRouter, useLocation, useSearch } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -25,6 +26,21 @@ import NotFound from "@/pages/not-found";
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 30000 } },
 });
+
+/**
+ * Every route change starts at the top, instantly. (The global `scroll-behavior: smooth` would
+ * otherwise rewind through the tall pinned 3D stages, and Home had no reset of its own.)
+ */
+function ScrollToTop() {
+  const [path] = useLocation();
+  // The search string too: a product search mounts/unmounts the tall showroom on the same path.
+  // The hash is left out on purpose so in-page anchors keep working.
+  const search = useSearch();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [path, search]);
+  return null;
+}
 
 function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -65,6 +81,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <ScrollToTop />
           <Router />
         </WouterRouter>
         <Toaster />

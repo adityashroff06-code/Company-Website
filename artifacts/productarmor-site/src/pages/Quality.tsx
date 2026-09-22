@@ -2,6 +2,8 @@ import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-cli
   import { Award, CheckCircle, ClipboardCheck, FlaskConical, ArrowRight } from "lucide-react";
   import { Link } from "wouter";
 import Breadcrumb from "@/components/Breadcrumb";
+  import AmbientVideo from "@/components/video/AmbientVideo";
+  import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
 
   const qcSteps = [
     { icon: FlaskConical, title: "Raw Material Testing", desc: "Every incoming resin batch is tested for melt flow index, density, and compliance with USP Class VI requirements before use." },
@@ -80,6 +82,52 @@ import Breadcrumb from "@/components/Breadcrumb";
                   ))}
                 </>
               )}
+            </div>
+          </div>
+        </section>
+
+        {/* Inspection, live */}
+        <section className="section-pad bg-navy">
+          <div className="container-width">
+            <div className="text-center mb-14">
+              <div className="section-tag-light">Inspection, Live</div>
+ <h2 className="heading-section-light text-white">Watch 100% Inspection Happen</h2>
+              <p className="text-white/60 max-w-2xl mx-auto">
+                Every unit passes automated vision and physical checks before it ships — the footage below
+                is straight from our inspection stations.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <AmbientVideo
+                  src={videoSrc("loops/quality-vision.mp4")}
+                  webmSrc={videoWebm("loops/quality-vision.mp4")}
+                  poster={posterSrc("quality-vision")}
+                  ariaLabel="Vision system inspecting closures on screen"
+                  label="Vision station — live"
+                  className="aspect-video rounded-xl ring-1 ring-white/10 shadow-lg mb-4"
+                />
+                <h3 className="text-white font-bold mb-1">360° Vision Inspection</h3>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Camera systems examine every unit's surfaces, with automatic rejection of any deviation —
+                  100% inspection, zero human bias.
+                </p>
+              </div>
+              <div>
+                <AmbientVideo
+                  src={videoSrc("loops/quality-leaktest.mp4")}
+                  webmSrc={videoWebm("loops/quality-leaktest.mp4")}
+                  poster={posterSrc("quality-leaktest")}
+                  ariaLabel="Automated in-line testing heads working over the production line"
+                  label="In-line testing"
+                  className="aspect-video rounded-xl ring-1 ring-white/10 shadow-lg mb-4"
+                />
+                <h3 className="text-white font-bold mb-1">Automated In-Line Testing</h3>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Dimensional and physical checks run continuously during production — deviations are caught
+                  in real time, not after the batch.
+                </p>
+              </div>
             </div>
           </div>
         </section>

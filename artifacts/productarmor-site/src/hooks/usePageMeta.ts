@@ -45,6 +45,7 @@ export function usePageMeta({ title, description, path }: PageMeta) {
     setMeta("name", "twitter:title", fullTitle);
     setMeta("name", "twitter:description", desc);
     setCanonical(canonical);
-    window.scrollTo(0, 0);
+    // Jump, don't glide: a smooth reset would rewind through the tall pinned 3D stages.
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [title, description, path]);
 }

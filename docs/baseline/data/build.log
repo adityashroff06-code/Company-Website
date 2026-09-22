@@ -1,0 +1,25 @@
+
+> @workspace/productarmor-site@0.0.0 build <mirror>\artifacts\productarmor-site
+> vite build --config vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+src/components/ui/tooltip.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+✓ 2367 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/public/index.html                               3.50 kB │ gzip:   1.19 kB
+dist/public/assets/index-DQuqw5nI.css               91.53 kB │ gzip:  15.43 kB
+dist/public/assets/Hero3D-B1BTEqOj.js                3.36 kB │ gzip:   1.57 kB
+dist/public/assets/ShowroomScene-Cg0L5XEM.js         4.24 kB │ gzip:   2.14 kB
+dist/public/assets/HomeJourneyScene-_JxWxRTN.js      6.09 kB │ gzip:   2.67 kB
+dist/public/assets/Html-IAW0phx8.js                  7.67 kB │ gzip:   3.10 kB
+dist/public/assets/index-tF9CpByz.js               558.83 kB │ gzip: 164.05 kB
+dist/public/assets/Stage-cDsx9ep6.js             1,033.89 kB │ gzip: 285.69 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 8.19s
+EXIT: 0

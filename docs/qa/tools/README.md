@@ -14,6 +14,37 @@ Nothing here is part of the site and nothing here writes to `src/`.
 | `recon-counts.sh`, `recon-scoped.sh` | The greps behind `docs/baseline/README.md` §3 — hex literals, `.reveal`, weights, stripe layout, contrast classes, three.js pipeline, assets. Git Bash. `recon-scoped.sh` reports each count in three scopes (all · no admin · no admin + Career), which is how the brief's 197 was reverse-engineered. |
 | `typeprobe.html` | Renders the hero first clause at the exact `display-1` spec in the real content widths, with the real variable Inter, and reports wrap count, overflow and whether `cv11` / `ss01` / `tnum` take effect. Open it directly or capture it with `capture.ps1 -BaseUrl file:///…`. |
 
+## Building on this machine
+
+There is no system Node. A checksum-verified portable Node 24.21.0 and pnpm 10.34.5 live
+at `%LOCALAPPDATA%\Temp\pa\tool` (outside the repo; delete the folder to remove them).
+The repo's `pnpm-workspace.yaml` overrides every non-`linux-x64` native binary to
+`"-"`, so the lockfile cannot build on Windows as committed. Builds therefore run from a
+**mirror** of the worktree, never from the worktree itself:
+
+```powershell
+$PA = "$env:LOCALAPPDATA\Temp\pa"                       # short path: LongPathsEnabled is off
+robocopy <worktree> "$PA\repo" /MIR /XD .git docs node_modules dist .claude /NFL /NDL /NJH /NP
+# in the COPY only, drop the five Windows exclusions:
+#   (esbuild|lightningcss|oxide|rollup).*win32-x64   lines of pnpm-workspace.yaml
+```
+
+```bash
+export PATH="/c/Users/<you>/AppData/Local/Temp/pa/tool/node-v24.21.0-win-x64:/c/Users/<you>/AppData/Local/Temp/pa/tool/npm-global:$PATH"
+export npm_config_store_dir="C:/Users/<you>/AppData/Local/Temp/pa/store"
+cd /c/Users/<you>/AppData/Local/Temp/pa/repo
+pnpm install --no-frozen-lockfile        # adds only the win32 native packages
+pnpm typecheck                           # baseline: 4 errors, all in src/admin/AdminDashboard.tsx
+MSYS_NO_PATHCONV=1 MSYS2_ENV_CONV_EXCL='*' PORT=5173 BASE_PATH=/ pnpm --filter @workspace/productarmor-site build
+```
+
+The `MSYS_*` variables matter: Git Bash otherwise rewrites `BASE_PATH=/` into
+`/Program Files/Git/` and Vite builds with that base without complaint. Re-running
+the `robocopy /MIR` after editing the worktree re-syncs the mirror while leaving its
+`node_modules` and `dist` alone (`/XD` protects them on the destination too). To
+compare two builds side by side, keep a second mirror (`$PA\repo1`); the pnpm store is
+shared, so its install takes ~20 s.
+
 ## Per-phase routine (brief §9)
 
 ```powershell

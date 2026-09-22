@@ -1,5 +1,5 @@
 ﻿{
-    "auditedAt":  "2026-09-21T18:25:20",
+    "auditedAt":  "2026-09-22T10:50:32",
     "baseUrl":  "http://localhost:4173",
     "viewport":  "1440x900",
     "browser":  "Chrome/153.0.8010.48",
@@ -7,11 +7,23 @@
                   {
                       "route":  "/",
                       "booted":  true,
-                      "initialHeavyBytes":  21085286,
+                      "initialHeavyBytes":  21085337,
                       "initialHeavyAssets":  [
+                                                 {
+                                                     "path":  "/models/pa04-150cc.glb",
+                                                     "bytes":  2806700
+                                                 },
+                                                 {
+                                                     "path":  "/models/pacrc03-38mm.glb",
+                                                     "bytes":  5223300
+                                                 },
                                                  {
                                                      "path":  "/images/about-family.jpg",
                                                      "bytes":  89560
+                                                 },
+                                                 {
+                                                     "path":  "/images/bottles-containers.jpg",
+                                                     "bytes":  33067
                                                  },
                                                  {
                                                      "path":  "/images/cr-caps.jpg",
@@ -26,16 +38,12 @@
                                                      "bytes":  89288
                                                  },
                                                  {
-                                                     "path":  "/images/bottles-containers.jpg",
-                                                     "bytes":  33067
-                                                 },
-                                                 {
                                                      "path":  "/images/certifications/iso9001.png",
                                                      "bytes":  282594
                                                  },
                                                  {
                                                      "path":  "/images/certifications/iso15378.svg",
-                                                     "bytes":  1394
+                                                     "bytes":  1412
                                                  },
                                                  {
                                                      "path":  "/images/certifications/usdmf.svg",
@@ -43,19 +51,11 @@
                                                  },
                                                  {
                                                      "path":  "/images/certifications/cdmf.svg",
-                                                     "bytes":  16143
+                                                     "bytes":  16176
                                                  },
                                                  {
                                                      "path":  "/images/certifications/chinadmf.png",
                                                      "bytes":  51464
-                                                 },
-                                                 {
-                                                     "path":  "/models/pa04-150cc.glb",
-                                                     "bytes":  2806700
-                                                 },
-                                                 {
-                                                     "path":  "/models/pacrc03-38mm.glb",
-                                                     "bytes":  5223300
                                                  },
                                                  {
                                                      "path":  "/models/pa19-30cc.glb",
@@ -918,8 +918,8 @@
                                            "sample":  "Explore roles across production, quality and sales. Select a position "
                                        },
                                        {
-                                           "pair":  "#3c5b80 on #92b3e8",
-                                           "ratio":  3.3,
+                                           "pair":  "#3c5a80 on #92b3e8",
+                                           "ratio":  3.31,
                                            "need":  4.5,
                                            "fontPx":  12,
                                            "weight":  "600",
@@ -928,8 +928,8 @@
                                            "sample":  "The next chapter"
                                        },
                                        {
-                                           "pair":  "#2f4d72 on #92b3e8",
-                                           "ratio":  4.04,
+                                           "pair":  "#304d72 on #92b3e8",
+                                           "ratio":  4.03,
                                            "need":  4.5,
                                            "fontPx":  16,
                                            "weight":  "400",
@@ -1282,7 +1282,7 @@
                   {
                       "route":  "/quality",
                       "booted":  true,
-                      "initialHeavyBytes":  468090,
+                      "initialHeavyBytes":  468141,
                       "initialHeavyAssets":  [
                                                  {
                                                      "path":  "/videos/posters/quality-vision.jpg",
@@ -1298,7 +1298,7 @@
                                                  },
                                                  {
                                                      "path":  "/images/certifications/iso15378.svg",
-                                                     "bytes":  1394
+                                                     "bytes":  1412
                                                  },
                                                  {
                                                      "path":  "/images/certifications/usdmf.svg",
@@ -1306,7 +1306,7 @@
                                                  },
                                                  {
                                                      "path":  "/images/certifications/cdmf.svg",
-                                                     "bytes":  16143
+                                                     "bytes":  16176
                                                  },
                                                  {
                                                      "path":  "/images/certifications/chinadmf.png",

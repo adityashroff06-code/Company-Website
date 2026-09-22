@@ -4,113 +4,136 @@ Captured 2026-09-21. **No source file was modified.** Everything in this folder 
 measurement of the site as it stood before the redesign, plus the tools that took it
 (`docs/qa/tools/`), so every later phase can be compared like-for-like.
 
-## 0 · Read this first — two things block a complete Phase 0
+## 0 · Read this first — two things blocked Phase 0 on 2026-09-21; both were resolved on 2026-09-22
 
-### A. The tree the brief describes is not in git, and not on this branch
+### A. The tree the brief describes was not in git — resolved
 
-`redesign/design-elevation` was cut from commit `fb2cdc6`, the last commit on `main`.
-That commit has **no 3D layer at all** — no `src/components/three/`, no
+When Phase 0 ran, `redesign/design-elevation` sat on commit `fb2cdc6`, the last commit
+on `main`, which has **no 3D layer at all** — no `src/components/three/`, no
 `src/components/video/`, no `three` / `@react-three/*` dependency, no models, no loops.
-Everything the brief calls "the 3D layer that already exists" lives only as
+Everything the brief calls "the 3D layer that already exists" lived only as
 **uncommitted changes in the main checkout's working tree**: 13 modified files,
 44 new files, 1 deleted file, 42.7 MB (`data/source-manifest.txt` lists each with the
 blob id `git add` would give it).
 
-| | committed `fb2cdc6` (this branch) | main working tree (what the brief measured) |
+| | `fb2cdc6` | main working tree (what the brief measured) |
 |---|---|---|
 | `.tsx` files | 27 | 36 |
 | `src/components/three/`, `video/` | missing | 10 + 3 files |
 | hex literals (brief's grep) | 310 in 20 files | 345 in 28 files |
 | `.reveal` uses | 38 | 42 |
 
-**All numbers below were therefore measured read-only against the main checkout's
-working tree, not against this branch.** Phase 1 cannot start until that work is on
-this branch (commit it on `main` and rebase, or import it here as a first commit).
+**All numbers below were measured read-only against that working tree.**
 
-### B. `pnpm build`, the typecheck count and bundle sizes could not be recorded
+**Resolved:** the feature is now commit `3df3cbe` on `main` ("Add scroll-driven 3D
+stages and ambient video footage"), and this branch was rebased onto it. Every blob
+the commit includes matches `data/source-manifest.txt` byte for byte (52 of 57,
+checked with `git rev-parse 3df3cbe:<path>`), so the measurements describe this
+branch's tree — with four deliberate exceptions that stayed uncommitted in the main
+checkout because they are not part of the feature: the dev-only proxy in
+`vite.config.ts`, the `allowBuilds: esbuild: set this to true or false` placeholder
+in `pnpm-workspace.yaml`, the `_harness/` line in `.gitignore`, and the two
+unreferenced GLBs (`pa19-bottle.glb`, `pacrc03-closure.glb`). That last one means
+`public/models/` on this branch already holds only the six live models, and §5E.1 of
+the brief is done by omission.
+
+### B. `pnpm build`, the typecheck count and bundle sizes — resolved
 
 1. **This machine has no Node.js** — no `node`, `npm`, `pnpm`, `corepack`, WSL or
-   Docker (searched `PATH`, Program Files, the user profile, nvm/fnm/volta/scoop
-   locations). Neither checkout has a `node_modules`.
-2. **Installing Node would not be enough.** `pnpm-workspace.yaml` overrides every
-   non-`linux-x64` native binary to `"-"` ("replit uses linux-x64 only") — including
-   `@esbuild/win32-x64`, `@rollup/rollup-win32-x64-msvc`,
-   `lightningcss-win32-x64-msvc` and `@tailwindcss/oxide-win32-x64-msvc`. Vite,
-   Rollup, Lightning CSS and Tailwind's Oxide engine cannot start on Windows from
-   this lockfile. The brief's build command only works on Linux (Replit) as written.
+   Docker. A checksum-verified portable Node 24.21.0 (`node-v24.21.0-win-x64.zip`
+   from nodejs.org, SHA-256 `158f7685…9e541`) and pnpm 10.34.5 now live at
+   `%LOCALAPPDATA%\Temp\pa\tool`, outside the repo.
+2. **`pnpm-workspace.yaml` overrides every non-`linux-x64` native binary to `"-"`**
+   ("replit uses linux-x64 only"), including `@esbuild/win32-x64`,
+   `@rollup/rollup-win32-x64-msvc`, `lightningcss-win32-x64-msvc` and
+   `@tailwindcss/oxide-win32-x64-msvc`, so the lockfile cannot build on Windows as
+   committed. Builds therefore run from a **robocopy mirror** of the worktree at
+   `%LOCALAPPDATA%\Temp\pa\repo` (a short path — `LongPathsEnabled` is off) with the
+   five `win32-x64` override lines removed *in the copy only*. The mirror's
+   `pnpm install` added exactly those native packages and nothing else; the repo's
+   lockfile is untouched. Details in `docs/qa/tools/README.md`.
+3. One trap for anyone building from Git Bash: MSYS rewrites `BASE_PATH=/` into
+   `/Program Files/Git/`, and Vite silently builds with that base. Set
+   `MSYS_NO_PATHCONV=1 MSYS2_ENV_CONV_EXCL='*'` (or build from PowerShell).
 
-So three Phase 0 numbers are **not recorded**: build output, typecheck error count,
-bundle sizes — and with them the §7 JS budgets (initial ≤ 180 KB gz, three chunk
-≤ 320 KB gz). Ways to unblock, in order of fidelity: run the three commands on
-Replit and paste the output here; or a portable Node + a *scratch copy* of the repo
-with the Windows exclusions lifted (repo untouched); or WSL.
-
-Everything else in Phase 0 is done.
+The three numbers are in §2, and the screenshots and audit in this folder were
+**re-taken from the production build** once it existed (see "How the screenshots were
+taken").
 
 ---
 
 ## 1 · What is here
 
 ```
-docs/design-system.md              the §4 system, with measured contrast + open questions
+docs/design-system.md              the §4 system, with measured contrast + decisions log
 docs/baseline/
   README.md                        this report
-  screenshots/{desktop,mobile}/    13 routes × 1440×900 and 390×844
+  screenshots/{desktop,tablet,mobile}/   13 routes × 1440×900, 768×1024 and 390×844,
+                                   from the production build of 3df3cbe
       <route>.fold.jpg             the first viewport, exactly W×H (mobile at 2×)
       <route>.full.jpg             the whole page at 1×
       pinned/<route>.pNNN.jpg      pinned stages at scroll progress 0 / .25 / .5 / .75 / 1
       capture-log.json             per page: height, overflow, canvases, WebGL renderer,
                                    videos, HTTP/console errors, heavy assets requested
-  screenshots-reduced-motion/      Home + Products with prefers-reduced-motion forced
+  screenshots-reduced-motion/      Home + Products, three viewports, prefers-reduced-motion forced
   type-probe.jpg                   the brief's display-1 spec rendered with the real font
   data/
+    build.log · typecheck.log · install.log · build-env.txt   the §2 evidence
+    audit.json                     measured contrast + initial payload, all 13 routes (build)
+    audit.harness.json             the same audit from the 2026-09-21 in-browser render
     recon-counts.txt               every grep behind the table in §3
     recon-scoped.txt               the same counts in three scopes (all / no admin / no admin+Career)
     recon-counts.committed-head.txt  the same script against commit fb2cdc6
     contrast-ramp.txt              WCAG ratios for the §4.2 ramp and today's colours
-    audit.json                     measured contrast + initial payload, all 13 routes
-    source-manifest.txt            the uncommitted delta, file by file
+    source-manifest.txt            the once-uncommitted delta, file by file, with blob ids
 docs/qa/tools/                     capture.ps1 · audit.ps1 · serve.ps1 · contrast.ps1 ·
                                    recon-*.sh · typeprobe.html   (see its README)
 ```
 
-### How the screenshots were taken — and their one caveat
+### How the screenshots were taken
 
-There is no build, so the pages were rendered by the repo's own no-Node preview
-shell (`_harness/index.html`, in the main checkout): the **real `src/`** compiled in
-the browser by Babel, the real `index.css` through `@tailwindcss/browser@4`, packages
-from esm.sh at the versions pinned in `package.json`. `docs/qa/tools/serve.ps1`
-serves it read-only and stands in for the API's public endpoints (`/api/content`,
-`/api/management-team`, `/api/uploads/*`) so every route shows real data.
-`capture.ps1` drives the installed **Chrome 153 headless over the DevTools protocol**
-from PowerShell — no Playwright, no dependency.
+The pages are the **production build** (`vite build` of `3df3cbe`, see §2), served
+read-only by `docs/qa/tools/serve.ps1 -Dist`, which also stands in for the API's
+public endpoints (`/api/content`, `/api/management-team`, `/api/uploads/*`) so every
+route shows real data. `capture.ps1` drives the installed **Chrome 153 headless over
+the DevTools protocol** from PowerShell — no Playwright, no dependency.
 
-- It is **not the production bundle.** Layout, type, colour and 3D are the real
-  code; load timing, chunking and font-loading behaviour are not. Re-take the
-  baseline from `dist/` once a build exists, with the same tool
-  (`serve.ps1 -Dist …`), before comparing anything timing-sensitive.
+- The first pass on 2026-09-21, before a build existed, used the repo's no-Node
+  preview shell (`_harness/index.html`: the real `src/` compiled in the browser by
+  Babel, `index.css` through `@tailwindcss/browser@4`, packages from esm.sh). Its
+  frames were visually identical to the build's; only `data/audit.harness.json` is
+  kept from it.
 - WebGL ran on the real GPU — `ANGLE (Intel Iris Xe, Direct3D11)` — not SwiftShader.
 - Footage **did** decode (this is full Chrome, H.264 included): every `<video>`
   reached `readyState 4`. The brief's §9.7 caveat does not apply on this machine.
 - Each page was scrolled once end-to-end before capture, so every `.reveal` /
-  `.career-reveal` had fired (`revealPending: 0` on all 26 loads).
+  `.career-reveal` had fired (`revealPending: 0` on every load), and pinned stages
+  were given 4 s to settle at each progress point.
 
 ---
 
 ## 2 · Build, typecheck, bundle
 
+Measured on 2026-09-22 from the mirror of commit `3df3cbe` (Vite 7.3.6, Tailwind
+4.3.3, three 0.185.1, Node 24.21.0, pnpm 10.34.5). Raw logs: `data/build.log`,
+`data/typecheck.log`.
+
 | Item | Baseline |
 |---|---|
-| `PORT=5173 BASE_PATH=/ pnpm --filter @workspace/productarmor-site build` | **not run — blocked (§0.B)** |
-| `pnpm typecheck` error count | **not recorded — blocked** |
-| Initial JS / lazy three chunk (gz) | **not recorded — blocked** |
+| `PORT=5173 BASE_PATH=/ pnpm --filter @workspace/productarmor-site build` | **passes** — 2,367 modules, 8–19 s. One Rollup warning: the `Stage` chunk exceeds 500 kB minified. |
+| `pnpm typecheck` | exit 2, **4 errors**, all `TS2322` in `src/admin/AdminDashboard.tsx` (lines 199, 227, 729 ×2). The libs build cleanly; the brief's "unbuilt api-client-react dist" explanation does not apply. **Later phases must not exceed 4.** |
+| Entry JS `index-*.js` | 558.8 kB raw · **163.5 kB gz** (gzip -6; Vite reports 164.1) — §7 budget ≤ 180 kB ✓ |
+| Lazy three chunk `Stage-*.js` (three + fiber + drei) | 1,033.9 kB raw · **284.0 kB gz** (Vite 285.7) — §7 budget ≤ 320 kB ✓ |
+| CSS `index-*.css` | 91.5 kB raw · 15.4 kB gz |
+| Scene chunks | `Html` 3.1 · `HomeJourneyScene` 2.7 · `ShowroomScene` 2.2 · `Hero3D` 1.6 kB gz |
+| `index.html` | 3.5 kB |
 
-What can be said without a build: the three scenes are already code-split
-(`lazy(() => import("./HomeJourneyScene"))`, `ShowroomScene`, `Hero3D`), all 13 pages
-sit in the entry chunk, and of ~60 declared dependencies only `lucide-react`,
-`three`, `@react-three/fiber`, `@react-three/drei`, `@radix-ui/react-toast` and
-`@radix-ui/react-tooltip` are imported by the public site. `vite.config.ts` does
-throw without `PORT` and `BASE_PATH` (confirmed by reading it).
+The three scenes are already code-split (`lazy(() => import("./HomeJourneyScene"))`,
+`ShowroomScene`, `Hero3D`); all 13 pages sit in the entry chunk; of ~60 declared
+dependencies only `lucide-react`, `three`, `@react-three/fiber`, `@react-three/drei`,
+`@radix-ui/react-toast` and `@radix-ui/react-tooltip` reach the public bundle.
+Both JS budgets are met before the redesign starts — Phase 8's job is to keep them
+met once `framer-motion` and the configurator arrive.
 
 ---
 
@@ -124,6 +147,8 @@ throw without `PORT` and `BASE_PATH` (confirmed by reading it).
 | §1 | `framer-motion ^12.23.24` installed, imported by zero files | 0 imports | ✓ |
 | §1 | `ui/` holds card, toast, toaster, tooltip; **nothing imports `ui/card`** | `pages/not-found.tsx` imports it | ✗ minor |
 | §1 | No `tailwind.config.js`; tokens are HSL triplets in `index.css` | confirmed | ✓ |
+| §1 | `pnpm typecheck` has pre-existing failures "from the unbuilt `@workspace/api-client-react` dist" | 4 pre-existing errors, but all are `TS2322` inside `src/admin/AdminDashboard.tsx`; the libs build first and cleanly | ✗ cause |
+| §1 | Build needs `PORT` and `BASE_PATH` or Vite throws | confirmed; passes with them (§2) | ✓ |
 | §1 | 13 public routes + `/admin`, `/admin/dashboard` | confirmed in `App.tsx` | ✓ |
 | §1 | 6 referenced GLBs = 17.8 MB; 2 orphans = 1.9 MB | 18,660,760 B (17.80 MiB); 1,858,188 B | ✓ |
 | §1 | 7 loops × mp4+webm, 8 posters, `facility.webm` 7.8 MB | 14 files 15.3 MB; 8 posters; 8,168,791 B | ✓ |
@@ -197,10 +222,15 @@ throw without `PORT` and `BASE_PATH` (confirmed by reading it).
 ## 5 · Accessibility baseline (measured, not eyeballed)
 
 `audit.ps1` walks every visible text node at 1440×900, composites its colour over
-the real rendered background and computes the WCAG ratio.
+the real rendered background and computes the WCAG ratio. The figures below come
+from the production build (`data/audit.json`, 2026-09-22); the in-browser render of
+the day before (`data/audit.harness.json`) gives the identical 968 / 180 / 33 and the
+identical weight histogram, node for node.
 
 **180 of 968 text nodes (18.6 %) fail AA.** 33 more sit over footage, a gradient or
-a canvas and are reported as *unresolved* rather than guessed.
+a canvas and are reported as *unresolved* rather than guessed. Rendered weight, by
+character: 400 79.7 % · 500 2.2 % · 600 9.3 % · **700 8.1 % · 800 0.4 % · 900 0.2 %** —
+the 8.7 % above 600 is the figure Phase 1 must take to zero.
 
 | Route | Text nodes | Fail | Unresolved |
 |---|---|---|---|
@@ -225,7 +255,9 @@ band**, where nothing under `white/82` reaches 4.5:1 — including the `/70` (×
 footer (3.53:1, 52 nodes, every route); the next is `text-gray-400` on white
 (2.60:1). Full table in `docs/design-system.md` §3.5; raw data in `data/audit.json`.
 
-No route overflows horizontally at 390px (`horizontalOverflowPx: 0` on all 13).
+No route overflows horizontally at 1440, 768 or 390px (`horizontalOverflowPx: 0` on
+all 39 loads), every load booted, and the only HTTP or console error across the set
+is the `facility.mp4` 404 on `/about` (§4.4).
 
 ---
 
@@ -242,11 +274,12 @@ Local media requested **before any scroll** (`audit.json → initialHeavyAssets`
 | others | < 0.3 MB | — |
 
 With `prefers-reduced-motion` forced, Home requests 6.9 MB over a **whole-page**
-scroll (`screenshots-reduced-motion/capture-log.reduced-motion.json`): `hero-bg.jpg`
-3.4 MB — shown at 6 % opacity — plus `pa04-150cc.glb` 2.7 MB for `Hero3D`, which is
-itself a WebGL canvas.
+scroll at every viewport (`screenshots-reduced-motion/capture-log.reduced-motion.json`):
+`hero-bg.jpg` 3.4 MB — shown at 6 % opacity — plus `pa04-150cc.glb` 2.7 MB for
+`Hero3D`, which is itself a WebGL canvas.
 
-`public/` is 49.1 MB in 61 files. JS/CSS weight is unknown until a build exists.
+`public/` is 49.1 MB in 61 files (47.2 MB once the two orphan GLBs are left out, as
+on this branch). JS and CSS weight is in §2.
 
 ---
 
@@ -266,6 +299,10 @@ itself a WebGL canvas.
   steps the models travel through the text column.
 - **Eleven inner pages** are the same page: `bg-primary` band → white → grey → navy →
   CTA band. Career alone looks different (serif, amber, hairlines).
+- **768px** — the desktop navbar is still in use one breakpoint too early: five
+  links, the search field and the "Contact Us" button share 768px, and the button
+  wraps onto two lines (every route, `screenshots/tablet/*.fold.jpg`). Phase 3
+  (Navbar) must collapse search to an icon below `lg`, as the brief's §6 says.
 - **About** — `ImmersiveFilm` plays; captions sit bottom-left over footage with the
   `.pa-on-footage` halo and stay legible.
 - **Management Team** — seven profiles with photos render once the API shim is

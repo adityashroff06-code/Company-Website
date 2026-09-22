@@ -1,0 +1,23 @@
+# Phase 0 build environment — 2026-09-22
+node v24.21.0  pnpm 10.34.5  (portable, %LOCALAPPDATA%\Temp\pa\tool)
+mirror: %LOCALAPPDATA%\Temp\pa\repo = robocopy /MIR of the worktree at 3df3cbe, minus .git docs node_modules dist
+pnpm-workspace.yaml lines removed in the mirror only:
+    "esbuild>@esbuild/win32-x64": "-"
+    "lightningcss>lightningcss-win32-x64-msvc": "-"
+    "@tailwindcss/oxide>@tailwindcss/oxide-win32-x64-msvc": "-"
+    "rollup>@rollup/rollup-win32-x64-gnu": "-"
+    "rollup>@rollup/rollup-win32-x64-msvc": "-"
+
+commands:
+  pnpm install --no-frozen-lockfile
+  pnpm typecheck
+  MSYS_NO_PATHCONV=1 MSYS2_ENV_CONV_EXCL='*' PORT=5173 BASE_PATH=/ pnpm --filter @workspace/productarmor-site build
+
+dist/public/assets (raw bytes, gzip -6 bytes):
+     1033887     283997  Stage-cDsx9ep6.js
+      558828     163500  index-tF9CpByz.js
+       91531      15413  index-DQuqw5nI.css
+        7671       3102  Html-IAW0phx8.js
+        6094       2693  HomeJourneyScene-_JxWxRTN.js
+        4238       2159  ShowroomScene-Cg0L5XEM.js
+        3359       1590  Hero3D-B1BTEqOj.js

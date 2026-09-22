@@ -115,7 +115,7 @@ export default function FAQ() {
                       id={`faq-button-${i}`}
                       className="w-full flex items-center justify-between gap-4 text-left px-6 py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                     >
- <span className="font-semibold text-base text-[#0f2a4e]">{f.q}</span>
+ <span className="font-semibold text-base text-navy">{f.q}</span>
                       <ChevronDown
                         size={20}
  className={` shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
@@ -129,7 +129,7 @@ export default function FAQ() {
                     hidden={!isOpen}
                     className="px-6 pb-5 -mt-1"
                   >
- <p className="text-sm leading-relaxed border-t border-border pt-4 text-gray-600">{f.a}</p>
+ <p className="text-sm leading-relaxed border-t border-border pt-4 text-muted-foreground">{f.a}</p>
                   </div>
                 </div>
               );
@@ -143,11 +143,11 @@ export default function FAQ() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal card-standard p-8 flex flex-col sm:flex-row items-start gap-6">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
- <HelpCircle size={22} className="text-[#4164a8]" />
+ <HelpCircle size={22} className="text-primary" />
             </div>
             <div className="flex-1">
- <h2 className="text-xl heading-card mb-2 text-[#0f2a4e]">Still have questions?</h2>
- <p className="text-sm leading-relaxed mb-5 text-gray-500">
+ <h2 className="text-xl heading-card mb-2 text-navy">Still have questions?</h2>
+ <p className="text-sm leading-relaxed mb-5 text-muted-foreground">
                 Can't find the answer you're looking for? Our technical and sales teams are happy to help with
                 specifications, samples, pricing and regulatory documentation.
               </p>
@@ -175,7 +175,7 @@ export default function FAQ() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
- className="btn-light hover:scale-105 text-[#4164a8]"
+ className="btn-light hover:scale-105 text-primary"
             >
               Get in Touch
               <ArrowRight size={16} />

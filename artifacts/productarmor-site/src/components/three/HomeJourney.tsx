@@ -28,13 +28,13 @@ export default function HomeJourney({ hero }: { hero: ReactNode }) {
   return (
     <section
       ref={track}
-      className="relative bg-[#07172e]"
+      className="relative bg-ink-900"
       style={{ height: "540vh" }}
       aria-label="Product Armor packaging, from bottle to production line"
     >
       <div ref={stage} className="sticky top-0 h-screen supports-[height:100dvh]:h-dvh w-full overflow-hidden bg-white">
         {/* Backdrop: bright studio for the hero, deepening to navy as you step inside */}
-        <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_72%_46%,#eaf1fc_0%,#ffffff_62%)]" />
+        <div className="absolute inset-0 pa-backdrop-light" />
         <div
           data-from="0.09"
           data-to="2"
@@ -42,7 +42,7 @@ export default function HomeJourney({ hero }: { hero: ReactNode }) {
           data-fade="0.13"
           data-drift="0"
           style={{ opacity: 0 }}
-          className="absolute inset-0 bg-[radial-gradient(110%_85%_at_50%_42%,#1d4478_0%,#0f2a4d_48%,#07172e_100%)]"
+          className="absolute inset-0 pa-backdrop-dark"
         />
 
         {/* The scene — purely visual, so it never intercepts scroll, taps or text selection.
@@ -116,7 +116,7 @@ export default function HomeJourney({ hero }: { hero: ReactNode }) {
                   Five HDPE bottle formats and a matched child-resistant closure — every one moulded,
                   inspected and packed inside our ISO Class 8 cleanroom.
                 </p>
-                <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#a9c4f0] hover:text-white transition-colors">
+                <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 hover:text-white transition-colors">
                   Walk through the range
                   <ArrowRight size={15} />
                 </Link>
@@ -140,7 +140,7 @@ export default function HomeJourney({ hero }: { hero: ReactNode }) {
                 </p>
                 <Link
                   href="/technology"
-                  className="inline-flex items-center gap-2 bg-[#07172e]/55 hover:bg-[#07172e]/75 border border-white/30 backdrop-blur text-white font-medium px-7 py-3 rounded-lg transition-all duration-200"
+                  className="inline-flex items-center gap-2 bg-ink-900/55 hover:bg-ink-900/75 border border-white/30 backdrop-blur text-white font-medium px-7 py-3 rounded-lg transition-all duration-200"
                 >
                   Explore Technology
                   <ArrowRight size={16} />
@@ -156,7 +156,7 @@ export default function HomeJourney({ hero }: { hero: ReactNode }) {
           data-to="0.05"
           data-hold="start"
           data-drift="0"
-          className="absolute bottom-5 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 text-[#4164a8]/70 pointer-events-none"
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 text-primary/70 pointer-events-none"
           aria-hidden="true"
         >
           <span className="text-[10px] font-semibold uppercase tracking-[0.28em]">Scroll</span>

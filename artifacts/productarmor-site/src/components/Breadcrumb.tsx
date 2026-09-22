@@ -5,7 +5,7 @@ export type Crumb = { label: string; href?: string };
 
 /**
  * Accessible breadcrumb trail rendered on inner pages, styled for dark hero
- * sections (white/translucent text on the #4164a8 hero background).
+ * sections (white/translucent text on the primary-blue hero band).
  */
 export default function Breadcrumb({ items }: { items: Crumb[] }) {
   return (

@@ -318,7 +318,7 @@ export function StageLoadBar({ tone = "dark" }: { tone?: "dark" | "light" }) {
       className={`absolute left-0 right-0 bottom-0 h-[3px] transition-opacity duration-700 ${done ? "opacity-0" : "opacity-100"}`}
     >
       <div
-        className={`h-full origin-left transition-transform duration-300 ${tone === "dark" ? "bg-[#93b4e8]" : "bg-[#4164a8]"}`}
+        className={`h-full origin-left transition-transform duration-300 ${tone === "dark" ? "bg-accent" : "bg-primary"}`}
         style={{ transform: `scaleX(${Math.max(0.04, progress / 100)})` }}
       />
     </div>

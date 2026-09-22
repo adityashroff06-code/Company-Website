@@ -323,7 +323,7 @@ function JourneyScene({
               style={{ opacity: 0 }}
               className="flex flex-col items-center gap-0.5 whitespace-nowrap select-none"
             >
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#93b4e8]">
+              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                 {MODELS[key].code}
               </span>
               <span className="text-xs sm:text-base font-semibold text-white">{MODELS[key].short}</span>

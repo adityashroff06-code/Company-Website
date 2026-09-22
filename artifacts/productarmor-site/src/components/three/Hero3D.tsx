@@ -82,11 +82,11 @@ export default function Hero3D() {
 
       {/* Floating certification chips */}
       <div className="pa-chip-float absolute top-8 right-2 lg:right-4 hidden sm:flex items-center gap-2 bg-white/75 backdrop-blur border border-border rounded-full px-3.5 py-2 shadow-sm">
-        <BadgeCheck size={15} className="text-[#4164a8]" />
+        <BadgeCheck size={15} className="text-primary" />
         <span className="text-xs font-semibold text-navy">ISO 9001:2015 Certified</span>
       </div>
       <div className="pa-chip-float pa-chip-float-delay absolute bottom-10 left-0 lg:left-2 hidden sm:flex items-center gap-2 bg-white/75 backdrop-blur border border-border rounded-full px-3.5 py-2 shadow-sm">
-        <ShieldCheck size={15} className="text-[#4164a8]" />
+        <ShieldCheck size={15} className="text-primary" />
         <span className="text-xs font-semibold text-navy">Child-Resistant Expertise</span>
       </div>
     </div>

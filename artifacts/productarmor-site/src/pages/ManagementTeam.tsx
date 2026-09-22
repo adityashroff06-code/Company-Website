@@ -29,7 +29,7 @@ function Photo({ member, className, sizes }: { member: TeamMember; className: st
   }
   return (
     <div className={`${className} bg-primary/10 flex items-center justify-center`}>
- <span className="font-black text-3xl text-[#4164a8]">{initials(member.fullName)}</span>
+ <span className="font-semibold text-3xl text-primary">{initials(member.fullName)}</span>
     </div>
   );
 }
@@ -38,7 +38,7 @@ function Photo({ member, className, sizes }: { member: TeamMember; className: st
 function boldParts(text: string) {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
     part.startsWith("**") && part.endsWith("**") ? (
- <strong key={i} className="font-semibold text-[#0f2a4e]">{part.slice(2, -2)}</strong>
+ <strong key={i} className="font-semibold text-navy">{part.slice(2, -2)}</strong>
     ) : (
       part
     )
@@ -50,7 +50,7 @@ function FormattedDescription({ text }: { text: string }) {
   return (
     <div className="space-y-3">
       {paragraphs.map((p, i) => (
- <p key={i} className="text-sm leading-relaxed whitespace-pre-line text-justify text-gray-600">
+ <p key={i} className="text-sm leading-relaxed whitespace-pre-line text-justify text-muted-foreground">
           {boldParts(p)}
         </p>
       ))}
@@ -75,7 +75,7 @@ function MemberModal({ member, onClose }: { member: TeamMember; onClose: () => v
           <button
             onClick={onClose}
             aria-label="Close profile"
- className="absolute top-4 right-4 bg-secondary hover:bg-gray-200 rounded-full p-2 transition-colors text-gray-500"
+ className="absolute top-4 right-4 bg-secondary hover:bg-muted rounded-full p-2 transition-colors text-muted-foreground"
           >
             <X size={18} />
           </button>
@@ -85,8 +85,8 @@ function MemberModal({ member, onClose }: { member: TeamMember; onClose: () => v
             className="w-32 h-32 rounded-full border-4 border-primary/10 shadow-md mx-auto mb-5"
             sizes="128px"
           />
- <h3 className="text-2xl font-bold text-[#0f2a4e]">{member.fullName}</h3>
- <p className="font-semibold text-sm mb-6 text-[#4164a8]">{member.designation}</p>
+ <h3 className="text-2xl font-semibold text-navy">{member.fullName}</h3>
+ <p className="font-semibold text-sm mb-6 text-primary">{member.designation}</p>
 
           {member.shortDescription.trim() && (
             <div className="text-left">
@@ -100,7 +100,7 @@ function MemberModal({ member, onClose }: { member: TeamMember; onClose: () => v
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${member.fullName} on LinkedIn`}
-              className="inline-flex items-center justify-center w-11 h-11 mt-6 rounded-full bg-[#0a66c2] hover:bg-[#084d92] text-white transition-colors"
+              className="inline-flex items-center justify-center w-11 h-11 mt-6 rounded-full bg-navy hover:bg-primary text-white transition-colors"
             >
               <Linkedin size={19} />
             </a>
@@ -130,10 +130,10 @@ function MemberCard({ member, onSelect }: { member: TeamMember; onSelect: () => 
           </span>
         )}
       </div>
- <h3 className="heading-card text-[#0f2a4e] group-hover:text-[#4164a8] transition-colors">
+ <h3 className="heading-card text-navy group-hover:text-primary transition-colors">
         {member.fullName}
       </h3>
- <p className="text-sm font-semibold text-[#4164a8]">{member.designation}</p>
+ <p className="text-sm font-semibold text-primary">{member.designation}</p>
     </button>
   );
 }
@@ -195,10 +195,10 @@ export default function ManagementTeam() {
           ) : !members || members.length === 0 ? (
             <div className="text-center section-pad">
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
- <Users size={28} className="text-[#4164a8]" />
+ <Users size={28} className="text-primary" />
               </div>
- <h2 className="text-xl heading-card mb-2 text-[#0f2a4e]">Team profiles coming soon</h2>
- <p className="text-sm max-w-md mx-auto text-gray-500">
+ <h2 className="text-xl heading-card mb-2 text-navy">Team profiles coming soon</h2>
+ <p className="text-sm max-w-md mx-auto text-muted-foreground">
                 We are preparing detailed profiles of our directors and senior management team.
                 Please check back shortly.
               </p>
@@ -234,7 +234,7 @@ export default function ManagementTeam() {
           </p>
           <Link
             href="/contact"
- className="btn-light text-[#4164a8]"
+ className="btn-light text-primary"
           >
             Get in Touch <ArrowRight size={15} />
           </Link>

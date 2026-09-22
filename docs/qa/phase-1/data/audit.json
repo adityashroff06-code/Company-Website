@@ -1,0 +1,1294 @@
+﻿{
+    "auditedAt":  "2026-09-22T11:02:47",
+    "baseUrl":  "http://localhost:4173",
+    "viewport":  "1440x900",
+    "browser":  "Chrome/153.0.8010.48",
+    "pages":  [
+                  {
+                      "route":  "/",
+                      "booted":  true,
+                      "initialHeavyBytes":  21085337,
+                      "initialHeavyAssets":  [
+                                                 {
+                                                     "path":  "/models/pa04-150cc.glb",
+                                                     "bytes":  2806700
+                                                 },
+                                                 {
+                                                     "path":  "/models/pacrc03-38mm.glb",
+                                                     "bytes":  5223300
+                                                 },
+                                                 {
+                                                     "path":  "/images/bottles-containers.jpg",
+                                                     "bytes":  33067
+                                                 },
+                                                 {
+                                                     "path":  "/images/cr-caps.jpg",
+                                                     "bytes":  66890
+                                                 },
+                                                 {
+                                                     "path":  "/images/ct-caps.jpg",
+                                                     "bytes":  39623
+                                                 },
+                                                 {
+                                                     "path":  "/images/about-family.jpg",
+                                                     "bytes":  89560
+                                                 },
+                                                 {
+                                                     "path":  "/images/drug-delivery.jpg",
+                                                     "bytes":  89288
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/iso9001.png",
+                                                     "bytes":  282594
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/iso15378.svg",
+                                                     "bytes":  1412
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/usdmf.svg",
+                                                     "bytes":  9879
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/cdmf.svg",
+                                                     "bytes":  16176
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/chinadmf.png",
+                                                     "bytes":  51464
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa19-30cc.glb",
+                                                     "bytes":  2147208
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa20-40cc.glb",
+                                                     "bytes":  2728952
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa43-120cc.glb",
+                                                     "bytes":  2780776
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa14-950cc.glb",
+                                                     "bytes":  2973824
+                                                 },
+                                                 {
+                                                     "path":  "/videos/posters/products-line.jpg",
+                                                     "bytes":  96365
+                                                 },
+                                                 {
+                                                     "path":  "/videos/loops/products-line.mp4",
+                                                     "bytes":  1648259
+                                                 }
+                                             ],
+                      "textNodes":  125,
+                      "contrastPass":  105,
+                      "contrastFail":  18,
+                      "contrastUnresolved":  2,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#a7b7d4 on #4e6ea9",
+                                           "ratio":  2.52,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/50",
+                                           "count":  5,
+                                           "sample":  "Quality Management Systems"
+                                       },
+                                       {
+                                           "pair":  "#a9c4f0 on #4e6ea9",
+                                           "ratio":  2.88,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-accent",
+                                           "count":  5,
+                                           "sample":  "IN25/00000630"
+                                       },
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  11,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Quality Assurance"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  16,
+                                           "weight":  "400",
+                                           "classes":  "text-white/60",
+                                           "count":  1,
+                                           "sample":  "Powered by advanced technology, rigorous quality controls, and end-to-"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  4135,
+                                          "500":  153,
+                                          "600":  1077
+                                      }
+                  },
+                  {
+                      "route":  "/products",
+                      "booted":  true,
+                      "initialHeavyBytes":  18889628,
+                      "initialHeavyAssets":  [
+                                                 {
+                                                     "path":  "/images/bottles-containers.jpg",
+                                                     "bytes":  33067
+                                                 },
+                                                 {
+                                                     "path":  "/images/cr-caps.jpg",
+                                                     "bytes":  66890
+                                                 },
+                                                 {
+                                                     "path":  "/images/ct-caps.jpg",
+                                                     "bytes":  39623
+                                                 },
+                                                 {
+                                                     "path":  "/images/drug-delivery.jpg",
+                                                     "bytes":  89288
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa19-30cc.glb",
+                                                     "bytes":  2147208
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa20-40cc.glb",
+                                                     "bytes":  2728952
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa43-120cc.glb",
+                                                     "bytes":  2780776
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa04-150cc.glb",
+                                                     "bytes":  2806700
+                                                 },
+                                                 {
+                                                     "path":  "/models/pa14-950cc.glb",
+                                                     "bytes":  2973824
+                                                 },
+                                                 {
+                                                     "path":  "/models/pacrc03-38mm.glb",
+                                                     "bytes":  5223300
+                                                 }
+                                             ],
+                      "textNodes":  97,
+                      "contrastPass":  59,
+                      "contrastFail":  10,
+                      "contrastUnresolved":  28,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Product Range"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "Every product is engineered to meet the stringent requirements of glob"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "text-white/60",
+                                           "count":  1,
+                                           "sample":  "We offer custom sizing, color options, and tailored packaging solution"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  3722,
+                                          "500":  28,
+                                          "600":  625
+                                      }
+                  },
+                  {
+                      "route":  "/industries",
+                      "booted":  true,
+                      "initialHeavyBytes":  0,
+                      "initialHeavyAssets":  [
+
+                                             ],
+                      "textNodes":  60,
+                      "contrastPass":  51,
+                      "contrastFail":  9,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Industries"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "Supporting pharmaceutical, nutraceutical, and healthcare brands with p"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  1802,
+                                          "500":  169,
+                                          "600":  409
+                                      }
+                  },
+                  {
+                      "route":  "/applications",
+                      "booted":  true,
+                      "initialHeavyBytes":  0,
+                      "initialHeavyAssets":  [
+
+                                             ],
+                      "textNodes":  70,
+                      "contrastPass":  61,
+                      "contrastFail":  9,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Applications"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "Every product has its own packaging demands. Explore how our bottles, "
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  2387,
+                                          "500":  120,
+                                          "600":  543
+                                      }
+                  },
+                  {
+                      "route":  "/technology",
+                      "booted":  true,
+                      "initialHeavyBytes":  177557,
+                      "initialHeavyAssets":  [
+                                                 {
+                                                     "path":  "/images/cleanroom-corridor.jpg",
+                                                     "bytes":  71862
+                                                 },
+                                                 {
+                                                     "path":  "/videos/posters/tech-moulding.jpg",
+                                                     "bytes":  54135
+                                                 },
+                                                 {
+                                                     "path":  "/videos/posters/tech-robot.jpg",
+                                                     "bytes":  34000
+                                                 },
+                                                 {
+                                                     "path":  "/videos/posters/tech-capfeed.jpg",
+                                                     "bytes":  17560
+                                                 }
+                                             ],
+                      "textNodes":  91,
+                      "contrastPass":  76,
+                      "contrastFail":  15,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#e2e7f1 on #ffffff",
+                                           "ratio":  1.24,
+                                           "need":  3,
+                                           "fontPx":  36,
+                                           "weight":  "600",
+                                           "classes":  "text-primary/15",
+                                           "count":  6,
+                                           "sample":  "01"
+                                       },
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Manufacturing Technology"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "From advanced resin processing to intelligent automation and 100% qual"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  4491,
+                                          "500":  30,
+                                          "600":  759
+                                      }
+                  },
+                  {
+                      "route":  "/downloads",
+                      "booted":  true,
+                      "initialHeavyBytes":  0,
+                      "initialHeavyAssets":  [
+
+                                             ],
+                      "textNodes":  49,
+                      "contrastPass":  40,
+                      "contrastFail":  9,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Resource Centre"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "Access brochures, technical data sheets, certificates and compliance d"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  1385,
+                                          "500":  29,
+                                          "600":  259
+                                      }
+                  },
+                  {
+                      "route":  "/case-studies",
+                      "booted":  true,
+                      "initialHeavyBytes":  0,
+                      "initialHeavyAssets":  [
+
+                                             ],
+                      "textNodes":  91,
+                      "contrastPass":  82,
+                      "contrastFail":  9,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Proven Results"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "How pharmaceutical, nutraceutical and healthcare brands solved packagi"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  3251,
+                                          "500":  41,
+                                          "600":  556
+                                      }
+                  },
+                  {
+                      "route":  "/career",
+                      "booted":  true,
+                      "initialHeavyBytes":  135653,
+                      "initialHeavyAssets":  [
+                                                 {
+                                                     "path":  "/images/productarmor-careers-team.jpg",
+                                                     "bytes":  135653
+                                                 }
+                                             ],
+                      "textNodes":  97,
+                      "contrastPass":  82,
+                      "contrastFail":  14,
+                      "contrastUnresolved":  1,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#a6b6d4 on #3a5d9f",
+                                           "ratio":  3.16,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  6,
+                                           "sample":  "Full-time"
+                                       },
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "text-white/60",
+                                           "count":  1,
+                                           "sample":  "Explore roles across production, quality and sales. Select a position "
+                                       },
+                                       {
+                                           "pair":  "#405c7e on #a9c4f0",
+                                           "ratio":  3.88,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-navy/70",
+                                           "count":  1,
+                                           "sample":  "The next chapter"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  3468,
+                                          "500":  39,
+                                          "600":  691
+                                      }
+                  },
+                  {
+                      "route":  "/faq",
+                      "booted":  true,
+                      "initialHeavyBytes":  0,
+                      "initialHeavyAssets":  [
+
+                                             ],
+                      "textNodes":  53,
+                      "contrastPass":  44,
+                      "contrastFail":  9,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Support"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "Everything you need to know about our bottles, CR \u0026 CT caps, ordering "
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  1333,
+                                          "500":  36,
+                                          "600":  812
+                                      }
+                  },
+                  {
+                      "route":  "/about",
+                      "booted":  true,
+                      "initialHeavyBytes":  3731940,
+                      "initialHeavyAssets":  [
+                                                 {
+                                                     "path":  "/videos/posters/tech-moulding.jpg",
+                                                     "bytes":  54135
+                                                 },
+                                                 {
+                                                     "path":  "/videos/posters/facility.jpg",
+                                                     "bytes":  49972
+                                                 },
+                                                 {
+                                                     "path":  "/videos/facility.mp4",
+                                                     "bytes":  9
+                                                 },
+                                                 {
+                                                     "path":  "/videos/posters/tech-robot.jpg",
+                                                     "bytes":  34000
+                                                 },
+                                                 {
+                                                     "path":  "/videos/posters/quality-vision.jpg",
+                                                     "bytes":  52551
+                                                 },
+                                                 {
+                                                     "path":  "/videos/loops/tech-moulding.mp4",
+                                                     "bytes":  1905362
+                                                 },
+                                                 {
+                                                     "path":  "/videos/loops/tech-robot.mp4",
+                                                     "bytes":  774000
+                                                 },
+                                                 {
+                                                     "path":  "/videos/loops/quality-vision.mp4",
+                                                     "bytes":  861911
+                                                 }
+                                             ],
+                      "textNodes":  61,
+                      "contrastPass":  51,
+                      "contrastFail":  10,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "About Us"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "text-white/60",
+                                           "count":  1,
+                                           "sample":  "We are always open to new client partnerships and technical collaborat"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  1809,
+                                          "500":  30,
+                                          "600":  242
+                                      }
+                  },
+                  {
+                      "route":  "/management-team",
+                      "booted":  true,
+                      "initialHeavyBytes":  0,
+                      "initialHeavyAssets":  [
+
+                                             ],
+                      "textNodes":  50,
+                      "contrastPass":  40,
+                      "contrastFail":  10,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Management Team"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "The directors and senior management guiding Product Armor\u0027s commitment"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "text-white/60",
+                                           "count":  1,
+                                           "sample":  "Our management team brings decades of combined pharmaceutical packagin"
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  674,
+                                          "500":  37,
+                                          "600":  389
+                                      }
+                  },
+                  {
+                      "route":  "/quality",
+                      "booted":  true,
+                      "initialHeavyBytes":  468141,
+                      "initialHeavyAssets":  [
+                                                 {
+                                                     "path":  "/videos/posters/quality-vision.jpg",
+                                                     "bytes":  52551
+                                                 },
+                                                 {
+                                                     "path":  "/videos/posters/quality-leaktest.jpg",
+                                                     "bytes":  54065
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/iso9001.png",
+                                                     "bytes":  282594
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/iso15378.svg",
+                                                     "bytes":  1412
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/usdmf.svg",
+                                                     "bytes":  9879
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/cdmf.svg",
+                                                     "bytes":  16176
+                                                 },
+                                                 {
+                                                     "path":  "/images/certifications/chinadmf.png",
+                                                     "bytes":  51464
+                                                 }
+                                             ],
+                      "textNodes":  72,
+                      "contrastPass":  60,
+                      "contrastFail":  10,
+                      "contrastUnresolved":  2,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Quality \u0026 Compliance"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "Quality is not a department — it is embedded in every step of our manu"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "text-white/60",
+                                           "count":  1,
+                                           "sample":  "We can provide CoA, GMP certificates, MSDS and regulatory dossiers on "
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  1775,
+                                          "500":  65,
+                                          "600":  491
+                                      }
+                  },
+                  {
+                      "route":  "/contact",
+                      "booted":  true,
+                      "initialHeavyBytes":  0,
+                      "initialHeavyAssets":  [
+
+                                             ],
+                      "textNodes":  52,
+                      "contrastPass":  43,
+                      "contrastFail":  9,
+                      "contrastUnresolved":  0,
+                      "contrastUnparsed":  0,
+                      "failures":  [
+                                       {
+                                           "pair":  "#718395 on #12304f",
+                                           "ratio":  3.44,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/40",
+                                           "count":  4,
+                                           "sample":  "Controlled Variables, Specified Outcomes"
+                                       },
+                                       {
+                                           "pair":  "#b0bed9 on #3a5d9f",
+                                           "ratio":  3.46,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "400",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "Home"
+                                       },
+                                       {
+                                           "pair":  "#dce2ee on #4e6ea9",
+                                           "ratio":  3.93,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "600",
+                                           "classes":  "text-white/80",
+                                           "count":  1,
+                                           "sample":  "Contact"
+                                       },
+                                       {
+                                           "pair":  "#bac6dd on #3a5d9f",
+                                           "ratio":  3.78,
+                                           "need":  4.5,
+                                           "fontPx":  18,
+                                           "weight":  "400",
+                                           "classes":  "text-white/65",
+                                           "count":  1,
+                                           "sample":  "Request a sample kit, get a quote, or speak with our technical team."
+                                       },
+                                       {
+                                           "pair":  "#596e83 on #12304f",
+                                           "ratio":  2.54,
+                                           "need":  4.5,
+                                           "fontPx":  12,
+                                           "weight":  "400",
+                                           "classes":  "text-white/30 hover:text-white/50",
+                                           "count":  1,
+                                           "sample":  "Admin"
+                                       },
+                                       {
+                                           "pair":  "#ffffff on #25d366",
+                                           "ratio":  1.98,
+                                           "need":  4.5,
+                                           "fontPx":  14,
+                                           "weight":  "600",
+                                           "classes":  "(inherited)",
+                                           "count":  1,
+                                           "sample":  "WhatsApp Us"
+                                       }
+                                   ],
+                      "fontWeights":  {
+                                          "400":  666,
+                                          "500":  108,
+                                          "600":  285
+                                      }
+                  }
+              ]
+}

@@ -78,7 +78,7 @@ function HeightRule({
         <span
           ref={labelRef}
           style={{ opacity: 0 }}
-          className="block -translate-y-1/2 whitespace-nowrap text-[11px] font-semibold tabular-nums text-[#c7d8f5]"
+          className="block -translate-y-1/2 whitespace-nowrap text-[11px] font-semibold tabular-nums text-brand-100"
         >
           {Math.round(height * 1000) / 10} mm
         </span>

@@ -97,13 +97,13 @@ export default function Applications() {
       <section className="section-pad bg-white">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
- <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
+ <div className="section-tag">
               Use Cases
             </div>
- <h2 className="heading-section text-[#0f2a4e]">
+ <h2 className="heading-section text-navy">
               Matched to Your Dosage Form
             </h2>
- <p className="max-w-2xl mx-auto text-gray-500">
+ <p className="max-w-2xl mx-auto text-muted-foreground">
               The right container and closure combination keeps your product
               stable, compliant and easy to use from filling line to end user.
             </p>
@@ -116,19 +116,19 @@ export default function Applications() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
- <app.icon size={22} className="text-[#4164a8]" />
+ <app.icon size={22} className="text-primary" />
                 </div>
- <h3 className="heading-card mb-2 text-[#0f2a4e]">
+ <h3 className="heading-card mb-2 text-navy">
                   {app.name}
                 </h3>
- <p className="text-sm leading-relaxed mb-4 text-gray-500">
+ <p className="text-sm leading-relaxed mb-4 text-muted-foreground">
                   {app.desc}
                 </p>
                 <div className="border-t border-border pt-3">
- <div className="text-xs font-semibold uppercase tracking-widest mb-1 text-gray-400">
+ <div className="text-xs font-semibold uppercase tracking-widest mb-1 text-muted-foreground">
                     Recommended fit
                   </div>
- <div className="text-sm font-medium text-[#4164a8]">
+ <div className="text-sm font-medium text-primary">
                     {app.fit}
                   </div>
                 </div>
@@ -142,13 +142,13 @@ export default function Applications() {
       <section className="section-pad bg-secondary">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
- <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
+ <div className="section-tag">
               Product Range
             </div>
- <h2 className="heading-section text-[#0f2a4e]">
+ <h2 className="heading-section text-navy">
               Our Product Fits Each Application
             </h2>
- <p className="max-w-2xl mx-auto text-gray-500">
+ <p className="max-w-2xl mx-auto text-muted-foreground">
               Our three core product families cover the full spectrum of
               pharmaceutical and nutraceutical packaging needs.
             </p>
@@ -161,12 +161,12 @@ export default function Applications() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
- <p.icon size={22} className="text-[#4164a8]" />
+ <p.icon size={22} className="text-primary" />
                 </div>
- <h3 className="heading-card mb-2 text-[#0f2a4e]">
+ <h3 className="heading-card mb-2 text-navy">
                   {p.title}
                 </h3>
- <p className="text-sm leading-relaxed text-gray-500">
+ <p className="text-sm leading-relaxed text-muted-foreground">
                   {p.desc}
                 </p>
               </div>
@@ -181,13 +181,13 @@ export default function Applications() {
           <div className="reveal bg-secondary rounded-2xl border border-border p-8 sm:p-12">
             <div className="flex items-start gap-4 mb-8">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
- <Layers size={22} className="text-[#4164a8]" />
+ <Layers size={22} className="text-primary" />
               </div>
               <div>
- <h2 className="text-2xl heading-card mb-2 text-[#0f2a4e]">
+ <h2 className="text-2xl heading-card mb-2 text-navy">
                   Closure &amp; Liner Selection
                 </h2>
- <p className="text-sm leading-relaxed max-w-2xl text-gray-500">
+ <p className="text-sm leading-relaxed max-w-2xl text-muted-foreground">
                   The closure and liner also play key role in protecting your
                   product. Here is how we help you choose the right combination.
                 </p>
@@ -216,10 +216,10 @@ export default function Applications() {
                   key={item.t}
                   className="bg-white rounded-xl border border-border p-6"
                 >
- <h3 className="font-bold text-sm mb-2 text-[#0f2a4e]">
+ <h3 className="font-semibold text-sm mb-2 text-navy">
                     {item.t}
                   </h3>
- <p className="text-sm leading-relaxed text-gray-500">
+ <p className="text-sm leading-relaxed text-muted-foreground">
                     {item.d}
                   </p>
                 </div>
@@ -242,7 +242,7 @@ export default function Applications() {
           </p>
           <Link
             href="/contact"
- className="btn-light hover:scale-105 text-[#4164a8]"
+ className="btn-light hover:scale-105 text-primary"
           >
             Get a Recommendation
             <ArrowRight size={16} />

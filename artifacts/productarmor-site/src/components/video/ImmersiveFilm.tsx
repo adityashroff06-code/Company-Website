@@ -89,7 +89,7 @@ export default function ImmersiveFilm({ clips, ariaLabel, children }: ImmersiveF
               <img src={posterSrc(c.poster)} alt="" loading="lazy" className="w-full aspect-video object-cover" />
               <figcaption className="p-6">
                 <div className="section-tag-light">{c.tag}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{c.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">{c.title}</h3>
                 <p className="text-sm leading-relaxed text-white/65">{c.text}</p>
               </figcaption>
             </figure>
@@ -101,7 +101,7 @@ export default function ImmersiveFilm({ clips, ariaLabel, children }: ImmersiveF
   }
 
   return (
-    <section ref={track} className="relative bg-[#07172e]" style={{ height: `${150 + n * 85}vh` }} aria-label={ariaLabel}>
+    <section ref={track} className="relative bg-ink-900" style={{ height: `${150 + n * 85}vh` }} aria-label={ariaLabel}>
       <div ref={stage} className="sticky top-0 h-screen supports-[height:100dvh]:h-dvh w-full overflow-hidden">
         <div ref={frame} className="pa-film-frame absolute inset-0 bg-black">
           {clips.map((c, k) => {

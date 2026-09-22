@@ -1,0 +1,42 @@
+== install 2026-09-22T10:47:26+05:30
++ prettier 3.9.6 (3.9.8 is available)
++ typescript 5.9.3 (7.0.2 is available)
+
+Done in 22s using pnpm v10.34.5
+INSTALL EXIT: 0
+== typecheck
+artifacts/productarmor-site typecheck: src/admin/AdminDashboard.tsx(199,31): error TS2322: Type 'number' is not assignable to type 'never'.
+artifacts/productarmor-site typecheck: src/admin/AdminDashboard.tsx(227,29): error TS2322: Type 'number' is not assignable to type 'never'.
+artifacts/productarmor-site typecheck: src/admin/AdminDashboard.tsx(729,17): error TS2322: Type 'number' is not assignable to type 'never'.
+artifacts/productarmor-site typecheck: src/admin/AdminDashboard.tsx(729,27): error TS2322: Type 'string' is not assignable to type 'never'.
+TYPECHECK errors: 4
+== build
+> @workspace/productarmor-site@0.0.0 build <mirror>\artifacts\productarmor-site
+> vite build --config vite.config.ts
+vite v7.3.6 building client environment for production...
+src/components/ui/tooltip.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+✓ 2367 modules transformed.
+dist/public/index.html                               3.50 kB │ gzip:   1.19 kB
+dist/public/assets/index-CCo-kh28.css               92.27 kB │ gzip:  15.67 kB
+dist/public/assets/Hero3D-BHHOZESD.js                3.36 kB │ gzip:   1.56 kB
+dist/public/assets/ShowroomScene-DQ8aDTr-.js         4.24 kB │ gzip:   2.15 kB
+dist/public/assets/HomeJourneyScene-Cgu1MiIP.js      6.10 kB │ gzip:   2.67 kB
+dist/public/assets/Html-rJYgi8eu.js                  7.67 kB │ gzip:   3.10 kB
+dist/public/assets/index-7ynWHxnd.js               557.63 kB │ gzip: 163.71 kB
+dist/public/assets/Stage-DIAhZKlq.js             1,033.88 kB │ gzip: 285.68 kB
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 9.55s
+BUILD EXIT: 0
+== base check
+src="/assets/index-7ynWHxnd.js"
+== gzip -6 sizes
+   1033882     283992 gz  Stage-DIAhZKlq.js
+    557634     163186 gz  index-7ynWHxnd.js
+     92267      15655 gz  index-CCo-kh28.css
+      7671       3103 gz  Html-rJYgi8eu.js
+      6095       2689 gz  HomeJourneyScene-Cgu1MiIP.js
+      4238       2162 gz  ShowroomScene-DQ8aDTr-.js
+      3355       1584 gz  Hero3D-BHHOZESD.js

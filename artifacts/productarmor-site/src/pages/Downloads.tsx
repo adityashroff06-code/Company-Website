@@ -76,11 +76,11 @@ export default function Downloads() {
       <section className="section-pad bg-white">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
- <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
+ <div className="section-tag">
               Available Documents
             </div>
- <h2 className="heading-section text-[#0f2a4e]">Browse Our Resources</h2>
- <p className="max-w-2xl mx-auto text-gray-500">
+ <h2 className="heading-section text-navy">Browse Our Resources</h2>
+ <p className="max-w-2xl mx-auto text-muted-foreground">
               Select a document below to download. Need something specific? Our team can share tailored
               documentation on request.
             </p>
@@ -97,11 +97,11 @@ export default function Downloads() {
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
- <Icon size={22} className="text-[#4164a8]" />
+ <Icon size={22} className="text-primary" />
                     </div>
                   </div>
- <h3 className="heading-card mb-2 text-[#0f2a4e]">{r.title}</h3>
- <p className="text-sm leading-relaxed mb-6 flex-1 text-gray-500">{r.description}</p>
+ <h3 className="heading-card mb-2 text-navy">{r.title}</h3>
+ <p className="text-sm leading-relaxed mb-6 flex-1 text-muted-foreground">{r.description}</p>
                   <a
                     href={r.url || "#"}
                     {...(r.url ? { target: "_blank", rel: "noopener noreferrer" } : { title: "Placeholder file — to be replaced with the actual document" })}
@@ -116,7 +116,7 @@ export default function Downloads() {
           </div>
 
           {hasPlaceholders && (
- <p className="text-center text-xs mt-8 max-w-xl mx-auto text-gray-400">
+ <p className="text-center text-xs mt-8 max-w-xl mx-auto text-muted-foreground">
               Note: Some download links are placeholders to be replaced with the final documents. Contact us if you
               need a file before it is published here.
             </p>
@@ -129,16 +129,16 @@ export default function Downloads() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal bg-white rounded-2xl shadow-sm border border-border p-8 sm:p-10 text-center">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-5">
- <Mail size={22} className="text-[#4164a8]" />
+ <Mail size={22} className="text-primary" />
             </div>
- <h2 className="text-2xl heading-card mb-3 text-[#0f2a4e]">Request a Document</h2>
- <p className="text-sm leading-relaxed max-w-xl mx-auto mb-6 text-gray-500">
+ <h2 className="text-2xl heading-card mb-3 text-navy">Request a Document</h2>
+ <p className="text-sm leading-relaxed max-w-xl mx-auto mb-6 text-muted-foreground">
               Looking for a specific data sheet, a Certificate of Analysis, a Drug Master File reference or custom
               regulatory documentation? Let us know and our team will send it across.
             </p>
             <Link
               href="/contact"
- className="btn-outline text-[#4164a8]"
+ className="btn-outline text-primary"
             >
               Request Documentation <ArrowRight size={16} />
             </Link>
@@ -156,7 +156,7 @@ export default function Downloads() {
           </p>
           <Link
             href="/contact"
- className="btn-light hover:scale-105 text-[#4164a8]"
+ className="btn-light hover:scale-105 text-primary"
           >
             Get in Touch <ArrowRight size={16} />
           </Link>

@@ -36,8 +36,8 @@ import Breadcrumb from "@/components/Breadcrumb";
         <section className="section-pad bg-white">
           <div className="container-width">
             <div className="text-center mb-14">
- <h2 className="heading-section text-[#0f2a4e]">Our Certifications</h2>
- <p className="max-w-xl mx-auto text-gray-500">
+ <h2 className="heading-section text-navy">Our Certifications</h2>
+ <p className="max-w-xl mx-auto text-muted-foreground">
                 Each certification represents a commitment to a specific international quality or compliance standard.
               </p>
             </div>
@@ -53,9 +53,9 @@ import Breadcrumb from "@/components/Breadcrumb";
                       <Award size={30} className="text-white" />
                     </div>
                   )}
- <div className="heading-card mb-1 text-[#0f2a4e]">{c.name}</div>
- <div className="text-sm mb-2 text-gray-500">{c.issuer}</div>
- <div className="inline-block bg-primary/10 text-xs font-semibold px-3 py-1 rounded-full text-[#4164a8]">
+ <div className="heading-card mb-1 text-navy">{c.name}</div>
+ <div className="text-sm mb-2 text-muted-foreground">{c.issuer}</div>
+ <div className="inline-block bg-primary/10 text-xs font-semibold px-3 py-1 rounded-full text-primary">
                     {c.year}
                   </div>
                 </div>
@@ -73,9 +73,9 @@ import Breadcrumb from "@/components/Breadcrumb";
                       <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
                         <Award size={30} className="text-white" />
                       </div>
- <div className="heading-card mb-1 text-[#0f2a4e]">{c.name}</div>
- <div className="text-sm mb-2 text-gray-500">{c.issuer}</div>
- <div className="inline-block bg-primary/10 text-xs font-semibold px-3 py-1 rounded-full text-[#4164a8]">
+ <div className="heading-card mb-1 text-navy">{c.name}</div>
+ <div className="text-sm mb-2 text-muted-foreground">{c.issuer}</div>
+ <div className="inline-block bg-primary/10 text-xs font-semibold px-3 py-1 rounded-full text-primary">
                         {c.year}
                       </div>
                     </div>
@@ -107,7 +107,7 @@ import Breadcrumb from "@/components/Breadcrumb";
                   label="Vision station — live"
                   className="aspect-video rounded-xl ring-1 ring-white/10 shadow-lg mb-4"
                 />
-                <h3 className="text-white font-bold mb-1">360° Vision Inspection</h3>
+                <h3 className="text-white font-semibold mb-1">360° Vision Inspection</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
                   Camera systems examine every unit's surfaces, with automatic rejection of any deviation —
                   100% inspection, zero human bias.
@@ -122,7 +122,7 @@ import Breadcrumb from "@/components/Breadcrumb";
                   label="In-line testing"
                   className="aspect-video rounded-xl ring-1 ring-white/10 shadow-lg mb-4"
                 />
-                <h3 className="text-white font-bold mb-1">Automated In-Line Testing</h3>
+                <h3 className="text-white font-semibold mb-1">Automated In-Line Testing</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
                   Dimensional and physical checks run continuously during production — deviations are caught
                   in real time, not after the batch.
@@ -136,8 +136,8 @@ import Breadcrumb from "@/components/Breadcrumb";
         <section className="section-pad bg-secondary">
           <div className="container-width">
             <div className="text-center mb-14">
- <h2 className="heading-section text-[#0f2a4e]">Our Quality Control Process</h2>
- <p className="max-w-xl mx-auto text-gray-500">
+ <h2 className="heading-section text-navy">Our Quality Control Process</h2>
+ <p className="max-w-xl mx-auto text-muted-foreground">
                 A multi-stage inspection and testing protocol ensures every batch meets specification before dispatch.
               </p>
             </div>
@@ -145,17 +145,17 @@ import Breadcrumb from "@/components/Breadcrumb";
               {qcSteps.map((s, i) => (
                 <div key={s.title} className="bg-white rounded-xl p-8 shadow-sm border border-border flex gap-5">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shrink-0 text-white font-bold text-lg">
+                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shrink-0 text-white font-semibold text-lg">
                       {i + 1}
                     </div>
                     {i < qcSteps.length - 1 && <div className="w-0.5 flex-1 bg-primary/10 mt-3" />}
                   </div>
                   <div className="pb-4">
                     <div className="flex items-center gap-2 mb-2">
- <s.icon size={16} className="text-[#4164a8]" />
- <h3 className="font-bold text-[#0f2a4e]">{s.title}</h3>
+ <s.icon size={16} className="text-primary" />
+ <h3 className="font-semibold text-navy">{s.title}</h3>
                     </div>
- <p className="text-sm leading-relaxed text-gray-500">{s.desc}</p>
+ <p className="text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                   </div>
                 </div>
               ))}
@@ -172,7 +172,7 @@ import Breadcrumb from "@/components/Breadcrumb";
             </p>
             <Link
               href="/contact"
- className="btn-light text-[#4164a8]"
+ className="btn-light text-primary"
             >
               Request Documents <ArrowRight size={15} />
             </Link>

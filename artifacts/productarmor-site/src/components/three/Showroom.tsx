@@ -26,14 +26,14 @@ function SpecPanel({ modelKey, exploded }: { modelKey: ModelKey; exploded: boole
   ];
   return (
     <div key={modelKey} className="pa-spec-swap">
-      <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#a9c4f0] mb-2">{m.code}</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-300 mb-2">{m.code}</p>
       <h3 className="pa-stage-title text-white mb-3">{m.name}</h3>
       <p className="text-sm sm:text-base leading-relaxed text-white/80 mb-5 max-w-md">{m.blurb}</p>
       <dl className="grid grid-cols-4 lg:grid-cols-2 gap-x-4 gap-y-3 lg:gap-y-4 max-w-md border-t border-white/15 pt-4 lg:pt-5">
         {specs.map((s) => (
           <div key={s.label}>
             <dt className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">{s.label}</dt>
-            <dd className="text-sm sm:text-lg font-semibold text-white mt-0.5">{s.value}</dd>
+            <dd className="text-sm sm:text-lg font-semibold tabular-nums text-white mt-0.5">{s.value}</dd>
           </div>
         ))}
       </dl>
@@ -44,7 +44,7 @@ function SpecPanel({ modelKey, exploded }: { modelKey: ModelKey; exploded: boole
         >
           {CLOSURE_PARTS.map((p, n) => (
             <li key={p.title} className="flex gap-3 text-sm">
-              <span className="shrink-0 w-5 h-5 rounded-full border border-white/40 text-[10px] font-bold text-white/90 flex items-center justify-center mt-0.5">
+              <span className="shrink-0 w-5 h-5 rounded-full border border-white/40 text-[10px] font-semibold text-white/90 flex items-center justify-center mt-0.5">
                 {n + 1}
               </span>
               <span className="text-white/80">
@@ -104,13 +104,13 @@ export default function Showroom() {
   return (
     <section
       ref={track}
-      className="relative bg-[#07172e]"
+      className="relative bg-ink-900"
       style={{ height: `${Math.round(TRAVEL * 78 + 100)}vh` }}
       aria-label="Product range, shown at true scale in 3D"
     >
       <div
         ref={stage}
-        className="sticky top-0 h-screen supports-[height:100dvh]:h-dvh w-full overflow-hidden bg-[radial-gradient(110%_85%_at_38%_46%,#1d4478_0%,#0f2a4d_48%,#07172e_100%)]"
+        className="sticky top-0 h-screen supports-[height:100dvh]:h-dvh w-full overflow-hidden pa-backdrop-dark [--pa-backdrop-at:38%_46%]"
       >
         {/* If WebGL or the 3D chunk fails, the spec panel still walks the range on its own. */}
         <div className="absolute inset-0" aria-hidden="true">
@@ -165,7 +165,7 @@ export default function Showroom() {
                 <SpecPanel modelKey={active} exploded={exploded} />
               </div>
               <div className="hidden lg:flex flex-row gap-3 mt-7">
-                <Link href="/contact" className="btn-light text-[#4164a8]">
+                <Link href="/contact" className="btn-light text-primary">
                   Request a Sample Kit
                   <ArrowRight size={16} />
                 </Link>

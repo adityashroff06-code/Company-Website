@@ -53,7 +53,7 @@ export default function Footer() {
                 { href: "/technology", label: "Technology" },
               ].map(l => (
                 <li key={l.href}>
- <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
+ <Link href={l.href} className="text-white/70 hover:text-accent text-sm transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -72,7 +72,7 @@ export default function Footer() {
                 { href: "/faq", label: "FAQ" },
               ].map(l => (
                 <li key={l.href}>
- <Link href={l.href} className="text-white/70 hover:text-[#93b4e8] text-sm transition-colors">{l.label}</Link>
+ <Link href={l.href} className="text-white/70 hover:text-accent text-sm transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -83,15 +83,15 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white/50 mb-4">Get in Touch</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5 text-white/70 text-sm">
- <Phone size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
- <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-[#93b4e8] transition-colors">{phone}</a>
+ <Phone size={14} className="mt-0.5 shrink-0 text-accent" />
+ <a href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:text-accent transition-colors">{phone}</a>
               </li>
               <li className="flex items-start gap-2.5 text-white/70 text-sm">
- <Mail size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
- <a href={`mailto:${email}`} className="hover:text-[#93b4e8] transition-colors break-all">{email}</a>
+ <Mail size={14} className="mt-0.5 shrink-0 text-accent" />
+ <a href={`mailto:${email}`} className="hover:text-accent transition-colors break-all">{email}</a>
               </li>
               <li className="flex items-start gap-2.5 text-white/70 text-sm">
- <MapPin size={14} className="mt-0.5 shrink-0 text-[#93b4e8]" />
+ <MapPin size={14} className="mt-0.5 shrink-0 text-accent" />
                 <span>{address}</span>
               </li>
             </ul>

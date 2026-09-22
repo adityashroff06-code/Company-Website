@@ -99,13 +99,13 @@ export default function Industries() {
       <section className="section-pad bg-white">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
- <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
+ <div className="section-tag">
               Sectors
             </div>
- <h2 className="heading-section text-[#0f2a4e]">
+ <h2 className="heading-section text-navy">
               Packaging Built Around Your Product
             </h2>
- <p className="max-w-2xl mx-auto text-gray-500">
+ <p className="max-w-2xl mx-auto text-muted-foreground">
               Each sector carries distinct compliance, barrier and handling
               requirements. We tailor material, closure and liner choices to
               match.
@@ -119,19 +119,19 @@ export default function Industries() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
- <ind.icon size={22} className="text-[#4164a8]" />
+ <ind.icon size={22} className="text-primary" />
                 </div>
- <h3 className="heading-card mb-2 text-[#0f2a4e]">
+ <h3 className="heading-card mb-2 text-navy">
                   {ind.name}
                 </h3>
- <p className="text-sm leading-relaxed mb-4 text-gray-500">
+ <p className="text-sm leading-relaxed mb-4 text-muted-foreground">
                   {ind.desc}
                 </p>
                 <div className="border-t border-border pt-3">
- <div className="text-xs font-semibold uppercase tracking-widest mb-1 text-gray-400">
+ <div className="text-xs font-semibold uppercase tracking-widest mb-1 text-muted-foreground">
                     Relevant packaging
                   </div>
- <div className="text-sm font-medium text-[#4164a8]">
+ <div className="text-sm font-medium text-primary">
                     {ind.packaging}
                   </div>
                 </div>
@@ -145,13 +145,13 @@ export default function Industries() {
       <section className="section-pad bg-secondary">
         <div className="container-width">
           <div className="text-center mb-14 reveal">
- <div className="inline-block px-3 py-1 bg-primary/10 text-xs font-semibold uppercase tracking-widest rounded mb-4 text-[#4164a8]">
+ <div className="section-tag">
               Compliance
             </div>
- <h2 className="heading-section text-[#0f2a4e]">
+ <h2 className="heading-section text-navy">
               Regulatory Fit by Industry
             </h2>
- <p className="max-w-2xl mx-auto text-gray-500">
+ <p className="max-w-2xl mx-auto text-muted-foreground">
               ISO 9001:2018 certified manufacturing means the right
               documentation and material assurance for every market you sell
               into.
@@ -165,12 +165,12 @@ export default function Industries() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
- <r.icon size={22} className="text-[#4164a8]" />
+ <r.icon size={22} className="text-primary" />
                 </div>
- <h3 className="heading-card mb-2 text-[#0f2a4e]">
+ <h3 className="heading-card mb-2 text-navy">
                   {r.title}
                 </h3>
- <p className="text-sm leading-relaxed text-gray-500">
+ <p className="text-sm leading-relaxed text-muted-foreground">
                   {r.desc}
                 </p>
               </div>
@@ -191,7 +191,7 @@ export default function Industries() {
           </p>
           <Link
             href="/contact"
- className="btn-light hover:scale-105 text-[#4164a8]"
+ className="btn-light hover:scale-105 text-primary"
           >
             Discuss Your Requirements
             <ArrowRight size={16} />

@@ -8,7 +8,7 @@ export default function WhatsAppFloat() {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe57] text-white px-4 py-3 rounded-full shadow-xl transition-all duration-200 hover:scale-105 hover:shadow-2xl group"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-white px-4 py-3 rounded-full shadow-xl transition-all duration-200 hover:scale-105 hover:shadow-2xl group"
         aria-label="Chat on WhatsApp"
       >
         {/* WhatsApp SVG icon */}

@@ -130,7 +130,7 @@ export default function AmbientVideo({
       )}
       {label && (
         <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 bg-navy/70 backdrop-blur text-white/90 text-xs font-medium px-3 py-1.5 rounded-full pointer-events-none">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#93b4e8]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
           {label}
         </span>
       )}

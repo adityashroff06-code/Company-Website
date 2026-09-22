@@ -1,6 +1,9 @@
 # Product Armor — Design System
 
-> **Status:** Phase 0 draft, awaiting review. Nothing here is implemented yet.
+> **Status:** Phase 1 implemented (2026-09-22) — tokens, type scale, weight cap and the
+> hex / default-palette codemod are in `src/index.css`, `index.html` and every non-admin
+> `.tsx`. The open questions in §10 were resolved with the recommended answers; §11 is
+> the decisions log. Primitives (`Reveal`, `Chapter`, `Surface` …) are Phase 2.
 > **Source of truth:** §4 of `PRODUCT-ARMOR-REDESIGN-PROMPT.md`. Every value in a
 > "Normative" block is copied from the brief verbatim and must be written exactly.
 > **Implementation notes** are derived from Phase 0 recon of the real
@@ -620,9 +623,27 @@ grep -rhoiE '#[0-9a-f]{6}' src --include=*.tsx --exclude-dir=admin | wc -l   # 2
 
 …with every survivor a three.js colour argument and none inside a `className`.
 
+**Measured after the Phase 1 codemod (2026-09-22):**
+
+| Gate | Before | After |
+|---|---|---|
+| hex literals, non-admin `.tsx` | 262 | **7** — `Stage.tsx` 4 × `Lightformer`, 1 × `ContactShadows`, 1 × `FloorGlow` default; `ShowroomScene.tsx` 1 × `lineBasicMaterial` |
+| hex inside a `className` | 255 | **0** |
+| Tailwind default-palette utilities | 97 | **0** |
+| `font-bold` / `font-black` / `font-extrabold` in `.tsx` | 27 | **0** |
+| `font-serif` / `font-mono` in `.tsx` | 9 | **0** |
+| `hsl(var(--…))` wrappers in `index.css` | 42 | **0** |
+| `pnpm typecheck` errors | 4 (admin) | **4** (the same lines) |
+| build | passes | passes — entry 163.2 KB gz, three chunk 284.0 KB gz, CSS 15.7 KB gz |
+
+Rendered-weight and contrast results are in `docs/qa/phase-1/README.md`.
+
 ---
 
 ## 10 · Open questions for review
+
+*Resolved in Phase 1 with the recommended answer in each case; see §11 for what was
+actually done. Any of them can be reversed in one place.*
 
 1. **Captions.** Accept `--ink-500` for captions on light (`--ink-400` is 3.00:1)?
 2. **Admin drift.** `src/admin/**` holds 83 hex literals and consumes `--primary`.
@@ -652,3 +673,72 @@ grep -rhoiE '#[0-9a-f]{6}' src --include=*.tsx --exclude-dir=admin | wc -l   # 2
    default *a* and digits *(recommended — zero cost)*, or self-host
    `InterVariable.woff2` (≈ 345 KB) to get the single-storey *a* and open digits?
 10. **Default-palette leak.** Add the `gray-*` gate (97 → 0) to Phase 1 (§3.6)?
+
+---
+
+## 11 · Decisions log
+
+### Phase 1 — 2026-09-22
+
+**Where things live.** `@theme` holds the type scale (each step with its
+`--line-height` / `--letter-spacing` / `--font-weight` companions, so `text-display-2`
+sets all four), the three shadows, `--ease-out` / `--ease-standard` and
+`--color-whatsapp`. `@theme inline` maps the ramp to utilities (`text-ink-500`,
+`bg-surface-1`, `border-hairline`, `text-eco-600` …) and keeps every shadcn semantic
+name. `:root` holds the ramp itself under the brief's names (`--ink-900` …), the
+space / measure / `--pa-radius-*` / `--dur-*` tokens, and the semantic re-pointing of
+§3.3 — full-colour values now, so every `hsl(var(--x))` wrapper is gone.
+
+**Answers taken (§10).** 1 captions on light use `--ink-500`; `--ink-400` is for marks
+and for captions on dark only. 2 admin is left alone and will show two blues.
+3 the Phase 1 gate excludes `src/admin/**`. 4 Career is brought onto the system
+(below). 5 `--navy` → `--ink-700` for both roles; `bg-navy` retires through `Chapter`.
+6 WhatsApp green is the token `--color-whatsapp`, used only on the glyph and — until
+Phase 3 restyles the float — on the pill it already had; LinkedIn is neutralised to
+`bg-navy hover:bg-primary`. 7 and 8 are Phase 2 / Phase 4 items. 9 `"cv11", "ss01"`
+are declared as specified although they are no-ops on Google's build. 10 the gray
+gate was added and is at 0.
+
+**Type.** `.heading-hero` maps to `display-2` (36–60px), not `display-1`, until Phase 4
+splits the 158-character headline; at `display-1` the unsplit sentence would run to
+ten lines. `.heading-page` → `display-2`, `.heading-section(-light)` → `title-1`,
+`.heading-card` → 19px / 600 / 1.3 (explicit CSS, since `@apply text-body-lg
+font-semibold` would leave the companion weight ambiguous). `.section-tag(-light)` →
+`text-eyebrow uppercase` (11px, 0.22em) and the eleven inline copies of that class
+string were collapsed to `section-tag`. `.pa-stage-title` / `.pa-stage-hero-title`
+keep their two-axis clamps at weight 600 / −0.03em. `font-bold` / `font-black` → `font-semibold`
+(27 occurrences), `strong, b { font-weight: 600 }` in the base layer, and every stat,
+counter and spec value carries `tabular-nums`. The `.text-body` / `.text-body-sm`
+component classes were deleted: the `--text-body` token now owns `text-body` (Career's
+four usages keep their explicit colour, so they render correctly as the utility) and
+Home's one `text-body-sm` became `text-sm leading-relaxed`.
+
+**Colour codemod.** 255 literals in 24 non-admin files → tokens, exactly per §3.6;
+the 7 three.js colour arguments remain. The two stage backdrops became
+`.pa-backdrop-light` / `.pa-backdrop-dark` in `index.css` (ramp stops; the Showroom
+moves the hotspot with `[--pa-backdrop-at:38%_46%]`). SVG attributes use
+`currentColor` with a token class on the element. Tailwind's default palette
+(97 utilities) → `text-muted-foreground` (gray 400–600), `text-foreground`
+(gray 700–900), `bg-muted`, `border-border`, `text-destructive`, `text-eco-600` /
+`bg-eco-600/10` (form success), and the toast close button's reds → white alphas +
+`ring-destructive`.
+
+**Career.** Georgia and Menlo are gone: the four `h2`s → `text-display-2`, the `h3` →
+`text-title-1`, the mono counters → `text-caption tabular-nums`; the `h1` keeps its
+responsive sizes at weight 600 / −0.035em but loses `whitespace-nowrap`, which was
+tuned to Georgia's narrow lowercase — in Inter the sentence measures ≈1340px at 76px
+against a 1216px container and must be allowed to wrap. Palette: `#173454` → `navy`,
+`#0b2444` → `ink-800`, `#1e5da6` → `primary`, greys → `muted-foreground` /
+`ink-400`, `#74a9e8` → `brand-300`, `#d5dede` → `border`; the ambers → `accent`
+(brand-300) in the navy hero and the `bg-accent` closing section, `primary` as icon
+colour on light, and `brand-100` inside the `bg-primary` openings section, where
+brand-300 would sit at 2.2:1 (brand-100 measures 5.5:1 there). Its private
+`.career-reveal` system stays until Phase 7.
+
+**Also.** `index.html` loads the variable axis (`opsz,wght@14..32,300..700`) and its
+`theme-color` follows `--brand-600`. `.btn-light`'s `hover:bg-blue-50` →
+`hover:bg-brand-50`. `--ease-out` in `@theme` replaces Tailwind's default curve
+site-wide — checked: `tw-animate-css` uses the `ease-out` keyword, never
+`var(--ease-out)`, and no `.tsx` uses the utility. `.reveal`, `.section-pad`,
+`.card-standard` and the `bg-primary` header bands are untouched by design; they are
+Phases 2, 4–7.

@@ -114,8 +114,8 @@ export default function CaseStudies() {
               { value: "100%", label: "CR certification pass" },
             ].map((s) => (
               <div key={s.label} className="reveal text-center bg-secondary rounded-xl p-6 border border-border">
- <div className="text-3xl font-black text-[#4164a8]">{s.value}</div>
- <div className="text-xs mt-2 leading-relaxed text-gray-500">{s.label}</div>
+ <div className="text-3xl font-semibold tabular-nums text-primary">{s.value}</div>
+ <div className="text-xs mt-2 leading-relaxed text-muted-foreground">{s.label}</div>
               </div>
             ))}
           </div>
@@ -134,31 +134,31 @@ export default function CaseStudies() {
                   <div className="lg:w-2/3">
                     <div className="flex items-center gap-4 mb-5">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
- <cs.icon size={22} className="text-[#4164a8]" />
+ <cs.icon size={22} className="text-primary" />
                       </div>
                       <div>
- <div className="text-xs font-semibold uppercase tracking-widest text-[#4164a8]">{cs.tag}</div>
- <h2 className="text-xl font-bold mt-0.5 text-[#0f2a4e]">{cs.title}</h2>
+ <div className="text-xs font-semibold uppercase tracking-widest text-primary">{cs.tag}</div>
+ <h2 className="text-xl font-semibold mt-0.5 text-navy">{cs.title}</h2>
                       </div>
                     </div>
                     <div className="space-y-4">
                       <div>
- <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-[#0f2a4e]">
- <Target size={15} className="text-[#4164a8]" /> Challenge
+ <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-navy">
+ <Target size={15} className="text-primary" /> Challenge
                         </div>
- <p className="text-sm leading-relaxed text-gray-600">{cs.challenge}</p>
+ <p className="text-sm leading-relaxed text-muted-foreground">{cs.challenge}</p>
                       </div>
                       <div>
- <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-[#0f2a4e]">
- <Lightbulb size={15} className="text-[#4164a8]" /> Solution
+ <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-navy">
+ <Lightbulb size={15} className="text-primary" /> Solution
                         </div>
- <p className="text-sm leading-relaxed text-gray-600">{cs.solution}</p>
+ <p className="text-sm leading-relaxed text-muted-foreground">{cs.solution}</p>
                       </div>
                       <div>
- <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-[#0f2a4e]">
- <TrendingUp size={15} className="text-[#4164a8]" /> Result
+ <div className="flex items-center gap-2 font-semibold text-sm mb-1 text-navy">
+ <TrendingUp size={15} className="text-primary" /> Result
                         </div>
- <p className="text-sm leading-relaxed text-gray-600">{cs.result}</p>
+ <p className="text-sm leading-relaxed text-muted-foreground">{cs.result}</p>
                       </div>
                     </div>
                   </div>
@@ -166,11 +166,11 @@ export default function CaseStudies() {
                     {cs.metrics.map((m) => (
                       <div key={m.label} className="bg-primary/5 rounded-xl p-5 border border-primary/10 flex items-center gap-4">
                         <div className="w-11 h-11 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
- <m.icon size={20} className="text-[#4164a8]" />
+ <m.icon size={20} className="text-primary" />
                         </div>
                         <div>
- <div className="text-2xl font-black text-[#0f2a4e]">{m.value}</div>
- <div className="text-xs text-gray-500">{m.label}</div>
+ <div className="text-2xl font-semibold tabular-nums text-navy">{m.value}</div>
+ <div className="text-xs text-muted-foreground">{m.label}</div>
                         </div>
                       </div>
                     ))}
@@ -191,7 +191,7 @@ export default function CaseStudies() {
           </p>
           <Link
             href="/contact"
- className="btn-light text-[#4164a8]"
+ className="btn-light text-primary"
           >
             Talk to Our Team <ArrowRight size={15} />
           </Link>

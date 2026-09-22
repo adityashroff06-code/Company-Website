@@ -54,7 +54,7 @@ import Breadcrumb from "@/components/Breadcrumb";
             {query && (
               <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white/90 text-sm">
                 <span>Showing results for “{query}”</span>
- <Link href="/products" className="text-[#93b4e8] hover:text-white font-semibold">Clear</Link>
+ <Link href="/products" className="text-accent hover:text-white font-semibold">Clear</Link>
               </div>
             )}
           </div>
@@ -75,13 +75,13 @@ import Breadcrumb from "@/components/Breadcrumb";
                   ariaLabel="HDPE bottles moving along the automated production line"
                   className="aspect-video sm:aspect-[21/9]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0f2a4d]/85 via-[#0f2a4d]/35 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/35 to-transparent pointer-events-none" />
                 <div className="absolute inset-0 flex items-center pointer-events-none">
                   <div className="px-8 sm:px-12 max-w-xl">
                     <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur text-white/80 text-xs font-semibold uppercase tracking-widest rounded mb-4">
                       Production Line
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight mb-3">
+                    <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-tight tracking-tight mb-3">
                       From Resin to Shelf-Ready
                     </h3>
                     <p className="text-white/70 text-sm sm:text-base leading-relaxed">
@@ -103,11 +103,11 @@ import Breadcrumb from "@/components/Breadcrumb";
                 {Array(3).fill(0).map((_, i) => (
                   <div key={i} className="bg-white rounded-2xl p-8 shadow-sm animate-pulse">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                      <div className="h-72 bg-gray-200 rounded-xl" />
+                      <div className="h-72 bg-muted rounded-xl" />
                       <div className="space-y-4">
-                        <div className="h-8 bg-gray-200 rounded w-3/4" />
-                        <div className="h-4 bg-gray-200 rounded w-full" />
-                        <div className="h-4 bg-gray-200 rounded w-5/6" />
+                        <div className="h-8 bg-muted rounded w-3/4" />
+                        <div className="h-4 bg-muted rounded w-full" />
+                        <div className="h-4 bg-muted rounded w-5/6" />
                       </div>
                     </div>
                   </div>
@@ -116,10 +116,10 @@ import Breadcrumb from "@/components/Breadcrumb";
             ) : products.length === 0 ? (
               <div className="text-center section-pad">
                 <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
- <SearchX size={28} className="text-gray-400" />
+ <SearchX size={28} className="text-muted-foreground" />
                 </div>
- <h2 className="text-xl heading-card mb-2 text-[#0f2a4e]">No products matched “{query}”</h2>
- <p className="text-sm mb-6 text-gray-500">Try a different term, or browse our full product range.</p>
+ <h2 className="text-xl heading-card mb-2 text-navy">No products matched “{query}”</h2>
+ <p className="text-sm mb-6 text-muted-foreground">Try a different term, or browse our full product range.</p>
                 <Link
                   href="/products"
  className="btn-primary text-white"
@@ -141,24 +141,24 @@ import Breadcrumb from "@/components/Breadcrumb";
                           onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80"; }}
                         />
                         <div className="absolute top-4 left-4">
-                          <span className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full">{p.category}</span>
+                          <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full">{p.category}</span>
                         </div>
                       </div>
                       <div className={`p-10 flex flex-col justify-center ${i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
- <h2 className="text-2xl heading-card mb-3 text-[#0f2a4e]">{p.name}</h2>
- <p className="leading-relaxed mb-6 text-gray-500">{p.description}</p>
+ <h2 className="text-2xl heading-card mb-3 text-navy">{p.name}</h2>
+ <p className="leading-relaxed mb-6 text-muted-foreground">{p.description}</p>
                         {p.sizes && (
                           <p className="mb-6 text-sm">
- <span className="font-bold uppercase tracking-widest text-xs text-[#4164a8]">Available Sizes: </span>
- <span className="text-gray-600">{p.sizes}</span>
+ <span className="font-semibold uppercase tracking-widest text-xs text-primary">Available Sizes: </span>
+ <span className="text-muted-foreground">{p.sizes}</span>
                           </p>
                         )}
                         <div>
- <h3 className="text-xs font-bold uppercase tracking-widest mb-3 text-[#4164a8]">Key Features</h3>
+ <h3 className="text-xs font-semibold uppercase tracking-widest mb-3 text-primary">Key Features</h3>
                           <ul className="space-y-2">
                             {p.features.map(f => (
- <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
- <CheckCircle size={15} className="shrink-0 mt-0.5 text-[#4164a8]" />
+ <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+ <CheckCircle size={15} className="shrink-0 mt-0.5 text-primary" />
                                 <span>{f}</span>
                               </li>
                             ))}
@@ -176,14 +176,14 @@ import Breadcrumb from "@/components/Breadcrumb";
         {/* CTA */}
         <section className="section-pad bg-primary">
           <div className="max-w-3xl mx-auto px-4 text-center">
- <Package size={40} className="mx-auto mb-4 text-[#93b4e8]" />
+ <Package size={40} className="mx-auto mb-4 text-accent" />
  <h2 className="heading-section-light text-white"> Need Customize Specification </h2>
             <p className="text-white/60 mb-6 text-sm">
               We offer custom sizing, color options, and tailored packaging solutions. Talk to our team to develop a solution that meets your specific requirements.
             </p>
             <Link
               href="/contact"
- className="btn-light text-[#4164a8]"
+ className="btn-light text-primary"
             >
               Get in Touch
               <ArrowRight size={15} />

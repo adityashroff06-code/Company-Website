@@ -18,10 +18,10 @@ a parent of this history.
 
 | | |
 |---|---|
-| Latest commit content | Phase 1 of 9 complete; the site is fully functional at every step |
-| Live preview of this state | `pnpm --filter @workspace/productarmor-site build` → serve `dist/public` (see *Running it*) |
+| Latest commit content | Phase 2 of 9 complete; the site is fully functional at every step |
+| Live preview of this state | `pnpm --filter @workspace/productarmor-site build` → serve `dist/public` (see *Running it*); add `--mode qa` to keep the `/dev/primitives` check page |
 | Working branch | `redesign/design-elevation` (identical to `main` after each phase) |
-| Next up | **Phase 2 — primitives** (`Reveal` / `RevealGroup` on framer-motion, `Chapter`, `Surface`, `Eyebrow`, `SpecList`, `MediaFrame`, `Button`) |
+| Next up | **Phase 3 — chrome** (Navbar transparent → blurred on scroll, Footer on `--ink-900`, Breadcrumb, WhatsApp float) |
 | Task-level checklist | [`docs/PROGRESS.md`](docs/PROGRESS.md) — done / next / every remaining phase, housekeeping, how to resume |
 
 ### Progress by phase
@@ -31,7 +31,7 @@ a parent of this history.
 | — | Scroll-driven 3D stages (Home journey, Products showroom), ambient footage, About film | ✅ committed `3df3cbe` | `artifacts/productarmor-site/src/components/{three,video}` |
 | **0** | Recon, baseline screenshots, build / typecheck / bundle numbers, design-system doc | ✅ `a49cce4`, `3581b78` | [`docs/baseline/README.md`](docs/baseline/README.md) |
 | **1** | Design tokens, type scale, weight cap ≤ 600, hex + default-palette codemod; layout unchanged | ✅ `740b432` | [`docs/qa/phase-1/README.md`](docs/qa/phase-1/README.md) |
-| 2 | Primitives: `Reveal`, `RevealGroup`, `Surface`, `Eyebrow`, `SpecList`, `MediaFrame`, `Button`, `Chapter` | ⬜ | done when a visual check page renders all variants in both themes |
+| **2** | Primitives: `Reveal`, `RevealGroup`, `Surface`, `Eyebrow`, `SpecList`, `MediaFrame`, `Button`, `Chapter`; `Reveal` on all 13 routes | ✅ 2026-09-22 | [`docs/qa/phase-2/README.md`](docs/qa/phase-2/README.md) — `/dev/primitives` renders every variant in both themes |
 | 3 | Chrome: Navbar (transparent → blurred), Footer, Breadcrumb, WhatsApp float | ⬜ | nav verified at scroll 0 and 400 |
 | 4 | Home: chapter themes, re-scored hero (`display-1` + `body-lg` split on the first comma), restaged journey | ⬜ | journey at 60 fps; hero legible at 320 and 1920 px |
 | 5 | 3D materials (`paMaterials.ts`), `GalleryRig`, the Products configurator | ⬜ | before/after bottle screenshots side by side |
@@ -42,16 +42,17 @@ a parent of this history.
 
 ### Measured state (production build, 2026-09-22)
 
-| Metric | Baseline (Phase 0) | Now (Phase 1) | Budget / gate |
-|---|---|---|---|
-| Hex colour literals in non-admin `.tsx` | 262 | **7** (all three.js colour arguments) | 7 |
-| Tailwind default-palette utilities | 97 | **0** | 0 |
-| Rendered characters above font-weight 600 | 8.7 % | **0 %** | 0 |
-| Text nodes failing WCAG AA (968 nodes, 13 routes) | 180 | **141** | 0 by Phase 8 |
-| Entry JS, gzip | 163.5 KB | 163.2 KB | ≤ 180 KB |
-| three.js chunk, gzip | 284.0 KB | 284.0 KB | ≤ 320 KB |
-| `pnpm typecheck` errors | 4 (all `src/admin/AdminDashboard.tsx`) | 4 | must not rise |
-| Horizontal overflow at 1440 / 768 / 390 px | 0 | 0 | 0 |
+| Metric | Baseline (Phase 0) | Phase 1 | Now (Phase 2) | Budget / gate |
+|---|---|---|---|---|
+| Hex colour literals in non-admin `.tsx` | 262 | 7 | **7** (all three.js colour arguments) | 7 |
+| Tailwind default-palette utilities | 97 | 0 | **0** | 0 |
+| Rendered characters above font-weight 600 | 8.7 % | 0 % | **0 %** | 0 |
+| Text nodes failing WCAG AA (968 nodes, 13 routes) | 180 | 141 | **141** (identical per route) | 0 by Phase 8 |
+| Routes with scroll reveals | 7 of 13 | 7 of 13 | **13 of 13** | 13 |
+| Entry JS, gzip | 163.5 KB | 163.2 KB | **177.5 KB** (+ 14.0 KB lazy motion-features chunk) | ≤ 180 KB |
+| three.js chunk, gzip | 284.0 KB | 284.0 KB | 284.0 KB | ≤ 320 KB |
+| `pnpm typecheck` errors | 4 (all `src/admin/AdminDashboard.tsx`) | 4 | 4 | must not rise |
+| Horizontal overflow at 1440 / 768 / 390 px | 0 | 0 | 0 | 0 |
 
 The design system itself — the colour ramp, type scale, spacing, elevation, motion tokens and
 the log of every decision taken so far — is [`docs/design-system.md`](docs/design-system.md).
@@ -67,10 +68,14 @@ Carried from Phase 0 and Phase 1, in the phase that owns each:
   split on the first comma into `display-1` + `body-lg`. `display-1` overflows a 320 px screen by
   17 px and needs `overflow-wrap` or a lower floor. The certification tiles on Home leave the
   glass-on-primary treatment.
+- **Phases 4–7** — the pages still use `.section-pad`, `.container-width`, `.card-standard` and
+  `.btn-*`; the Phase 2 primitives (`Chapter` / `Container`, `Surface`, `Button`) replace them
+  page by page, and the legacy definitions leave `index.css` once nothing reads them.
 - **Phase 7** — every inner page still opens on the `bg-primary` header band, which is where
-  40 of the 141 remaining contrast failures live (translucent white on mid-blue). Career keeps a
-  private `.career-reveal` system until then.
-- **Phase 8** — `About.tsx` still requests `facility.mp4`, which no longer exists (404 on every
+  40 of the 141 remaining contrast failures live (translucent white on mid-blue).
+- **Phase 8** — the entry bundle is 177.5 KB gzipped of a 180 KB budget after framer-motion;
+  the reserve is to lazy-load the two admin routes, which `App.tsx` imports statically today.
+  `About.tsx` still requests `facility.mp4`, which no longer exists (404 on every
   visit; the WebM plays). `HomeJourneyScene` mounts all six GLBs under `visible={false}`, so Home
   pulls 20 MB before any scroll; `ShowroomScene` preloads all six too. `hero-bg.jpg` (3.4 MB) is
   fetched only on the reduced-motion path. The two unreferenced GLBs are already gone from this
@@ -90,7 +95,7 @@ Carried from Phase 0 and Phase 1, in the phase that owns each:
 
 | Package | What it is |
 |---|---|
-| `artifacts/productarmor-site/` | **The public site.** React 19 + Vite 7 + Tailwind 4, wouter routing, TanStack Query; 13 public routes plus `/admin`. `src/components/three/` is the WebGL layer (three 0.185, @react-three/fiber 9, drei 10), `src/components/video/` the footage layer, `src/index.css` the token system. |
+| `artifacts/productarmor-site/` | **The public site.** React 19 + Vite 7 + Tailwind 4, wouter routing, TanStack Query; 13 public routes plus `/admin`. `src/components/three/` is the WebGL layer (three 0.185, @react-three/fiber 9, drei 10), `src/components/video/` the footage layer, `src/components/motion/` the framer-motion `Reveal`, `src/components/primitives/` the design-system primitives, `src/index.css` the token system. `src/dev/PrimitivesCheck.tsx` is the `/dev/primitives` check page, present only outside production builds. |
 | `artifacts/api-server/` | **Express 5 content API.** Routes in `src/routes/` (`content`, `admin`, `management-team`, `health`). Serves editable content from `data/content.json` and `data/management-team.json`; photo uploads in `data/uploads/`. |
 | `artifacts/mockup-sandbox/` | React + Vite design sandbox; auto-discovers components in `src/components/mockups`. |
 | `lib/db` | Drizzle ORM + PostgreSQL schema. |

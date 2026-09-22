@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 
   import { supportsImmersive } from "@/components/three/scroll";
   import Showroom from "@/components/three/Showroom";
+  import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
   export default function Products() {
     usePageMeta({
@@ -67,7 +68,7 @@ import Breadcrumb from "@/components/Breadcrumb";
           <section className="section-pad bg-white">
             <div className="container-width">
               {/* Production line — ambient footage */}
-              <div className="relative rounded-3xl overflow-hidden shadow-lg">
+              <Reveal className="relative rounded-3xl overflow-hidden shadow-lg">
                 <AmbientVideo
                   src={videoSrc("loops/products-line.mp4")}
                   webmSrc={videoWebm("loops/products-line.mp4")}
@@ -90,7 +91,7 @@ import Breadcrumb from "@/components/Breadcrumb";
                     </p>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </section>
         )}
@@ -129,9 +130,9 @@ import Breadcrumb from "@/components/Breadcrumb";
                 </Link>
               </div>
             ) : (
-              <div className="space-y-12">
+              <RevealGroup className="space-y-12">
                 {products.map((p, i) => (
-                  <div key={p.id} className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow">
+                  <Reveal key={p.id} className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow">
                     <div className={`grid grid-cols-1 lg:grid-cols-2 ${i % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}>
                       <div className={`relative h-72 lg:h-auto min-h-64 bg-secondary ${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
                         <img
@@ -166,16 +167,16 @@ import Breadcrumb from "@/components/Breadcrumb";
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Reveal>
                 ))}
-              </div>
+              </RevealGroup>
             )}
           </div>
         </section>
 
         {/* CTA */}
         <section className="section-pad bg-primary">
-          <div className="max-w-3xl mx-auto px-4 text-center">
+          <Reveal className="max-w-3xl mx-auto px-4 text-center">
  <Package size={40} className="mx-auto mb-4 text-accent" />
  <h2 className="heading-section-light text-white"> Need Customize Specification </h2>
             <p className="text-white/60 mb-6 text-sm">
@@ -188,7 +189,7 @@ import Breadcrumb from "@/components/Breadcrumb";
               Get in Touch
               <ArrowRight size={15} />
             </Link>
-          </div>
+          </Reveal>
         </section>
       </div>
     );

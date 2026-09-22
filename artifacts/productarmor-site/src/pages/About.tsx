@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import AmbientVideo from "@/components/video/AmbientVideo";
 import ImmersiveFilm, { type FilmClip } from "@/components/video/ImmersiveFilm";
 import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
   const floorClips: FilmClip[] = [
     {
@@ -63,8 +64,8 @@ import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
         {/* Story */}
         <section className="section-pad bg-white">
           <div className="container-width">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
+            <RevealGroup className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <Reveal>
  <h2 className="text-3xl font-semibold mb-6 text-navy">
                   {about?.title ?? "Precision Packaging Built for Pharma"}
                 </h2>
@@ -86,8 +87,8 @@ import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
                     </div>
                   ))}
                 </div>
-              </div>
-              <div className="relative">
+              </Reveal>
+              <Reveal className="relative">
                 <AmbientVideo
                   src={videoSrc("facility.mp4")}
                   webmSrc={videoWebm("facility.mp4")}
@@ -95,8 +96,8 @@ import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
                   ariaLabel="A walk through the Product Armor manufacturing facility"
                   className="h-96 rounded-2xl shadow-xl"
                 />
-              </div>
-            </div>
+              </Reveal>
+            </RevealGroup>
           </div>
         </section>
 
@@ -113,15 +114,15 @@ import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
         {/* Values */}
         <section className="section-pad bg-secondary">
           <div className="container-width">
-            <div className="text-center mb-14">
+            <Reveal className="text-center mb-14">
  <h2 className="heading-section text-navy">Our Core Values</h2>
  <p className="max-w-xl mx-auto text-muted-foreground">
                 The principles that guide every decision we make, from raw material selection to final delivery.
               </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            </Reveal>
+            <RevealGroup className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {values.map(v => (
-                <div key={v.title} className="bg-white rounded-xl p-8 shadow-sm border border-border flex gap-5">
+                <Reveal key={v.title} className="bg-white rounded-xl p-8 shadow-sm border border-border flex gap-5">
                   <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
  <v.icon size={22} className="text-primary" />
                   </div>
@@ -129,15 +130,15 @@ import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
  <h3 className="heading-card mb-2 text-navy">{v.title}</h3>
  <p className="text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
-            </div>
+            </RevealGroup>
           </div>
         </section>
 
         {/* CTA */}
         <section className="section-pad bg-primary">
-          <div className="max-w-3xl mx-auto px-4 text-center">
+          <Reveal className="max-w-3xl mx-auto px-4 text-center">
  <h2 className="heading-section-light text-white">Partner With Us</h2>
             <p className="text-white/60 mb-6 text-sm">
               We are always open to new client partnerships and technical collaborations.
@@ -148,7 +149,7 @@ import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
             >
               Get in Touch <ArrowRight size={15} />
             </Link>
-          </div>
+          </Reveal>
         </section>
       </div>
     );

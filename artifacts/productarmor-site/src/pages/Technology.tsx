@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import {
   Cpu,
@@ -18,6 +17,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import AmbientVideo from "@/components/video/AmbientVideo";
 import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
 const automationClips = [
   {
@@ -39,21 +39,6 @@ const automationClips = [
     desc: "Closures oriented and fed without manual intervention.",
   },
 ];
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        }),
-      { threshold: 0.12 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
 
 const processSteps = [
   {
@@ -133,7 +118,6 @@ export default function Technology() {
       "Explore ProductArmor's pharmaceutical packaging technology — injection & blow moulding, clean-room production, in-line inspection, USP Class VI pharmaceutical-grade material and sustainable processes.",
     path: "/technology",
   });
-  useReveal();
 
   return (
     <div className="pt-16">
@@ -158,7 +142,7 @@ export default function Technology() {
       {/* Process timeline */}
       <section className="section-pad bg-white">
         <div className="container-width">
-          <div className="text-center mb-14 reveal">
+          <Reveal className="text-center mb-14">
  <div className="section-tag">
               Our Process
             </div>
@@ -169,14 +153,13 @@ export default function Technology() {
               Every batch follows the same six-stage process, so quality is engineered rather than inspected
               afterwards.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step, i) => (
-              <div
+              <Reveal
                 key={step.title}
-                className="reveal relative card-standard p-6"
-                style={{ transitionDelay: `${i * 80}ms` }}
+                className="relative card-standard p-6"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
@@ -188,26 +171,26 @@ export default function Technology() {
                 </div>
  <h3 className="heading-card mb-2 text-navy">{step.title}</h3>
  <p className="text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Automation in motion */}
       <section className="section-pad bg-navy">
         <div className="container-width">
-          <div className="text-center mb-14 reveal">
+          <Reveal className="text-center mb-14">
             <div className="section-tag-light">Automation in Motion</div>
  <h2 className="heading-section-light text-white">See the Platform Run</h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               Unedited footage from the production floor — the same machines that mould, handle and feed
               every bottle and closure we ship.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {automationClips.map((v, i) => (
-              <div key={v.title} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {automationClips.map((v) => (
+              <Reveal key={v.title}>
                 <AmbientVideo
                   src={videoSrc(v.file)}
                   webmSrc={videoWebm(v.file)}
@@ -217,16 +200,16 @@ export default function Technology() {
                 />
                 <h3 className="text-white font-semibold mb-1">{v.title}</h3>
                 <p className="text-white/50 text-sm leading-relaxed">{v.desc}</p>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Capabilities */}
       <section className="section-pad bg-secondary">
         <div className="container-width">
-          <div className="text-center mb-14 reveal">
+          <Reveal className="text-center mb-14">
  <div className="section-tag">
               Capabilities
             </div>
@@ -235,31 +218,30 @@ export default function Technology() {
               A tightly integrated manufacturing platform that combines material science, automation and
               sustainability.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {capabilities.map((cap, i) => (
-              <div
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {capabilities.map((cap) => (
+              <Reveal
                 key={cap.title}
-                className="reveal card-standard p-6"
-                style={{ transitionDelay: `${i * 80}ms` }}
+                className="card-standard p-6"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
  <cap.icon size={22} className="text-primary" />
                 </div>
  <h3 className="heading-card mb-2 text-navy">{cap.title}</h3>
  <p className="text-sm leading-relaxed text-muted-foreground">{cap.desc}</p>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Material science highlight */}
       <section className="section-pad bg-white">
         <div className="container-width">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="reveal">
+          <RevealGroup className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <Reveal>
  <div className="section-tag">
                 Material Excellence & Full Traceability
               </div>
@@ -286,8 +268,8 @@ export default function Technology() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="reveal relative">
+            </Reveal>
+            <Reveal className="relative">
               <img
                 src="/images/cleanroom-corridor.jpg"
                 alt="Cleanroom manufacturing corridor at ProductArmor"
@@ -297,14 +279,14 @@ export default function Technology() {
                     "https://images.unsplash.com/photo-1581093804475-577d72e13da5?w=800&q=80";
                 }}
               />
-            </div>
-          </div>
+            </Reveal>
+          </RevealGroup>
         </div>
       </section>
 
       {/* CTA */}
       <section className="section-pad bg-navy">
-        <div className="max-w-3xl mx-auto px-4 text-center reveal">
+        <Reveal className="max-w-3xl mx-auto px-4 text-center">
  <h2 className="heading-section-light text-white">Talk to Our Technical Team</h2>
           <p className="text-white/60 mb-8">
             Have a challenging packaging specification? Our engineers can review your requirement and recommend the
@@ -316,7 +298,7 @@ export default function Technology() {
           >
             Discuss Your Project <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

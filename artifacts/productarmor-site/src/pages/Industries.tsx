@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import {
   Pill,
@@ -11,21 +10,7 @@ import {
 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        }),
-      { threshold: 0.12 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
 const industries = [
   {
@@ -73,7 +58,6 @@ export default function Industries() {
       "ProductArmor supplies bottles, CR caps and CT caps to pharmaceuticals, nutraceuticals, ayurvedic, diagnostics and personal-care industries across the globe.",
     path: "/industries",
   });
-  useReveal();
 
   return (
     <div className="pt-16">
@@ -98,7 +82,7 @@ export default function Industries() {
       {/* Industry cards */}
       <section className="section-pad bg-white">
         <div className="container-width">
-          <div className="text-center mb-14 reveal">
+          <Reveal className="text-center mb-14">
  <div className="section-tag">
               Sectors
             </div>
@@ -110,13 +94,12 @@ export default function Industries() {
               requirements. We tailor material, closure and liner choices to
               match.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {industries.map((ind, i) => (
-              <div
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {industries.map((ind) => (
+              <Reveal
                 key={ind.name}
-                className="reveal card-standard p-6"
-                style={{ transitionDelay: `${i * 80}ms` }}
+                className="card-standard p-6"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
  <ind.icon size={22} className="text-primary" />
@@ -135,16 +118,16 @@ export default function Industries() {
                     {ind.packaging}
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Regulatory fit */}
       <section className="section-pad bg-secondary">
         <div className="container-width">
-          <div className="text-center mb-14 reveal">
+          <Reveal className="text-center mb-14">
  <div className="section-tag">
               Compliance
             </div>
@@ -156,13 +139,12 @@ export default function Industries() {
               documentation and material assurance for every market you sell
               into.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {regulatory.map((r, i) => (
-              <div
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {regulatory.map((r) => (
+              <Reveal
                 key={r.title}
-                className="reveal card-standard p-6"
-                style={{ transitionDelay: `${i * 80}ms` }}
+                className="card-standard p-6"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
  <r.icon size={22} className="text-primary" />
@@ -173,15 +155,15 @@ export default function Industries() {
  <p className="text-sm leading-relaxed text-muted-foreground">
                   {r.desc}
                 </p>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* CTA */}
       <section className="section-pad bg-navy">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
  <h2 className="heading-section-light text-white">
             Don't See Your Industry?
           </h2>
@@ -196,7 +178,7 @@ export default function Industries() {
             Discuss Your Requirements
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useState } from "react";
   import { Link } from "wouter";
   import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
   import { CheckCircle, Award, Users, Package, ChevronRight, Star, ArrowRight, Phone, Mail } from "lucide-react";
@@ -6,20 +6,9 @@ import { lazy, Suspense, useEffect, useState } from "react";
   import { videoSrc, videoWebm, posterSrc } from "@/components/video/videos";
   import { supportsImmersive } from "@/components/three/scroll";
   import HomeJourney from "@/components/three/HomeJourney";
+  import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
   const Hero3D = lazy(() => import("@/components/three/Hero3D"));
-
-  function useReveal(ready?: boolean) {
-    useEffect(() => {
-      const els = document.querySelectorAll<HTMLElement>(".reveal");
-      const obs = new IntersectionObserver(
-        entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-        { threshold: 0.12 }
-      );
-      els.forEach(el => obs.observe(el));
-      return () => obs.disconnect();
-    }, [ready]);
-  }
 
   function Skeleton({ className }: { className?: string }) {
     return <div className={`animate-pulse bg-muted rounded ${className ?? ""}`} />;
@@ -29,7 +18,6 @@ import { lazy, Suspense, useEffect, useState } from "react";
     const { data: content, isLoading } = useGetSiteContent({
       query: { queryKey: getGetSiteContentQueryKey() }
     });
-    useReveal(!isLoading);
 
     const hero = content?.hero;
     const stats = content?.stats ?? [];
@@ -153,7 +141,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
         {/* ── STATS BAR ── */}
         <section className="bg-navy py-8">
           <div className="container-width">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <RevealGroup className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {isLoading
                 ? Array(4).fill(0).map((_, i) => (
                     <div key={i} className="text-center">
@@ -162,21 +150,21 @@ import { lazy, Suspense, useEffect, useState } from "react";
                     </div>
                   ))
                 : stats.map((s, i) => (
-                    <div key={i} className="text-center reveal">
+                    <Reveal key={i} className="text-center">
  <div className="text-3xl sm:text-4xl font-semibold tabular-nums text-accent">{s.value}</div>
                       <div className="text-white/60 text-sm mt-1 font-medium">{s.label}</div>
-                    </div>
+                    </Reveal>
                   ))
               }
-            </div>
+            </RevealGroup>
           </div>
         </section>
 
         {/* ── ABOUT ── */}
         <section className="section-pad bg-white">
           <div className="container-width">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="reveal">
+            <RevealGroup className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <Reveal>
  <div className="section-tag">
                   About Us
                 </div>
@@ -204,8 +192,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
                   Learn more about us
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </div>
-              <div className="reveal">
+              </Reveal>
+              <Reveal>
                 <div className="relative">
                   <div className="absolute -inset-4 bg-primary/5 rounded-2xl" />
                   <img
@@ -221,8 +209,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
                     </div>
                   )}
                 </div>
-              </div>
-            </div>
+              </Reveal>
+            </RevealGroup>
           </div>
         </section>
 
@@ -230,8 +218,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
         {!immersive && (
         <section className="section-pad bg-navy overflow-hidden">
           <div className="container-width">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div className="reveal">
+            <RevealGroup className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <Reveal>
                 <div className="section-tag-light">Inside Our Facility</div>
  <h2 className="heading-section-light text-white">Precision, In Motion.</h2>
                 <p className="text-white/60 leading-relaxed mb-8 max-w-lg">
@@ -247,8 +235,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
                     <ArrowRight size={16} />
                   </Link>
                 </div>
-              </div>
-              <div className="reveal">
+              </Reveal>
+              <Reveal>
                 <AmbientVideo
                   src={videoSrc("loops/home-bottle.mp4")}
                   webmSrc={videoWebm("loops/home-bottle.mp4")}
@@ -257,8 +245,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
                   label="Inline inspection — live line footage"
                   className="aspect-video rounded-2xl ring-1 ring-white/10 shadow-2xl"
                 />
-              </div>
-            </div>
+              </Reveal>
+            </RevealGroup>
           </div>
         </section>
         )}
@@ -266,7 +254,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
         {/* ── PRODUCTS ── */}
         <section className="section-pad bg-secondary">
           <div className="container-width">
-            <div className="text-center mb-14 reveal">
+            <Reveal className="text-center mb-14">
  <div className="section-tag">
                 Our Products
               </div>
@@ -276,8 +264,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
  <p className="max-w-xl mx-auto text-muted-foreground">
                 Explore our portfolio of pharmaceutical packaging solutions, including containers &amp; bottles, CT (Continuous Thread) and CRC (Child-Resistant Closures) caps &amp; closures powered by patented technology and recognized globally.
               </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            </Reveal>
+            <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {isLoading
                 ? Array(3).fill(0).map((_, i) => (
                     <div key={i} className="bg-white rounded-xl p-6 shadow-sm">
@@ -287,11 +275,10 @@ import { lazy, Suspense, useEffect, useState } from "react";
                       <Skeleton className="h-4 w-5/6" />
                     </div>
                   ))
-                : products.map((p, i) => (
-                    <div
+                : products.map((p) => (
+                    <Reveal
                       key={p.id}
-                      className="reveal card-standard p-0 sm:p-0 overflow-hidden group"
-                      style={{ transitionDelay: `${i * 80}ms` }}
+                      className="card-standard p-0 sm:p-0 overflow-hidden group"
                     >
                       <div className="px-6 pt-5 pb-3">
                         <span className="inline-block bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full">
@@ -325,10 +312,10 @@ import { lazy, Suspense, useEffect, useState } from "react";
                           <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
                         </Link>
                       </div>
-                    </div>
+                    </Reveal>
                   ))
               }
-            </div>
+            </RevealGroup>
             <div className="text-center mt-10">
               <Link
                 href="/products"
@@ -344,7 +331,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
         {/* ── CERTIFICATIONS ── */}
         <section className="section-pad bg-primary">
           <div className="container-width">
-            <div className="text-center mb-14 reveal">
+            <Reveal className="text-center mb-14">
  <div className="section-tag-light text-white/80">
                 Quality Assurance
               </div>
@@ -354,13 +341,12 @@ import { lazy, Suspense, useEffect, useState } from "react";
               <p className="text-white/60 max-w-xl mx-auto text-base leading-relaxed">
                 Powered by advanced technology, rigorous quality controls, and end-to-end traceability to deliver reliable pharmaceutical packaging solutions.
               </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {certifications.map((c, i) => (
-                <div
+            </Reveal>
+            <RevealGroup className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {certifications.map((c) => (
+                <Reveal
                   key={c.id}
-                  className="reveal bg-white/10 backdrop-blur border border-white/20 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300"
-                  style={{ transitionDelay: `${i * 80}ms` }}
+                  className="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300"
                 >
                   {c.logo ? (
                     <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-xl p-2 flex items-center justify-center">
@@ -372,9 +358,9 @@ import { lazy, Suspense, useEffect, useState } from "react";
                   <div className="text-white font-semibold text-sm mb-1">{c.name}</div>
                   <div className="text-white/50 text-xs">{c.issuer}</div>
  <div className="text-xs font-semibold mt-2 text-accent">{c.year}</div>
-                </div>
+                </Reveal>
               ))}
-            </div>
+            </RevealGroup>
             <div className="text-center mt-10">
               <Link
                 href="/quality"
@@ -391,11 +377,11 @@ import { lazy, Suspense, useEffect, useState } from "react";
         {clients.length > 0 && (
           <section className="section-pad bg-white border-b border-border">
             <div className="container-width">
-              <div className="text-center mb-10 reveal">
+              <Reveal className="text-center mb-10">
  <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                   Trusted by Global'S Leading Pharmaceutical Companies
                 </p>
-              </div>
+              </Reveal>
               <div className="logo-marquee relative overflow-hidden">
                 <div className="logo-marquee-track flex items-center gap-14 w-max">
                   {[...clients, ...clients].map((c, i) => (
@@ -419,20 +405,19 @@ import { lazy, Suspense, useEffect, useState } from "react";
         {testimonials.length > 0 && (
           <section className="section-pad bg-secondary">
             <div className="container-width">
-              <div className="text-center mb-14 reveal">
+              <Reveal className="text-center mb-14">
  <div className="section-tag">
                   Testimonials
                 </div>
  <h2 className="heading-section text-navy">
                   What Our Clients Say
                 </h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {testimonials.map((t, i) => (
-                  <div
+              </Reveal>
+              <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {testimonials.map((t) => (
+                  <Reveal
                     key={t.id}
-                    className="reveal bg-white rounded-xl p-7 shadow-sm border border-border hover:shadow-md transition-all duration-300 hover:border-primary/20"
-                    style={{ transitionDelay: `${i * 80}ms` }}
+                    className="bg-white rounded-xl p-7 shadow-sm border border-border hover:shadow-md transition-all duration-300 hover:border-primary/20"
                   >
                     <div className="flex gap-1 mb-4">
                       {Array(5).fill(0).map((_, i) => (
@@ -444,16 +429,16 @@ import { lazy, Suspense, useEffect, useState } from "react";
  <div className="font-semibold text-sm text-navy">{t.author}</div>
  <div className="text-xs mt-0.5 text-muted-foreground">{t.role}, {t.company}</div>
                     </div>
-                  </div>
+                  </Reveal>
                 ))}
-              </div>
+              </RevealGroup>
             </div>
           </section>
         )}
 
         {/* ── CONTACT CTA ── */}
         <section className="section-pad bg-navy">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+          <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
  <h2 className="heading-section-light text-white">
               Ready to Upgrade Your Packaging?
             </h2>
@@ -491,7 +476,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
                 <span>{contactData?.email ?? "info@productarmor.com"}</span>
               </div>
             </div>
-          </div>
+          </Reveal>
         </section>
       </div>
     );

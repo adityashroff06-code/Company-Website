@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import {
   FileText,
@@ -13,23 +12,8 @@ import {
 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 import { useGetSiteContent, getGetSiteContentQueryKey } from "@workspace/api-client-react";
-
-function useReveal(ready: boolean) {
-  useEffect(() => {
-    if (!ready) return;
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        }),
-      { threshold: 0.12 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, [ready]);
-}
 
 function pickIcon(title: string): typeof FileText {
   const t = title.toLowerCase();
@@ -48,10 +32,9 @@ export default function Downloads() {
       "Download ProductArmor brochures, technical data sheets, ISO 9001 and ISO 15378 certificates, and material compliance documents for pharmaceutical packaging.",
     path: "/downloads",
   });
-  const { data: content, isLoading } = useGetSiteContent({
+  const { data: content } = useGetSiteContent({
     query: { queryKey: getGetSiteContentQueryKey() },
   });
-  useReveal(!isLoading);
   const resources = content?.downloads ?? [];
   const hasPlaceholders = resources.some(r => !r.url);
 
@@ -75,7 +58,7 @@ export default function Downloads() {
       {/* Downloads grid */}
       <section className="section-pad bg-white">
         <div className="container-width">
-          <div className="text-center mb-14 reveal">
+          <Reveal className="text-center mb-14">
  <div className="section-tag">
               Available Documents
             </div>
@@ -84,16 +67,15 @@ export default function Downloads() {
               Select a document below to download. Need something specific? Our team can share tailored
               documentation on request.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {resources.map((r, i) => {
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {resources.map((r) => {
               const Icon = pickIcon(r.title);
               return (
-                <div
+                <Reveal
                   key={r.id}
-                  className="reveal flex flex-col card-standard p-6"
-                  style={{ transitionDelay: `${i * 60}ms` }}
+                  className="flex flex-col card-standard p-6"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -110,10 +92,10 @@ export default function Downloads() {
                     <Download size={16} />
                     Download
                   </a>
-                </div>
+                </Reveal>
               );
             })}
-          </div>
+          </RevealGroup>
 
           {hasPlaceholders && (
  <p className="text-center text-xs mt-8 max-w-xl mx-auto text-muted-foreground">
@@ -127,7 +109,7 @@ export default function Downloads() {
       {/* Request a document */}
       <section className="section-pad bg-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal bg-white rounded-2xl shadow-sm border border-border p-8 sm:p-10 text-center">
+          <Reveal className="bg-white rounded-2xl shadow-sm border border-border p-8 sm:p-10 text-center">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-5">
  <Mail size={22} className="text-primary" />
             </div>
@@ -142,13 +124,13 @@ export default function Downloads() {
             >
               Request Documentation <ArrowRight size={16} />
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
       <section className="section-pad bg-navy">
-        <div className="max-w-3xl mx-auto px-4 text-center reveal">
+        <Reveal className="max-w-3xl mx-auto px-4 text-center">
  <h2 className="heading-section-light text-white">Need More Information?</h2>
           <p className="text-white/60 mb-8">
             Speak with our team for samples, pricing and complete regulatory documentation for your packaging
@@ -160,7 +142,7 @@ export default function Downloads() {
           >
             Get in Touch <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

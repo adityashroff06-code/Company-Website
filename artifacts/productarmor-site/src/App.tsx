@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation, useSearch } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { MotionProvider } from "@/components/motion/Reveal";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -26,6 +27,14 @@ import NotFound from "@/pages/not-found";
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 30000 } },
 });
+
+/**
+ * The visual check page for the design-system primitives (brief §8, Phase 2). The condition is
+ * a build-time constant, so a production build carries neither the route nor the chunk;
+ * `vite build --mode qa` keeps it for the screenshot run. The public route table is unchanged.
+ */
+const PrimitivesCheck =
+  import.meta.env.MODE !== "production" ? lazy(() => import("@/dev/PrimitivesCheck")) : null;
 
 /**
  * Every route change starts at the top, instantly. (The global `scroll-behavior: smooth` would
@@ -71,6 +80,18 @@ function Router() {
       <Route path="/contact" component={() => <PublicLayout><Contact /></PublicLayout>} />
       <Route path="/admin" component={AdminLogin} />
       <Route path="/admin/dashboard" component={AdminDashboard} />
+      {PrimitivesCheck && (
+        <Route
+          path="/dev/primitives"
+          component={() => (
+            <PublicLayout>
+              <Suspense fallback={null}>
+                <PrimitivesCheck />
+              </Suspense>
+            </PublicLayout>
+          )}
+        />
+      )}
       <Route component={NotFound} />
     </Switch>
   );
@@ -80,11 +101,13 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <ScrollToTop />
-          <Router />
-        </WouterRouter>
-        <Toaster />
+        <MotionProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <ScrollToTop />
+            <Router />
+          </WouterRouter>
+          <Toaster />
+        </MotionProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

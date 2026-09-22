@@ -5,8 +5,8 @@ Living checklist for the design-elevation programme in
 same commit as each phase. Measured numbers come from `docs/baseline/` and
 `docs/qa/phase-N/`; nothing here is asserted without a screenshot or an audit behind it.
 
-**Last updated:** 22 September 2026 · **branch:** `main` = `redesign/design-elevation` at `2a12f1d`
-· **next:** Phase 2
+**Last updated:** 22 September 2026 · **state:** Phases 0–2 complete on `main` =
+`redesign/design-elevation` · **next:** Phase 3
 
 ---
 
@@ -45,44 +45,62 @@ same commit as each phase. Measured numbers come from `docs/baseline/` and
       968 text nodes and no overflow on every route at three viewports; typecheck still 4;
       bundles unchanged (`docs/qa/phase-1/README.md`).
 
+### Phase 2 — primitives (the "Phase 2" commit; decisions in `docs/design-system.md` §11)
+- [x] `src/components/motion/Reveal.tsx` on framer-motion (`LazyMotion` + `m.*`, strict):
+      opacity 0→1, y 16→0, scale 0.985→1, `--dur-reveal`, `--ease-out`, revealing once 25 % of
+      the element is on screen (half a viewport for anything taller than two viewports); each
+      element observes itself, so lists that mount after a CMS fetch still reveal; children are
+      returned unanimated under `prefers-reduced-motion`.
+- [x] `RevealGroup` — 60 ms stagger between siblings that enter together; an element entering
+      alone later starts with no delay.
+- [x] framer's animation features load as their own chunk (`motion/features.ts`, 14.0 KB gz);
+      until they arrive every `Reveal` is a plain, visible element. Entry JS 163.2 → 177.5 KB gz,
+      inside the 180 KB budget (bundled synchronously it measured 189.4 KB).
+- [x] `.reveal` and the seven `querySelectorAll(".reveal")` observers deleted; Career's private
+      `.career-reveal` system (inline `<style>`, eighth observer, 20 usages) migrated; `Reveal`
+      on **all 13 routes** (was 7). Header bands stay unwrapped until Phase 7 removes them.
+- [x] `Chapter` — `light` / `gallery`; `gallery` scopes `.dark`, whose block in `index.css` now
+      maps the semantic layer to the ramp (design-system §3.4, plus `--navy` → white so the
+      `.heading-*` classes flip); `--space-chapter` padding; `Container` on `--measure-content` +
+      `--gutter`. Built as the replacement for `.section-pad` / `.container-width`, which the
+      pages keep until Phases 4–7 re-set them.
+- [x] `Surface` — borderless: `--card` (now `--surface-1` on light, `--ink-800` on dark),
+      `--shadow-card`, hover `translateY(-2px)` + `--shadow-lift` over `--dur-base`,
+      `scale(1.02)` on the `media` slot only. Built as the replacement for `.card-standard`,
+      which the pages keep until Phases 4–7.
+- [x] `Eyebrow` (`text-eyebrow uppercase`, primary / muted), `SpecList` (hairline-ruled `<dl>`,
+      tabular numerals, 1–2 columns), `MediaFrame` (`--pa-radius-xl`, `--shadow-media`, ratio,
+      caption), `Button` (primary / outline / light, 48 px targets, `--ring` focus outline,
+      wouter `Link` for in-app hrefs).
+- [x] `/dev/primitives` check page renders every variant inside a light and a gallery
+      `Chapter`; registered only when `import.meta.env.MODE !== "production"` (production bundle
+      verified clean by grep; `vite build --mode qa` keeps it for screenshots). Route table
+      unchanged.
+- [x] `cn()` extended so tailwind-merge knows the type scale — plain tailwind-merge was
+      dropping `text-body` / `text-eyebrow` next to colour utilities.
+- [x] Verified on the build: typecheck still 4 (admin); entry 177.5 KB gz, three chunk
+      284.0 KB gz, CSS 16.6 KB gz; 13 routes × 3 viewports × 2 motion settings and the check
+      page captured; audit compared with Phase 1 (`docs/qa/phase-2/README.md`).
+
 ---
 
-## Next — Phase 2 · primitives
+## Next — Phase 3 · chrome
 
-Done when a Storybook-free visual check page renders every variant in both themes.
-
-- [ ] `src/components/motion/Reveal.tsx` on framer-motion (`LazyMotion` + `m.*`): opacity
-      0→1, y 16→0, scale 0.985→1, `--dur-reveal`, `--ease-out`,
-      `viewport={{ once: true, amount: 0.25 }}`; returns children unanimated under
-      `prefers-reduced-motion`.
-- [ ] `RevealGroup` — sibling stagger 60 ms.
-- [ ] Delete `.reveal` and the seven `querySelectorAll(".reveal")` observers; migrate
-      Career's private `.career-reveal` system; apply `Reveal` to **all 13 routes**.
-- [ ] `Chapter` — theme-switching section (`light` = specification, `gallery` = `.dark` scope
-      on `--ink-900`); `--space-chapter` padding; replaces `.section-pad`; at most three flips
-      per page.
-- [ ] `Surface` — borderless card: `--surface-1` on `--surface-0`, `--shadow-card`, hover
-      `translateY(-2px)` + `--shadow-lift` over `--dur-base`, `scale(1.02)` on contained media
-      only; replaces `.card-standard`.
-- [ ] `Eyebrow` (`text-eyebrow uppercase`), `SpecList` (hairline-ruled, tabular numerals),
-      `MediaFrame` (`--pa-radius-xl`, `--shadow-media`), `Button` (primary / outline / light,
-      48 px targets, visible focus ring on `--ring`).
-- [ ] `/dev/primitives` check page (dev-only route or a page under `docs/qa/`) rendering all
-      variants in both themes; screenshots into `docs/qa/phase-2/`.
-- [ ] Keep entry JS ≤ 180 KB gz after framer-motion lands (baseline 163.2 KB).
-
-## Phase 3 · chrome
+Done when the navbar is verified transparent → blurred in screenshots at scroll 0 and 400.
 
 - [ ] Navbar: transparent over the hero; `backdrop-blur-xl` + `--surface-0/80` + hairline once
       `scrollY > 20`; dropdowns `--pa-radius-lg`, `--shadow-lift`, no border, 160 ms fade+rise;
       **search collapses to an icon below `lg`** (fixes the "Contact Us" wrap at 768 px).
-- [ ] Footer: editorial four-column on `--ink-900`, hairline rules, links in `--brand-300`;
-      replaces `text-white/40` (52 failing nodes) and the `text-white/30` "Admin" link.
+      Use `Container` and `Button` from Phase 2.
+- [ ] Footer: editorial four-column on `--ink-900` (a `Chapter theme="gallery"` or the `.dark`
+      scope directly), hairline rules, links in `--brand-300`; replaces `text-white/40`
+      (52 failing nodes) and the `text-white/30` "Admin" link.
 - [ ] Breadcrumb on the new tokens.
 - [ ] WhatsApp float: `--surface-0` pill, `--hairline`, `--ink-700` text, green glyph only
       (fixes white-on-green 1.98:1, 13 nodes); the same treatment for the WhatsApp buttons on
       Home and Contact.
-- [ ] Verify nav at scroll 0 and 400 by screenshot.
+- [ ] Verify nav at scroll 0 and 400 by screenshot. Watch the entry budget: 2.5 KB of headroom
+      remain after framer-motion.
 
 ## Phase 4 · Home
 
@@ -94,14 +112,15 @@ Done when a Storybook-free visual check page renders every variant in both theme
 - [ ] In the pinned journey the 46 % copy column cannot hold `display-1` (7 lines ≈ 640 px):
       full-width headline seated by `useStageBands`, or a height-aware clamp — decide by
       screenshot at 1366×768 and 1440×900.
-- [ ] Chapter themes across the page; chapters 2–4 restaged on `GalleryRig` (Phase 5 rig).
+- [ ] Chapter themes across the page (`Chapter`, at most three flips); chapters 2–4 restaged on
+      `GalleryRig` (Phase 5 rig). `.section-pad` / `.container-width` → `Chapter` / `Container`.
 - [ ] Stats band: display-weight tabular numerals on `--surface-1` with hairline dividers.
-- [ ] Products section: borderless surfaces on a generous grid, whatever count `content.json`
-      holds.
+- [ ] Products section: `Surface` on a generous grid, whatever count `content.json` holds.
 - [ ] Certifications: `--surface-0` tiles with real padding (fixes `text-accent` 2.88:1 on
       glass); client logos greyscale 55 % → colour on hover.
 - [ ] Replace the Unsplash `onError` fallbacks (Home ×3, Technology, Products) with a
-      `--surface-2` placeholder carrying the product code.
+      `--surface-2` placeholder carrying the product code (`MediaFrame` already paints `--muted`
+      behind media).
 - [ ] Journey scrubs at 60 fps; hero legible at 320 and 1920 px.
 
 ## Phase 5 · 3D materials, GalleryRig, configurator
@@ -121,8 +140,8 @@ Done when a Storybook-free visual check page renders every variant in both theme
       `StudioRig`'s key and add a top strip. No `@react-three/postprocessing`.
 - [ ] `ProductConfigurator` under the Showroom on `/products`: resin (Natural / White / Amber /
       Opaque White) × format (five bottles from `MODELS`) × closure (38 mm CR / none);
-      drag-to-turn reusing the Showroom yaw logic; hairline spec table in tabular numerals
-      from `MODELS`; "Request this configuration" deep-links to
+      drag-to-turn reusing the Showroom yaw logic; `SpecList` from `MODELS`;
+      `Button` "Request this configuration" deep-linking to
       `/contact?config=pa04-natural-crc38`, and `Contact.tsx` renders the summary line.
       Every switch is a material swap or visibility toggle — no loading state.
 - [ ] Before/after screenshots of the same bottle in the PR body; the knurled skirt must catch
@@ -136,9 +155,9 @@ Done when a Storybook-free visual check page renders every variant in both theme
       into its internals. Process steps become a numbered editorial sequence on hairlines.
 - [ ] Quality: one bottle rotating slowly under a scanning light sweep behind the inspection
       copy, with `quality-vision` / `quality-leaktest` footage; not a pinned journey.
-      Certification tiles: hairline + `--shadow-card`, more room for the logo chips.
-- [ ] Products detail rows: full-width editorial spreads, media bleeding to one edge, tight
-      text column, hairline-ruled specs.
+      Certification tiles: `Surface` with room for the logo chips.
+- [ ] Products detail rows: full-width editorial spreads, `MediaFrame` bleeding to one edge,
+      tight text column, `SpecList` specs.
 - [ ] Both new stages degrade cleanly with WebGL off; `frameloop` parked off-screen;
       canvases `aria-hidden`; `useStageBands` for any new pinned stage.
 
@@ -147,13 +166,14 @@ Done when a Storybook-free visual check page renders every variant in both theme
 About, Contact, Industries, Applications, Case Studies, Downloads, FAQ, Management Team, Career.
 
 - [ ] No page still uses `.section-pad` or the `bg-primary` header band (that band holds 40 of
-      the 141 remaining AA failures).
-- [ ] Chapter themes, the type scale, `Reveal`, `Surface`; About keeps `ImmersiveFilm` and its
+      the remaining AA failures); `.card-standard` and `.btn-*` retire with them, then their
+      definitions leave `index.css`.
+- [ ] Chapter themes, the type scale, `Surface`, `Button`; About keeps `ImmersiveFilm` and its
       `floorClips`.
 - [ ] Contact: 48 px fields, `--pa-radius-md`, hairline borders, visible focus ring; renders
       the configurator summary when `?config=` is present.
 - [ ] Career: re-set on the system properly (its `<h1>` is 1.1 rem on phones by inheritance of
-      the old nowrap sizing; its `.career-reveal` block goes with Phase 2's `Reveal`).
+      the old nowrap sizing). Its reveal system already moved to `Reveal` in Phase 2.
 - [ ] No new WebGL on these pages.
 
 ## Phase 8 · assets, performance, accessibility
@@ -171,9 +191,13 @@ About, Contact, Industries, Applications, Case Studies, Downloads, FAQ, Manageme
       plays): add an H.264 encode at the loop budget or drop the `<source>`, and retire the LFS
       rule in `.gitattributes`. `facility.webm` (7.8 MB): re-encode or lazy-attach like
       `AmbientVideo`.
+- [ ] Entry JS budget: 177.5 KB gz of 180 after framer-motion. If Phases 3–7 need room,
+      lazy-load the two admin routes in `App.tsx` (they are statically imported into the entry
+      today) — the route table itself stays as it is.
 - [ ] Contrast sweep of every `text-white/NN` (40 ×4, 50 ×9, 60 ×23, 65 ×12, 70 ×13, 80 ×18)
       against its actual background — computed, not eyeballed; `docs/qa/tools/audit.ps1`
-      must report 0 failures. Visible focus ring on every interactive element.
+      must report 0 failures. Visible focus ring on every interactive element (the `Button`
+      primitive's `:focus-visible` rule becomes the global one).
 - [ ] Budgets measured and recorded in `docs/budgets.md`: LCP ≤ 2.0 s, CLS ≤ 0.02,
       INP ≤ 200 ms (mid-tier mobile, 4G), entry JS ≤ 180 KB gz, three chunk ≤ 320 KB gz,
       60 fps through every pinned stage, `dpr={[1, 1.75]}` kept on journey canvases.
@@ -198,6 +222,9 @@ About, Contact, Industries, Applications, Case Studies, Downloads, FAQ, Manageme
 - [ ] Three local checkouts hold the same working copy (`Updated Company's Website\`,
       `…\Update_1.1`, `Downloads\Update_1.1`); the root-level model exports and the 229 MB
       `Videos\` folder are not in git.
+- [ ] The root-level scratch files from the Replit era (`color.js`, `diff.patch`, `diff2.patch`,
+      `parse_diff.js`, `restore_colors.js`, `reverse_sed.sh`, `test_regex.js`,
+      `text-diff.patch`) are still tracked on this line; delete them in a housekeeping commit.
 - [ ] Optional: self-host `InterVariable.woff2` (~345 KB) to get the `cv11` / `ss01` glyph
       variants the brief specifies; Google's build ignores them.
 - [ ] Optional: configure `git config user.name` / `user.email` (commits currently take the
@@ -206,8 +233,10 @@ About, Contact, Industries, Applications, Case Studies, Downloads, FAQ, Manageme
 ## How to resume
 
 1. Read `docs/design-system.md` §11 (decisions log) and the latest `docs/qa/phase-N/README.md`.
-2. Work on `redesign/design-elevation`; build and verify per `docs/qa/tools/README.md`
-   (Windows: the mirror procedure; Replit: the plain commands).
+2. Work on `redesign/design-elevation` (or any branch that fast-forwards it); build and verify
+   per `docs/qa/tools/README.md` (Windows: the mirror procedure; Replit: the plain commands).
+   Screenshots of the check page: build with `vite build --mode qa --outDir dist/qa` and
+   capture `/dev/primitives`.
 3. Commit with the phase in the message, update this file and the README status table in the
-   same commit, then `git push origin redesign/design-elevation:main redesign/design-elevation`
-   — always a fast-forward, never a force push.
+   same commit, then push the commit to both `main` and `redesign/design-elevation` on
+   `origin` — always a fast-forward, never a force push.

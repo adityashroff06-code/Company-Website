@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
 import { ChevronDown, HelpCircle, MessageSquare, ArrowRight } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.12 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
 const faqs = [
   {
@@ -73,7 +62,6 @@ export default function FAQ() {
     description: "Answers to common questions about ProductArmor pharmaceutical packaging — MOQ, lead times, customization, certifications, CR cap compliance, liners, samples and export markets.",
     path: "/faq",
   });
-  useReveal();
 
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -98,13 +86,13 @@ export default function FAQ() {
       {/* FAQ Accordion */}
       <section className="section-pad bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-4">
+          <RevealGroup className="space-y-4">
             {faqs.map((f, i) => {
               const isOpen = openIndex === i;
               return (
-                <div
+                <Reveal
                   key={f.q}
-                  className="reveal bg-white rounded-xl border border-border shadow-sm hover:border-primary/20 transition-all duration-300 overflow-hidden"
+                  className="bg-white rounded-xl border border-border shadow-sm hover:border-primary/20 transition-all duration-300 overflow-hidden"
                 >
                   <h3>
                     <button
@@ -131,17 +119,17 @@ export default function FAQ() {
                   >
  <p className="text-sm leading-relaxed border-t border-border pt-4 text-muted-foreground">{f.a}</p>
                   </div>
-                </div>
+                </Reveal>
               );
             })}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Still have questions */}
       <section className="section-pad bg-secondary">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal card-standard p-8 flex flex-col sm:flex-row items-start gap-6">
+          <Reveal className="card-standard p-8 flex flex-col sm:flex-row items-start gap-6">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
  <HelpCircle size={22} className="text-primary" />
             </div>
@@ -159,13 +147,13 @@ export default function FAQ() {
                 Talk to our team
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
       <section className="section-pad bg-navy">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
  <h2 className="heading-section-light text-white">
             Ready to Discuss Your Packaging Needs?
           </h2>
@@ -188,7 +176,7 @@ export default function FAQ() {
               <ArrowRight size={16} />
             </Link>
           </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

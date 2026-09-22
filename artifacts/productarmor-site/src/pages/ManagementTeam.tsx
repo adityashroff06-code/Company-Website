@@ -5,6 +5,7 @@ import { X, Linkedin, Quote, Users, ArrowRight, Star } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { fetchPublicTeam, type TeamMember } from "@/lib/managementTeam";
 import { useQuery } from "@tanstack/react-query";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
 function initials(name: string): string {
   return name
@@ -206,18 +207,22 @@ export default function ManagementTeam() {
           ) : (
             <div className="space-y-8">
               {leadershipMembers.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
                   {leadershipMembers.map(member => (
-                    <MemberCard key={member.id} member={member} onSelect={() => setSelected(member)} />
+                    <Reveal key={member.id}>
+                      <MemberCard member={member} onSelect={() => setSelected(member)} />
+                    </Reveal>
                   ))}
-                </div>
+                </RevealGroup>
               )}
               {otherMembers.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                   {otherMembers.map(member => (
-                    <MemberCard key={member.id} member={member} onSelect={() => setSelected(member)} />
+                    <Reveal key={member.id}>
+                      <MemberCard member={member} onSelect={() => setSelected(member)} />
+                    </Reveal>
                   ))}
-                </div>
+                </RevealGroup>
               )}
             </div>
           )}
@@ -226,7 +231,7 @@ export default function ManagementTeam() {
 
       {/* CTA */}
       <section className="section-pad bg-primary">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+        <Reveal className="max-w-3xl mx-auto px-4 text-center">
           <Quote size={26} className="text-white/40 mx-auto mb-4" />
  <h2 className="heading-section-light text-white">Leadership You Can Rely On</h2>
           <p className="text-white/60 mb-6 text-sm">
@@ -238,7 +243,7 @@ export default function ManagementTeam() {
           >
             Get in Touch <ArrowRight size={15} />
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       {selected && <MemberModal member={selected} onClose={() => setSelected(null)} />}

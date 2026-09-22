@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Send, CheckCircle, MessageSquare, Linkedin } from 
 import Breadcrumb from "@/components/Breadcrumb";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { CONTACT, SOCIAL } from "@/constants/site";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
 export default function Contact() {
   usePageMeta({
@@ -59,9 +60,9 @@ export default function Contact() {
 
       <section className="section-pad bg-secondary">
         <div className="container-width">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <RevealGroup className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Contact info */}
-            <div className="lg:col-span-2 space-y-6">
+            <Reveal className="lg:col-span-2 space-y-6">
               <div>
  <h2 className="text-2xl heading-card mb-2 text-navy">
                   {company?.name ?? "Product Armor Packaging Pvt Ltd"}
@@ -134,10 +135,10 @@ export default function Contact() {
                   </div>
                 </a>
               </div>
-            </div>
+            </Reveal>
 
             {/* Contact form */}
-            <div className="lg:col-span-3">
+            <Reveal className="lg:col-span-3">
               <div className="bg-white rounded-2xl shadow-sm border border-border p-8">
                 {sent ? (
                   <div className="text-center py-12">
@@ -223,15 +224,15 @@ export default function Contact() {
                   </form>
                 )}
               </div>
-            </div>
-          </div>
+            </Reveal>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Google Map */}
       <section className="pb-20 bg-secondary">
         <div className="container-width">
-          <div className="rounded-2xl overflow-hidden shadow-sm border border-border">
+          <Reveal className="rounded-2xl overflow-hidden shadow-sm border border-border">
             <iframe
               title="Product Armor Packaging location"
               src={mapEmbed}
@@ -241,7 +242,7 @@ export default function Contact() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>

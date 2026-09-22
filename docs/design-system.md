@@ -1,9 +1,12 @@
 # Product Armor — Design System
 
-> **Status:** Phase 1 implemented (2026-09-22) — tokens, type scale, weight cap and the
-> hex / default-palette codemod are in `src/index.css`, `index.html` and every non-admin
-> `.tsx`. The open questions in §10 were resolved with the recommended answers; §11 is
-> the decisions log. Primitives (`Reveal`, `Chapter`, `Surface` …) are Phase 2.
+> **Status:** Phase 2 implemented (2026-09-22) — the primitives (`Reveal` / `RevealGroup` on
+> framer-motion, `Chapter`, `Surface`, `Eyebrow`, `SpecList`, `MediaFrame`, `Button`) live in
+> `src/components/motion` and `src/components/primitives`, with their `.pa-*` classes and the
+> gallery `.dark` scope in `src/index.css`; `/dev/primitives` is the visual check page. Phase 1
+> (tokens, type scale, weight cap, codemod) is in `src/index.css`, `index.html` and every
+> non-admin `.tsx`. The open questions in §10 were resolved with the recommended answers; §11
+> is the decisions log, one entry per phase.
 > **Source of truth:** §4 of `PRODUCT-ARMOR-REDESIGN-PROMPT.md`. Every value in a
 > "Normative" block is copied from the brief verbatim and must be written exactly.
 > **Implementation notes** are derived from Phase 0 recon of the real
@@ -742,3 +745,72 @@ site-wide — checked: `tw-animate-css` uses the `ease-out` keyword, never
 `var(--ease-out)`, and no `.tsx` uses the utility. `.reveal`, `.section-pad`,
 `.card-standard` and the `bg-primary` header bands are untouched by design; they are
 Phases 2, 4–7.
+
+### Phase 2 — 2026-09-22
+
+**Where things live.** `src/components/motion/Reveal.tsx` holds `MotionProvider`, `Reveal`
+and `RevealGroup`; `motion/features.ts` is the split point for framer's `domAnimation`.
+`src/components/primitives/` holds `Chapter` + `Container`, `Surface`, `Eyebrow`, `SpecList`,
+`MediaFrame` and `Button` behind a barrel `index.ts`. Their styles are the `.pa-*` classes at
+the end of `@layer components` in `index.css`. `src/dev/PrimitivesCheck.tsx` is the check page
+on `/dev/primitives`. Verification is `docs/qa/phase-2/README.md`.
+
+**Reveal.** Each element observes itself — IntersectionObserver, once, at 25 % of the element,
+or half a viewport for anything taller than two viewports, where a fixed fraction could never
+be reached — and animates with `m.*` + `animate`. framer's parent → child `whileInView`
+propagation was rejected because it never reaches children that mount after a CMS fetch,
+which is most of this site's lists; per-element observers fire immediately for content that
+arrives already on screen. `RevealGroup` staggers siblings whose observers fire within
+150 ms of each other (60 ms apart, capped at eight); an element entering on its own later
+starts with no delay, so nothing waits `index × 60 ms` off-screen as the old
+`transitionDelay` did. Timing is read from `--dur-reveal` / `--ease-out` at first use, with
+the same pair as fallback. **The animation features load lazily.** With `domAnimation`
+bundled synchronously the entry measured 189.4 KB gz against the 180 KB budget; as its own
+chunk (14.0 KB gz) the entry is 177.5 KB. Until the chunk arrives every `Reveal` is a plain,
+visible element; whatever is on screen at that moment stays static and only content scrolled
+to afterwards reveals, so a slow or failed chunk hides nothing. Under
+`prefers-reduced-motion: reduce` there is no inline style at all. The seven
+`querySelectorAll(".reveal")` observers, `.reveal` itself and Career's private
+`.career-reveal` system (its inline `<style>`, eighth observer and 20 usages) are gone;
+`Reveal` is on all 13 routes, where it was on seven. The above-the-fold header bands are not
+wrapped; they leave in Phase 7.
+
+**Chapter.** `theme="gallery"` puts the `.dark` class on the section, and the `.dark` block
+now maps the semantic layer to the ramp as §3.4 specifies (`--background` ink-900,
+`--foreground` white, `--muted-foreground` the 72 % mix, `--card` ink-800, `--primary` /
+`--ring` / `--accent` brand-300, `--border` white/10) plus `color-scheme: dark`. Two
+additions to §3.4: `--navy` → `--surface-0` inside `.dark`, because `.heading-section` and
+`.heading-card` read `text-navy` and must be white on a gallery chapter — which means
+`bg-navy` must never be used inside one (it is the very thing `Chapter` retires); and the
+`--sidebar-*` tokens moved to the ramp for completeness. Padding is `--space-chapter`;
+`Container` carries `--measure-content` + `--gutter` (`width="media"` → `--measure-media`).
+`.section-pad` and `.container-width` remain on the pages until Phases 4–7.
+
+**Surface.** `--card` on light is re-pointed from `--surface-0` to `--surface-1`, so a
+borderless surface reads as depth against the white page; the ten legacy `.card-standard`
+cards inherit the 2 % tint and keep their border until they are replaced. Depth is
+`--shadow-card`; `interactive` hover is `translateY(-2px)` + `--shadow-lift` over
+`--dur-base`, and only media in the `media` slot scales 1.02. Radius `--pa-radius-lg`.
+
+**Eyebrow, SpecList, MediaFrame, Button.** `Eyebrow` is `text-eyebrow uppercase` with
+`text-primary` (brand-600, brand-300 on dark) or `text-muted-foreground`. `SpecList` is a
+`<dl>` ruled on top and under every row with `--border`, caption labels, body values in
+`tabular-nums`, one or two columns, `sm` rows. `MediaFrame` is `--pa-radius-xl` +
+`--shadow-media`, media on `object-fit: cover` over a `--muted` placeholder, with `ratio`,
+`radius`, `shadow` and `caption`. `Button` is 48 px minimum height, `--pa-radius-md`,
+16 px / 600, a 2 px `--ring` outline with 2 px offset on `:focus-visible`; `primary` fills
+`--primary` and hovers to `--primary-border`, `outline` is a 1 px inset ring at 32 % of
+`currentColor` with `--muted` on hover, `light` is `--surface-0` / `--ink-700` with
+`--brand-50` on hover. An in-app `href` renders a wouter `Link`; `http(s):`, `mailto:`,
+`tel:` and `#` render a plain `<a>`. `.btn-*` remain until the pages are re-set.
+
+**tailwind-merge.** `cn()` now extends tailwind-merge with the type scale registered as font
+sizes. Without it `text-body` and `text-eyebrow` were read as colours and silently dropped
+next to `text-primary` or `text-foreground` — found on the check page, where the gallery
+eyebrow had lost its size.
+
+**Check page.** `/dev/primitives` renders every primitive and variant once inside a light
+`Chapter` and once inside a gallery `Chapter`. The route is registered only when
+`import.meta.env.MODE !== "production"`, a build-time constant, so the production bundle
+carries neither the route nor the chunk (verified by grep); `vite build --mode qa` keeps it
+for the screenshot run. The public route table is unchanged.

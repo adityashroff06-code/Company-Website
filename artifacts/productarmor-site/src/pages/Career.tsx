@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { FormEvent } from "react";
 import { Link } from "wouter";
 import {
@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 import { getGetSiteContentQueryKey, useGetSiteContent, useSubmitJobApplication } from "@workspace/api-client-react";
 
 const roleIcons = {
@@ -76,26 +77,6 @@ const joiningReasons = [
 
 const initialForm = { name: "", email: "", phone: "", position: "", message: "" };
 
-function useReveal(dependency: number) {
-  useEffect(() => {
-    const elements = document.querySelectorAll<HTMLElement>(".career-reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("career-revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 },
-    );
-
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, [dependency]);
-}
-
 export default function Career() {
   usePageMeta({
     title: "Careers at Product Armor",
@@ -116,8 +97,6 @@ export default function Career() {
     query: { queryKey: getGetSiteContentQueryKey() },
   });
   const openRoles = (content?.openings ?? []).filter((opening) => opening.active !== false);
-
-  useReveal(openRoles.length);
 
   const selectRole = (title: string, id: string) => {
     setForm((current) => ({ ...current, position: title }));
@@ -152,25 +131,6 @@ export default function Career() {
 
   return (
  <main className="career-page overflow-hidden bg-background pt-16 text-navy">
-      <style>{`
-        .career-reveal {
-          opacity: 0;
-          transform: translateY(18px);
-          transition: opacity 650ms ease, transform 650ms ease;
-        }
-        .career-reveal.career-revealed {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .career-reveal,
-          .career-reveal.career-revealed {
-            opacity: 1;
-            transform: none;
-            transition: none;
-          }
-        }
-      `}</style>
       <section className="relative isolate overflow-hidden bg-navy text-white">
         <div className="pointer-events-none absolute -right-24 top-14 h-96 w-96 rounded-full border border-white/10" />
         <div className="pointer-events-none absolute -right-8 top-28 h-64 w-64 rounded-full border border-accent/30" />
@@ -178,7 +138,7 @@ export default function Career() {
         <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-8 sm:px-8 sm:pb-24 lg:px-12">
           <Breadcrumb items={[{ label: "Careers" }]} />
           <div>
-            <div className="career-reveal">
+            <Reveal>
  <p className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-accent">
                 <span className="h-px w-8 bg-accent/80" />
                 Careers at Product Armor
@@ -207,7 +167,7 @@ export default function Career() {
                     Explore current openings <ArrowDownRight size={17} />
                   </a>
                 </div>
-                <figure className="career-reveal relative mx-auto w-full max-w-[430px] overflow-hidden border border-white/20 bg-white/10 lg:justify-self-center" style={{ transitionDelay: "120ms" }}>
+                <Reveal as="figure" delay={0.12} className="relative mx-auto w-full max-w-[430px] overflow-hidden border border-white/20 bg-white/10 lg:justify-self-center">
                   <img
                     src="/images/productarmor-careers-team.jpg"
                     alt="ProductArmor manufacturing team collaborating in a cleanroom"
@@ -217,9 +177,9 @@ export default function Career() {
                   <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-800/90 to-transparent px-5 pb-4 pt-12 text-xs uppercase tracking-[0.18em] text-white/75">
                     People who protect what matters
                   </figcaption>
-                </figure>
+                </Reveal>
               </div>
-            </div>
+            </Reveal>
 
           </div>
         </div>
@@ -240,7 +200,7 @@ export default function Career() {
       <section id="values" className="bg-background section-pad sm:py-28">
         <div className="container-width">
           <div className="grid gap-12 lg:grid-cols-[.62fr_1.38fr] lg:gap-24">
-            <div className="career-reveal lg:sticky lg:top-28 lg:self-start">
+            <Reveal className="lg:sticky lg:top-28 lg:self-start">
  <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">01 / How we work</p>
  <h2 className="max-w-md text-display-2 text-ink-800">
                 What Defines Us
@@ -249,16 +209,16 @@ export default function Career() {
                 The standards we hold ourselves to are the same standards we bring to every product we make.
               </p>
               <div className="mt-12 hidden h-28 w-px bg-accent/50 lg:block" />
-            </div>
-            <div className="divide-y divide-border border-t border-navy/20">
+            </Reveal>
+            <RevealGroup className="divide-y divide-border border-t border-navy/20">
               {values.map((value, index) => {
                 const ValueIcon = value.icon;
                 return (
-                  <article
+                  <Reveal
+                    as="article"
                     key={value.title}
                     data-testid={`value-${index + 1}-${value.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}`}
-                    className="career-reveal grid gap-5 py-8 sm:grid-cols-[58px_235px_1fr] sm:gap-7"
-                    style={{ transitionDelay: `${index * 60}ms` }}
+                    className="grid gap-5 py-8 sm:grid-cols-[58px_235px_1fr] sm:gap-7"
                   >
                     <div className="flex items-start justify-between sm:block">
  <span className="text-caption tabular-nums text-primary">{value.number}</span>
@@ -266,10 +226,10 @@ export default function Career() {
                     </div>
  <h3 className="max-w-[220px] text-xl font-semibold leading-tight tracking-[-0.02em] text-ink-800">{value.title}</h3>
  <p className="max-w-xl text-body text-muted-foreground">{value.description}</p>
-                  </article>
+                  </Reveal>
                 );
               })}
-            </div>
+            </RevealGroup>
           </div>
         </div>
       </section>
@@ -278,7 +238,7 @@ export default function Career() {
         <div className="pointer-events-none absolute -left-32 top-16 h-72 w-72 rounded-full border border-primary/10" />
         <div className="pointer-events-none absolute -left-20 top-28 h-48 w-48 rounded-full border border-accent/20" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.75fr_1.25fr] lg:gap-28 lg:px-12">
-          <div className="career-reveal">
+          <Reveal>
  <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">02 / Make your mark</p>
  <h2 className="max-w-md text-display-2 text-ink-800">
               Why Join Product Armor?
@@ -287,8 +247,8 @@ export default function Career() {
  <ArrowRight size={18} className="mt-1 shrink-0 text-primary" />
               <p className="max-w-xs leading-7">At Product Armor, you'll have the opportunity to:</p>
             </div>
-          </div>
-          <div className="career-reveal border-t border-navy/20" style={{ transitionDelay: "100ms" }}>
+          </Reveal>
+          <Reveal delay={0.1} className="border-t border-navy/20">
             {joiningReasons.map((reason, index) => (
               <div
                 key={reason}
@@ -299,13 +259,13 @@ export default function Career() {
                 <p>{reason}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section id="openings" className="bg-primary section-pad text-white sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
-          <div className="career-reveal mb-12 flex flex-col justify-between gap-7 border-b border-white/20 pb-10 sm:flex-row sm:items-end">
+          <Reveal className="mb-12 flex flex-col justify-between gap-7 border-b border-white/20 pb-10 sm:flex-row sm:items-end">
             <div>
  <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-brand-100">03 / The next move</p>
               <h2 className="text-display-2">Current Openings</h2>
@@ -313,7 +273,7 @@ export default function Career() {
             <p className="max-w-sm text-sm leading-6 text-white/60">
               Explore roles across production, quality and sales. Select a position in the form below to apply.
             </p>
-          </div>
+          </Reveal>
 
           {openingsLoading ? (
             <div data-testid="loading-current-openings" className="space-y-3" aria-label="Loading current openings">
@@ -341,16 +301,16 @@ export default function Career() {
               <p className="mt-2 max-w-md text-sm leading-6 text-white/60">Please check back soon, or submit a general application so we can keep your details on file.</p>
             </div>
           ) : (
-            <div className="border-t border-white/20">
-              {openRoles.map((role, index) => {
+            <RevealGroup className="border-t border-white/20">
+              {openRoles.map((role) => {
                 const isOpen = openRole === role.id;
                 const RoleIcon = roleIcons[role.icon as keyof typeof roleIcons] ?? BriefcaseBusiness;
                 return (
-                  <article
+                  <Reveal
+                    as="article"
                     key={role.id}
                     data-testid={`opening-${role.id}`}
-                    className="career-reveal border-b border-white/20"
-                    style={{ transitionDelay: `${index * 70}ms` }}
+                    className="border-b border-white/20"
                   >
                     <button
                       type="button"
@@ -395,10 +355,10 @@ export default function Career() {
                         </div>
                       </div>
                     )}
-                  </article>
+                  </Reveal>
                 );
               })}
-            </div>
+            </RevealGroup>
           )}
         </div>
       </section>
@@ -406,7 +366,7 @@ export default function Career() {
       <section id="apply" className="bg-background section-pad sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
-            <div className="career-reveal">
+            <Reveal>
  <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">04 / Start a conversation</p>
  <h2 className="text-display-2 text-ink-800">Submit Your Application</h2>
  <p className="mt-7 max-w-sm text-body text-muted-foreground">
@@ -415,9 +375,9 @@ export default function Career() {
  <div className="mt-10 flex items-center gap-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
                 <span className="h-px w-8 bg-accent" /> Product Armor / People
               </div>
-            </div>
+            </Reveal>
 
-            <div data-testid="application-form-panel" className="career-reveal border-t border-navy/20 pt-7" style={{ transitionDelay: "100ms" }}>
+            <Reveal delay={0.1} data-testid="application-form-panel" className="border-t border-navy/20 pt-7">
               {sent ? (
                 <div data-testid="status-application-received" className="border border-primary/20 bg-white p-8 sm:p-12">
  <CheckCircle2 size={34} strokeWidth={1.4} className="text-primary" />
@@ -545,29 +505,30 @@ export default function Career() {
                   </button>
                 </form>
               )}
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
  <section className="bg-accent section-pad sm:py-24 text-ink-800">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
-          <div className="career-reveal">
+          <Reveal>
  <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-navy/70">The next chapter</p>
             <h2 className="text-display-2">Grow With Us</h2>
  <p className="mt-7 max-w-2xl text-base leading-7 text-navy/80">
               We're always looking for people who are curious, driven and committed to making a difference. Whether you're an experienced professional or just beginning your career, if our values resonate with you, there's a place for you at Product Armor.
             </p>
             <p className="mt-4 text-lg font-semibold">Come build something meaningful with us.</p>
-          </div>
-          <Link
-            href="/contact"
-            data-testid="link-contact-hr-team"
- className="career-reveal inline-flex items-center justify-center gap-3 border border-navy/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-navy hover:text-accent"
-            style={{ transitionDelay: "120ms" }}
-          >
-            Contact our HR team <ArrowRight size={16} />
-          </Link>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <Link
+              href="/contact"
+              data-testid="link-contact-hr-team"
+              className="inline-flex items-center justify-center gap-3 border border-navy/35 px-6 py-4 text-sm font-semibold transition-colors hover:bg-navy hover:text-accent"
+            >
+              Contact our HR team <ArrowRight size={16} />
+            </Link>
+          </Reveal>
         </div>
       </section>
     </main>

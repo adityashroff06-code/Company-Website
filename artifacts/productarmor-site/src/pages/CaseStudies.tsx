@@ -1,20 +1,8 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Target, Lightbulb, TrendingUp, ShieldCheck, Clock, PiggyBank, PackageCheck, Globe2 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.12 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
 const caseStudies = [
   {
@@ -86,7 +74,6 @@ export default function CaseStudies() {
       "Real ProductArmor pharma packaging case studies — export CR-cap certification, 18% cost reduction, zero-rejection QC and faster lead times for bottles and caps.",
     path: "/case-studies",
   });
-  useReveal();
 
   return (
     <div className="pt-16">
@@ -106,29 +93,29 @@ export default function CaseStudies() {
 
       <section className="section-pad bg-white">
         <div className="container-width">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <RevealGroup className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { value: "18%", label: "Average cost reduction" },
               { value: "<0.1%", label: "Incoming rejection rate" },
               { value: "40%", label: "Faster lead times" },
               { value: "100%", label: "CR certification pass" },
             ].map((s) => (
-              <div key={s.label} className="reveal text-center bg-secondary rounded-xl p-6 border border-border">
+              <Reveal key={s.label} className="text-center bg-secondary rounded-xl p-6 border border-border">
  <div className="text-3xl font-semibold tabular-nums text-primary">{s.value}</div>
  <div className="text-xs mt-2 leading-relaxed text-muted-foreground">{s.label}</div>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       <section className="section-pad bg-secondary">
         <div className="container-width">
-          <div className="space-y-8">
+          <RevealGroup className="space-y-8">
             {caseStudies.map((cs) => (
-              <div
+              <Reveal
                 key={cs.title}
-                className="reveal card-standard p-6 sm:p-8"
+                className="card-standard p-6 sm:p-8"
               >
                 <div className="flex flex-col lg:flex-row gap-8">
                   <div className="lg:w-2/3">
@@ -176,14 +163,14 @@ export default function CaseStudies() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       <section className="section-pad bg-navy">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+        <Reveal className="max-w-3xl mx-auto px-4 text-center">
  <h2 className="heading-section-light text-white">Have a Packaging Challenge to Solve?</h2>
           <p className="text-white/60 mb-8 leading-relaxed">
             Tell us about your product, volumes and compliance targets — our technical team will propose a
@@ -195,7 +182,7 @@ export default function CaseStudies() {
           >
             Talk to Our Team <ArrowRight size={15} />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

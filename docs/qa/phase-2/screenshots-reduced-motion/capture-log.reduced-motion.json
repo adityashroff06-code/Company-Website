@@ -1,0 +1,2251 @@
+﻿{
+    "capturedAt":  "2026-09-22T13:18:32",
+    "baseUrl":  "http://localhost:4177",
+    "browser":  "Chrome/153.0.8010.48",
+    "reducedMotion":  true,
+    "webglDisabled":  false,
+    "pages":  [
+                  {
+                      "route":  "/",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  6691,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  1,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  7273280,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/home-bottle.jpg",
+                                              "bytes":  20644
+                                          },
+                                          {
+                                              "path":  "/models/pa04-150cc.glb",
+                                              "bytes":  2806700
+                                          },
+                                          {
+                                              "path":  "/images/hero-bg.jpg",
+                                              "bytes":  3582306
+                                          },
+                                          {
+                                              "path":  "/images/about-family.jpg",
+                                              "bytes":  89560
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso9001.png",
+                                              "bytes":  282594
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso15378.svg",
+                                              "bytes":  1412
+                                          },
+                                          {
+                                              "path":  "/images/certifications/usdmf.svg",
+                                              "bytes":  9879
+                                          },
+                                          {
+                                              "path":  "/images/certifications/cdmf.svg",
+                                              "bytes":  16176
+                                          },
+                                          {
+                                              "path":  "/images/certifications/chinadmf.png",
+                                              "bytes":  51464
+                                          },
+                                          {
+                                              "path":  "/images/clients/granules.png",
+                                              "bytes":  12688
+                                          },
+                                          {
+                                              "path":  "/images/clients/hetero.png",
+                                              "bytes":  3234
+                                          },
+                                          {
+                                              "path":  "/images/clients/annora.png",
+                                              "bytes":  6370
+                                          },
+                                          {
+                                              "path":  "/images/clients/msn.png",
+                                              "bytes":  11704
+                                          },
+                                          {
+                                              "path":  "/images/clients/vkt-pharma.png",
+                                              "bytes":  15070
+                                          },
+                                          {
+                                              "path":  "/images/clients/remedica.png",
+                                              "bytes":  14278
+                                          },
+                                          {
+                                              "path":  "/images/clients/strides.png",
+                                              "bytes":  18837
+                                          },
+                                          {
+                                              "path":  "/images/clients/chemo.png",
+                                              "bytes":  15704
+                                          },
+                                          {
+                                              "path":  "/images/clients/lupin.png",
+                                              "bytes":  8058
+                                          },
+                                          {
+                                              "path":  "/images/clients/marksans.png",
+                                              "bytes":  9889
+                                          },
+                                          {
+                                              "path":  "/images/clients/graviti.png",
+                                              "bytes":  20226
+                                          },
+                                          {
+                                              "path":  "/images/clients/kusum.png",
+                                              "bytes":  15680
+                                          },
+                                          {
+                                              "path":  "/images/clients/aizant.png",
+                                              "bytes":  18320
+                                          },
+                                          {
+                                              "path":  "/images/clients/orbion.png",
+                                              "bytes":  13619
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+                                           "net::ERR_BLOCKED_BY_ORB"
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  10.5
+                  },
+                  {
+                      "route":  "/products",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  4468,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  325233,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/products-line.jpg",
+                                              "bytes":  96365
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.6
+                  },
+                  {
+                      "route":  "/industries",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  2659,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8
+                  },
+                  {
+                      "route":  "/applications",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3316,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.2
+                  },
+                  {
+                      "route":  "/technology",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  4910,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  177557,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/cleanroom-corridor.jpg",
+                                              "bytes":  71862
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-moulding.jpg",
+                                              "bytes":  54135
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-robot.jpg",
+                                              "bytes":  34000
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-capfeed.jpg",
+                                              "bytes":  17560
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.6
+                  },
+                  {
+                      "route":  "/downloads",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  2614,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  7.8
+                  },
+                  {
+                      "route":  "/case-studies",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3455,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  7.9
+                  },
+                  {
+                      "route":  "/career",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  5400,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  135653,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/productarmor-careers-team.jpg",
+                                              "bytes":  135653
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.6
+                  },
+                  {
+                      "route":  "/faq",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3036,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  7.7
+                  },
+                  {
+                      "route":  "/about",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3325,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  190658,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/facility.jpg",
+                                              "bytes":  49972
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-moulding.jpg",
+                                              "bytes":  54135
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-robot.jpg",
+                                              "bytes":  34000
+                                          },
+                                          {
+                                              "path":  "/videos/posters/quality-vision.jpg",
+                                              "bytes":  52551
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.1
+                  },
+                  {
+                      "route":  "/management-team",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  2403,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8
+                  },
+                  {
+                      "route":  "/quality",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3676,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  468141,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/quality-vision.jpg",
+                                              "bytes":  52551
+                                          },
+                                          {
+                                              "path":  "/videos/posters/quality-leaktest.jpg",
+                                              "bytes":  54065
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso9001.png",
+                                              "bytes":  282594
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso15378.svg",
+                                              "bytes":  1412
+                                          },
+                                          {
+                                              "path":  "/images/certifications/usdmf.svg",
+                                              "bytes":  9879
+                                          },
+                                          {
+                                              "path":  "/images/certifications/cdmf.svg",
+                                              "bytes":  16176
+                                          },
+                                          {
+                                              "path":  "/images/certifications/chinadmf.png",
+                                              "bytes":  51464
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8
+                  },
+                  {
+                      "route":  "/contact",
+                      "viewport":  "desktop",
+                      "size":  "1440x900@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  2100,
+                      "pageWidthCss":  1440,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8
+                  },
+                  {
+                      "route":  "/",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  7950,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  1,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  7259661,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/certifications/iso9001.png",
+                                              "bytes":  282594
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso15378.svg",
+                                              "bytes":  1412
+                                          },
+                                          {
+                                              "path":  "/images/certifications/usdmf.svg",
+                                              "bytes":  9879
+                                          },
+                                          {
+                                              "path":  "/images/certifications/cdmf.svg",
+                                              "bytes":  16176
+                                          },
+                                          {
+                                              "path":  "/images/certifications/chinadmf.png",
+                                              "bytes":  51464
+                                          },
+                                          {
+                                              "path":  "/images/about-family.jpg",
+                                              "bytes":  89560
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          },
+                                          {
+                                              "path":  "/images/hero-bg.jpg",
+                                              "bytes":  3582306
+                                          },
+                                          {
+                                              "path":  "/models/pa04-150cc.glb",
+                                              "bytes":  2806700
+                                          },
+                                          {
+                                              "path":  "/videos/posters/home-bottle.jpg",
+                                              "bytes":  20644
+                                          },
+                                          {
+                                              "path":  "/images/clients/granules.png",
+                                              "bytes":  12688
+                                          },
+                                          {
+                                              "path":  "/images/clients/hetero.png",
+                                              "bytes":  3234
+                                          },
+                                          {
+                                              "path":  "/images/clients/annora.png",
+                                              "bytes":  6370
+                                          },
+                                          {
+                                              "path":  "/images/clients/msn.png",
+                                              "bytes":  11704
+                                          },
+                                          {
+                                              "path":  "/images/clients/vkt-pharma.png",
+                                              "bytes":  15070
+                                          },
+                                          {
+                                              "path":  "/images/clients/remedica.png",
+                                              "bytes":  14278
+                                          },
+                                          {
+                                              "path":  "/images/clients/strides.png",
+                                              "bytes":  18837
+                                          },
+                                          {
+                                              "path":  "/images/clients/chemo.png",
+                                              "bytes":  15704
+                                          },
+                                          {
+                                              "path":  "/images/clients/lupin.png",
+                                              "bytes":  8058
+                                          },
+                                          {
+                                              "path":  "/images/clients/marksans.png",
+                                              "bytes":  9889
+                                          },
+                                          {
+                                              "path":  "/images/clients/graviti.png",
+                                              "bytes":  20226
+                                          },
+                                          {
+                                              "path":  "/images/clients/kusum.png",
+                                              "bytes":  15680
+                                          },
+                                          {
+                                              "path":  "/images/clients/aizant.png",
+                                              "bytes":  18320
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.7
+                  },
+                  {
+                      "route":  "/products",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  5225,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  325233,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/products-line.jpg",
+                                              "bytes":  96365
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.2
+                  },
+                  {
+                      "route":  "/industries",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3171,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  7.9
+                  },
+                  {
+                      "route":  "/applications",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3909,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8
+                  },
+                  {
+                      "route":  "/technology",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  6019,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  177557,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/cleanroom-corridor.jpg",
+                                              "bytes":  71862
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-moulding.jpg",
+                                              "bytes":  54135
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-robot.jpg",
+                                              "bytes":  34000
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-capfeed.jpg",
+                                              "bytes":  17560
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.4
+                  },
+                  {
+                      "route":  "/downloads",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  2700,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  7.7
+                  },
+                  {
+                      "route":  "/case-studies",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  4597,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8
+                  },
+                  {
+                      "route":  "/career",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  6952,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  135653,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/productarmor-careers-team.jpg",
+                                              "bytes":  135653
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.5
+                  },
+                  {
+                      "route":  "/faq",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3129,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  7.9
+                  },
+                  {
+                      "route":  "/about",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  4232,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  190658,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/facility.jpg",
+                                              "bytes":  49972
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-moulding.jpg",
+                                              "bytes":  54135
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-robot.jpg",
+                                              "bytes":  34000
+                                          },
+                                          {
+                                              "path":  "/videos/posters/quality-vision.jpg",
+                                              "bytes":  52551
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  7.8
+                  },
+                  {
+                      "route":  "/management-team",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  2839,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.2
+                  },
+                  {
+                      "route":  "/quality",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3990,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  468141,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/quality-vision.jpg",
+                                              "bytes":  52551
+                                          },
+                                          {
+                                              "path":  "/videos/posters/quality-leaktest.jpg",
+                                              "bytes":  54065
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso9001.png",
+                                              "bytes":  282594
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso15378.svg",
+                                              "bytes":  1412
+                                          },
+                                          {
+                                              "path":  "/images/certifications/usdmf.svg",
+                                              "bytes":  9879
+                                          },
+                                          {
+                                              "path":  "/images/certifications/cdmf.svg",
+                                              "bytes":  16176
+                                          },
+                                          {
+                                              "path":  "/images/certifications/chinadmf.png",
+                                              "bytes":  51464
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.2
+                  },
+                  {
+                      "route":  "/contact",
+                      "viewport":  "tablet",
+                      "size":  "768x1024@1x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  2789,
+                      "pageWidthCss":  768,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.1
+                  },
+                  {
+                      "route":  "/",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  10324,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  1,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  7171784,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/about-family.jpg",
+                                              "bytes":  89560
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso9001.png",
+                                              "bytes":  282594
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso15378.svg",
+                                              "bytes":  1412
+                                          },
+                                          {
+                                              "path":  "/images/certifications/usdmf.svg",
+                                              "bytes":  9879
+                                          },
+                                          {
+                                              "path":  "/images/certifications/cdmf.svg",
+                                              "bytes":  16176
+                                          },
+                                          {
+                                              "path":  "/images/certifications/chinadmf.png",
+                                              "bytes":  51464
+                                          },
+                                          {
+                                              "path":  "/images/hero-bg.jpg",
+                                              "bytes":  3582306
+                                          },
+                                          {
+                                              "path":  "/models/pa04-150cc.glb",
+                                              "bytes":  2806700
+                                          },
+                                          {
+                                              "path":  "/videos/posters/home-bottle.jpg",
+                                              "bytes":  20644
+                                          },
+                                          {
+                                              "path":  "/images/clients/granules.png",
+                                              "bytes":  12688
+                                          },
+                                          {
+                                              "path":  "/images/clients/hetero.png",
+                                              "bytes":  3234
+                                          },
+                                          {
+                                              "path":  "/images/clients/annora.png",
+                                              "bytes":  6370
+                                          },
+                                          {
+                                              "path":  "/images/clients/msn.png",
+                                              "bytes":  11704
+                                          },
+                                          {
+                                              "path":  "/images/clients/vkt-pharma.png",
+                                              "bytes":  15070
+                                          },
+                                          {
+                                              "path":  "/images/clients/remedica.png",
+                                              "bytes":  14278
+                                          },
+                                          {
+                                              "path":  "/images/clients/strides.png",
+                                              "bytes":  18837
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  11.9
+                  },
+                  {
+                      "route":  "/products",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  6634,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  325233,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/products-line.jpg",
+                                              "bytes":  96365
+                                          },
+                                          {
+                                              "path":  "/images/bottles-containers.jpg",
+                                              "bytes":  33067
+                                          },
+                                          {
+                                              "path":  "/images/cr-caps.jpg",
+                                              "bytes":  66890
+                                          },
+                                          {
+                                              "path":  "/images/ct-caps.jpg",
+                                              "bytes":  39623
+                                          },
+                                          {
+                                              "path":  "/images/drug-delivery.jpg",
+                                              "bytes":  89288
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  10.4
+                  },
+                  {
+                      "route":  "/industries",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  4410,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.4
+                  },
+                  {
+                      "route":  "/applications",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  5576,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.5
+                  },
+                  {
+                      "route":  "/technology",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  9094,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  177557,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/cleanroom-corridor.jpg",
+                                              "bytes":  71862
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-moulding.jpg",
+                                              "bytes":  54135
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-robot.jpg",
+                                              "bytes":  34000
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-capfeed.jpg",
+                                              "bytes":  17560
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  10.6
+                  },
+                  {
+                      "route":  "/downloads",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3440,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.5
+                  },
+                  {
+                      "route":  "/case-studies",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  5948,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.4
+                  },
+                  {
+                      "route":  "/career",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  7847,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  135653,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/productarmor-careers-team.jpg",
+                                              "bytes":  135653
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.9
+                  },
+                  {
+                      "route":  "/faq",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  4171,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.1
+                  },
+                  {
+                      "route":  "/about",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  5631,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  190658,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/videos/posters/facility.jpg",
+                                              "bytes":  49972
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-moulding.jpg",
+                                              "bytes":  54135
+                                          },
+                                          {
+                                              "path":  "/videos/posters/tech-robot.jpg",
+                                              "bytes":  34000
+                                          },
+                                          {
+                                              "path":  "/videos/posters/quality-vision.jpg",
+                                              "bytes":  52551
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.8
+                  },
+                  {
+                      "route":  "/management-team",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  4119,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.1
+                  },
+                  {
+                      "route":  "/quality",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  5791,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  468141,
+                      "heavyAssets":  [
+                                          {
+                                              "path":  "/images/certifications/iso9001.png",
+                                              "bytes":  282594
+                                          },
+                                          {
+                                              "path":  "/images/certifications/iso15378.svg",
+                                              "bytes":  1412
+                                          },
+                                          {
+                                              "path":  "/images/certifications/usdmf.svg",
+                                              "bytes":  9879
+                                          },
+                                          {
+                                              "path":  "/images/certifications/cdmf.svg",
+                                              "bytes":  16176
+                                          },
+                                          {
+                                              "path":  "/images/certifications/chinadmf.png",
+                                              "bytes":  51464
+                                          },
+                                          {
+                                              "path":  "/videos/posters/quality-vision.jpg",
+                                              "bytes":  52551
+                                          },
+                                          {
+                                              "path":  "/videos/posters/quality-leaktest.jpg",
+                                              "bytes":  54065
+                                          }
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  9.3
+                  },
+                  {
+                      "route":  "/contact",
+                      "viewport":  "mobile",
+                      "size":  "390x844@2x",
+                      "reducedMotion":  true,
+                      "booted":  true,
+                      "contentReady":  true,
+                      "pageHeightCss":  3291,
+                      "pageWidthCss":  390,
+                      "horizontalOverflowPx":  0,
+                      "overflowing":  [
+
+                                      ],
+                      "canvases":  0,
+                      "webglRenderer":  "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                      "revealPending":  0,
+                      "pinnedStages":  [
+
+                                       ],
+                      "videos":  [
+
+                                 ],
+                      "brokenImages":  [
+
+                                       ],
+                      "heavyAssetBytes":  0,
+                      "heavyAssets":  [
+
+                                      ],
+                      "httpErrors":  [
+
+                                     ],
+                      "loadFailures":  [
+
+                                       ],
+                      "consoleErrors":  [
+
+                                        ],
+                      "harnessErrors":  [
+
+                                        ],
+                      "note":  null,
+                      "seconds":  8.9
+                  }
+              ]
+}

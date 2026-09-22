@@ -188,7 +188,7 @@
   --background:      var(--surface-0);
   --foreground:      var(--ink-700);
   --border:          var(--hairline);
-  --card:            var(--surface-0);
+  --card:            var(--surface-1);   /* borderless surfaces read as depth against --surface-0 */
   --card-foreground: var(--ink-700);
   --card-border:     var(--hairline);
   --sidebar:         var(--ink-700);
@@ -246,56 +246,60 @@
   --sidebar-accent-border: hsl(218 35% 22%);
 }
 
-/* Nothing toggles .dark yet; it is the scope the gallery-chapter theme will use. */
+/* The gallery chapter. <Chapter theme="gallery"> scopes .dark on its own subtree, so every
+   semantic token below flips there without per-component overrides (docs/design-system.md
+   §3.4). Nothing toggles it globally. Ratios are against --ink-900, measured in contrast.ps1. */
 .dark {
+  color-scheme: dark;
   --button-outline: rgba(255,255,255,.10);
   --badge-outline: rgba(255,255,255,.05);
   --opaque-button-border-intensity: 9;
   --elevate-1: rgba(255,255,255,.04);
   --elevate-2: rgba(255,255,255,.09);
 
-  --background:      hsl(218 30% 9%);
-  --foreground:      hsl(218 10% 94%);
-  --border:          hsl(218 20% 22%);
-  --card:            hsl(218 28% 12%);
-  --card-foreground: hsl(218 10% 94%);
-  --card-border:     hsl(218 20% 20%);
-  --sidebar:         hsl(218 35% 7%);
-  --sidebar-foreground: hsl(0 0% 90%);
-  --sidebar-border:  hsl(218 30% 14%);
-  --sidebar-primary: hsl(218 64% 50%);
-  --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent:  hsl(218 30% 14%);
-  --sidebar-accent-foreground: hsl(0 0% 85%);
-  --sidebar-ring:    hsl(218 64% 50%);
-  --popover:         hsl(218 28% 12%);
-  --popover-foreground: hsl(218 10% 94%);
-  --popover-border:  hsl(218 20% 22%);
-  --primary:         hsl(218 64% 50%);
-  --primary-foreground: hsl(0 0% 100%);
-  --secondary:       hsl(218 25% 16%);
-  --secondary-foreground: hsl(218 10% 90%);
-  --muted:           hsl(218 25% 14%);
-  --muted-foreground: hsl(218 10% 55%);
+  --background:      var(--ink-900);
+  --foreground:      var(--surface-0);     /* headings — 18.19:1 */
+  --border:          rgba(255, 255, 255, 0.10);
+  --input:           rgba(255, 255, 255, 0.14);
+  --card:            var(--ink-800);       /* Surface on a gallery chapter */
+  --card-foreground: var(--surface-0);
+  --card-border:     rgba(255, 255, 255, 0.10);
+  --popover:         var(--ink-800);
+  --popover-foreground: var(--surface-0);
+  --popover-border:  rgba(255, 255, 255, 0.10);
+  --primary:         var(--brand-300);     /* links, eyebrows, accents on dark — 10.26:1 */
+  --primary-foreground: var(--ink-900);
+  --primary-border:  var(--brand-400);
+  --navy:            var(--surface-0);     /* .heading-* read text-navy; on a gallery chapter that is white */
+  --navy-foreground: var(--ink-900);
+  --secondary:       var(--ink-800);
+  --secondary-foreground: var(--surface-0);
+  --secondary-border: rgba(255, 255, 255, 0.10);
+  --muted:           var(--ink-800);
+  --muted-foreground: color-mix(in srgb, var(--surface-0) 72%, var(--ink-900)); /* body on dark — 9.74:1 */
+  --muted-border:    rgba(255, 255, 255, 0.10);
   --accent:          var(--brand-300);
   --accent-foreground: var(--ink-900);
+  --accent-border:   var(--brand-400);
   --destructive:     hsl(0 75% 55%);
-  --destructive-foreground: hsl(0 0% 100%);
-  --input:           hsl(218 20% 22%);
-  --ring:            var(--brand-300);
+  --destructive-foreground: var(--surface-0);
+  --destructive-border: hsl(0 75% 62%);
+  --ring:            var(--brand-300);     /* focus ring on dark — 10.26:1 */
+  --sidebar:         var(--ink-900);
+  --sidebar-foreground: var(--surface-0);
+  --sidebar-border:  rgba(255, 255, 255, 0.10);
+  --sidebar-primary: var(--brand-300);
+  --sidebar-primary-foreground: var(--ink-900);
+  --sidebar-primary-border: var(--brand-400);
+  --sidebar-accent:  var(--ink-800);
+  --sidebar-accent-foreground: var(--surface-0);
+  --sidebar-accent-border: rgba(255, 255, 255, 0.10);
+  --sidebar-ring:    var(--brand-300);
   --chart-1: hsl(218 64% 50%);
   --chart-2: hsl(24 90% 55%);
   --chart-3: hsl(174 60% 45%);
   --chart-4: hsl(43 85% 60%);
   --chart-5: hsl(280 65% 60%);
-
-  --primary-border: hsl(218 64% 58%);
-  --secondary-border: hsl(218 25% 22%);
-  --muted-border: hsl(218 25% 18%);
-  --accent-border: var(--brand-400);
-  --destructive-border: hsl(0 75% 62%);
-  --sidebar-primary-border: hsl(218 64% 55%);
-  --sidebar-accent-border: hsl(218 30% 18%);
 }
 
 @layer base {
@@ -317,16 +321,7 @@
   html { scroll-behavior: smooth; }
 }
 
-/* Scroll-reveal utility */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Scroll reveals are src/components/motion/Reveal.tsx (framer-motion); there is no CSS reveal class. */
 
 /* Client logo marquee */
 @keyframes logo-marquee-scroll {
@@ -485,5 +480,137 @@ animation-play-state: paused;
   }
   .btn-light {
     @apply inline-flex items-center gap-2 justify-center px-8 py-3.5 bg-white text-primary hover:bg-brand-50 text-sm font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow;
+  }
+
+  /* ── Primitives (src/components/primitives, Phase 2) ──
+     Chapter → .pa-chapter / .pa-container · Surface → .pa-surface · MediaFrame → .pa-media-frame ·
+     Button → .pa-button. Eyebrow and SpecList are utility-only. The legacy .section-pad,
+     .container-width, .card-standard and .btn-* above stay until Phases 4–7 retire them page by page. */
+  .pa-chapter {
+    padding-block: var(--space-chapter);
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  .pa-container {
+    max-width: var(--measure-content);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .pa-container-media {
+    max-width: var(--measure-media);
+  }
+
+  .pa-surface {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-radius: var(--pa-radius-lg);
+    box-shadow: var(--shadow-card);
+    transition:
+      transform var(--dur-base) var(--ease-out),
+      box-shadow var(--dur-base) var(--ease-out);
+  }
+  .pa-surface-has-media {
+    overflow: hidden;
+  }
+  .pa-surface-media {
+    flex: none;
+    overflow: hidden;
+  }
+  .pa-surface-media > img,
+  .pa-surface-media > video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .pa-surface-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+  .pa-surface-interactive:hover .pa-surface-media > img,
+  .pa-surface-interactive:hover .pa-surface-media > video {
+    transform: scale(1.02);
+  }
+
+  .pa-media-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--pa-radius-xl);
+    background-color: var(--muted);
+  }
+  .pa-media-frame-shadow {
+    box-shadow: var(--shadow-media);
+  }
+  .pa-media-frame > img,
+  .pa-media-frame > video,
+  .pa-media-frame > iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pa-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding-inline: 1.5rem;
+    border-radius: var(--pa-radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.006em;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      background-color var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard),
+      box-shadow var(--dur-fast) var(--ease-standard),
+      transform var(--dur-fast) var(--ease-standard);
+  }
+  .pa-button > svg {
+    flex: none;
+  }
+  .pa-button:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  .pa-button:active {
+    transform: translateY(1px);
+  }
+  .pa-button:disabled,
+  .pa-button[aria-disabled="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .pa-button-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+  .pa-button-primary:hover {
+    background-color: var(--primary-border);
+  }
+  .pa-button-outline {
+    background-color: transparent;
+    color: var(--foreground);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 32%, transparent);
+  }
+  .pa-button-outline:hover {
+    background-color: var(--muted);
+    box-shadow: inset 0 0 0 1px currentColor;
+  }
+  .pa-button-light {
+    background-color: var(--surface-0);
+    color: var(--ink-700);
+  }
+  .pa-button-light:hover {
+    background-color: var(--brand-50);
   }
 }

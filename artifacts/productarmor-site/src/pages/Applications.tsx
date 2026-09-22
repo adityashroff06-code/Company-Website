@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import {
   Pill,
@@ -10,21 +9,7 @@ import {
 } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-
-function useReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        }),
-      { threshold: 0.12 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-}
+import { Reveal, RevealGroup } from "@/components/motion/Reveal";
 
 const applications = [
   {
@@ -72,7 +57,6 @@ export default function Applications() {
       "See how ProductArmor bottles, CR caps and CT caps fit real applications — solid orals, syrups, powders, effervescents, gummies and topicals — plus closure and liner selection.",
     path: "/applications",
   });
-  useReveal();
 
   return (
     <div className="pt-16">
@@ -96,7 +80,7 @@ export default function Applications() {
       {/* Applications grid */}
       <section className="section-pad bg-white">
         <div className="container-width">
-          <div className="text-center mb-14 reveal">
+          <Reveal className="text-center mb-14">
  <div className="section-tag">
               Use Cases
             </div>
@@ -107,13 +91,12 @@ export default function Applications() {
               The right container and closure combination keeps your product
               stable, compliant and easy to use from filling line to end user.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {applications.map((app, i) => (
-              <div
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {applications.map((app) => (
+              <Reveal
                 key={app.name}
-                className="reveal card-standard p-6"
-                style={{ transitionDelay: `${i * 80}ms` }}
+                className="card-standard p-6"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
  <app.icon size={22} className="text-primary" />
@@ -132,16 +115,16 @@ export default function Applications() {
                     {app.fit}
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Which product fits */}
       <section className="section-pad bg-secondary">
         <div className="container-width">
-          <div className="text-center mb-14 reveal">
+          <Reveal className="text-center mb-14">
  <div className="section-tag">
               Product Range
             </div>
@@ -152,13 +135,12 @@ export default function Applications() {
               Our three core product families cover the full spectrum of
               pharmaceutical and nutraceutical packaging needs.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {productFit.map((p, i) => (
-              <div
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {productFit.map((p) => (
+              <Reveal
                 key={p.title}
-                className="reveal card-standard p-6"
-                style={{ transitionDelay: `${i * 80}ms` }}
+                className="card-standard p-6"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-5">
  <p.icon size={22} className="text-primary" />
@@ -169,16 +151,16 @@ export default function Applications() {
  <p className="text-sm leading-relaxed text-muted-foreground">
                   {p.desc}
                 </p>
-              </div>
+              </Reveal>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Closure & liner selection */}
       <section className="section-pad bg-white">
         <div className="container-width">
-          <div className="reveal bg-secondary rounded-2xl border border-border p-8 sm:p-12">
+          <Reveal className="bg-secondary rounded-2xl border border-border p-8 sm:p-12">
             <div className="flex items-start gap-4 mb-8">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
  <Layers size={22} className="text-primary" />
@@ -225,13 +207,13 @@ export default function Applications() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
       <section className="section-pad bg-navy">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
  <h2 className="heading-section-light text-white">
             Not Sure Which Combination You Need?
           </h2>
@@ -247,7 +229,7 @@ export default function Applications() {
             Get a Recommendation
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

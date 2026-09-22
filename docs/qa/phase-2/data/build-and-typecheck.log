@@ -1,0 +1,79 @@
+== typecheck 2026-09-22T13:11:35+05:30
+artifacts/productarmor-site typecheck: src/admin/AdminDashboard.tsx(199,31): error TS2322: Type 'number' is not assignable to type 'never'.
+artifacts/productarmor-site typecheck: src/admin/AdminDashboard.tsx(227,29): error TS2322: Type 'number' is not assignable to type 'never'.
+artifacts/productarmor-site typecheck: src/admin/AdminDashboard.tsx(729,17): error TS2322: Type 'number' is not assignable to type 'never'.
+artifacts/productarmor-site typecheck: src/admin/AdminDashboard.tsx(729,27): error TS2322: Type 'string' is not assignable to type 'never'.
+TYPECHECK errors: 4 (exit 2)
+== build (production)
+
+> @workspace/productarmor-site@0.0.0 build <mirror>\artifacts\productarmor-site
+> vite build --config vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+src/components/ui/tooltip.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+✓ 2770 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/public/index.html                               3.50 kB │ gzip:   1.19 kB
+dist/public/assets/index-BX8QS-D7.css               97.51 kB │ gzip:  16.59 kB
+dist/public/assets/Hero3D-By0aOqTr.js                3.37 kB │ gzip:   1.57 kB
+dist/public/assets/ShowroomScene-4VA3azdB.js         4.25 kB │ gzip:   2.16 kB
+dist/public/assets/HomeJourneyScene-7cMQPqBU.js      6.10 kB │ gzip:   2.67 kB
+dist/public/assets/Html-PRqIftfq.js                  7.67 kB │ gzip:   3.10 kB
+dist/public/assets/features-CTrqRJEY.js             37.26 kB │ gzip:  14.01 kB
+dist/public/assets/index-BjR32thZ.js               596.34 kB │ gzip: 178.08 kB
+dist/public/assets/Stage-pCE2UNDq.js             1,033.89 kB │ gzip: 285.69 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.84s
+BUILD EXIT: 0
+== base check
+src="/assets/index-BjR32thZ.js"
+== gzip -6 sizes (production)
+   1033892     283998 gz  Stage-pCE2UNDq.js
+    596338     177468 gz  index-BjR32thZ.js
+     97509      16575 gz  index-BX8QS-D7.css
+     37257      14028 gz  features-CTrqRJEY.js
+      7673       3106 gz  Html-PRqIftfq.js
+      6104       2699 gz  HomeJourneyScene-7cMQPqBU.js
+      4249       2172 gz  ShowroomScene-4VA3azdB.js
+      3366       1593 gz  Hero3D-By0aOqTr.js
+== dev-page leak check (a production bundle must not mention the check page)
+none
+== build (--mode qa -> dist/qa; carries /dev/primitives for the screenshot run only)
+vite v7.3.6 building client environment for qa...
+transforming...
+src/components/ui/tooltip.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+✓ 2778 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/qa/index.html                               3.50 kB │ gzip:   1.19 kB
+dist/qa/assets/index-BX8QS-D7.css               97.51 kB │ gzip:  16.59 kB
+dist/qa/assets/Hero3D-Bbf9dGb6.js                3.36 kB │ gzip:   1.57 kB
+dist/qa/assets/ShowroomScene-BZC72Aha.js         4.25 kB │ gzip:   2.16 kB
+dist/qa/assets/HomeJourneyScene-DE60SPRX.js      6.10 kB │ gzip:   2.67 kB
+dist/qa/assets/Html-B-YVUpMe.js                  7.67 kB │ gzip:   3.10 kB
+dist/qa/assets/PrimitivesCheck-CUUHNTc1.js      11.86 kB │ gzip:   4.04 kB
+dist/qa/assets/features-D0JH1zLD.js             37.27 kB │ gzip:  14.02 kB
+dist/qa/assets/index-TSKOVvkR.js               596.61 kB │ gzip: 178.12 kB
+dist/qa/assets/Stage-DlZF7v79.js             1,033.89 kB │ gzip: 285.69 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.83s
+QA BUILD EXIT: 0
+== gzip -6 sizes (qa)
+   1033891     283999 gz  Stage-DlZF7v79.js
+    596605     177520 gz  index-TSKOVvkR.js
+     37267      14033 gz  features-D0JH1zLD.js
+     11855       4091 gz  PrimitivesCheck-CUUHNTc1.js
+      7673       3105 gz  Html-B-YVUpMe.js
+      6102       2695 gz  HomeJourneyScene-DE60SPRX.js
+      4247       2173 gz  ShowroomScene-BZC72Aha.js
+      3364       1590 gz  Hero3D-Bbf9dGb6.js
